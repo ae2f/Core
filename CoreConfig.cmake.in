@@ -1,0 +1,7 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# 타겟을 사용할 수 있도록 설정
+include(CMakePackageConfigHelpers)
+include("${CMAKE_CURRENT_LIST_DIR}/CoreTargets.cmake")
