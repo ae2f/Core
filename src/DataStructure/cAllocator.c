@@ -67,7 +67,7 @@ static ae2f_errint_t Del(ae2f_struct ae2f_ds_Alloc_Owner* This) {
 static struct ae2f_ds_Alloc_vRefer ref = ae2f_ds_Alloc_vRefer_mPrm(Len, Read, Write);
 static struct ae2f_ds_Alloc_vOwner own = ae2f_ds_Alloc_vOwner_mPrm(Make, Del, Make);
 
-__declspec(dllexport) ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
+ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 	ae2f_struct ae2f_ds_Alloc_Owner* This, 
 	const ae2f_struct ae2f_ds_Alloc_vRefer* vRef, 
 	const ae2f_struct ae2f_ds_Alloc_vOwner* vOwn
@@ -80,7 +80,7 @@ __declspec(dllexport) ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 
 	return ae2f_errGlobal_OK;
 }
-__declspec(dllexport) ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy(ae2f_struct ae2f_ds_Alloc_Owner* This, const ae2f_struct ae2f_ds_Alloc_Refer* Another) {
+ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy(ae2f_struct ae2f_ds_Alloc_Owner* This, const ae2f_struct ae2f_ds_Alloc_Refer* Another) {
 	size_t size; ae2f_errint_t err = ae2f_errGlobal_OK;
 	if ((err = ae2f_ds_Alloc_vRefer_getSize(Another, &size)) != ae2f_errGlobal_OK) return err;
 	if ((err = ae2f_ds_Alloc_vOwner_Make(This, size)) != ae2f_errGlobal_OK) return err;

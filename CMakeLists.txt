@@ -5,7 +5,7 @@ project("Core")
 include(GNUInstallDirs)
 
 add_library(
-	${PROJECT_NAME} SHARED
+	${PROJECT_NAME}
 	"include/ae2f/Macro/Cast.h" 
 	"include/ae2f/DataStructure/Allocator.h"
 	"include/ae2f/DataStructure/Array.h"
