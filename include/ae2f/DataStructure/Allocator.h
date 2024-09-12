@@ -44,6 +44,9 @@ struct ae2f_ds_Alloc_Owner {
 	ae2f_struct ae2f_ds_Alloc_vOwner* vOwner;
 };
 
+ae2f_extern const ae2f_struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear;
+ae2f_extern const ae2f_struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear;
+
 #define ae2f_ds_Alloc_vOwner_mPrm(mk, del, resize, ...) { (mk), (del), (resize) }
 #pragma endregion
 #pragma endregion

@@ -64,8 +64,8 @@ static ae2f_errint_t Del(ae2f_struct ae2f_ds_Alloc_Owner* This) {
 	return ae2f_errGlobal_OK;
 }
 
-static struct ae2f_ds_Alloc_vRefer ref = ae2f_ds_Alloc_vRefer_mPrm(Len, Read, Write);
-static struct ae2f_ds_Alloc_vOwner own = ae2f_ds_Alloc_vOwner_mPrm(Make, Del, Make);
+const struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear = ae2f_ds_Alloc_vRefer_mPrm(Len, Read, Write);
+const struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear = ae2f_ds_Alloc_vOwner_mPrm(Make, Del, Make);
 
 ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 	ae2f_struct ae2f_ds_Alloc_Owner* This, 
@@ -75,8 +75,8 @@ ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 	if (!This) return ae2f_errGlobal_PTR_IS_NULL;
 
 	This->data = 0;
-	This->vRefer = vRef ? vRef : &ref;
-	This->vOwner = vOwn ? vOwn : &own;
+	This->vRefer = vRef ? vRef : &ae2f_ds_Alloc_vRefer_cLinear;
+	This->vOwner = vOwn ? vOwn : &ae2f_ds_Alloc_vOwner_cLinear;
 
 	return ae2f_errGlobal_OK;
 }

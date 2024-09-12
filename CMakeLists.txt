@@ -11,9 +11,9 @@ add_library(
 	"include/ae2f/DataStructure/Array.h"
 	"include/ae2f/Macro/BitVector.h" 
 	"include/ae2f/Macro/Compare.h"
-	"src/DataStructure/cAllocator.c" 
+	"src/DataStructure/Allocator.c" 
 	"include/ae2f/Macro/errGlobal.h" 
-	"src/DataStructure/cArray.c"
+	"src/DataStructure/Array.c"
 )
 
 include_directories(include)
