@@ -1,9 +1,18 @@
+#if !defined(ae2f_Macro_Cast_h)
+#define ae2f_Macro_Cast_h
+
 #define ae2f_Macro_Cast_Merge(...) __VA_ARGS__
 #include <stdbool.h>
 #include <stddef.h>
 
 #if defined(__cplusplus)
-#include <type_traits>
+
+template<typename t, typename k>
+union ae2f_union_caster {
+	t a;
+	k b;
+};
+
 #define ae2f_static_cast(t, v) (static_cast<t>(v))
 #define ae2f_dynamic_cast(t, v) (dynamic_cast<t>(v))
 #define ae2f_reinterpret_cast(t, v) (reinterpret_cast<t>(v))
@@ -12,8 +21,11 @@
 #define ae2f_extern extern "C"
 #define ae2f_var extern "C"
 #define ae2f_class class
+#define ae2f_record_make(type, ...) ((type) { __VA_ARGS__ })
+
 #define ae2f_add_when_cxx(...) __VA_ARGS__
 #define ae2f_add_when_c(...)
+#define ae2f_union_cast(tThen, tNow, v) (ae2f_union_caster<tThen, tNow>{ v }).b
 #else
 #define ae2f_static_cast(t, v) ((t)(v))
 #define ae2f_dynamic_cast ae2f_static_cast
@@ -25,6 +37,7 @@
 #define ae2f_var 
 #define ae2f_add_when_cxx(...)
 #define ae2f_add_when_c(...) __VA_ARGS__
+#define ae2f_union_cast(tThen, tNow, v) (((union { tThen a; tNow b; }) { v }).b)
 #endif // defined(__cplusplus)
 #define ae2f_interface struct
-#define ae2f_union_cast(tThen, tNow, v) (((union { tThen a; tNow b; }) { v }).b)
+#endif
