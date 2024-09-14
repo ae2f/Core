@@ -29,22 +29,23 @@ namespace ae2f {
 
 			t obj;
 			constexpr rBitVector(const t& obj) noexcept : obj(obj)  {
-				static_assert(std::__is_integer<t>::__value, "t is not integer");
+				
+				static_assert(std::is_integral<t>::value, "t is not integer");
 			}
 			constexpr rBitVector(const t&& obj) noexcept : obj(obj) {
-				static_assert(std::__is_integer<t>::__value, "t is not integer");
+				static_assert(std::is_integral<t>::value, "t is not integer");
 			}
 
 			template<typename T = t>
 			constexpr rBitVector(const rBitVector<T>& vec) noexcept : obj(vec.obj)  {
-				static_assert(std::__is_integer<t>::__value, "t is not integer");
-				static_assert(std::__is_integer<T>::__value, "T is not integer");
+				static_assert(std::is_integral<t>::value, "t is not integer");
+				static_assert(std::is_integral<T>::value, "T is not integer");
 			}
 
 			template<typename T = t>
 			constexpr rBitVector(const rBitVector<T>&& vec) noexcept : obj(vec.obj)  {
-				static_assert(std::__is_integer<t>::__value, "t is not integer");
-				static_assert(std::__is_integer<T>::__value, "T is not integer");
+				static_assert(std::is_integral<t>::value, "t is not integer");
+				static_assert(std::is_integral<T>::value, "T is not integer");
 			}
 
 			constexpr static rBitVector<t> Filled(idx_t length) noexcept {
