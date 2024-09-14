@@ -21,12 +21,13 @@ union ae2f_union_caster {
 #define ae2f_extern extern "C"
 #define ae2f_var extern "C"
 #define ae2f_class class
-#define ae2f_record_make(type, ...) ((type) { __VA_ARGS__ })
+#define ae2f_record_make(type, ...) (type{ __VA_ARGS__ })
 
 #define ae2f_add_when_cxx(...) __VA_ARGS__
 #define ae2f_add_when_c(...)
 #define ae2f_union_cast(tThen, tNow, v) (ae2f_union_caster<tThen, tNow>{ v }).b
 #else
+#define ae2f_record_make(type, ...) ((type) { __VA_ARGS__ })
 #define ae2f_static_cast(t, v) ((t)(v))
 #define ae2f_dynamic_cast ae2f_static_cast
 #define ae2f_reinterpret_cast ae2f_static_cast
