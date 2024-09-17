@@ -91,7 +91,7 @@ ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(ae2f_struct ae2f_ds_Alloc_Ow
 //	This:	const ae2f_ds_Alloc_Refer*
 // Returns:
 //	cosnt ae2f_ds_Alloc_Refer
-#define ae2f_ds_Alloc_vRefer_Ref(This) ((const ae2f_struct ae2f_ds_Alloc_Refer) { (This)->data, (This)->vRefer })
+#define ae2f_ds_Alloc_vRefer_Ref(This) ae2f_record_make(const ae2f_struct ae2f_ds_Alloc_Refer, (This)->data, (This)->vRefer)
 
 // Parameters:
 //	This:	const ae2f_ds_Alloc_Refer*
