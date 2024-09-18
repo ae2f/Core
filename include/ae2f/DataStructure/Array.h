@@ -201,15 +201,6 @@ namespace ae2f {
 				{}
 
 				inline imp_cArray(
-					const global_imp_cArray<T, Alloc_t>&& arr,
-					const Allocator::vOwner* vOwn = 0,
-					const Allocator::vRefer* vRef = 0,
-					ae2f_errint_t* errcode = 0
-				) noexcept : 
-					global_imp_cArray<T, Alloc_t>(Alloc_t(arr, vOwn, vRef, errcode))
-				{}
-
-				inline imp_cArray(
 					size_t count,
 					const Allocator::vOwner* vOwn = 0,
 					const Allocator::vRefer* vRef = 0,

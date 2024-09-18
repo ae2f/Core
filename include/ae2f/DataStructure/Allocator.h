@@ -228,7 +228,6 @@ namespace ae2f {
 				constexpr cRefer(const rOwner&& r) noexcept : rRefer(ae2f_ds_Alloc_vRefer_Ref(&r)) {}
 
 				constexpr cRefer(const cOwner& r) noexcept;
-				constexpr cRefer(const cOwner&& r) noexcept;
 
 				constexpr cRefer() noexcept : rRefer{ 0, 0 } {}
 			};
@@ -346,13 +345,6 @@ namespace ae2f {
 					ae2f_errint_t* errcode = 0) noexcept
 					: cOwner(static_cast<const rOwner&>(r), vOwn, vRef, errcode) {}
 
-				inline cOwner(
-					const cOwner&& r,
-					const Allocator::vOwner* vOwn = 0,
-					const Allocator::vRefer* vRef = 0,
-					ae2f_errint_t* errcode = 0) noexcept
-					: cOwner(static_cast<const rOwner&>(r), vOwn, vRef, errcode) {}
-
 				constexpr cOwner(ae2f_errint_t* errcode = 0) noexcept : rOwner{0, 0, 0}
 				{
 					(errcode) && (errcode[0] = ae2f_errGlobal_WRONG_OPERATION);
@@ -364,7 +356,6 @@ namespace ae2f {
 			};
 
 			constexpr cRefer::cRefer(const cOwner& r) noexcept : cRefer(ae2f_ds_Alloc_vRefer_Ref(&r)) {}
-			constexpr cRefer::cRefer(const cOwner&& r) noexcept : cRefer(ae2f_ds_Alloc_vRefer_Ref(&r)) {}
 		}
 	}
 }
