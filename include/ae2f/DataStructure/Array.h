@@ -4,10 +4,20 @@
 
 
 typedef int ae2f_ds_Arr_Compared_t; 
+
+// Returns:
+//	Negative: l < r
+//	0: l == r
+//	Positive: l > r
 typedef ae2f_ds_Arr_Compared_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* r);
 
+// they are same
 #define ae2f_ds_Arr_EQUAL		ae2f_static_cast(ae2f_ds_Arr_Compared_t, 0)
+
+// right is lesser
 #define ae2f_ds_Arr_RIGHT_UNIT	ae2f_static_cast(ae2f_ds_Arr_Compared_t, 1)
+
+// left is lesser
 #define ae2f_ds_Arr_LEFT_UNIT	ae2f_static_cast(ae2f_ds_Arr_Compared_t, -1)
 
 
