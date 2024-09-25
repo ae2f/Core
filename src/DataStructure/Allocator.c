@@ -24,7 +24,7 @@ static ae2f_errint_t Read(const ae2f_struct ae2f_ds_Alloc_Refer* This, size_t id
 
 	return ae2f_errGlobal_OK;
 }
-static ae2f_errint_t Write(const ae2f_struct ae2f_ds_Alloc_Refer* This, size_t idx, const void* buff, size_t bufflen) {
+static ae2f_errint_t Write(ae2f_struct ae2f_ds_Alloc_Refer* This, size_t idx, const void* buff, size_t bufflen) {
 	if (!(This && This->data))
 		return ae2f_errGlobal_PTR_IS_NULL;
 
@@ -88,8 +88,8 @@ ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy(ae2f_struct ae2f_ds_Alloc_Owner* This, c
 	void* buff = malloc(size);
 	if (!buff) return ae2f_errGlobal_ALLOC_FAILED;
 
-	if ((err = ae2f_ds_Alloc_vRefer_Read(Another, 0, buff, size))) return err;
-	if ((err = ae2f_ds_Alloc_vOwner_Write(This, 0, buff, size))) return err;
+	if ((err = ae2f_ds_Alloc_vRefer_Read(Another, 0, buff, size)) != ae2f_errGlobal_OK) return err;
+	if ((err = ae2f_ds_Alloc_vOwner_Write(ae2f_static_cast(ae2f_struct ae2f_ds_Alloc_Refer*, This), 0, buff, size)) != ae2f_errGlobal_OK) return err;
 
 	free(buff);
 

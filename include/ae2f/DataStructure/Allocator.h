@@ -35,13 +35,13 @@ struct ae2f_ds_Alloc_vOwner {
 
 struct ae2f_ds_Alloc_Refer {
 	char* data;
-	ae2f_struct ae2f_ds_Alloc_vRefer* vRefer;
+	const ae2f_struct ae2f_ds_Alloc_vRefer* vRefer;
 };
 
 struct ae2f_ds_Alloc_Owner {
 	char* data;
-	ae2f_struct ae2f_ds_Alloc_vRefer* vRefer;
-	ae2f_struct ae2f_ds_Alloc_vOwner* vOwner;
+	const ae2f_struct ae2f_ds_Alloc_vRefer* vRefer;
+	const ae2f_struct ae2f_ds_Alloc_vOwner* vOwner;
 };
 
 ae2f_extern const ae2f_struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear;
