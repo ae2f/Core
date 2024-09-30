@@ -1,2 +1,1 @@
-add_subdirectory(test_0)
-add_subdirectory(xtest_0)
+add_subdirectory(test_allocator)
