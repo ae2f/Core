@@ -4,6 +4,7 @@
 #include "Cast.h"
 #include "Compare.h"
 
+
 #define _ae2f_Macro_BitVector_Filled(len, vec_t) ae2f_static_cast(vec_t, (sizeof(vec_t) << 3) == (len) ? ae2f_static_cast(vec_t, -1) : (ae2f_static_cast(vec_t, ae2f_static_cast(vec_t, 1) << (len)) - 1))
 #define ae2f_Macro_BitVector_Filled(len) _ae2f_Macro_BitVector_Filled(len, size_t)
 

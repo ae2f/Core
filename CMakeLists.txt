@@ -9,11 +9,17 @@ add_library(
 	"include/ae2f/Macro/Cast.h" 
 	"include/ae2f/DataStructure/Allocator.h"
 	"include/ae2f/DataStructure/Array.h"
+    "include/ae2f/DataStructure/Allocator.hpp"
+	"include/ae2f/DataStructure/Array.hpp"
 	"include/ae2f/Macro/BitVector.h" 
 	"include/ae2f/Macro/Compare.h"
-	"src/DataStructure/Allocator.c" 
 	"include/ae2f/Macro/errGlobal.h" 
+	"include/ae2f/Macro/errGlobal.hpp" 
+	"src/Macro/xerrGlobal.cpp" 
+
+	"src/DataStructure/Allocator.c" 
 	"src/DataStructure/Array.c"
+    "src/DataStructure/Allocator/Linear.c"
 )
 
 include_directories(include)
@@ -39,18 +45,21 @@ install(DIRECTORY include/ae2f/
 install(EXPORT ${PROJECT_NAME}Targets
     FILE ${PROJECT_NAME}Targets.cmake
     NAMESPACE ae2f::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ae2f
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
 )
 
 # 패키지 구성 파일 생성
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/CoreConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/CoreConfig.cmake"
-    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ae2f
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
 )
 
 install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/CoreConfig.cmake"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/ae2f
+    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
+
+enable_testing()
+add_subdirectory(test)

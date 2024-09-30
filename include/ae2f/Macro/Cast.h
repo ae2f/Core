@@ -1,9 +1,11 @@
 #if !defined(ae2f_Macro_Cast_h)
 #define ae2f_Macro_Cast_h
 
-// ANSI Code for clearing the console.
-// Clearing all display, moving the cursor on the top.
+/// ANSI Code for clearing the console.
+/// Clearing all display, moving the cursor on the top.
 #define ae2f_Macro_Cast_Console_Clear_Cheat "\033[2J\033[H"
+/// @brief
+/// simply merge all text inside the round bracket, counting them as a single text block.
 #define ae2f_Macro_Cast_Merge(...) __VA_ARGS__
 #include <stdbool.h>
 #include <stddef.h>
@@ -43,5 +45,4 @@ union ae2f_union_caster {
 #define ae2f_add_when_c(...) __VA_ARGS__
 #define ae2f_union_cast(tThen, tNow, v) (((union { tThen a; tNow b; }) { v }).b)
 #endif // defined(__cplusplus)
-#define ae2f_interface struct
 #endif
