@@ -20,7 +20,7 @@ static int Test0x0() {
     TEST_VAL(code, ae2f_ds_Alloc_vOwner_getSize(&a, &sizeBuff));
     if(sizeBuff != 34) return ae2f_errGlobal_LMT;
     TEST_VAL(code, ae2f_ds_Alloc_vOwner_Del(&a));
-    
+
     return 0;
 }
 
