@@ -5,14 +5,10 @@ project(Core)
 include(GNUInstallDirs) 
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
+option(ae2f_IS_WIN "windows dll?" OFF) 
+option(ae2f_IS_LINUX "linux?" OFF)
 
-if(ae2f_IS_SHARED)
-    set(ae2f_PREFIX_LIB SHARED)
-    add_compile_definitions(-D_ae2f_IS_SHARED=1)
-else()
-    set(ae2f_PREFIX_LIB )
-    add_compile_definitions(-D_ae2f_IS_SHARED=0)
-endif()
+configure_file(${PROJECT_SOURCE_DIR}/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Macro/Call.h)
 
 add_library(
 	${PROJECT_NAME}

@@ -1,9 +1,9 @@
 #define ON 1
 #define OFF 0
 
-#if OFF && (OFF != OFF)
+#if @ae2f_IS_SHARED@ && (@ae2f_IS_WIN@ != @ae2f_IS_LINUX@)
 
-#ifdef OFF
+#ifdef @ae2f_IS_WIN@
 /// @brief
 /// # For Windows
 /// 
