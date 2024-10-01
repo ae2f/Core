@@ -84,6 +84,6 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp
 );
 
-#define ae2f_ds_Arr_QSort(arr, elsize, fpElCmp) ae2f_ds_Arr_QSort_imp(ae2f_reinterpret_cast(const ae2f_struct ae2f_ds_Alloc_Refer*, arr), elsize, ae2f_reinterpret_cast(const ae2f_ds_Arr_fpElCmp_t, fpElCmp))
+#define ae2f_ds_Arr_QSort(arr, elsize, fpElCmp) ae2f_ds_Arr_QSort_imp(ae2f_reinterpret_cast(ae2f_struct ae2f_ds_Alloc_Refer*, arr), elsize, ae2f_reinterpret_cast(const ae2f_ds_Arr_fpElCmp_t, fpElCmp))
 
 #endif // !defined(ae2f_DataStructure_Array_h)
