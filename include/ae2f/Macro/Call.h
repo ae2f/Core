@@ -36,5 +36,5 @@
 /// # It is no shared library.
 ///
 /// Function api call
-#define aa2f_SHAREDCALL
+#define ae2f_SHAREDCALL
 #endif
