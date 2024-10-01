@@ -11,7 +11,7 @@ if(ae2f_IS_SHARED)
     add_compile_definitions(-D_ae2f_IS_SHARED=1)
 else()
     set(ae2f_PREFIX_LIB )
-    add_compile_definitions(-D_ae2f_IS_SHARED=1)
+    add_compile_definitions(-D_ae2f_IS_SHARED=0)
 endif()
 
 add_library(
