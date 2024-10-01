@@ -4,8 +4,20 @@ project(Core)
 # Namespace Package
 include(GNUInstallDirs) 
 
+option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
+
+if(ae2f_IS_SHARED)
+    set(ae2f_PREFIX_LIB SHARED)
+    add_compile_definitions(-D_ae2f_IS_SHARED=1)
+else()
+    set(ae2f_PREFIX_LIB )
+    add_compile_definitions(-D_ae2f_IS_SHARED=1)
+endif()
+
 add_library(
 	${PROJECT_NAME}
+    ${ae2f_PREFIX_LIB}
+
 	"include/ae2f/Macro/Cast.h" 
 	"include/ae2f/DataStructure/Allocator.h"
 	"include/ae2f/DataStructure/Array.h"
@@ -15,8 +27,9 @@ add_library(
 	"include/ae2f/Macro/Compare.h"
 	"include/ae2f/Macro/errGlobal.h" 
 	"include/ae2f/Macro/errGlobal.hpp" 
-	"src/Macro/xerrGlobal.cpp" 
+    "include/ae2f/Macro/Call.h"
 
+	"src/Macro/xerrGlobal.cpp" 
 	"src/DataStructure/Allocator.c" 
 	"src/DataStructure/Array.c"
     "src/DataStructure/Allocator/Linear.c"

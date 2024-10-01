@@ -4,6 +4,7 @@
 #include <ae2f/Macro/Cast.h>
 #include <ae2f/Macro/Compare.h>
 #include <ae2f/Macro/errGlobal.h>
+#include <ae2f/Macro/Call.h>
  
 #pragma region Structures
 
@@ -90,10 +91,10 @@ struct ae2f_ds_Alloc_Owner {
 };
 
 /// @brief A default function set of [vRefer].
-ae2f_extern const ae2f_struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear;
+ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear;
 
 /// @brief A default function set of [vOwner].
-ae2f_extern const ae2f_struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear;
+ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear;
 
 #pragma endregion
 #pragma endregion
@@ -113,7 +114,7 @@ ae2f_extern const ae2f_struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear;
 /// @param vOwn 
 /// Functions custom for memory owning structure.
 /// @return 
-ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
+ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 	ae2f_struct ae2f_ds_Alloc_Owner* This, 
 	const ae2f_struct ae2f_ds_Alloc_vRefer* vRef, 
 	const ae2f_struct ae2f_ds_Alloc_vOwner* vOwn
@@ -221,8 +222,14 @@ ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 /// @param This Points the allocated memory
 /// @param Source Copy Source
 /// @return 
-ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy_imp(ae2f_struct ae2f_ds_Alloc_Owner* This, const ae2f_struct ae2f_ds_Alloc_Refer* Source);
+ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy_imp(ae2f_struct ae2f_ds_Alloc_Owner* This, const ae2f_struct ae2f_ds_Alloc_Refer* Source);
 
+/// @brief 
+/// Allocates the memory.
+/// Copies the data from `Source` to `This`.
+/// @param This Points the allocated memory
+/// @param Source Copy Source
+/// @return 
 #define ae2f_ds_Alloc_vOwner_Copy(This, Source) ae2f_ds_Alloc_vOwner_Copy_imp(This, ae2f_reinterpret_cast(const ae2f_struct ae2f_ds_Alloc_Refer*, Source))
 
 #pragma endregion

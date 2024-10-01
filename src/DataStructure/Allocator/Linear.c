@@ -64,5 +64,5 @@ static ae2f_errint_t Del(ae2f_struct ae2f_ds_Alloc_Owner* This) {
 	return ae2f_errGlobal_OK;
 }
 
-const struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear = { .getSize = Len, .Read = Read, .Write = Write };
-const struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear = { .Del = Del, .reSize = Make };
+ae2f_SHAREDEXPORT const struct ae2f_ds_Alloc_vRefer ae2f_ds_Alloc_vRefer_cLinear = { .getSize = Len, .Read = Read, .Write = Write };
+ae2f_SHAREDEXPORT const struct ae2f_ds_Alloc_vOwner ae2f_ds_Alloc_vOwner_cLinear = { .Del = Del, .reSize = Make };

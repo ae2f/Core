@@ -212,7 +212,7 @@ namespace ae2f {
 				const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 				size_t* out
 			) {
-				return ::ae2f_ds_Arr_BSearch((arr), wanted, elsize, fpElCmp, out);
+				return ::ae2f_ds_Arr_BSearch_imp((arr), wanted, elsize, fpElCmp, out);
 			}
 
 			inline ae2f_errint_t BSearch(
@@ -222,7 +222,7 @@ namespace ae2f {
 				const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 				size_t* out
 			) {
-				return ::ae2f_ds_Arr_BSearch(reinterpret_cast<const Allocator::rRefer*>(arr), wanted, elsize, fpElCmp, out);
+				return ::ae2f_ds_Arr_BSearch_imp(reinterpret_cast<const Allocator::rRefer*>(arr), wanted, elsize, fpElCmp, out);
 			}
 
 			template<typename T>

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-ae2f_errint_t ae2f_ds_Arr_BSearch(
+ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	const struct ae2f_ds_Alloc_Refer* arr,
 	const void* wanted,
 	size_t elsize,
@@ -151,7 +151,7 @@ static ae2f_errint_t imp_ae2f_Qsort(
 #undef inv_idx
 }
 
-ae2f_errint_t ae2f_ds_Arr_QSort(
+ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	struct ae2f_ds_Alloc_Refer* arr,
 	size_t elsize,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp

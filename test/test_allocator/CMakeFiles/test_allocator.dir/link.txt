@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/test_allocator.dir/main.c.o -o test_allocator  -Wl,-rpath,/home/ae2f/Documents/ae2f_Core ../../libCore.so 
