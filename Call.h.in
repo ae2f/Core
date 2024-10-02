@@ -3,7 +3,7 @@
 
 #if @ae2f_IS_SHARED@ && (@ae2f_IS_WIN@ != @ae2f_IS_LINUX@)
 
-#ifdef @ae2f_IS_WIN@
+#if @ae2f_IS_WIN@
 /// @brief
 /// # For Windows
 /// 

@@ -3,7 +3,7 @@
 
 #if OFF && (OFF != OFF)
 
-#ifdef OFF
+#if OFF
 /// @brief
 /// # For Windows
 /// 
