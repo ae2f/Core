@@ -68,7 +68,10 @@ typedef ae2f_errint_t(*ae2f_ds_Alloc_fpDel_t)(
 	ae2f_struct ae2f_ds_Alloc_Owner* _this
 );
 
-/// @brief Resizes the memory of `_this` in a byte size of `size`.
+/// @brief 
+/// Resizes the memory of `_this` in a byte size of `size`.
+/// 
+/// Additional allocated memory would be set as 0.
 typedef ae2f_errint_t(*ae2f_ds_Alloc_fpResize_t)(
 	ae2f_struct ae2f_ds_Alloc_Owner* _this, 
 	size_t size
