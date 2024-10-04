@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(Core)
+enable_testing()
 
 # Namespace Package
 include(GNUInstallDirs) 
@@ -70,5 +71,4 @@ install(FILES
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
 
-enable_testing()
 add_subdirectory(test)
