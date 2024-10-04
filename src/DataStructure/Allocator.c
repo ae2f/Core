@@ -10,8 +10,8 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Alloc_vOwner_Init(
 	if (!(This && vRef && vOwn)) return ae2f_errGlobal_PTR_IS_NULL;
 
 	This->data = 0;
-	This->vRefer = vRef ? vRef : &ae2f_ds_Alloc_vRefer_cLinear;
-	This->vOwner = vOwn ? vOwn : &ae2f_ds_Alloc_vOwner_cLinear;
+	This->vRefer = vRef;
+	This->vOwner = vOwn;
 
 	return ae2f_errGlobal_OK;
 }
