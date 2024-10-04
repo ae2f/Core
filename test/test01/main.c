@@ -76,6 +76,15 @@ static int Test0x3() {
     TEST_VAL(code, ae2f_ds_Alloc_vOwner_Del(&a) | ae2f_ds_Alloc_vOwner_Del(&b));
     return 0;
 }
+
+// Error
+static int Test0x4() {
+    struct ae2f_ds_Alloc_Owner a;
+    if(ae2f_ds_Alloc_vOwner_Init(&a, 0, 0) == ae2f_errGlobal_OK)
+    return ae2f_errGlobal_WRONG_OPERATION;
+    return ae2f_errGlobal_OK;
+}
+
 #pragma endregion
 
 int main() {
@@ -84,6 +93,8 @@ int main() {
     TEST(Test0x0, ErrCode);
     TEST(Test0x1, ErrCode);
     TEST(Test0x2, ErrCode);
+    TEST(Test0x3, ErrCode);
+    TEST(Test0x4, ErrCode);
 
     return 0;
 }
