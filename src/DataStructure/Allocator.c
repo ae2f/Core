@@ -28,8 +28,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Alloc_vOwner_Copy_imp(
 
 	void* buff = malloc(size);
 	if (!buff) return ae2f_errGlobal_ALLOC_FAILED;
-
-	This->vRefer->Read(This, 0, buff, size);
+	
 	if ((err = ae2f_ds_Alloc_vRefer_Read(Another, 0, buff, size)) != ae2f_errGlobal_OK)
 		goto __GlobalFree;
 
