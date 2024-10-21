@@ -19,7 +19,7 @@
 #endif // !defined(ae2f_Macro_BitVector_h)
 
 #if !defined(ae2f_Macro_BitVector_hpp) && defined(__cplusplus)
-
+#define ae2f_Macro_BitVector_hpp
 #include <type_traits>
 
 namespace ae2f {
