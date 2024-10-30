@@ -1,9 +1,25 @@
 #define ON 1
 #define OFF 0
 
-#if @ae2f_IS_SHARED@ && (@ae2f_IS_WIN@ != @ae2f_IS_LINUX@)
+#if (defined(_WIN32) || defined(_WIN64))
+#define ae2f_IS_WIN 1
+#else 
+#define ae2f_IS_WIN 0
+#endif 
 
-#if @ae2f_IS_WIN@
+#if (defined(__linux__))
+#define ae2f_IS_LINUX 1
+#else 
+#define ae2f_IS_LINUX 0
+#endif
+
+#include <assert.h>
+
+static_assert(ae2f_IS_WIN != ae2f_IS_LINUX, "Fucked");
+
+#if @ae2f_IS_SHARED@
+
+#if ae2f_IS_WIN
 /// @brief
 /// # For Windows
 /// 

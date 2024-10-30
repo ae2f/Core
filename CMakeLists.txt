@@ -6,30 +6,32 @@ enable_testing()
 include(GNUInstallDirs) 
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
-option(ae2f_IS_WIN "windows dll?" OFF) 
-option(ae2f_IS_LINUX "linux?" OFF)
 
-configure_file(${PROJECT_SOURCE_DIR}/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Macro/Call.h)
+
+configure_file(${PROJECT_SOURCE_DIR}/hin/ae2f/Macro/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Macro/Call.h)
 
 add_library(
 	${PROJECT_NAME}
     ${ae2f_PREFIX_LIB}
 
 	"include/ae2f/Macro/Cast.h" 
-	"include/ae2f/DataStructure/Allocator.h"
-	"include/ae2f/DataStructure/Array.h"
-    "include/ae2f/DataStructure/Allocator.hpp"
-	"include/ae2f/DataStructure/Array.hpp"
-	"include/ae2f/Macro/BitVector.h" 
-	"include/ae2f/Macro/Compare.h"
-	"include/ae2f/Macro/errGlobal.h" 
-	"include/ae2f/Macro/errGlobal.hpp" 
-    "include/ae2f/Macro/Call.h"
 
-	"src/Macro/xerrGlobal.cpp" 
-	"src/DataStructure/Allocator.c" 
-	"src/DataStructure/Array.c"
-    "src/DataStructure/Allocator/Linear.c"
+    "include/ae2f/Macro/errGlob.h" 
+    "src/Macro/errGlob.c"
+
+    "include/ae2f/Macro/BitVec.h" 
+	"include/ae2f/Macro/BitVec.hpp" 
+
+	"include/ae2f/Ds/Alloc.h"
+    "include/ae2f/Ds/Alloc.hpp"
+	"src/Ds/Alloc.c" 
+    "src/Ds/Alloc/Linear.c"
+
+	"include/ae2f/Ds/Arr.h"
+    "src/Ds/Arr.c"
+
+	"include/ae2f/Macro/Compare.h"
+    "include/ae2f/Macro/Call.h"
 )
 
 include_directories(include)
