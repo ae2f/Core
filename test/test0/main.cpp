@@ -125,6 +125,8 @@ static int Test0x4() {
 
 int Test0x5();
 int Test0x6();
+int Test0x7();
+int Test0x8();
 
 #pragma endregion
 
@@ -136,8 +138,10 @@ int main() {
     TEST(Test0x2, ErrCode);
     TEST(Test0x3, ErrCode);
     TEST(Test0x4, ErrCode);
-    // TEST(Test0x5, ErrCode);
-    // TEST(Test0x6, ErrCode);
+    TEST(Test0x5, ErrCode);
+    TEST(Test0x6, ErrCode);
+    TEST(Test0x7, ErrCode);
+    TEST(Test0x8, ErrCode);
 
     return 0;
 }

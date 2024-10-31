@@ -6,16 +6,19 @@
 
 
 static ae2f_errint_t Len(const ae2f_struct ae2f_ds_cAlloc* This, size_t* buff, size_t* one) {
-	ae2f_errint_t err = ae2f_errGlob_OK;
-	if (!(This && This->data))
+	ae2f_errint_t err = ae2f_errGlob_OK; 
+	size_t sz[1] = {0};
+
+	if (!(This))
 		return ae2f_errGlob_PTR_IS_NULL;
 
-	if(buff) *buff = *((size_t*)This->data);
+	size_t* p_sz = ((size_t*)This->data) ? ((size_t*)This->data) : sz;
+
+	if(buff) *buff = *((size_t*)p_sz);
 	else err |= ae2f_ds_Alloc_cRef_getSize_NCOPIED;
 
 	if(one) *one = 1;
 	else err |= ae2f_ds_Alloc_cRef_getSize_NCOPIED;
-
 	return err;
 }
 static ae2f_errint_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, void* buff, size_t bufflen) {
@@ -46,7 +49,7 @@ static ae2f_errint_t Make(ae2f_struct ae2f_ds_cAlloc* This, size_t l, size_t ell
 		return ae2f_errGlob_PTR_IS_NULL;
 
 	l *= ellen;
-	
+
 	void* _Try = This->data ? realloc(This->data, l + sizeof(size_t)) : calloc(l + sizeof(size_t), 1);
 
 #define i ((size_t*)_Try)[0]

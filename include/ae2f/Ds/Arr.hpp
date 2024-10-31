@@ -52,7 +52,10 @@ namespace Arr {
         }
         
         template<int d = 0>
-        inline Pack() noexcept : c{0, } {}
+        inline Pack() noexcept : c{0, } {
+            for(size_t i = 0; i < sizeof(T) + 1; i++)
+            c[i] = 0;
+        }
         inline ~Pack() {}
     };
 
@@ -95,6 +98,12 @@ namespace Arr {
                 sizeof(T)
             );
         }
+
+        constexpr __Refer(const Alloc::rRefer& src) 
+        : cRefer(src) {}
+
+        constexpr __Refer(const Alloc::rRefer&& src) 
+        : cRefer(src) {}
     };
 
     template<typename T>
@@ -124,17 +133,22 @@ namespace Arr {
 #pragma region non_trivial writing
 
         template<typename... Args>
-        inline ae2f_errint_t Write(size_t idx, Args ...args) noexcept {
+        inline ae2f_errint_t Write(size_t idx, Args&& ...args) noexcept {
+            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+                return ae2f_errGlob_IMP_NOT_FOUND;
+            }
+
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
-            if(el->isvalid()) el->Obj.~T();
-
             if(code[0] & eRef::EL_NON_VALID) {
-                if(!(code[1] & ae2f_errGlob_DONE_HOWEV))
+                if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
+            if(el->isvalid()) {
+                el->Obj.~T();
+            }
             new(el->c) T(args...);
             el->_isvalid() = 1;
 
@@ -146,15 +160,19 @@ namespace Arr {
         }
 
         inline ae2f_errint_t Write(size_t idx) noexcept {
+            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+                return ae2f_errGlob_IMP_NOT_FOUND;
+            }
+
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
-            if(el->isvalid()) el->Obj.~T();
             if(code[0] & eRef::EL_NON_VALID) {
                 if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
+            if(el->isvalid()) el->Obj.~T();
             new(el->c) T();
             el->_isvalid() = 1;
 
@@ -166,16 +184,23 @@ namespace Arr {
         }
 
 #pragma endregion
+        constexpr __Refer(const __Refer<T, 0>& src)
+        : cRefer(src) {}
+
+        constexpr __Refer(const __Refer<T, 0>&& src)
+        : cRefer(src) {}
+
+        constexpr __Refer(const __Owner<T, 0>& src)
+        : cRefer(src) {}
+
+        constexpr __Refer(const __Owner<T, 0>&& src)
+        : cRefer(src) {}
     };
+
 
     template<typename T>
-    struct cRefer : public __Refer<T, std::is_trivial<T>::value> {
-        public:
-        using self_t = __Refer<T, std::is_trivial<T>::value>;
+    using cRefer = __Refer<T, std::is_trivial<T>::value>;
 
-        inline cRefer(const self_t& a) noexcept
-        : self_t(a) {}
-    };
     #pragma endregion
 
     #pragma region Own
@@ -231,11 +256,29 @@ namespace Arr {
             return ae2f_errGlob_IMP_NOT_FOUND;
         }
 
+        template<typename K>
+        inline ae2f_errint_t Copy(const __Owner<K, 1>& a);
+
+        template<typename K>
+        inline ae2f_errint_t Copy(const __Owner<K, 1>&& a);
+
         inline __Owner(
             ae2f_errint_t* perr,
             const ae2f_ds_vAlloc* imp
         ) : Alloc::xrOwner(perr, imp) {}
     };
+
+    template<typename T>
+    template<typename K>
+    inline ae2f_errint_t __Owner<T, 1>::Copy(const __Owner<K, 1>& src) {
+        return Alloc::xrOwner::Copy(src);
+    }
+
+    template<typename T>
+    template<typename K>
+    inline ae2f_errint_t __Owner<T, 1>::Copy(const __Owner<K, 1>&& src) {
+        return Alloc::xrOwner::Copy(src);
+    }
 
     template<typename T>
     struct __Owner<T, 0>
@@ -264,17 +307,22 @@ namespace Arr {
 #pragma region non_trivial writing
 
         template<typename... Args>
-        inline ae2f_errint_t Write(size_t idx, Args ...args) noexcept {
+        inline ae2f_errint_t Write(size_t idx, Args&& ...args) noexcept {
+            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+                return ae2f_errGlob_IMP_NOT_FOUND;
+            }
+
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
-            if(el->isvalid()) el->Obj.~T();
-
             if(code[0] & eRef::EL_NON_VALID) {
-                if(!(code[1] & ae2f_errGlob_DONE_HOWEV))
+                if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
+            if(el->isvalid()) {
+                el->Obj.~T();
+            }
             new(el->c) T(args...);
             el->_isvalid() = 1;
 
@@ -286,15 +334,19 @@ namespace Arr {
         }
 
         inline ae2f_errint_t Write(size_t idx) noexcept {
+            if(!_ae2f_ds_Alloc_FndFun(ae2f_static_cast(Alloc::rRefer*, this), Write)) {
+                return ae2f_errGlob_IMP_NOT_FOUND;
+            }
+
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
-            if(el->isvalid()) el->Obj.~T();
             if(code[0] & eRef::EL_NON_VALID) {
                 if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
+            if(el->isvalid()) el->Obj.~T();
             new(el->c) T();
             el->_isvalid() = 1;
 
@@ -323,7 +375,9 @@ namespace Arr {
         inline ae2f_errint_t Resize(size_t nCount) noexcept {
             size_t a, b; ae2f_errint_t err = ae2f_errGlob_OK;
             err |= xrOwner::Length(&a, &b);
-            if(err) return err;
+            if(err) {
+                return err;
+            }
 
             a = (b * a) / _f::ElSize;
 
@@ -357,16 +411,7 @@ namespace Arr {
     };
 
     template<typename T>
-    struct xrOwner : public __Owner<T, std::is_trivial<T>::value> {
-        public:
-        using self_t = __Owner<T, std::is_trivial<T>::value>;
-
-        inline xrOwner(
-            ae2f_errint_t* perr,
-            const ae2f_ds_vAlloc* imp
-        ) noexcept
-        : self_t(perr, imp) {}
-    };
+    using xrOwner = __Owner<T, std::is_trivial<T>::value>;
 
 
     #pragma endregion
