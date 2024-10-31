@@ -13,7 +13,7 @@
 #define ae2f_Macro_BitVec_Get(vector, idx) ae2f_Macro_BitVec_GetRanged(vector, idx, (idx) + 1)
 
 #define _ae2f_Macro_BitVec_SetRanged(vector, start, end, val, vec_t) ((vector) & (~((_ae2f_Macro_BitVec_Filled((end) - (start), vec_t)) << start)) | ((val) << start))
-#define ae2f_Macro_BitVec_SetRanged(vector, start, end, val) _ae2f_Macro_BitVec_SetRanged(vector, ae2f_Macro_Compare_TakeSmaller(start, end), ae2f_Macro_Compare_TakeBigger(start, end), (val) & ae2f_Macro_BitVec_Filled(ae2f_Macro_Compare_Diff(start, end)))
+#define ae2f_Macro_BitVec_SetRanged(vector, start, end, val) _ae2f_Macro_BitVec_SetRanged(vector, ae2f_Macro_Compare_TakeSmaller(start, end), ae2f_Macro_Compare_TakeBigger(start, end), (val) & ae2f_Macro_BitVec_Filled(ae2f_Macro_Compare_Diff(start, end)), size_t)
 #define ae2f_Macro_BitVec_Set(vector, idx, val) ae2f_Macro_BitVec_SetRanged(vector, idx, (idx) + 1, val)
 
 #endif // !defined(ae2f_Macro_BitVector_h)
