@@ -50,9 +50,9 @@ namespace Arr {
         constexpr bool isvalid() const noexcept {
             return c[sizeof(T)];
         }
-
-        constexpr Pack() noexcept : c{0, } {}
-
+        
+        template<int d = 0>
+        inline Pack() noexcept : c{0, } {}
         inline ~Pack() {}
     };
 
@@ -115,7 +115,7 @@ namespace Arr {
                 _f::ElSize
             );
 
-            if(b->isvalid())
+            if(!b->isvalid())
             perr[0] |= eRef::EL_NON_VALID;
 
             return b[0];
@@ -128,12 +128,14 @@ namespace Arr {
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
+            if(el->isvalid()) el->Obj.~T();
+
             if(code[0] & eRef::EL_NON_VALID) {
                 if(!(code[1] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
-            el->Obj = T(args...);
+            new(el->c) T(args...);
             el->_isvalid() = 1;
 
             return Alloc::xrOwner::Write(
@@ -147,12 +149,13 @@ namespace Arr {
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
+            if(el->isvalid()) el->Obj.~T();
             if(code[0] & eRef::EL_NON_VALID) {
                 if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
-            el->Obj = T();
+            new(el->c) T();
             el->_isvalid() = 1;
 
             return Alloc::xrOwner::Write(
@@ -213,14 +216,17 @@ namespace Arr {
             );
         }
 
+        /// @return  ae2f_errGlob_IMP_NOT_FOUND
         constexpr ae2f_errint_t ReConfig(size_t elcount, size_t elsize) {
             return ae2f_errGlob_IMP_NOT_FOUND;
         }
 
+        /// @return  ae2f_errGlob_IMP_NOT_FOUND
         constexpr ae2f_errint_t Copy(const Alloc::rRefer& src) noexcept {
             return ae2f_errGlob_IMP_NOT_FOUND;
         }
 
+        /// @return  ae2f_errGlob_IMP_NOT_FOUND
         constexpr ae2f_errint_t Copy(const Alloc::rRefer&& src) noexcept {
             return ae2f_errGlob_IMP_NOT_FOUND;
         }
@@ -262,12 +268,14 @@ namespace Arr {
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
+            if(el->isvalid()) el->Obj.~T();
+
             if(code[0] & eRef::EL_NON_VALID) {
-                if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
+                if(!(code[1] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
-            el->Obj = T(args...);
+            new(el->c) T(args...);
             el->_isvalid() = 1;
 
             return Alloc::xrOwner::Write(
@@ -281,12 +289,13 @@ namespace Arr {
             ae2f_errint_t code[1] = { ae2f_errGlob_OK };
             typename _f::El_t el[1] = { Read(idx, code) };
 
+            if(el->isvalid()) el->Obj.~T();
             if(code[0] & eRef::EL_NON_VALID) {
                 if(!(code[0] & ae2f_errGlob_DONE_HOWEV))
                 return code[0];
             }
 
-            el->Obj = T();
+            new(el->c) T();
             el->_isvalid() = 1;
 
             return Alloc::xrOwner::Write(
@@ -297,6 +306,18 @@ namespace Arr {
         }
 
 #pragma endregion
+        
+        inline ~__Owner() {
+            size_t a[2] = {0, 0};
+            ae2f_errGlob_LastErr |= this->Length(a, a+1);
+
+            a[0] = (a[1] * a[0]) / this->ElSize;
+
+            for(size_t i = 0; i < a[0]; i++) {
+                Pack<T> t = this->Read(i, &ae2f_errGlob_LastErr);
+                if(t.isvalid()) t.Obj.~T();
+            }
+        }
 
         // resizing for arr
         inline ae2f_errint_t Resize(size_t nCount) noexcept {

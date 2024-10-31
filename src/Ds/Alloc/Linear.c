@@ -45,8 +45,9 @@ static ae2f_errint_t Make(ae2f_struct ae2f_ds_cAlloc* This, size_t l, size_t ell
 	if (!This)
 		return ae2f_errGlob_PTR_IS_NULL;
 
-	void* _Try = This->data ? realloc(This->data, l + sizeof(size_t)) : calloc(l + sizeof(size_t), 1);
 	l *= ellen;
+	
+	void* _Try = This->data ? realloc(This->data, l + sizeof(size_t)) : calloc(l + sizeof(size_t), 1);
 
 #define i ((size_t*)_Try)[0]
 	if (_Try) {

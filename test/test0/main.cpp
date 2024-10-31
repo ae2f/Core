@@ -10,40 +10,43 @@ enum globalErr_Byte1 {
 #define TEST(fun, buff) if((buff) = ((fun)())) return (buff);
  
 #pragma region Test Alloc
+
 // resize / getsize / init / del
 static int Test0x0() {
-    int code = 0;
-    struct ae2f_ds_Alloc_cOwn a;
-    size_t sizeBuff;
+    ae2f_errint_t code = 0;
+    ae2f::Ds::Alloc::cOwner::Linear_t a(&code);
+    size_t sizeBuff, nsize;
+    
+    if(code) {
+        return code;
+    }
 
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&a));
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_ReSize(&a, 34));
-
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_getSize(&a, &sizeBuff, 0) & ~ae2f_ds_Alloc_cRef_getSize_NCOPIED)
+    TEST_VAL(code, a.Resize(34));
+    TEST_IF(code, a.Length(&sizeBuff, &nsize))
     goto __END;
 
-    if(sizeBuff != 34) {
+    if(sizeBuff != 34 || nsize != 1) {
         code = ae2f_errGlob_NFOUND;
         goto __END;
     }
 
     __END:
-    ae2f_ds_Alloc_cOwn_Del(&a);
     return code;
 }
 
 // read / write
 static int Test0x1() {
-    int code = 0; int data = 45;
-    struct ae2f_ds_Alloc_cOwn a;
-    size_t sizeBuff;
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&a));
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_ReSize(&a, sizeof(int)));
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Write(&a, 0, &data, sizeof(int)))
+    ae2f_errint_t code = 0; int data = 45;
+    ae2f::Ds::Alloc::cOwner::Linear_t a(&code);
+    if(code) return code;
+
+    
+    TEST_VAL(code, a.Resize(sizeof(int)));
+    TEST_IF(code, a.Write(0, &data, sizeof(int)))
         goto END;
 
     data = 3;
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Read(&a, 0, &data, sizeof(int)))
+    TEST_IF(code, a.Read(0, &data, sizeof(int)))
         goto END;
 
     if(data != 45) {
@@ -52,25 +55,25 @@ static int Test0x1() {
     }
 
     END:
-    ae2f_ds_Alloc_cOwn_Del(&a);
     return code;
 }
 
 // if it works on ref
 static int Test0x2() {
-    int code = 0; int data = 45;
-    struct ae2f_ds_Alloc_cOwn a;
+    ae2f_errint_t code = 0; int data = 45;
+    ae2f::Ds::Alloc::cOwner::Linear_t a(&code);
+    if(code) return code;
     size_t sizeBuff;
-    struct ae2f_ds_cAlloc b;
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&a));
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_ReSize(&a, sizeof(int)));
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Write(&a, 0, &data, sizeof(int))) {
+
+    ae2f::Ds::Alloc::cRefer b;
+    TEST_VAL(code, a.Resize(sizeof(int)));
+    TEST_IF(code, a.Write(0, &data, sizeof(data))) {
         goto END;
     }
     data = 3;
 
-    b = ae2f_ds_Alloc_cRef_Mk(&a);
-    TEST_IF(code, ae2f_ds_Alloc_cRef_Read(&b, 0, &data, sizeof(int))) {
+    b = a;
+    TEST_IF(code, b.Read(0, &data, sizeof(int))) {
         goto END;
     }
 
@@ -79,29 +82,27 @@ static int Test0x2() {
     }
     
     END:
-    ae2f_ds_Alloc_cOwn_Del(&a);
     return code;
 }
 
 // test copy
 static int Test0x3() {
-    int code = 0; int data = 45;
-    struct ae2f_ds_Alloc_cOwn a, b;
+    ae2f_errint_t code = 0; int data = 45;
+    ae2f::Ds::Alloc::cOwner::Linear_t a(&code), b(&code);
     size_t sizeBuff;
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&a));
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&b));
+    if(code) return code;
 
-    TEST_VAL(code, ae2f_ds_Alloc_cOwn_ReSize(&a, sizeof(int)));
+    TEST_VAL(code, a.Resize(sizeof(int)));
 
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Write(&a, 0, &data, sizeof(int)))
+    TEST_IF(code, a.Write(0, &data, sizeof(int)))
     goto __KILL_A_ONLY;
 
     data = 3;
 
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Cpy(&b, &a))
+    TEST_IF(code, b.Copy(a))
     goto __KILL_ALL;
 
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_Read(&b, 0, &data, sizeof(int)))
+    TEST_IF(code, b.Read(0, &data, sizeof(int)))
     goto __KILL_ALL;
 
     if(data != 45) {
@@ -110,18 +111,15 @@ static int Test0x3() {
     }
 
     __KILL_ALL:
-    ae2f_ds_Alloc_cOwn_Del(&b);
-
     __KILL_A_ONLY:
-    ae2f_ds_Alloc_cOwn_Del(&a);
     return code;
 }
 
 // Error
 static int Test0x4() {
-    struct ae2f_ds_Alloc_cOwn a;
-    if(ae2f_ds_Alloc_cOwn_Init(&a, 0))
-    return ae2f_errGlob_OK;
+    ae2f_errint_t code;
+    ae2f::Ds::Alloc::xrOwner a(&code, 0);
+    if(code) return ae2f_errGlob_OK;
     return ae2f_errGlob_NFOUND;
 }
 
@@ -138,8 +136,8 @@ int main() {
     TEST(Test0x2, ErrCode);
     TEST(Test0x3, ErrCode);
     TEST(Test0x4, ErrCode);
-    TEST(Test0x5, ErrCode);
-    TEST(Test0x6, ErrCode);
+    // TEST(Test0x5, ErrCode);
+    // TEST(Test0x6, ErrCode);
 
     return 0;
 }

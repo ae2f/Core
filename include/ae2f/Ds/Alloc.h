@@ -8,13 +8,20 @@
  
 #pragma region Structures
 
+
+/// @brief
+/// The data holder for [cRef] and [cOwn].
+struct ae2f_ds_cAlloc;
+
+
 /// @brief
 /// # This structure does not own the memory.
 /// 
 /// An interface to implement the linear array.
-struct ae2f_ds_cAlloc;
-
 #define ae2f_ds_Alloc_cRef ae2f_ds_cAlloc
+
+/// @brief
+/// # This structure owns the memory.
 #define ae2f_ds_Alloc_cOwn ae2f_ds_cAlloc
 
 #pragma region vRefer
