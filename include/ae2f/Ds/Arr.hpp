@@ -1,6 +1,6 @@
 #include "Arr.h"
 
-#if !defined(ae2f_ds_Arr_hpp) && defined(__cplusplus)
+#if !defined(ae2f_ds_Arr_hpp)
 #define ae2f_ds_Arr_hpp
 
 #include "Alloc.hpp"

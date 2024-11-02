@@ -1,6 +1,6 @@
 #include "./BitVec.h"
 
-#if !defined(ae2f_Macro_BitVector_hpp) && defined(__cplusplus)
+#if !defined(ae2f_Macro_BitVector_hpp)
 #define ae2f_Macro_BitVector_hpp
 #include <type_traits>
 

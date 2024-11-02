@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['read_0',['Read',['../structae2f__ds__vAlloc.html#a4a000d4db555c09b5635d00423293885',1,'ae2f_ds_vAlloc']]],
-  ['reconfig_1',['ReConfig',['../structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add',1,'ae2f_ds_vAlloc']]]
+  ['pack_0',['Pack',['../unionae2f_1_1Ds_1_1Arr_1_1Pack.html',1,'ae2f::Ds::Arr::Pack&lt; T &gt;'],['../unionae2f_1_1Ds_1_1Arr_1_1Pack.html#a714643758ec73c4d7e56e5e15e2227ed',1,'ae2f::Ds::Arr::Pack::Pack()']]]
 ];

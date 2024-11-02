@@ -1,6 +1,6 @@
 #include "./Alloc.h"
 
-#if defined(__cplusplus) && !defined(ae2f_ds_Alloc_hpp)
+#if !defined(ae2f_ds_Alloc_hpp)
 #define ae2f_ds_Alloc_hpp
 
 namespace ae2f {
