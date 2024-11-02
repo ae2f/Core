@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['i_0',['i',['../Linear_8c.html#a08582ce460e3d5e1cf0b7fea017d608e',1,'Linear.c']]],
-  ['idx_1',['idx',['../Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3',1,'Arr.c']]],
-  ['inv_5fidx_2',['inv_idx',['../Arr_8c.html#aa2e2bc2477cb3bc1d2174c8811a33c8f',1,'Arr.c']]]
+  ['off_0',['OFF',['../Call_8h.html#a29e413f6725b2ba32d165ffaa35b01e5',1,'Call.h']]],
+  ['on_1',['ON',['../Call_8h.html#ad76d1750a6cdeebd506bfcd6752554d2',1,'Call.h']]]
 ];

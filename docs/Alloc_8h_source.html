@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -49,17 +51,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('Alloc_8h_source.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,12 +95,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_8ea2525f6bde0ddd31d31d8c60786512.html">Ds</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="headertitle"><div class="title">Alloc.h</div></div>
 </div><!--header-->
@@ -170,7 +178,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><a class="code hl_define" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="code hl_define" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> <a class="code hl_function" href="Alloc_8h.html#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a>(</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="Alloc_8h.html#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">  142</a></span><a class="code hl_define" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="code hl_define" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> <a class="code hl_function" href="Alloc_8h.html#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a>(</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_define" href="Alloc_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a>* This, </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_struct" href="structae2f__ds__vAlloc.html">ae2f_ds_vAlloc</a>* imp</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>);</div>
@@ -209,7 +217,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="Alloc_8h.html#ad9038d9824708b2da0b7f4a5c0c27c47">  241</a></span><span class="preprocessor">#define ae2f_ds_Alloc_cOwn_ReSize(This, bitcount) ae2f_ds_Alloc_cOwn_ReConfig(This, bitcount, 1)</span></div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><a class="code hl_define" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="code hl_define" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> <a class="code hl_function" href="Alloc_8h.html#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a>(</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="Alloc_8h.html#a6a68b9896bc5cb21dd227aef63503665">  250</a></span><a class="code hl_define" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="code hl_define" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> <a class="code hl_function" href="Alloc_8h.html#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a>(</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_define" href="Alloc_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a>* This, </div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_struct" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a>* Source</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>);</div>
@@ -220,13 +228,13 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aAlloc_8h_html_a658478c7c530f83b817eabf868a4ac4a"><div class="ttname"><a href="Alloc_8h.html#a658478c7c530f83b817eabf868a4ac4a">ae2f_ds_Alloc_fpDel_t</a></div><div class="ttdeci">ae2f_errint_t(* ae2f_ds_Alloc_fpDel_t)(ae2f_struct ae2f_ds_Alloc_cOwn *_this)</div><div class="ttdoc">Frees the memory of _this.</div><div class="ttdef"><b>Definition</b> Alloc.h:66</div></div>
 <div class="ttc" id="aAlloc_8h_html_a6883a79ac8f19b22f8efa2ebd286888a"><div class="ttname"><a href="Alloc_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cRef</div><div class="ttdef"><b>Definition</b> Alloc.h:21</div></div>
-<div class="ttc" id="aAlloc_8h_html_a6a68b9896bc5cb21dd227aef63503665"><div class="ttname"><a href="Alloc_8h.html#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Cpy_imp(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_cAlloc *Source)</div><div class="ttdoc">Allocates the memory. Copies the data from Source to This.</div><div class="ttdef"><b>Definition</b> Alloc.c:17</div></div>
+<div class="ttc" id="aAlloc_8h_html_a6a68b9896bc5cb21dd227aef63503665"><div class="ttname"><a href="Alloc_8h.html#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Cpy_imp(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_cAlloc *Source)</div><div class="ttdoc">Allocates the memory. Copies the data from Source to This.</div></div>
 <div class="ttc" id="aAlloc_8h_html_a6f45ce21cdbcaf0ffb67e5062715bce5"><div class="ttname"><a href="Alloc_8h.html#a6f45ce21cdbcaf0ffb67e5062715bce5">ae2f_ds_Alloc_fpRead_t</a></div><div class="ttdeci">ae2f_errint_t(* ae2f_ds_Alloc_fpRead_t)(const ae2f_struct ae2f_ds_Alloc_cRef *_this, size_t Index, void *lpBuff, size_t Buff_size)</div><div class="ttdef"><b>Definition</b> Alloc.h:42</div></div>
 <div class="ttc" id="aAlloc_8h_html_a74eda9a486b849152d55552bb4841299"><div class="ttname"><a href="Alloc_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cOwn</div><div class="ttdef"><b>Definition</b> Alloc.h:25</div></div>
 <div class="ttc" id="aAlloc_8h_html_a7a51f48e3c96fd5088fe418bb8eec739"><div class="ttname"><a href="Alloc_8h.html#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear</div><div class="ttdoc">A default implementation of [vAlloc].</div><div class="ttdef"><b>Definition</b> Alloc.h:124</div></div>
 <div class="ttc" id="aAlloc_8h_html_aa098e57d3624e69c14330f34e69fa440"><div class="ttname"><a href="Alloc_8h.html#aa098e57d3624e69c14330f34e69fa440">ae2f_ds_Alloc_fpWrite_t</a></div><div class="ttdeci">ae2f_errint_t(* ae2f_ds_Alloc_fpWrite_t)(ae2f_struct ae2f_ds_Alloc_cRef *_this, size_t Index, const void *lpBuff, size_t Buff_size)</div><div class="ttdef"><b>Definition</b> Alloc.h:53</div></div>
 <div class="ttc" id="aAlloc_8h_html_ac235d87562b5374003505f12e2960196"><div class="ttname"><a href="Alloc_8h.html#ac235d87562b5374003505f12e2960196">ae2f_ds_Alloc_fpLen_t</a></div><div class="ttdeci">ae2f_errint_t(* ae2f_ds_Alloc_fpLen_t)(const ae2f_struct ae2f_ds_Alloc_cRef *_this, size_t *pSize, size_t *pel)</div><div class="ttdef"><b>Definition</b> Alloc.h:32</div></div>
-<div class="ttc" id="aAlloc_8h_html_ac7f9a0489a671e3a7d8c5e4ee4ca12f5"><div class="ttname"><a href="Alloc_8h.html#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_vAlloc *imp)</div><div class="ttdoc">Initialises the pointer.</div><div class="ttdef"><b>Definition</b> Alloc.c:4</div></div>
+<div class="ttc" id="aAlloc_8h_html_ac7f9a0489a671e3a7d8c5e4ee4ca12f5"><div class="ttname"><a href="Alloc_8h.html#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_vAlloc *imp)</div><div class="ttdoc">Initialises the pointer.</div></div>
 <div class="ttc" id="aAlloc_8h_html_adc9e4d5dbf976045f74c299ec67532c6"><div class="ttname"><a href="Alloc_8h.html#adc9e4d5dbf976045f74c299ec67532c6">ae2f_ds_Alloc_fpReConfig_t</a></div><div class="ttdeci">ae2f_errint_t(* ae2f_ds_Alloc_fpReConfig_t)(ae2f_struct ae2f_ds_Alloc_cOwn *_this, size_t elcount, size_t elsize)</div><div class="ttdoc">Resizes the memory of _this.</div><div class="ttdef"><b>Definition</b> Alloc.h:77</div></div>
 <div class="ttc" id="aCall_8h_html"><div class="ttname"><a href="Call_8h.html">Call.h</a></div></div>
 <div class="ttc" id="aCall_8h_html_acf8a5107987731bc66f8a74d75eac60c"><div class="ttname"><a href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a></div><div class="ttdeci">#define ae2f_SHAREDCALL</div><div class="ttdef"><b>Definition</b> Call.h:58</div></div>
@@ -246,10 +254,13 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="astructae2f__ds__vAlloc_html_aa5670b16b6b31bcd45477dca65e36f6b"><div class="ttname"><a href="structae2f__ds__vAlloc.html#aa5670b16b6b31bcd45477dca65e36f6b">ae2f_ds_vAlloc::Del</a></div><div class="ttdeci">const ae2f_ds_Alloc_fpDel_t Del</div><div class="ttdoc">Frees the memory of _this.</div><div class="ttdef"><b>Definition</b> Alloc.h:105</div></div>
 <div class="ttc" id="astructae2f__ds__vAlloc_html_adc158787163b76efecdf7b1fd3072add"><div class="ttname"><a href="structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add">ae2f_ds_vAlloc::ReConfig</a></div><div class="ttdeci">const ae2f_ds_Alloc_fpReConfig_t ReConfig</div><div class="ttdoc">Resizes the memory of _this.</div><div class="ttdef"><b>Definition</b> Alloc.h:114</div></div>
 </div><!-- fragment --></div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_8ea2525f6bde0ddd31d31d8c60786512.html">Ds</a></li><li class="navelem"><a class="el" href="Alloc_8h.html">Alloc.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

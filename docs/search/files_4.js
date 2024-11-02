@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linear_2ec_0',['Linear.c',['../Linear_8c.html',1,'']]]
+  ['license_2emd_0',['LICENSE.md',['../LICENSE_8md.html',1,'']]]
 ];

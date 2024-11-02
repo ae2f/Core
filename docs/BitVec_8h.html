@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -49,17 +51,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('BitVec_8h.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,12 +95,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_a78cc59714420eee20920eb94e5fd0ea.html">Macro</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a>  </div>
@@ -108,13 +116,13 @@ Macros</h2></td></tr>
 <tr class="separator:aaaa1f3da442c5ca58c2d628e8ec1d76a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b3990016c85f6c081daddd2abf4a3b3" id="r_a8b3990016c85f6c081daddd2abf4a3b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b3990016c85f6c081daddd2abf4a3b3">ae2f_Macro_BitVec_GetRanged</a>(vector,  start,  end)</td></tr>
 <tr class="separator:a8b3990016c85f6c081daddd2abf4a3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36624d763ef8c365942109f3ba230cf8" id="r_a36624d763ef8c365942109f3ba230cf8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36624d763ef8c365942109f3ba230cf8">ae2f_Macro_BitVec_Get</a>(vector,  <a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>)</td></tr>
+<tr class="memitem:a36624d763ef8c365942109f3ba230cf8" id="r_a36624d763ef8c365942109f3ba230cf8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36624d763ef8c365942109f3ba230cf8">ae2f_Macro_BitVec_Get</a>(vector,  idx)</td></tr>
 <tr class="separator:a36624d763ef8c365942109f3ba230cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a0de5ac619ad779ca56f876b0c8fc5" id="r_a53a0de5ac619ad779ca56f876b0c8fc5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53a0de5ac619ad779ca56f876b0c8fc5">_ae2f_Macro_BitVec_SetRanged</a>(vector,  start,  end,  val,  vec_t)</td></tr>
 <tr class="separator:a53a0de5ac619ad779ca56f876b0c8fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c5651e68512ac31b1c444c15e22df5d" id="r_a1c5651e68512ac31b1c444c15e22df5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c5651e68512ac31b1c444c15e22df5d">ae2f_Macro_BitVec_SetRanged</a>(vector,  start,  end,  val)</td></tr>
 <tr class="separator:a1c5651e68512ac31b1c444c15e22df5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed27799793c81b1670b3b79031535934" id="r_aed27799793c81b1670b3b79031535934"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed27799793c81b1670b3b79031535934">ae2f_Macro_BitVec_Set</a>(vector,  <a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>,  val)</td></tr>
+<tr class="memitem:aed27799793c81b1670b3b79031535934" id="r_aed27799793c81b1670b3b79031535934"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed27799793c81b1670b3b79031535934">ae2f_Macro_BitVec_Set</a>(vector,  idx,  val)</td></tr>
 <tr class="separator:aed27799793c81b1670b3b79031535934"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -243,12 +251,11 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></em></span>&#160;)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a8b3990016c85f6c081daddd2abf4a3b3">ae2f_Macro_BitVec_GetRanged</a>(vector, <a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>, (<a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>) + 1)</div>
-<div class="ttc" id="aArr_8c_html_a52e196f5dda286c4182aa8216adb99b3"><div class="ttname"><a href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></div><div class="ttdeci">#define idx</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a8b3990016c85f6c081daddd2abf4a3b3">ae2f_Macro_BitVec_GetRanged</a>(vector, idx, (idx) + 1)</div>
 <div class="ttc" id="aBitVec_8h_html_a8b3990016c85f6c081daddd2abf4a3b3"><div class="ttname"><a href="#a8b3990016c85f6c081daddd2abf4a3b3">ae2f_Macro_BitVec_GetRanged</a></div><div class="ttdeci">#define ae2f_Macro_BitVec_GetRanged(vector, start, end)</div><div class="ttdef"><b>Definition</b> BitVec.h:12</div></div>
 </div><!-- fragment -->
 </div>
@@ -297,7 +304,7 @@ Macros</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -306,7 +313,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a1c5651e68512ac31b1c444c15e22df5d">ae2f_Macro_BitVec_SetRanged</a>(vector, <a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>, (<a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>) + 1, val)</div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a1c5651e68512ac31b1c444c15e22df5d">ae2f_Macro_BitVec_SetRanged</a>(vector, idx, (idx) + 1, val)</div>
 <div class="ttc" id="aBitVec_8h_html_a1c5651e68512ac31b1c444c15e22df5d"><div class="ttname"><a href="#a1c5651e68512ac31b1c444c15e22df5d">ae2f_Macro_BitVec_SetRanged</a></div><div class="ttdeci">#define ae2f_Macro_BitVec_SetRanged(vector, start, end, val)</div><div class="ttdef"><b>Definition</b> BitVec.h:16</div></div>
 </div><!-- fragment -->
 </div>
@@ -347,10 +354,13 @@ Macros</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_a78cc59714420eee20920eb94e5fd0ea.html">Macro</a></li><li class="navelem"><a class="el" href="BitVec_8h.html">BitVec.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

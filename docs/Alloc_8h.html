@@ -11,6 +11,8 @@
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
@@ -49,17 +51,29 @@ $(function() { codefold.init(0); });
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',false);
+  initMenu('',true,false,'search.php','Search',true);
   $(function() { init_search(); });
 });
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){ initResizable(false); });
+$(function(){initNavTree('Alloc_8h.html',''); initResizable(true); });
 /* @license-end */
 </script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,12 +95,6 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_8ea2525f6bde0ddd31d31d8c60786512.html">Ds</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -134,9 +142,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a28deb514a2419b1eab03e4b60e71ee07" id="r_a28deb514a2419b1eab03e4b60e71ee07"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28deb514a2419b1eab03e4b60e71ee07">ae2f_ds_Alloc_cRef_getSize_NCOPIED</a>&#160;&#160;&#160;<a class="el" href="Cast_8h.html#ab86a90b116e454206d7d4f5c0d07ebcb">ae2f_static_cast</a>(<a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>, 0b1000010)</td></tr>
 <tr class="memdesc:a28deb514a2419b1eab03e4b60e71ee07"><td class="mdescLeft">&#160;</td><td class="mdescRight">One of [buff], [one] was null. Data was not be copied either to [buff] or [one]. Operation has done gracefully.  <br /></td></tr>
 <tr class="separator:a28deb514a2419b1eab03e4b60e71ee07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fec31670568d6cd74989f3335e60a68" id="r_a9fec31670568d6cd74989f3335e60a68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fec31670568d6cd74989f3335e60a68">ae2f_ds_Alloc_cRef_Read</a>(This,  <a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>,  buff,  elsize)</td></tr>
+<tr class="memitem:a9fec31670568d6cd74989f3335e60a68" id="r_a9fec31670568d6cd74989f3335e60a68"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fec31670568d6cd74989f3335e60a68">ae2f_ds_Alloc_cRef_Read</a>(This,  idx,  buff,  elsize)</td></tr>
 <tr class="separator:a9fec31670568d6cd74989f3335e60a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693ff82b75a1dd5690ea73ad57e26270" id="r_a693ff82b75a1dd5690ea73ad57e26270"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a693ff82b75a1dd5690ea73ad57e26270">ae2f_ds_Alloc_cRef_Write</a>(This,  <a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>,  src,  srcsize)</td></tr>
+<tr class="memitem:a693ff82b75a1dd5690ea73ad57e26270" id="r_a693ff82b75a1dd5690ea73ad57e26270"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a693ff82b75a1dd5690ea73ad57e26270">ae2f_ds_Alloc_cRef_Write</a>(This,  idx,  src,  srcsize)</td></tr>
 <tr class="separator:a693ff82b75a1dd5690ea73ad57e26270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a897ccd0f6d897a8c5b47560b8addee81" id="r_a897ccd0f6d897a8c5b47560b8addee81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a897ccd0f6d897a8c5b47560b8addee81">ae2f_ds_Alloc_cOwn_getSize</a>&#160;&#160;&#160;<a class="el" href="#a178ff9e82eef9c46cc0087016d9dc7c6">ae2f_ds_Alloc_cRef_getSize</a></td></tr>
 <tr class="separator:a897ccd0f6d897a8c5b47560b8addee81"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -279,7 +287,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md1"></a>
 This structure owns the memory.</h1>
 
 </div>
@@ -303,7 +311,7 @@ This structure owns the memory.</h1>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a>(This, <a class="code hl_define" href="Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_struct" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a>*, Source))</div>
-<div class="ttc" id="aAlloc_8h_html_a6a68b9896bc5cb21dd227aef63503665"><div class="ttname"><a href="#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Cpy_imp(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_cAlloc *Source)</div><div class="ttdoc">Allocates the memory. Copies the data from Source to This.</div><div class="ttdef"><b>Definition</b> Alloc.c:17</div></div>
+<div class="ttc" id="aAlloc_8h_html_a6a68b9896bc5cb21dd227aef63503665"><div class="ttname"><a href="#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Cpy_imp(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_cAlloc *Source)</div><div class="ttdoc">Allocates the memory. Copies the data from Source to This.</div></div>
 <div class="ttc" id="aCast_8h_html_a06f9c6cce51fc7772141ec9a6d521511"><div class="ttname"><a href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a></div><div class="ttdeci">#define ae2f_struct</div><div class="ttdef"><b>Definition</b> Cast.h:40</div></div>
 <div class="ttc" id="aCast_8h_html_a3c176dd5e27b83609c8f543832fb9f61"><div class="ttname"><a href="Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61">ae2f_reinterpret_cast</a></div><div class="ttdeci">#define ae2f_reinterpret_cast</div><div class="ttdef"><b>Definition</b> Cast.h:38</div></div>
 <div class="ttc" id="astructae2f__ds__cAlloc_html"><div class="ttname"><a href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a></div><div class="ttdef"><b>Definition</b> Alloc.h:117</div></div>
@@ -387,7 +395,7 @@ This structure owns the memory.</h1>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a>(This, &amp;<a class="code hl_variable" href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a>)</div>
 <div class="ttc" id="aAlloc_8h_html_a7a51f48e3c96fd5088fe418bb8eec739"><div class="ttname"><a href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear</div><div class="ttdoc">A default implementation of [vAlloc].</div><div class="ttdef"><b>Definition</b> Alloc.h:124</div></div>
-<div class="ttc" id="aAlloc_8h_html_ac7f9a0489a671e3a7d8c5e4ee4ca12f5"><div class="ttname"><a href="#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_vAlloc *imp)</div><div class="ttdoc">Initialises the pointer.</div><div class="ttdef"><b>Definition</b> Alloc.c:4</div></div>
+<div class="ttc" id="aAlloc_8h_html_ac7f9a0489a671e3a7d8c5e4ee4ca12f5"><div class="ttname"><a href="#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_vAlloc *imp)</div><div class="ttdoc">Initialises the pointer.</div></div>
 </div><!-- fragment -->
 <p>Initialises the pointer. </p>
 <p>Injects the function pointers automatically. </p><dl class="params"><dt>Parameters</dt><dd>
@@ -518,7 +526,7 @@ This structure owns the memory.</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md0"></a>
 This structure does not own the memory.</h1>
 <p>An interface to implement the linear array. </p>
 
@@ -618,7 +626,7 @@ This structure does not own the memory.</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -632,8 +640,7 @@ This structure does not own the memory.</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a>(This, Read, <a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>, buff, elsize)</div>
-<div class="ttc" id="aArr_8c_html_a52e196f5dda286c4182aa8216adb99b3"><div class="ttname"><a href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></div><div class="ttdeci">#define idx</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a>(This, Read, idx, buff, elsize)</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">This</td><td>const ae2f_ds_cAlloc* </td></tr>
@@ -661,7 +668,7 @@ This structure does not own the memory.</h1>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a></em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -675,7 +682,7 @@ This structure does not own the memory.</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a>(This, Write, <a class="code hl_define" href="Arr_8c.html#a52e196f5dda286c4182aa8216adb99b3">idx</a>, src, srcsize)</div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a>(This, Write, idx, src, srcsize)</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">This</td><td>ae2f_ds_cAlloc* </td></tr>
@@ -834,10 +841,6 @@ This structure does not own the memory.</h1>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><br  />
  </dd></dl>
-<h1><a class="anchor" id="autotoc_md0"></a>
-Error occurred after <code>This</code></h1>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Normal Error, from This not implemented.</h1>
 
 </div>
 </div>
@@ -898,10 +901,13 @@ Normal Error, from This not implemented.</h1>
 </div>
 </div>
 </div><!-- contents -->
-<!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0
-</small></address>
 </div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_f1d1ee13502e5e2b4981f32a22b69962.html">ae2f</a></li><li class="navelem"><a class="el" href="dir_8ea2525f6bde0ddd31d31d8c60786512.html">Ds</a></li><li class="navelem"><a class="el" href="Alloc_8h.html">Alloc.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
 </body>
 </html>

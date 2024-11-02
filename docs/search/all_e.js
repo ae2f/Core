@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['read_0',['Read',['../structae2f__ds__vAlloc.html#a4a000d4db555c09b5635d00423293885',1,'ae2f_ds_vAlloc']]],
-  ['reconfig_1',['ReConfig',['../structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add',1,'ae2f_ds_vAlloc']]]
+  ['shared_20library_0',['shared library',['../Call_8h.html#autotoc_md2',1,'It is no shared library.'],['../Call_8h.html#autotoc_md3',1,'It is no shared library.']]],
+  ['structure_20does_20not_20own_20the_20memory_1',['This structure does not own the memory.',['../Alloc_8h.html#autotoc_md0',1,'']]],
+  ['structure_20owns_20the_20memory_2',['This structure owns the memory.',['../Alloc_8h.html#autotoc_md1',1,'']]]
 ];
