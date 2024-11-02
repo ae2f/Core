@@ -6,55 +6,62 @@
 
 namespace ae2f {
 	namespace Macro {
+
+		/// @brief 
+		/// @tparam t 
+		/// Is the class binding for BitVec.h
 		template<typename t>
-		struct rBitVector {
+		struct rBitVec {
 			using idx_t = unsigned char;
 
+			/// @brief 
+			/// The actual integer.
 			t obj;
-			constexpr rBitVector(const t& obj) noexcept : obj(obj)  {
+
+			constexpr rBitVec(const t& obj) noexcept : obj(obj)  {
 				
 				static_assert(std::is_integral<t>::value, "t is not integer");
 			}
-			constexpr rBitVector(const t&& obj) noexcept : obj(obj) {
+			constexpr rBitVec(const t&& obj) noexcept : obj(obj) {
 				static_assert(std::is_integral<t>::value, "t is not integer");
 			}
 
 			template<typename T = t>
-			constexpr rBitVector(const rBitVector<T>& vec) noexcept : obj(vec.obj)  {
+			constexpr rBitVec(const rBitVec<T>& vec) noexcept : obj(vec.obj)  {
 				static_assert(std::is_integral<t>::value, "t is not integer");
 				static_assert(std::is_integral<T>::value, "T is not integer");
 			}
 
 			template<typename T = t>
-			constexpr rBitVector(const rBitVector<T>&& vec) noexcept : obj(vec.obj)  {
+			constexpr rBitVec(const rBitVec<T>&& vec) noexcept : obj(vec.obj)  {
 				static_assert(std::is_integral<t>::value, "t is not integer");
 				static_assert(std::is_integral<T>::value, "T is not integer");
 			}
 
-			constexpr static rBitVector<t> Filled(idx_t length) noexcept {
-				return rBitVector(_ae2f_Macro_BitVector_Filled(length, t));
+			constexpr static rBitVec<t> Filled(idx_t length) noexcept {
+				return rBitVec(_ae2f_Macro_BitVec_Filled(length, t));
 			}
 
 			constexpr bool Get(idx_t i) const noexcept {
-				return ae2f_Macro_BitVector_Get(obj, i);
+				return ae2f_Macro_BitVec_Get(obj, i);
 			}
 
-			constexpr rBitVector<t> Get(idx_t start, idx_t end) const noexcept {
-				return ae2f_Macro_BitVector_GetRanged(this->obj, start, end);
+			constexpr rBitVec<t> Get(idx_t start, idx_t end) const noexcept {
+				return ae2f_Macro_BitVec_GetRanged(this->obj, start, end);
 			}
-			constexpr rBitVector<t>& Set(idx_t i, bool val) noexcept {
-				obj = ae2f_Macro_BitVector_Set(this->obj, i, val);
+			constexpr rBitVec<t>& Set(idx_t i, bool val) noexcept {
+				obj = ae2f_Macro_BitVec_Set(this->obj, i, val);
 				return *this;
 			}
 
-			constexpr rBitVector<t> Set(idx_t i, bool val) const noexcept {
-				return ae2f_Macro_BitVector_Set(this->obj, i, val);
+			constexpr rBitVec<t> Set(idx_t i, bool val) const noexcept {
+				return ae2f_Macro_BitVec_Set(this->obj, i, val);
 			}
-			constexpr rBitVector<t> Set(idx_t start, idx_t end, rBitVector<t> val) const noexcept {
-				return ae2f_Macro_BitVector_SetRanged(this->obj, start, end, val.obj);
+			constexpr rBitVec<t> Set(idx_t start, idx_t end, rBitVec<t> val) const noexcept {
+				return ae2f_Macro_BitVec_SetRanged(this->obj, start, end, val.obj);
 			}
-			constexpr rBitVector<t>& Set(idx_t start, idx_t end, rBitVector<t> val) noexcept {
-				this->obj = const_cast<const rBitVector<t>*>(this)->Set(start, end, val);
+			constexpr rBitVec<t>& Set(idx_t start, idx_t end, rBitVec<t> val) noexcept {
+				this->obj = const_cast<const rBitVec<t>*>(this)->Set(start, end, val);
 				return *this;
 			}
 

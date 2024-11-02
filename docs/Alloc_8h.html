@@ -189,7 +189,7 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a7a51f48e3c96fd5088fe418bb8eec739" id="r_a7a51f48e3c96fd5088fe418bb8eec739"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> const <a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__vAlloc.html">ae2f_ds_vAlloc</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a></td></tr>
-<tr class="memdesc:a7a51f48e3c96fd5088fe418bb8eec739"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default implementation of [vAlloc].  <br /></td></tr>
+<tr class="memdesc:a7a51f48e3c96fd5088fe418bb8eec739"><td class="mdescLeft">&#160;</td><td class="mdescRight">A default implementation of [<a class="el" href="structae2f__ds__vAlloc.html" title="Structure for virtual function pointer.">ae2f_ds_vAlloc</a>].  <br /></td></tr>
 <tr class="separator:a7a51f48e3c96fd5088fe418bb8eec739"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -217,7 +217,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(<a class="code hl_define" href="#a220a2c9fa8c2d0161eb4c892f93189a5">_ae2f_ds_Alloc_FndFun</a>(This, Name) ? <a class="code hl_define" href="#a220a2c9fa8c2d0161eb4c892f93189a5">_ae2f_ds_Alloc_FndFun</a>(This, Name)(This, __VA_ARGS__) : <a class="code hl_define" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a>)</div>
-<div class="ttc" id="aAlloc_8h_html_a220a2c9fa8c2d0161eb4c892f93189a5"><div class="ttname"><a href="#a220a2c9fa8c2d0161eb4c892f93189a5">_ae2f_ds_Alloc_FndFun</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_FndFun(This, Name)</div><div class="ttdef"><b>Definition</b> Alloc.h:173</div></div>
+<div class="ttc" id="aAlloc_8h_html_a220a2c9fa8c2d0161eb4c892f93189a5"><div class="ttname"><a href="#a220a2c9fa8c2d0161eb4c892f93189a5">_ae2f_ds_Alloc_FndFun</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_FndFun(This, Name)</div><div class="ttdef"><b>Definition</b> Alloc.h:172</div></div>
 <div class="ttc" id="aerrGlob_8h_html_adfdaa71813624905f6953cf9d5c08a1e"><div class="ttname"><a href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a></div><div class="ttdeci">#define ae2f_errGlob_IMP_NOT_FOUND</div><div class="ttdef"><b>Definition</b> errGlob.h:16</div></div>
 </div><!-- fragment -->
 </div>
@@ -312,8 +312,8 @@ This structure owns the memory.</h1>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a>(This, <a class="code hl_define" href="Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_struct" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a>*, Source))</div>
 <div class="ttc" id="aAlloc_8h_html_a6a68b9896bc5cb21dd227aef63503665"><div class="ttname"><a href="#a6a68b9896bc5cb21dd227aef63503665">ae2f_ds_Alloc_cOwn_Cpy_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Cpy_imp(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_cAlloc *Source)</div><div class="ttdoc">Allocates the memory. Copies the data from Source to This.</div></div>
-<div class="ttc" id="aCast_8h_html_a06f9c6cce51fc7772141ec9a6d521511"><div class="ttname"><a href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a></div><div class="ttdeci">#define ae2f_struct</div><div class="ttdef"><b>Definition</b> Cast.h:40</div></div>
-<div class="ttc" id="aCast_8h_html_a3c176dd5e27b83609c8f543832fb9f61"><div class="ttname"><a href="Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61">ae2f_reinterpret_cast</a></div><div class="ttdeci">#define ae2f_reinterpret_cast</div><div class="ttdef"><b>Definition</b> Cast.h:38</div></div>
+<div class="ttc" id="aCast_8h_html_a06f9c6cce51fc7772141ec9a6d521511"><div class="ttname"><a href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a></div><div class="ttdeci">#define ae2f_struct</div><div class="ttdef"><b>Definition</b> Cast.h:50</div></div>
+<div class="ttc" id="aCast_8h_html_a3c176dd5e27b83609c8f543832fb9f61"><div class="ttname"><a href="Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61">ae2f_reinterpret_cast</a></div><div class="ttdeci">#define ae2f_reinterpret_cast</div><div class="ttdef"><b>Definition</b> Cast.h:45</div></div>
 <div class="ttc" id="astructae2f__ds__cAlloc_html"><div class="ttname"><a href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a></div><div class="ttdef"><b>Definition</b> Alloc.h:117</div></div>
 </div><!-- fragment -->
 <p>Allocates the memory. Copies the data from <code>Source</code> to <code>This</code>. </p>
@@ -344,7 +344,7 @@ This structure owns the memory.</h1>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a25edd643a43d008c50ab249f1b7e49fb">_ae2f_ds_Alloc_CallVoid</a>(This, Del)</div>
-<div class="ttc" id="aAlloc_8h_html_a25edd643a43d008c50ab249f1b7e49fb"><div class="ttname"><a href="#a25edd643a43d008c50ab249f1b7e49fb">_ae2f_ds_Alloc_CallVoid</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_CallVoid(This, Name)</div><div class="ttdef"><b>Definition</b> Alloc.h:175</div></div>
+<div class="ttc" id="aAlloc_8h_html_a25edd643a43d008c50ab249f1b7e49fb"><div class="ttname"><a href="#a25edd643a43d008c50ab249f1b7e49fb">_ae2f_ds_Alloc_CallVoid</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_CallVoid(This, Name)</div><div class="ttdef"><b>Definition</b> Alloc.h:174</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">This</td><td>ae2f_ds_Alloc_Owner* </td></tr>
@@ -394,7 +394,7 @@ This structure owns the memory.</h1>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a>(This, &amp;<a class="code hl_variable" href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a>)</div>
-<div class="ttc" id="aAlloc_8h_html_a7a51f48e3c96fd5088fe418bb8eec739"><div class="ttname"><a href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear</div><div class="ttdoc">A default implementation of [vAlloc].</div><div class="ttdef"><b>Definition</b> Alloc.h:124</div></div>
+<div class="ttc" id="aAlloc_8h_html_a7a51f48e3c96fd5088fe418bb8eec739"><div class="ttname"><a href="#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear</div><div class="ttdoc">A default implementation of [ae2f_ds_vAlloc].</div><div class="ttdef"><b>Definition</b> Alloc.h:123</div></div>
 <div class="ttc" id="aAlloc_8h_html_ac7f9a0489a671e3a7d8c5e4ee4ca12f5"><div class="ttname"><a href="#ac7f9a0489a671e3a7d8c5e4ee4ca12f5">ae2f_ds_Alloc_cOwn_Init</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(ae2f_struct ae2f_ds_Alloc_cOwn *This, const ae2f_struct ae2f_ds_vAlloc *imp)</div><div class="ttdoc">Initialises the pointer.</div></div>
 </div><!-- fragment -->
 <p>Initialises the pointer. </p>
@@ -456,7 +456,7 @@ This structure owns the memory.</h1>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a>(This, ReConfig, elcount, elsize)</div>
-<div class="ttc" id="aAlloc_8h_html_a57d8498c86e65fe9027012cb971cae46"><div class="ttname"><a href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_Call(This, Name,...)</div><div class="ttdef"><b>Definition</b> Alloc.h:174</div></div>
+<div class="ttc" id="aAlloc_8h_html_a57d8498c86e65fe9027012cb971cae46"><div class="ttname"><a href="#a57d8498c86e65fe9027012cb971cae46">_ae2f_ds_Alloc_Call</a></div><div class="ttdeci">#define _ae2f_ds_Alloc_Call(This, Name,...)</div><div class="ttdef"><b>Definition</b> Alloc.h:173</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,7 +479,7 @@ This structure owns the memory.</h1>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a05354ffe0338884c30e3111da2748766">ae2f_ds_Alloc_cOwn_ReConfig</a>(This, bitcount, 1)</div>
-<div class="ttc" id="aAlloc_8h_html_a05354ffe0338884c30e3111da2748766"><div class="ttname"><a href="#a05354ffe0338884c30e3111da2748766">ae2f_ds_Alloc_cOwn_ReConfig</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cOwn_ReConfig(This, elcount, elsize)</div><div class="ttdef"><b>Definition</b> Alloc.h:235</div></div>
+<div class="ttc" id="aAlloc_8h_html_a05354ffe0338884c30e3111da2748766"><div class="ttname"><a href="#a05354ffe0338884c30e3111da2748766">ae2f_ds_Alloc_cOwn_ReConfig</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cOwn_ReConfig(This, elcount, elsize)</div><div class="ttdef"><b>Definition</b> Alloc.h:234</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">This</td><td>ae2f_ds_Alloc_Owner* </td></tr>
@@ -601,7 +601,7 @@ This structure does not own the memory.</h1>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="Cast_8h.html#aa66198d77ee1dd853669a90f6fe6f57c">ae2f_record_make</a>(<a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_define" href="#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a>, (This)-&gt;data, (This)-&gt;v)</div>
 <div class="ttc" id="aAlloc_8h_html_a6883a79ac8f19b22f8efa2ebd286888a"><div class="ttname"><a href="#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cRef</div><div class="ttdef"><b>Definition</b> Alloc.h:21</div></div>
-<div class="ttc" id="aCast_8h_html_aa66198d77ee1dd853669a90f6fe6f57c"><div class="ttname"><a href="Cast_8h.html#aa66198d77ee1dd853669a90f6fe6f57c">ae2f_record_make</a></div><div class="ttdeci">#define ae2f_record_make(type,...)</div><div class="ttdef"><b>Definition</b> Cast.h:35</div></div>
+<div class="ttc" id="aCast_8h_html_aa66198d77ee1dd853669a90f6fe6f57c"><div class="ttname"><a href="Cast_8h.html#aa66198d77ee1dd853669a90f6fe6f57c">ae2f_record_make</a></div><div class="ttdeci">#define ae2f_record_make(type,...)</div><div class="ttdoc">Initialiser for trivial structures / classes.</div><div class="ttdef"><b>Definition</b> Cast.h:41</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">This</td><td>const ae2f_ds_cAlloc* </td></tr>
@@ -895,8 +895,7 @@ This structure does not own the memory.</h1>
       </table>
 </div><div class="memdoc">
 
-<p>A default implementation of [vAlloc]. </p>
-<dl class="section see"><dt>See also</dt><dd>[<a class="el" href="structae2f__ds__vAlloc.html" title="Structure for virtual function pointer.">ae2f_ds_vAlloc</a>] </dd></dl>
+<p>A default implementation of [<a class="el" href="structae2f__ds__vAlloc.html" title="Structure for virtual function pointer.">ae2f_ds_vAlloc</a>]. </p>
 
 </div>
 </div>

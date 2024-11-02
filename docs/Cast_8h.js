@@ -7,6 +7,7 @@ var Cast_8h =
     [ "ae2f_dynamic_cast", "Cast_8h.html#a21a3705fa7174d4210e2d37fd0263a5e", null ],
     [ "ae2f_extern", "Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b", null ],
     [ "ae2f_Macro_Cast_Console_Clear_Cheat", "Cast_8h.html#afeaf2cc218efb8d1a959a6c566fd1b6a", null ],
+    [ "ae2f_Macro_Cast_h", "Cast_8h.html#a9e9ec9f978770b0dbf25664864f005a8", null ],
     [ "ae2f_Macro_Cast_Merge", "Cast_8h.html#a7720a822df15ced78d46a9cece951d8d", null ],
     [ "ae2f_record_make", "Cast_8h.html#aa66198d77ee1dd853669a90f6fe6f57c", null ],
     [ "ae2f_reinterpret_cast", "Cast_8h.html#a3c176dd5e27b83609c8f543832fb9f61", null ],

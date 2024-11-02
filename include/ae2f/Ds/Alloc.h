@@ -119,8 +119,7 @@ struct ae2f_ds_cAlloc {
 	const ae2f_struct ae2f_ds_vAlloc* v;
 };
 
-/// @brief A default implementation of [vAlloc].
-/// @see [ae2f_ds_vAlloc]
+/// @brief A default implementation of [ae2f_ds_vAlloc].
 ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear;
 
 #pragma endregion
