@@ -25,12 +25,6 @@
 var NAVTREE =
 [
   [ "ae2f::Core", "index.html", [
-    [ "ae2f_Core", "md_LICENSE.html", [
-      [ "Doxygen", "md_LICENSE.html#autotoc_md6", null ]
-    ] ],
-    [ "ae2f_Core", "md_README.html", [
-      [ "Doxygen", "md_README.html#autotoc_md8", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
