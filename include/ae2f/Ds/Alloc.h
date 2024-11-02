@@ -68,15 +68,19 @@ typedef ae2f_errint_t(*ae2f_ds_Alloc_fpDel_t)(
 );
 
 /// @brief 
-/// Resizes the memory of `_this` in a byte size of `size`.
+/// Resizes the memory of `_this`.
 /// 
-/// Additional allocated memory would be set as 0.
+/// Additional memories(newly allocated) must be initiated as 0.
+/// @param _this The owner of the memory.
+/// @param elcount The count of the elements.
+/// @param elsize The size of each elements.
 typedef ae2f_errint_t(*ae2f_ds_Alloc_fpReConfig_t)(
 	ae2f_struct ae2f_ds_Alloc_cOwn* _this, 
 	size_t elcount,
 	size_t elsize
 );
 
+/// @brief Structure for virtual function pointer.
 struct ae2f_ds_vAlloc {
 	/// @param _this The constant instance of the class.
 	/// @param pSize A pointer where the count of the array, as an unit of elements.
@@ -101,9 +105,12 @@ struct ae2f_ds_vAlloc {
 	const ae2f_ds_Alloc_fpDel_t Del;
 
 	/// @brief 
-	/// Resizes the memory of `_this` in a byte size of `size`.
+	/// Resizes the memory of `_this`.
 	/// 
-	/// Additional allocated memory would be set as 0.
+	/// Additional memories(newly allocated) must be initiated as 0.
+	/// @param _this The owner of the memory.
+	/// @param elcount The count of the elements.
+	/// @param elsize The size of each elements.
 	const ae2f_ds_Alloc_fpReConfig_t ReConfig;
 };
 
@@ -113,6 +120,7 @@ struct ae2f_ds_cAlloc {
 };
 
 /// @brief A default implementation of [vAlloc].
+/// @see [ae2f_ds_vAlloc]
 ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLinear;
 
 #pragma endregion
