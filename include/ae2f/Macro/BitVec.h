@@ -13,7 +13,7 @@
 /// @param len The length of the filled vector.
 #define ae2f_Macro_BitVec_Filled(len) _ae2f_Macro_BitVec_Filled(len, size_t)
 
-
+/// @brief
 #define _ae2f_Macro_BitVec_GetRanged(vector, start, end, vec_t) (((vector) >> (start)) & _ae2f_Macro_BitVec_Filled((end) - (start), vec_t))
 #define ae2f_Macro_BitVec_GetRanged(vector, start, end) _ae2f_Macro_BitVec_GetRanged(vector, ae2f_Macro_Compare_TakeSmaller(start, end), ae2f_Macro_Compare_TakeBigger(start, end), size_t)
 #define ae2f_Macro_BitVec_Get(vector, idx) ae2f_Macro_BitVec_GetRanged(vector, idx, (idx) + 1)
