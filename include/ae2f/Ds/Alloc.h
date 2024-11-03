@@ -11,6 +11,9 @@
 
 /// @brief
 /// The data holder for [cRef] and [cOwn].
+/// @see
+/// [ae2f_ds_Alloc_cRef]
+/// [ae2f_ds_Alloc_cOwn]
 struct ae2f_ds_cAlloc;
 
 
@@ -125,12 +128,12 @@ ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLin
 #pragma endregion
 #pragma endregion
 
+
+
 /// @brief 
 ///	Initialises the pointer.
 /// 
 ///	Injects the function pointers automatically.
-/// 
-/// Passing zero via [vRef] or [vOwn] causes this function to set the functions as default.
 /// @param This 
 /// Address to be set.
 /// 
@@ -138,16 +141,29 @@ ae2f_SHAREDCALL ae2f_extern const ae2f_struct ae2f_ds_vAlloc ae2f_ds_vAlloc_cLin
 /// @param imp
 /// Class Implementations
 /// @return 
+/// @ref ae2f_errGlob_OK
+/// @exception  \
+/// @ref ae2f_ds_Alloc_cOwn_Init_FPIMPNULL  \n
+/// @ref ae2f_errGlob_PTR_IS_NULL
 ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(
 	ae2f_struct ae2f_ds_Alloc_cOwn* This, 
 	const ae2f_struct ae2f_ds_vAlloc* imp
 );
 
 /// @brief
+/// `imp` from ae2f_ds_Alloc_cOwn_Init was nullptr.
+/// @see 
+/// ae2f_ds_Alloc_cOwn_Init
+/// @return
+/// @ref ae2f_errGlob_IMP_NOT_FOUND \n
+/// @ref ae2f_errGlob_PTR_IS_NULL
+#define ae2f_ds_Alloc_cOwn_Init_FPIMPNULL 0b11
+
+/// @brief
 ///	Initialises the pointer.
 /// 
 ///	Injects the function pointers automatically.
-/// @param This:	ae2f_ds_Alloc_Owner* 
+/// @param This: 	ae2f_ds_Alloc_Owner* 
 /// 
 /// Address to be set.
 /// Do not pass when it is allocated.
