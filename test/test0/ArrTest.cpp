@@ -1,6 +1,8 @@
 #include <ae2f/Ds/Arr.hpp>
 #include <iostream>
 
+#include <ae2f/Macro/Cast.h>
+
 struct a {
     static int _d;
     int v;

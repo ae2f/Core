@@ -2,7 +2,7 @@
 #define ae2f_ds_Alloc_h
 
 #include <ae2f/Macro/Cast.h>
-#include <ae2f/Macro/Compare.h>
+#include <ae2f/Macro/Cmp.h>
 #include <ae2f/Macro/errGlob.h>
 #include <ae2f/Macro/Call.h>
  
