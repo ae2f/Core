@@ -10,7 +10,7 @@
 typedef uint8_t ae2f_errint_t;
 
 /// @brief
-/// The Operation you've wanted has beed succeed. 
+/// The Operation you've wanted went successful. 
 #define ae2f_errGlob_OK ae2f_static_cast(ae2f_errint_t, 0)
 
 /// @brief

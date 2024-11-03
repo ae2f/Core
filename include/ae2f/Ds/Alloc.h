@@ -185,7 +185,7 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(
 /// Good: The Function Pointer with the given name.
 /// 
 /// Bad: 0
-#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_Macro_Compare_TakeMember(ae2f_Macro_Compare_TakeMember(This, v, 0), Name, 0)
+#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_Macro_Cmp_TakeMem(ae2f_Macro_Cmp_TakeMem(This, v, 0), Name, 0)
 #define _ae2f_ds_Alloc_Call(This, Name, ...) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This, __VA_ARGS__) : ae2f_errGlob_IMP_NOT_FOUND)
 #define _ae2f_ds_Alloc_CallVoid(This, Name) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This) : ae2f_errGlob_IMP_NOT_FOUND)
 
