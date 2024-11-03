@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['obj_0',['Obj',['../unionae2f_1_1Ds_1_1Arr_1_1Pack.html#a06bf166c659ca3dba77d0fdbc05180f6',1,'ae2f::Ds::Arr::Pack']]],
-  ['obj_1',['obj',['../structae2f_1_1Macro_1_1rBitVec.html#a6e05c797a478e73b046b0ddd28171860',1,'ae2f::Macro::rBitVec']]]
+  ['ncopied_0',['NCOPIED',['../namespaceae2f_1_1Ds_1_1Alloc_1_1E__GetSize.html#acf64eedd087affefdf25e5301d923d50',1,'ae2f::Ds::Alloc::E_GetSize']]]
 ];

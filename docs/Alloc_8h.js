@@ -9,6 +9,7 @@ var Alloc_8h =
     [ "ae2f_ds_Alloc_cOwn_Cpy", "Alloc_8h.html#a056cc651992db418d638d3068cdb7b58", null ],
     [ "ae2f_ds_Alloc_cOwn_Del", "Alloc_8h.html#ae20c7868230e97e1b48d872108220fc0", null ],
     [ "ae2f_ds_Alloc_cOwn_getSize", "Alloc_8h.html#a897ccd0f6d897a8c5b47560b8addee81", null ],
+    [ "ae2f_ds_Alloc_cOwn_Init_FPIMPNULL", "Alloc_8h.html#aaf467e25a1977f7affe73f9e0395de02", null ],
     [ "ae2f_ds_Alloc_cOwn_InitAuto", "Alloc_8h.html#a9231dd1dba2b79d935e625e1c1ccfea7", null ],
     [ "ae2f_ds_Alloc_cOwn_Read", "Alloc_8h.html#a145aa1e5b7dabef3394fd5af6e74bb3b", null ],
     [ "ae2f_ds_Alloc_cOwn_ReConfig", "Alloc_8h.html#a05354ffe0338884c30e3111da2748766", null ],

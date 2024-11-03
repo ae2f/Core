@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['v_0',['v',['../structae2f__ds__cAlloc.html#a9fc78dd22a2e5b7b97d932c9fbd5c0b2',1,'ae2f_ds_cAlloc']]]
+  ['read_0',['Read',['../structae2f__ds__vAlloc.html#a4a000d4db555c09b5635d00423293885',1,'ae2f_ds_vAlloc']]],
+  ['reconfig_1',['ReConfig',['../structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add',1,'ae2f_ds_vAlloc']]]
 ];

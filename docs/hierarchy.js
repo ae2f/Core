@@ -15,6 +15,7 @@ var hierarchy =
     [ "ae2f::Ds::Arr::__Refer< T, NIsTrivial >", "structae2f_1_1Ds_1_1Arr_1_1____Refer.html", null ],
     [ "ae2f_ds_cAlloc", "structae2f__ds__cAlloc.html", null ],
     [ "ae2f_ds_vAlloc", "structae2f__ds__vAlloc.html", null ],
+    [ "ae2f_union_caster< t, k >", "unionae2f__union__caster.html", null ],
     [ "ae2f::Ds::Arr::Pack< T >", "unionae2f_1_1Ds_1_1Arr_1_1Pack.html", null ],
     [ "ae2f::Macro::rBitVec< t >", "structae2f_1_1Macro_1_1rBitVec.html", null ],
     [ "rOwner", null, [
