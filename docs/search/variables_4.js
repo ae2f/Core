@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsize_0',['GetSize',['../structae2f__ds__vAlloc.html#a0ea5231593e767fb3bdfdf845bd1e3fa',1,'ae2f_ds_vAlloc']]]
+  ['flush_5ffailed_0',['FLUSH_FAILED',['../namespaceae2f_1_1Macro_1_1errGlob.html#acae93f16315f2f01dd63fe842ec1ba88',1,'ae2f::Macro::errGlob']]]
 ];

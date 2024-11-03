@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['xrowner_0',['xrOwner',['../structae2f_1_1Ds_1_1Alloc_1_1xrOwner.html#a9afb67a5a9f4e7f1085124584bb598bf',1,'ae2f::Ds::Alloc::xrOwner']]]
+  ['takegt_0',['TakeGt',['../namespaceae2f_1_1Macro_1_1Cmp.html#a1a55daed67248f37d90e382256043f73',1,'ae2f::Macro::Cmp']]],
+  ['takels_1',['TakeLs',['../namespaceae2f_1_1Macro_1_1Cmp.html#a00faf14302ddf8dde8e858319dccf4e1',1,'ae2f::Macro::Cmp']]]
 ];

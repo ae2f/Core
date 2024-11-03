@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['read_0',['Read',['../structae2f__ds__vAlloc.html#a4a000d4db555c09b5635d00423293885',1,'ae2f_ds_vAlloc']]],
-  ['reconfig_1',['ReConfig',['../structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add',1,'ae2f_ds_vAlloc']]]
+  ['ncopied_0',['NCOPIED',['../namespaceae2f_1_1Ds_1_1Alloc_1_1E__GetSize.html#acf64eedd087affefdf25e5301d923d50',1,'ae2f::Ds::Alloc::E_GetSize']]],
+  ['nfound_1',['NFOUND',['../namespaceae2f_1_1Macro_1_1errGlob.html#a27e08abcb0fcadaf953f7b4fda2ea9bd',1,'ae2f::Macro::errGlob']]]
 ];

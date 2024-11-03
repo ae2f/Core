@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['length_0',['Length',['../structae2f_1_1Ds_1_1Alloc_1_1cRefer.html#a83ebad72a0e820d7e9302445b4e4d56c',1,'ae2f::Ds::Alloc::cRefer::Length()'],['../structae2f_1_1Ds_1_1Alloc_1_1xrOwner.html#a7a70abeabb9d51109a8bce7b7abbc4fa',1,'ae2f::Ds::Alloc::xrOwner::Length()']]]
+  ['iowner_0',['iOwner',['../structae2f_1_1Ds_1_1Alloc_1_1iOwner.html#aa351e51b013ed5cd95aa529484bef629',1,'ae2f::Ds::Alloc::iOwner::iOwner()'],['../structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774',1,'ae2f::Ds::Arr::iOwner::iOwner()']]],
+  ['isvalid_1',['isvalid',['../unionae2f_1_1Ds_1_1Arr_1_1Pack.html#a847c5d1c7faf78700fe2a54449d2714d',1,'ae2f::Ds::Arr::Pack']]]
 ];

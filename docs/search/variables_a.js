@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_0',['Write',['../structae2f__ds__vAlloc.html#a35f07deb3fedf9f86d3981fba16b3a3c',1,'ae2f_ds_vAlloc']]]
+  ['ptr_5fis_5fnull_0',['PTR_IS_NULL',['../namespaceae2f_1_1Macro_1_1errGlob.html#a84047c490dd32b04a44192f8dfb827dd',1,'ae2f::Macro::errGlob']]]
 ];

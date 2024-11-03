@@ -5,6 +5,8 @@ var dir_a78cc59714420eee20920eb94e5fd0ea =
     [ "BitVec.hpp", "BitVec_8hpp.html", "BitVec_8hpp" ],
     [ "Call.h", "Call_8h.html", "Call_8h" ],
     [ "Cast.h", "Cast_8h.html", "Cast_8h" ],
-    [ "Compare.h", "Compare_8h.html", "Compare_8h" ],
-    [ "errGlob.h", "errGlob_8h.html", "errGlob_8h" ]
+    [ "Cmp.h", "Cmp_8h.html", "Cmp_8h" ],
+    [ "Cmp.hpp", "Cmp_8hpp.html", "Cmp_8hpp" ],
+    [ "errGlob.h", "errGlob_8h.html", "errGlob_8h" ],
+    [ "errGlob.hpp", "errGlob_8hpp.html", "errGlob_8hpp" ]
 ];

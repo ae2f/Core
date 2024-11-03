@@ -102,7 +102,7 @@ $(function(){initNavTree('BitVec_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Cast_8h_source.html">Cast.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="Compare_8h_source.html">Compare.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Cmp_8h_source.html">Cmp.h</a>&quot;</code><br />
 </div>
 <p><a href="BitVec_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -307,10 +307,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#aaaa1f3da442c5ca58c2d628e8ec1d76a">_ae2f_Macro_BitVec_GetRanged</a>(vector, <a class="code hl_define" href="Compare_8h.html#a5330142bbee76f7d6b185e0b1e556f8b">ae2f_Macro_Compare_TakeSmaller</a>(start, end), <a class="code hl_define" href="Compare_8h.html#a121308ec4d9005bbe00a780d2887df9a">ae2f_Macro_Compare_TakeBigger</a>(start, end), <span class="keywordtype">size_t</span>)</div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#aaaa1f3da442c5ca58c2d628e8ec1d76a">_ae2f_Macro_BitVec_GetRanged</a>(vector, ae2f_Macro_Compare_TakeSmaller(start, end), ae2f_Macro_Compare_TakeBigger(start, end), <span class="keywordtype">size_t</span>)</div>
 <div class="ttc" id="aBitVec_8h_html_aaaa1f3da442c5ca58c2d628e8ec1d76a"><div class="ttname"><a href="#aaaa1f3da442c5ca58c2d628e8ec1d76a">_ae2f_Macro_BitVec_GetRanged</a></div><div class="ttdeci">#define _ae2f_Macro_BitVec_GetRanged(vector, start, end, vec_t)</div><div class="ttdef"><b>Definition</b> BitVec.h:17</div></div>
-<div class="ttc" id="aCompare_8h_html_a121308ec4d9005bbe00a780d2887df9a"><div class="ttname"><a href="Compare_8h.html#a121308ec4d9005bbe00a780d2887df9a">ae2f_Macro_Compare_TakeBigger</a></div><div class="ttdeci">#define ae2f_Macro_Compare_TakeBigger(a, b)</div><div class="ttdef"><b>Definition</b> Compare.h:4</div></div>
-<div class="ttc" id="aCompare_8h_html_a5330142bbee76f7d6b185e0b1e556f8b"><div class="ttname"><a href="Compare_8h.html#a5330142bbee76f7d6b185e0b1e556f8b">ae2f_Macro_Compare_TakeSmaller</a></div><div class="ttdeci">#define ae2f_Macro_Compare_TakeSmaller(a, b)</div><div class="ttdef"><b>Definition</b> Compare.h:5</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -370,10 +368,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a53a0de5ac619ad779ca56f876b0c8fc5">_ae2f_Macro_BitVec_SetRanged</a>(vector, <a class="code hl_define" href="Compare_8h.html#a5330142bbee76f7d6b185e0b1e556f8b">ae2f_Macro_Compare_TakeSmaller</a>(start, end), <a class="code hl_define" href="Compare_8h.html#a121308ec4d9005bbe00a780d2887df9a">ae2f_Macro_Compare_TakeBigger</a>(start, end), (val) &amp; <a class="code hl_define" href="#a862baeb72cc8dde048940f92b923d296">ae2f_Macro_BitVec_Filled</a>(<a class="code hl_define" href="Compare_8h.html#a32ce19196400474f21624505335e467d">ae2f_Macro_Compare_Diff</a>(start, end)), <span class="keywordtype">size_t</span>)</div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a53a0de5ac619ad779ca56f876b0c8fc5">_ae2f_Macro_BitVec_SetRanged</a>(vector, ae2f_Macro_Compare_TakeSmaller(start, end), ae2f_Macro_Compare_TakeBigger(start, end), (val) &amp; <a class="code hl_define" href="#a862baeb72cc8dde048940f92b923d296">ae2f_Macro_BitVec_Filled</a>(ae2f_Macro_Compare_Diff(start, end)), <span class="keywordtype">size_t</span>)</div>
 <div class="ttc" id="aBitVec_8h_html_a53a0de5ac619ad779ca56f876b0c8fc5"><div class="ttname"><a href="#a53a0de5ac619ad779ca56f876b0c8fc5">_ae2f_Macro_BitVec_SetRanged</a></div><div class="ttdeci">#define _ae2f_Macro_BitVec_SetRanged(vector, start, end, val, vec_t)</div><div class="ttdef"><b>Definition</b> BitVec.h:21</div></div>
 <div class="ttc" id="aBitVec_8h_html_a862baeb72cc8dde048940f92b923d296"><div class="ttname"><a href="#a862baeb72cc8dde048940f92b923d296">ae2f_Macro_BitVec_Filled</a></div><div class="ttdeci">#define ae2f_Macro_BitVec_Filled(len)</div><div class="ttdoc">Generates the vector filled in 1.</div><div class="ttdef"><b>Definition</b> BitVec.h:14</div></div>
-<div class="ttc" id="aCompare_8h_html_a32ce19196400474f21624505335e467d"><div class="ttname"><a href="Compare_8h.html#a32ce19196400474f21624505335e467d">ae2f_Macro_Compare_Diff</a></div><div class="ttdeci">#define ae2f_Macro_Compare_Diff(a, b)</div><div class="ttdef"><b>Definition</b> Compare.h:6</div></div>
 </div><!-- fragment -->
 </div>
 </div>

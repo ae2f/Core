@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['iowner_0',['iOwner',['../structae2f_1_1Ds_1_1Alloc_1_1iOwner.html#aa351e51b013ed5cd95aa529484bef629',1,'ae2f::Ds::Alloc::iOwner::iOwner()'],['../structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774',1,'ae2f::Ds::Arr::iOwner::iOwner()']]],
-  ['isvalid_1',['isvalid',['../unionae2f_1_1Ds_1_1Arr_1_1Pack.html#a847c5d1c7faf78700fe2a54449d2714d',1,'ae2f::Ds::Arr::Pack']]]
+  ['get_0',['Get',['../structae2f_1_1Macro_1_1rBitVec.html#a44f5bf8ce4b15eab4387cedffb74208b',1,'ae2f::Macro::rBitVec::Get(idx_t i) const noexcept'],['../structae2f_1_1Macro_1_1rBitVec.html#a87ee52acdeaa4208654c13c131bcb785',1,'ae2f::Macro::rBitVec::Get(idx_t start, idx_t end) const noexcept']]]
 ];

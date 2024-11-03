@@ -103,7 +103,7 @@ $(function(){initNavTree('Alloc_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ae2f_ds_Alloc_h</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="Cast_8h.html">ae2f/Macro/Cast.h</a>&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="Compare_8h.html">ae2f/Macro/Compare.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="Cmp_8h.html">ae2f/Macro/Cmp.h</a>&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="errGlob_8h.html">ae2f/Macro/errGlob.h</a>&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;<a class="code" href="Call_8h.html">ae2f/Macro/Call.h</a>&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
@@ -194,7 +194,7 @@ $(function(){initNavTree('Alloc_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="Alloc_8h.html#ac5bc205a87a0f869e6d6cf774746a32c">  179</a></span><span class="preprocessor">#define ae2f_ds_Alloc_cRef_Mk(This) ae2f_record_make(ae2f_struct ae2f_ds_Alloc_cRef, (This)-&gt;data, (This)-&gt;v)</span></div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="Alloc_8h.html#a220a2c9fa8c2d0161eb4c892f93189a5">  188</a></span><span class="preprocessor">#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_Macro_Compare_TakeMember(ae2f_Macro_Compare_TakeMember(This, v, 0), Name, 0)</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="Alloc_8h.html#a220a2c9fa8c2d0161eb4c892f93189a5">  188</a></span><span class="preprocessor">#define _ae2f_ds_Alloc_FndFun(This, Name) ae2f_Macro_Cmp_TakeMem(ae2f_Macro_Cmp_TakeMem(This, v, 0), Name, 0)</span></div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="Alloc_8h.html#a57d8498c86e65fe9027012cb971cae46">  189</a></span><span class="preprocessor">#define _ae2f_ds_Alloc_Call(This, Name, ...) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This, __VA_ARGS__) : ae2f_errGlob_IMP_NOT_FOUND)</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="Alloc_8h.html#a25edd643a43d008c50ab249f1b7e49fb">  190</a></span><span class="preprocessor">#define _ae2f_ds_Alloc_CallVoid(This, Name) (_ae2f_ds_Alloc_FndFun(This, Name) ? _ae2f_ds_Alloc_FndFun(This, Name)(This) : ae2f_errGlob_IMP_NOT_FOUND)</span></div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
@@ -245,7 +245,7 @@ $(function(){initNavTree('Alloc_8h_source.html',''); initResizable(true); });
 <div class="ttc" id="aCast_8h_html"><div class="ttname"><a href="Cast_8h.html">Cast.h</a></div></div>
 <div class="ttc" id="aCast_8h_html_a06f9c6cce51fc7772141ec9a6d521511"><div class="ttname"><a href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a></div><div class="ttdeci">#define ae2f_struct</div><div class="ttdoc">In C, keyword 'struct' must be written in front of the structure's name in order to use as a type nam...</div><div class="ttdef"><b>Definition</b> Cast.h:81</div></div>
 <div class="ttc" id="aCast_8h_html_af32d53608be4ca28fd8e5cd34fc0279b"><div class="ttname"><a href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a></div><div class="ttdeci">#define ae2f_extern</div><div class="ttdoc">Suggests the existence of external variable or function, in naming of C. [non-mangling].</div><div class="ttdef"><b>Definition</b> Cast.h:85</div></div>
-<div class="ttc" id="aCompare_8h_html"><div class="ttname"><a href="Compare_8h.html">Compare.h</a></div></div>
+<div class="ttc" id="aCmp_8h_html"><div class="ttname"><a href="Cmp_8h.html">Cmp.h</a></div></div>
 <div class="ttc" id="aerrGlob_8h_html"><div class="ttname"><a href="errGlob_8h.html">errGlob.h</a></div></div>
 <div class="ttc" id="aerrGlob_8h_html_ada27ccf87bd7066f67a8fe056e180783"><div class="ttname"><a href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a></div><div class="ttdeci">uint8_t ae2f_errint_t</div><div class="ttdoc">Informs that this number represents the error.</div><div class="ttdef"><b>Definition</b> errGlob.h:10</div></div>
 <div class="ttc" id="astructae2f__ds__cAlloc_html"><div class="ttname"><a href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a></div><div class="ttdef"><b>Definition</b> Alloc.h:120</div></div>
