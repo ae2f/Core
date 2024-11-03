@@ -15,8 +15,10 @@ add_library(
     ${ae2f_PREFIX_LIB}
 
 	"include/ae2f/Macro/Cast.h" 
+	"include/ae2f/Macro/Cast/CasterUnion.hpp" 
 
     "include/ae2f/Macro/errGlob.h" 
+    "include/ae2f/Macro/errGlob.hpp" 
     "src/Macro/errGlob.c"
 
     "include/ae2f/Macro/BitVec.h" 
@@ -30,7 +32,8 @@ add_library(
 	"include/ae2f/Ds/Arr.h"
     "src/Ds/Arr.c"
 
-	"include/ae2f/Macro/Compare.h"
+	"include/ae2f/Macro/Cmp.h"
+	"include/ae2f/Macro/Cmp.hpp"
     "include/ae2f/Macro/Call.h"
 )
 

@@ -2,7 +2,7 @@
 #define ae2f_Macro_BitVector_h
 
 #include "Cast.h"
-#include "Compare.h"
+#include "Cmp.h"
 
 /// @brief Generates the vector filled in `1`.
 /// @param len The length of the filled vector.
