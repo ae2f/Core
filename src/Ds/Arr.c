@@ -5,18 +5,18 @@
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	const struct ae2f_ds_cAlloc* arr,
 	const void* wanted,
-	size_t elsize,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t* out
 ) {
 	if (!out) return ae2f_errGlob_PTR_IS_NULL;
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;
 
-	ae2f_errint_t err; size_t arr_r, arr_l = 0;
+	ae2f_errint_t err; 
+	size_t arr_r, arr_l = 0, elsize;
 	
-	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)) 
+	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, &elsize))) 
 		return err;
-	arr_r /= elsize;
+
 	arr_r--;
 
 	void* el = calloc(elsize, 1);
@@ -157,14 +157,13 @@ static ae2f_errint_t imp_ae2f_Qsort(
 
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	struct ae2f_ds_cAlloc* arr,
-	size_t elsize,
 	const ae2f_ds_Arr_fpElCmp_t fpElCmp
 ) {
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;
 
-	size_t len;
+	size_t len, elsize;
 	ae2f_errint_t rtn;
-	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)
+	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, &elsize))
 		return rtn;
 
 	void* tmpel = calloc(1, elsize);
@@ -180,7 +179,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 		.tempel = tmpel,
 		.pivot = pvt,
 		.idx_low = 0,
-		.idx_high = (len / elsize) - 1
+		.idx_high = len - 1
 	};
 
 	while((rtn |= imp_ae2f_Qsort(&prm)) & ae2f_errGlob_DONE_HOWEV)

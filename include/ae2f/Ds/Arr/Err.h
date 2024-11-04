@@ -1,6 +1,12 @@
+/// @file
+/// Helper header for ae2f/Ds/Arr.h
+/// @warning 
+/// This file has lack of definitions.
+
 /// @brief
-/// Failed to find the wanted value.
-/// 
+/// # It is not a critical error.
+///
+/// Failed to find the wanted value. \n 
 /// Your array might have not been sorted finely.
 /// @return 
 /// @ref ae2f_errGlob_NFOUND \n
