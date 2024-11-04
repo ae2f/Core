@@ -174,7 +174,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
             const ae2f_ds_vAlloc* imp
         ) noexcept : rOwner() {
             perr = perr ? perr : &ae2f_errGlob_LastErr;
-            *perr = ae2f_ds_Alloc_cOwn_Init(this, imp);
+            *perr |= ae2f_ds_Alloc_cOwn_Init(this, imp);
         }
     };
 

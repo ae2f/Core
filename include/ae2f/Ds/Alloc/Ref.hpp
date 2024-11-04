@@ -11,6 +11,7 @@ namespace ae2f { namespace Ds { namespace Alloc {
     /// An interface to implement the linear array.
     /// @see ae2f_ds_cAlloc
     /// @see ae2f_ds_Alloc_cRef
+    /// @see ae2f::Ds::Alloc::rRefer
     struct cRefer : public rRefer {
         public:
 
