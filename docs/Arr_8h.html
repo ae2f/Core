@@ -121,31 +121,34 @@ Macros</h2></td></tr>
 <tr class="memitem:a15c04aca8a3e1435ff68818e7835dd66" id="r_a15c04aca8a3e1435ff68818e7835dd66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15c04aca8a3e1435ff68818e7835dd66">ae2f_ds_Arr_LEFT_UNIT</a>&#160;&#160;&#160;<a class="el" href="Cast_8h.html#ab86a90b116e454206d7d4f5c0d07ebcb">ae2f_static_cast</a>(<a class="el" href="#ac9b46127c70ea2bfbde29219f8e815dd">ae2f_ds_Arr_CmpRet_t</a>, -1)</td></tr>
 <tr class="memdesc:a15c04aca8a3e1435ff68818e7835dd66"><td class="mdescLeft">&#160;</td><td class="mdescRight">left is lesser  <br /></td></tr>
 <tr class="separator:a15c04aca8a3e1435ff68818e7835dd66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e5e943d1055f1abd31276296438b0f0" id="r_a0e5e943d1055f1abd31276296438b0f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e5e943d1055f1abd31276296438b0f0">ae2f_ds_Arr_BSearch</a>(arr,  wanted,  elsize,  fpElCmp)</td></tr>
-<tr class="memdesc:a0e5e943d1055f1abd31276296438b0f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the element [wanted] via binary search.  <br /></td></tr>
-<tr class="separator:a0e5e943d1055f1abd31276296438b0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b6f4b086355799eeef8ecead8a7ce18" id="r_a5b6f4b086355799eeef8ecead8a7ce18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b6f4b086355799eeef8ecead8a7ce18">ae2f_ds_Arr_QSort</a>(arr,  elsize,  fpElCmp)</td></tr>
-<tr class="separator:a5b6f4b086355799eeef8ecead8a7ce18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a267724d240c49f3865f034af56070a6b" id="r_a267724d240c49f3865f034af56070a6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a267724d240c49f3865f034af56070a6b">ae2f_ds_Arr_BSearch</a>(arr,  wanted,  fpElCmp,  retidx)</td></tr>
+<tr class="memdesc:a267724d240c49f3865f034af56070a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the element [wanted] via binary search.  <br /></td></tr>
+<tr class="separator:a267724d240c49f3865f034af56070a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdf3765349b579e311db76491d8081a3" id="r_afdf3765349b579e311db76491d8081a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdf3765349b579e311db76491d8081a3">ae2f_ds_Arr_QSort</a>(arr,  fpElCmp)</td></tr>
+<tr class="memdesc:afdf3765349b579e311db76491d8081a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order the arr via quick sort.  <br /></td></tr>
+<tr class="separator:afdf3765349b579e311db76491d8081a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ac9b46127c70ea2bfbde29219f8e815dd" id="r_ac9b46127c70ea2bfbde29219f8e815dd"><td class="memItemLeft" align="right" valign="top">typedef int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9b46127c70ea2bfbde29219f8e815dd">ae2f_ds_Arr_CmpRet_t</a></td></tr>
+<tr class="memdesc:ac9b46127c70ea2bfbde29219f8e815dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">A predefined returning data type for <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>.  <br /></td></tr>
 <tr class="separator:ac9b46127c70ea2bfbde29219f8e815dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13e7aa3612bf7f85c6bc96abac358ff0" id="r_a13e7aa3612bf7f85c6bc96abac358ff0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="#ac9b46127c70ea2bfbde29219f8e815dd">ae2f_ds_Arr_CmpRet_t</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>) (const void *l, const void *r)</td></tr>
+<tr class="memdesc:a13e7aa3612bf7f85c6bc96abac358ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is an api for following approximate pseudo code.  <br /></td></tr>
 <tr class="separator:a13e7aa3612bf7f85c6bc96abac358ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a509e0318d91e0f1910093f1b9363851b" id="r_a509e0318d91e0f1910093f1b9363851b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a509e0318d91e0f1910093f1b9363851b">ae2f_ds_Arr_BSearch_imp</a> (const <a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a> *arr, const void *wanted, size_t elsize, const <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a> fpElCmp, size_t *out)</td></tr>
-<tr class="memdesc:a509e0318d91e0f1910093f1b9363851b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the element [wanted] via binary search.  <br /></td></tr>
-<tr class="separator:a509e0318d91e0f1910093f1b9363851b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d788e39b86e30871828d65a7e890c8c" id="r_a8d788e39b86e30871828d65a7e890c8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d788e39b86e30871828d65a7e890c8c">ae2f_ds_Arr_QSort_imp</a> (<a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a> *arr, size_t elsize, const <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a> fpElCmp)</td></tr>
-<tr class="memdesc:a8d788e39b86e30871828d65a7e890c8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order the arr via quick sort.  <br /></td></tr>
-<tr class="separator:a8d788e39b86e30871828d65a7e890c8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325c9ee283bb3e3a32472e6626e6465a" id="r_a325c9ee283bb3e3a32472e6626e6465a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a325c9ee283bb3e3a32472e6626e6465a">ae2f_ds_Arr_BSearch_imp</a> (const <a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a> *arr, const void *wanted, const <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a> fpElCmp, size_t *out)</td></tr>
+<tr class="memdesc:a325c9ee283bb3e3a32472e6626e6465a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the element [wanted] via binary search.  <br /></td></tr>
+<tr class="separator:a325c9ee283bb3e3a32472e6626e6465a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ffbc3c2809611cce104ee6351b197c" id="r_a59ffbc3c2809611cce104ee6351b197c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59ffbc3c2809611cce104ee6351b197c">ae2f_ds_Arr_QSort_imp</a> (<a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a> *arr, const <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a> fpElCmp)</td></tr>
+<tr class="memdesc:a59ffbc3c2809611cce104ee6351b197c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order the arr via quick sort.  <br /></td></tr>
+<tr class="separator:a59ffbc3c2809611cce104ee6351b197c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a0e5e943d1055f1abd31276296438b0f0" name="a0e5e943d1055f1abd31276296438b0f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e5e943d1055f1abd31276296438b0f0">&#9670;&#160;</a></span>ae2f_ds_Arr_BSearch</h2>
+<a id="a267724d240c49f3865f034af56070a6b" name="a267724d240c49f3865f034af56070a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a267724d240c49f3865f034af56070a6b">&#9670;&#160;</a></span>ae2f_ds_Arr_BSearch</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,18 +166,18 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>elsize</em></span>, </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>fpElCmp</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>fpElCmp</em></span>&#160;)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>retidx</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a509e0318d91e0f1910093f1b9363851b">ae2f_ds_Arr_BSearch_imp</a>(<a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> ae2f_ds_Alloc_Refer*, arr), wanted, elsize, <a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>, fpElCmp))</div>
-<div class="ttc" id="aArr_8h_html_a13e7aa3612bf7f85c6bc96abac358ff0"><div class="ttname"><a href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a></div><div class="ttdeci">ae2f_ds_Arr_CmpRet_t(* ae2f_ds_Arr_fpElCmp_t)(const void *l, const void *r)</div><div class="ttdef"><b>Definition</b> Arr.h:15</div></div>
-<div class="ttc" id="aArr_8h_html_a509e0318d91e0f1910093f1b9363851b"><div class="ttname"><a href="#a509e0318d91e0f1910093f1b9363851b">ae2f_ds_Arr_BSearch_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(const ae2f_struct ae2f_ds_cAlloc *arr, const void *wanted, size_t elsize, const ae2f_ds_Arr_fpElCmp_t fpElCmp, size_t *out)</div><div class="ttdoc">Finds the element [wanted] via binary search.</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a325c9ee283bb3e3a32472e6626e6465a">ae2f_ds_Arr_BSearch_imp</a>(<a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> ae2f_ds_Alloc_Refer*, arr), wanted, <a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>, fpElCmp), retidx)</div>
+<div class="ttc" id="aArr_8h_html_a13e7aa3612bf7f85c6bc96abac358ff0"><div class="ttname"><a href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a></div><div class="ttdeci">ae2f_ds_Arr_CmpRet_t(* ae2f_ds_Arr_fpElCmp_t)(const void *l, const void *r)</div><div class="ttdoc">It is an api for following approximate pseudo code.</div><div class="ttdef"><b>Definition</b> Arr.h:19</div></div>
+<div class="ttc" id="aArr_8h_html_a325c9ee283bb3e3a32472e6626e6465a"><div class="ttname"><a href="#a325c9ee283bb3e3a32472e6626e6465a">ae2f_ds_Arr_BSearch_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(const ae2f_struct ae2f_ds_cAlloc *arr, const void *wanted, const ae2f_ds_Arr_fpElCmp_t fpElCmp, size_t *out)</div><div class="ttdoc">Finds the element [wanted] via binary search.</div></div>
 <div class="ttc" id="aCast_8h_html_a06f9c6cce51fc7772141ec9a6d521511"><div class="ttname"><a href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a></div><div class="ttdeci">#define ae2f_struct</div><div class="ttdoc">In C, keyword 'struct' must be written in front of the structure's name in order to use as a type nam...</div><div class="ttdef"><b>Definition</b> Cast.h:81</div></div>
 <div class="ttc" id="aCast_8h_html_acd8146ed1e048f22e68ea16ad208e84a"><div class="ttname"><a href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a></div><div class="ttdeci">#define ae2f_reinterpret_cast(t, v)</div><div class="ttdef"><b>Definition</b> Cast.h:57</div></div>
 </div><!-- fragment -->
@@ -183,14 +186,28 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">arr</td><td>Array to see. It must be sorted. </td></tr>
     <tr><td class="paramname">wanted</td><td>The element which is wanted </td></tr>
-    <tr><td class="paramname">elsize</td><td>Suggested element size </td></tr>
-    <tr><td class="paramname">fpElCmp</td><td>Comparing function. comparing will be proceed as: <code>fpElCmp</code>(<code>element</code>, <code>wanted</code>); </td></tr>
+    <tr><td class="paramname">fpElCmp</td><td>Comparing function. comparing will be proceed as <div class="fragment"><div class="line">fpElCmp(element, wanted);</div>
+</div><!-- fragment --> </td></tr>
     <tr><td class="paramname">out</td><td>Buffer where the Index may be stored </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> <br  />
+ <a class="el" href="#a7fabf88dda3aff3bfc917fa0f72035e3">ae2f_ds_Arr_NOT_FOUND</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#ad1d18f7440e6e920e15caa75e6957b61">ae2f_errGlob_PTR_IS_NULL</a> <br  />
+ <a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> <br  />
+ <a class="el" href="errGlob_8h.html#a85d8f457b682f8f47233d6bd93506f0f">ae2f_errGlob_ALLOC_FAILED</a> <br  />
+ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_cRef_getSize</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a9fec31670568d6cd74989f3335e60a68" title="Gets data from a class.">ae2f_ds_Alloc_cRef_Read</a> </dd>
+<dd>
+<a class="el" href="#a325c9ee283bb3e3a32472e6626e6465a" title="Finds the element [wanted] via binary search.">ae2f_ds_Arr_BSearch_imp</a> </dd></dl>
 
 </div>
 </div>
@@ -240,8 +257,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b6f4b086355799eeef8ecead8a7ce18" name="a5b6f4b086355799eeef8ecead8a7ce18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b6f4b086355799eeef8ecead8a7ce18">&#9670;&#160;</a></span>ae2f_ds_Arr_QSort</h2>
+<a id="afdf3765349b579e311db76491d8081a3" name="afdf3765349b579e311db76491d8081a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdf3765349b579e311db76491d8081a3">&#9670;&#160;</a></span>ae2f_ds_Arr_QSort</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,19 +271,39 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>elsize</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>fpElCmp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a8d788e39b86e30871828d65a7e890c8c">ae2f_ds_Arr_QSort_imp</a>(<a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_define" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a>*, arr), elsize, <a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>, fpElCmp))</div>
-<div class="ttc" id="aArr_8h_html_a8d788e39b86e30871828d65a7e890c8c"><div class="ttname"><a href="#a8d788e39b86e30871828d65a7e890c8c">ae2f_ds_Arr_QSort_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(ae2f_struct ae2f_ds_cAlloc *arr, size_t elsize, const ae2f_ds_Arr_fpElCmp_t fpElCmp)</div><div class="ttdoc">Order the arr via quick sort.</div></div>
+<b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#a59ffbc3c2809611cce104ee6351b197c">ae2f_ds_Arr_QSort_imp</a>(<a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<a class="code hl_define" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="code hl_define" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a>*, arr),<a class="code hl_define" href="Cast_8h.html#acd8146ed1e048f22e68ea16ad208e84a">ae2f_reinterpret_cast</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>, fpElCmp))</div>
+<div class="ttc" id="aArr_8h_html_a59ffbc3c2809611cce104ee6351b197c"><div class="ttname"><a href="#a59ffbc3c2809611cce104ee6351b197c">ae2f_ds_Arr_QSort_imp</a></div><div class="ttdeci">ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(ae2f_struct ae2f_ds_cAlloc *arr, const ae2f_ds_Arr_fpElCmp_t fpElCmp)</div><div class="ttdoc">Order the arr via quick sort.</div></div>
 <div class="ttc" id="aRef_8h_html_a6883a79ac8f19b22f8efa2ebd286888a"><div class="ttname"><a href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></div><div class="ttdeci">#define ae2f_ds_Alloc_cRef</div><div class="ttdef"><b>Definition</b> Ref.h:11</div></div>
 </div><!-- fragment -->
+<p>Order the arr via quick sort. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arr</td><td>An array to sort </td></tr>
+    <tr><td class="paramname">fpElCmp</td><td>comparing will be proceed as <div class="fragment"><div class="line">fpElCmp(element, wanted);</div>
+</div><!-- fragment --> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#a85d8f457b682f8f47233d6bd93506f0f">ae2f_errGlob_ALLOC_FAILED</a> <br  />
+ <a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_cRef_getSize</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a9fec31670568d6cd74989f3335e60a68" title="Gets data from a class.">ae2f_ds_Alloc_cRef_Read</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a693ff82b75a1dd5690ea73ad57e26270" title="Sets data to a class.">ae2f_ds_Alloc_cRef_Write</a> </dd>
+<dd>
+<a class="el" href="#a59ffbc3c2809611cce104ee6351b197c" title="Order the arr via quick sort.">ae2f_ds_Arr_QSort_imp</a> </dd></dl>
+
 </div>
 </div>
 <a id="aeb6e52dd36ec1e03c22d4b9db1193e08" name="aeb6e52dd36ec1e03c22d4b9db1193e08"></a>
@@ -298,6 +335,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A predefined returning data type for <a class="el" href="#a13e7aa3612bf7f85c6bc96abac358ff0">ae2f_ds_Arr_fpElCmp_t</a>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a43342187b2c7148d228740d978b21c07" title="they are same">ae2f_ds_Arr_EQUAL</a> </dd>
+<dd>
+<a class="el" href="#aeb6e52dd36ec1e03c22d4b9db1193e08" title="right is lesser">ae2f_ds_Arr_RIGHT_UNIT</a> </dd>
+<dd>
+<a class="el" href="#a15c04aca8a3e1435ff68818e7835dd66" title="left is lesser">ae2f_ds_Arr_LEFT_UNIT</a> </dd></dl>
+
 </div>
 </div>
 <a id="a13e7aa3612bf7f85c6bc96abac358ff0" name="a13e7aa3612bf7f85c6bc96abac358ff0"></a>
@@ -311,15 +355,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Negative: l &lt; r</dd></dl>
-<p>0: l == r</p>
-<p>Positive: l &gt; r </p>
+
+<p>It is an api for following approximate pseudo code. </p>
+<div class="fragment"><div class="line">*l - *r</div>
+</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="#ac9b46127c70ea2bfbde29219f8e815dd" title="A predefined returning data type for ae2f_ds_Arr_fpElCmp_t.">ae2f_ds_Arr_CmpRet_t</a> </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a509e0318d91e0f1910093f1b9363851b" name="a509e0318d91e0f1910093f1b9363851b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a509e0318d91e0f1910093f1b9363851b">&#9670;&#160;</a></span>ae2f_ds_Arr_BSearch_imp()</h2>
+<a id="a325c9ee283bb3e3a32472e6626e6465a" name="a325c9ee283bb3e3a32472e6626e6465a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a325c9ee283bb3e3a32472e6626e6465a">&#9670;&#160;</a></span>ae2f_ds_Arr_BSearch_imp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,11 +378,6 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>wanted</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>elsize</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -357,19 +397,31 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">arr</td><td>Array to see. It must be sorted. </td></tr>
     <tr><td class="paramname">wanted</td><td>The element which is wanted </td></tr>
-    <tr><td class="paramname">elsize</td><td>Suggested element size </td></tr>
-    <tr><td class="paramname">fpElCmp</td><td>Comparing function. comparing will be proceed as: <code>fpElCmp</code>(<code>element</code>, <code>wanted</code>); </td></tr>
+    <tr><td class="paramname">fpElCmp</td><td>comparing will be proceed as <div class="fragment"><div class="line">fpElCmp(element, wanted);</div>
+</div><!-- fragment --> </td></tr>
     <tr><td class="paramname">out</td><td>Buffer where the Index may be stored </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> <br  />
+ <a class="el" href="#a7fabf88dda3aff3bfc917fa0f72035e3">ae2f_ds_Arr_NOT_FOUND</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#ad1d18f7440e6e920e15caa75e6957b61">ae2f_errGlob_PTR_IS_NULL</a> <br  />
+ <a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> <br  />
+ <a class="el" href="errGlob_8h.html#a85d8f457b682f8f47233d6bd93506f0f">ae2f_errGlob_ALLOC_FAILED</a> <br  />
+ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_cRef_getSize</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a9fec31670568d6cd74989f3335e60a68" title="Gets data from a class.">ae2f_ds_Alloc_cRef_Read</a> </dd></dl>
 
 </div>
 </div>
-<a id="a8d788e39b86e30871828d65a7e890c8c" name="a8d788e39b86e30871828d65a7e890c8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d788e39b86e30871828d65a7e890c8c">&#9670;&#160;</a></span>ae2f_ds_Arr_QSort_imp()</h2>
+<a id="a59ffbc3c2809611cce104ee6351b197c" name="a59ffbc3c2809611cce104ee6351b197c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ffbc3c2809611cce104ee6351b197c">&#9670;&#160;</a></span>ae2f_ds_Arr_QSort_imp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,11 +430,6 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="Call_8h.html#acf8a5107987731bc66f8a74d75eac60c">ae2f_SHAREDCALL</a> <a class="el" href="Cast_8h.html#af32d53608be4ca28fd8e5cd34fc0279b">ae2f_extern</a> <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> ae2f_ds_Arr_QSort_imp </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="Cast_8h.html#a06f9c6cce51fc7772141ec9a6d521511">ae2f_struct</a> <a class="el" href="structae2f__ds__cAlloc.html">ae2f_ds_cAlloc</a> *</td>          <td class="paramname"><span class="paramname"><em>arr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>elsize</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -396,11 +443,24 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>An array to sort </td></tr>
-    <tr><td class="paramname">elsize</td><td>Size suggestion for each element </td></tr>
-    <tr><td class="paramname">fpElCmp</td><td>Comparing function: comparing will process as: <code>fpElCmp</code>(<code>element</code>, <code>target</code>); </td></tr>
+    <tr><td class="paramname">fpElCmp</td><td>comparing will be proceed as <div class="fragment"><div class="line">fpElCmp(element, wanted);</div>
+</div><!-- fragment --> </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#a85d8f457b682f8f47233d6bd93506f0f">ae2f_errGlob_ALLOC_FAILED</a> <br  />
+ <a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_cRef_getSize</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a9fec31670568d6cd74989f3335e60a68" title="Gets data from a class.">ae2f_ds_Alloc_cRef_Read</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a693ff82b75a1dd5690ea73ad57e26270" title="Sets data to a class.">ae2f_ds_Alloc_cRef_Write</a> </dd></dl>
 
 </div>
 </div>

@@ -100,35 +100,22 @@ $(function(){initNavTree('Arr_8hpp.html',''); initResizable(true); });
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">Arr.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Arr_8h_source.html">Arr.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Alloc_8hpp_source.html">Alloc.hpp</a>&quot;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
+<code>#include &quot;<a class="el" href="Arr_2Defs_8hpp_source.html">Arr/Defs.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Pack_8hpp_source.html">Arr/Pack.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Arr_2Ref_8hpp_source.html">Arr/Ref.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Arr_2Own_8hpp_source.html">Arr/Own.hpp</a>&quot;</code><br />
 </div>
 <p><a href="Arr_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">ae2f::Ds::Arr::__Refer&lt; T, NIsTrivial &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">ae2f::Ds::Arr::__Owner&lt; T, NIsTrivial &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____def.html">ae2f::Ds::Arr::__def&lt; __el_t, __elsize &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionae2f_1_1Ds_1_1Arr_1_1Pack.html">ae2f::Ds::Arr::Pack&lt; T &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_011_01_4.html">ae2f::Ds::Arr::__Refer&lt; T, 1 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_010_01_4.html">ae2f::Ds::Arr::__Refer&lt; T, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_011_01_4.html">ae2f::Ds::Arr::__Owner&lt; T, 1 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_010_01_4.html">ae2f::Ds::Arr::__Owner&lt; T, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">ae2f::Ds::Arr::iOwner&lt; T, __imp &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -140,8 +127,6 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr.html">ae2f::Ds::Arr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr_1_1eRef.html">ae2f::Ds::Arr::eRef</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html">ae2f::Ds::Arr::cOwner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -152,20 +137,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557" id="r_a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr.html#a23d5582e25340fc4fd89afa74a7aa557">ae2f::Ds::Arr::cRefer</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">__Refer</a>&lt;T, std::is_trivial&lt;T&gt;::value&gt;</td></tr>
-<tr class="separator:a23d5582e25340fc4fd89afa74a7aa557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931f645d78f95fa4f4e9202569573e7c" id="r_a931f645d78f95fa4f4e9202569573e7c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a931f645d78f95fa4f4e9202569573e7c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr.html#a931f645d78f95fa4f4e9202569573e7c">ae2f::Ds::Arr::xrOwner</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">__Owner</a>&lt;T, std::is_trivial&lt;T&gt;::value&gt;</td></tr>
-<tr class="separator:a931f645d78f95fa4f4e9202569573e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25e7ecb4dbd4fc32736b87773d86dd5a" id="r_a25e7ecb4dbd4fc32736b87773d86dd5a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a25e7ecb4dbd4fc32736b87773d86dd5a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html#a25e7ecb4dbd4fc32736b87773d86dd5a">ae2f::Ds::Arr::cOwner::Linear_t</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner</a>&lt;T, &amp;<a class="el" href="Alloc_8h.html#a7a51f48e3c96fd5088fe418bb8eec739">ae2f_ds_vAlloc_cLinear</a>&gt;</td></tr>
 <tr class="separator:a25e7ecb4dbd4fc32736b87773d86dd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a1c2756ec0c0d0843c91d5827f58a5bf9" id="r_a1c2756ec0c0d0843c91d5827f58a5bf9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Arr_1_1eRef.html#a1c2756ec0c0d0843c91d5827f58a5bf9">ae2f::Ds::Arr::eRef::EL_NON_VALID</a> = 80</td></tr>
-<tr class="separator:a1c2756ec0c0d0843c91d5827f58a5bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a53518a932d751b5af1979b52db1cb9f6" name="a53518a932d751b5af1979b52db1cb9f6"></a>

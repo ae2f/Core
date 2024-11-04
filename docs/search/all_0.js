@@ -2,8 +2,8 @@ var searchData=
 [
   ['_5f_5f_5fvref_0',['___vRef',['../structae2f_1_1Ds_1_1Alloc_1_1vfDef.html#ae66fc11e2bad31d09f33d7b89444d194',1,'ae2f::Ds::Alloc::vfDef']]],
   ['_5f_5fdef_1',['__def',['../structae2f_1_1Ds_1_1Arr_1_1____def.html',1,'ae2f::Ds::Arr']]],
-  ['_5f_5fdef_3c_20pack_3c_20t_20_3e_2c_20sizeof_28t_29_2b1_20_3e_2',['__def&lt; Pack&lt; T &gt;, sizeof(T)+1 &gt;',['../structae2f_1_1Ds_1_1Arr_1_1____def.html',1,'ae2f::Ds::Arr']]],
-  ['_5f_5fdef_3c_20t_2c_20sizeof_28t_29_3e_3',['__def&lt; T, sizeof(T)&gt;',['../structae2f_1_1Ds_1_1Arr_1_1____def.html',1,'ae2f::Ds::Arr']]],
+  ['_5f_5fdef_3c_20pack_3c_20t_20_3e_20_3e_2',['__def&lt; Pack&lt; T &gt; &gt;',['../structae2f_1_1Ds_1_1Arr_1_1____def.html',1,'ae2f::Ds::Arr']]],
+  ['_5f_5fdef_3c_20t_20_3e_3',['__def&lt; T &gt;',['../structae2f_1_1Ds_1_1Arr_1_1____def.html',1,'ae2f::Ds::Arr']]],
   ['_5f_5fowner_4',['__Owner',['../structae2f_1_1Ds_1_1Arr_1_1____Owner.html',1,'ae2f::Ds::Arr::__Owner&lt; T, NIsTrivial &gt;'],['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_011_01_4.html#adbe30830b826df1e51d13bcfd89754b1',1,'ae2f::Ds::Arr::__Owner&lt; T, 1 &gt;::__Owner()'],['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_010_01_4.html#a96f4bf09b9007ee19622d6fd35c1b873',1,'ae2f::Ds::Arr::__Owner&lt; T, 0 &gt;::__Owner()']]],
   ['_5f_5fowner_3c_20t_2c_200_20_3e_5',['__Owner&lt; T, 0 &gt;',['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_010_01_4.html',1,'ae2f::Ds::Arr']]],
   ['_5f_5fowner_3c_20t_2c_201_20_3e_6',['__Owner&lt; T, 1 &gt;',['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_011_01_4.html',1,'ae2f::Ds::Arr']]],
@@ -16,5 +16,5 @@ var searchData=
   ['_5fae2f_5fmacro_5fbitvec_5ffilled_13',['_ae2f_Macro_BitVec_Filled',['../BitVec_8h.html#a75575dce6c5f5dd1923cd49836655a3c',1,'BitVec.h']]],
   ['_5fae2f_5fmacro_5fbitvec_5fgetranged_14',['_ae2f_Macro_BitVec_GetRanged',['../BitVec_8h.html#aaaa1f3da442c5ca58c2d628e8ec1d76a',1,'BitVec.h']]],
   ['_5fae2f_5fmacro_5fbitvec_5fsetranged_15',['_ae2f_Macro_BitVec_SetRanged',['../BitVec_8h.html#a53a0de5ac619ad779ca56f876b0c8fc5',1,'BitVec.h']]],
-  ['_5ff_16',['_f',['../structae2f_1_1Ds_1_1Arr_1_1____def.html#a58a64bbbb248cfac0ee6cf2550739e50',1,'ae2f::Ds::Arr::__def::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_011_01_4.html#a0b34dfc0093fd2250785df1acb202824',1,'ae2f::Ds::Arr::__Refer&lt; T, 1 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_010_01_4.html#a89d754fb363fa055aa30c2708c3869df',1,'ae2f::Ds::Arr::__Refer&lt; T, 0 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_011_01_4.html#a80087209ad5cb7a92d988bcc87cbd622',1,'ae2f::Ds::Arr::__Owner&lt; T, 1 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_010_01_4.html#a4e2522d09d50cbd6fcb63efea1b61523',1,'ae2f::Ds::Arr::__Owner&lt; T, 0 &gt;::_f']]]
+  ['_5ff_16',['_f',['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_011_01_4.html#a3c4bca988ec1068486434a0fef898548',1,'ae2f::Ds::Arr::__Owner&lt; T, 1 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Owner_3_01T_00_010_01_4.html#a308743aa4fcf7c6d90ac403e0059ecd9',1,'ae2f::Ds::Arr::__Owner&lt; T, 0 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____def.html#a06b58fbe0b293bd6e4da4c7ce8cb38c5',1,'ae2f::Ds::Arr::__def::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_011_01_4.html#a2af3463776f68369b12556ee38f6c973',1,'ae2f::Ds::Arr::__Refer&lt; T, 1 &gt;::_f'],['../structae2f_1_1Ds_1_1Arr_1_1____Refer_3_01T_00_010_01_4.html#a28ea2d755e76539912f8fb63bbbe9b27',1,'ae2f::Ds::Arr::__Refer&lt; T, 0 &gt;::_f']]]
 ];

@@ -114,6 +114,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____def.html">__def</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class for getting element type and element size.  <a href="structae2f_1_1Ds_1_1Arr_1_1____def.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">__Owner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,16 +131,19 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unionae2f_1_1Ds_1_1Arr_1_1Pack.html">Pack</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A value package for non-trivial classes. <br  />
+Which will not call the destructor of [T].  <a href="unionae2f_1_1Ds_1_1Arr_1_1Pack.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557" id="r_a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a23d5582e25340fc4fd89afa74a7aa557">cRefer</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">__Refer</a>&lt;T, std::is_trivial&lt;T&gt;::value&gt;</td></tr>
-<tr class="separator:a23d5582e25340fc4fd89afa74a7aa557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a931f645d78f95fa4f4e9202569573e7c" id="r_a931f645d78f95fa4f4e9202569573e7c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a931f645d78f95fa4f4e9202569573e7c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a931f645d78f95fa4f4e9202569573e7c">xrOwner</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">__Owner</a>&lt;T, std::is_trivial&lt;T&gt;::value&gt;</td></tr>
 <tr class="separator:a931f645d78f95fa4f4e9202569573e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557" id="r_a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a23d5582e25340fc4fd89afa74a7aa557"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a23d5582e25340fc4fd89afa74a7aa557">cRefer</a> = <a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">__Refer</a>&lt;T, std::is_trivial&lt;T&gt;::value&gt;</td></tr>
+<tr class="memdesc:a23d5582e25340fc4fd89afa74a7aa557"><td class="mdescLeft">&#160;</td><td class="mdescRight">The binder for [<a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">__Refer</a>].  <br /></td></tr>
+<tr class="separator:a23d5582e25340fc4fd89afa74a7aa557"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a23d5582e25340fc4fd89afa74a7aa557" name="a23d5582e25340fc4fd89afa74a7aa557"></a>
@@ -155,6 +159,14 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The binder for [<a class="el" href="structae2f_1_1Ds_1_1Arr_1_1____Refer.html">__Refer</a>]. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Trivial data type </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

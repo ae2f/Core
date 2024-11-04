@@ -104,15 +104,17 @@ $(function(){initNavTree('unionae2f_1_1Ds_1_1Arr_1_1Pack.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Arr_8hpp_source.html">Arr.hpp</a>&gt;</code></p>
+<p>A value package for non-trivial classes. <br  />
+Which will not call the destructor of [T].  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Pack_8hpp_source.html">Pack.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a847c5d1c7faf78700fe2a54449d2714d" id="r_a847c5d1c7faf78700fe2a54449d2714d"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a847c5d1c7faf78700fe2a54449d2714d">isvalid</a> () const noexcept</td></tr>
+<tr class="memdesc:a847c5d1c7faf78700fe2a54449d2714d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if <a class="el" href="#a06bf166c659ca3dba77d0fdbc05180f6">ae2f::Ds::Arr::Pack&lt;T&gt;::Obj</a> is valid.  <br /></td></tr>
 <tr class="separator:a847c5d1c7faf78700fe2a54449d2714d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a714643758ec73c4d7e56e5e15e2227ed" id="r_a714643758ec73c4d7e56e5e15e2227ed"><td class="memTemplParams" colspan="2">template&lt;int d = 0&gt; </td></tr>
-<tr class="memitem:a714643758ec73c4d7e56e5e15e2227ed"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a714643758ec73c4d7e56e5e15e2227ed">Pack</a> () noexcept</td></tr>
-<tr class="separator:a714643758ec73c4d7e56e5e15e2227ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad282098095682997256375bbb9b8bc01" id="r_ad282098095682997256375bbb9b8bc01"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad282098095682997256375bbb9b8bc01">~Pack</a> ()</td></tr>
 <tr class="separator:ad282098095682997256375bbb9b8bc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -121,36 +123,17 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a06bf166c659ca3dba77d0fdbc05180f6" id="r_a06bf166c659ca3dba77d0fdbc05180f6"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bf166c659ca3dba77d0fdbc05180f6">Obj</a></td></tr>
 <tr class="separator:a06bf166c659ca3dba77d0fdbc05180f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a714643758ec73c4d7e56e5e15e2227ed" name="a714643758ec73c4d7e56e5e15e2227ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a714643758ec73c4d7e56e5e15e2227ed">&#9670;&#160;</a></span>Pack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<div class="memtemplate">
-template&lt;int d = 0&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="unionae2f_1_1Ds_1_1Arr_1_1Pack.html">ae2f::Ds::Arr::Pack</a>&lt; T &gt;::Pack </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
+union ae2f::Ds::Arr::Pack&lt; T &gt;</div><p>A value package for non-trivial classes. <br  />
+Which will not call the destructor of [T]. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Non-trivial value. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad282098095682997256375bbb9b8bc01" name="ad282098095682997256375bbb9b8bc01"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad282098095682997256375bbb9b8bc01">&#9670;&#160;</a></span>~Pack()</h2>
 
@@ -204,6 +187,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Check if <a class="el" href="#a06bf166c659ca3dba77d0fdbc05180f6">ae2f::Ds::Arr::Pack&lt;T&gt;::Obj</a> is valid. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -220,11 +205,12 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section warning"><dt>Warning</dt><dd>Note that this class will not be destructed. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this union was generated from the following file:<ul>
-<li>include/ae2f/Ds/<a class="el" href="Arr_8hpp_source.html">Arr.hpp</a></li>
+<li>include/ae2f/Ds/Arr/<a class="el" href="Pack_8hpp_source.html">Pack.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
