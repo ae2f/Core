@@ -1,9 +1,10 @@
 #if !defined(ae2f_ds_Arr_h)
 #define ae2f_ds_Arr_h
 #include "Alloc.h"
+#include "Arr/Err.h"
 
 
-typedef int ae2f_ds_Arr_Compared_t;
+typedef int ae2f_ds_Arr_CmpRet_t;
 
 /// @returns
 ///	Negative: l < r
@@ -11,16 +12,16 @@ typedef int ae2f_ds_Arr_Compared_t;
 ///	0: l == r
 /// 
 ///	Positive: l > r
-typedef ae2f_ds_Arr_Compared_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* r);
+typedef ae2f_ds_Arr_CmpRet_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* r);
 
-/// they are same
-#define ae2f_ds_Arr_EQUAL		ae2f_static_cast(ae2f_ds_Arr_Compared_t, 0)
+/// @brief they are same
+#define ae2f_ds_Arr_EQUAL		ae2f_static_cast(ae2f_ds_Arr_CmpRet_t, 0)
 
-// right is lesser
-#define ae2f_ds_Arr_RIGHT_UNIT	ae2f_static_cast(ae2f_ds_Arr_Compared_t, 1)
+/// @brief right is lesser
+#define ae2f_ds_Arr_RIGHT_UNIT	ae2f_static_cast(ae2f_ds_Arr_CmpRet_t, 1)
 
-// left is lesser
-#define ae2f_ds_Arr_LEFT_UNIT	ae2f_static_cast(ae2f_ds_Arr_Compared_t, -1)
+/// @brief left is lesser
+#define ae2f_ds_Arr_LEFT_UNIT	ae2f_static_cast(ae2f_ds_Arr_CmpRet_t, -1)
 
 /// @brief 
 /// Finds the element [wanted] via binary search.
@@ -61,14 +62,6 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 /// Buffer where the Index may be stored
 /// @return 
 #define ae2f_ds_Arr_BSearch(arr, wanted, elsize, fpElCmp) ae2f_ds_Arr_BSearch_imp(ae2f_reinterpret_cast(const ae2f_struct ae2f_ds_Alloc_Refer*, arr), wanted, elsize, ae2f_reinterpret_cast(const ae2f_ds_Arr_fpElCmp_t, fpElCmp))
-
-/// @brief
-/// Failed to find the wanted value.
-/// 
-/// Your array might have not been sorted finely.
-/// @return
-/// (ae2f_errGlob_NFOUND | ae2f_errGlob_DONE_HOWEV)
-#define ae2f_ds_Arr_BSearch_NOT_FOUND ae2f_static_cast(ae2f_errint_t, 0b1100000)
 
 /// @brief 
 /// Order the arr via quick sort.

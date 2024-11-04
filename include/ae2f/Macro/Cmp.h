@@ -21,7 +21,7 @@
 /// Gets the member from the pointer.
 /// Given nullptr, the return will be alter.
 /// @param ptr The pointer for getting member.
-/// @param member The valid member's name. [as the structure]
+/// @param member The valid member's name. [from the structure]
 /// @param alter The alternative value when given nullptr.
 #define ae2f_Macro_Cmp_TakeMem(ptr, member, alter) ((ptr) ? ((ptr)->member) : (alter))
 

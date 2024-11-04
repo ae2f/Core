@@ -91,4 +91,9 @@
 /// @brief
 /// Makes the global variable in naming of C. [non-mangling]
 #define ae2f_var ae2f_add_when_cxx(extern "C")
+
+/// @brief
+/// Function definitions
+#define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
+
 #endif

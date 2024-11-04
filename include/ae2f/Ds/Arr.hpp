@@ -9,6 +9,12 @@
 namespace ae2f {
 namespace Ds {
 namespace Arr {
+    /// @brief 
+    /// 
+    /// @tparam T 
+    /// 
+    /// @tparam NIsTrivial 
+    /// 
     template<typename T, bool NIsTrivial>
     struct __Refer {};
 

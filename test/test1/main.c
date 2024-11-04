@@ -19,7 +19,7 @@ static int Test0x0() {
     TEST_VAL(code, ae2f_ds_Alloc_cOwn_InitAuto(&a));
     TEST_VAL(code, ae2f_ds_Alloc_cOwn_ReSize(&a, 34));
 
-    TEST_IF(code, ae2f_ds_Alloc_cOwn_getSize(&a, &sizeBuff, 0) & ~ae2f_ds_Alloc_cRef_getSize_NCOPIED)
+    TEST_IF(code, ae2f_ds_Alloc_cOwn_getSize(&a, &sizeBuff, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)
     goto __END;
 
     if(sizeBuff != 34) {

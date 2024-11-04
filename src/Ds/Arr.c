@@ -14,7 +14,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 
 	ae2f_errint_t err; size_t arr_r, arr_l = 0;
 	
-	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, 0) & ~ae2f_ds_Alloc_cRef_getSize_NCOPIED)) 
+	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)) 
 		return err;
 	arr_r /= elsize;
 	arr_r--;
@@ -33,7 +33,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 			memdump(err);
 		}
 
-		ae2f_ds_Arr_Compared_t got = fpElCmp(el, wanted);
+		ae2f_ds_Arr_CmpRet_t got = fpElCmp(el, wanted);
 
 		if (got == ae2f_ds_Arr_EQUAL) {
 			out[0] = idx;
@@ -47,7 +47,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 		}
 	}
 
-	memdump(ae2f_ds_Arr_BSearch_NOT_FOUND);
+	memdump(ae2f_ds_Arr_NOT_FOUND);
 
 #undef idx
 #undef memdump
@@ -164,7 +164,7 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 
 	size_t len;
 	ae2f_errint_t rtn;
-	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, 0) & ~ae2f_ds_Alloc_cRef_getSize_NCOPIED)
+	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, 0) & ~ae2f_ds_Alloc_Err_NCOPIED)
 		return rtn;
 
 	void* tmpel = calloc(1, elsize);
