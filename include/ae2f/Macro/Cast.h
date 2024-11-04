@@ -46,19 +46,19 @@
 
 /// @brief
 /// # static_cast
-#define ae2f_static_cast(t, v) ae2f_add_when_c((t)(v)) ae2f_add_when_cxx(static_cast<t>(v))
+#define ae2f_static_cast(t, v) ae2f_add_when_c(((t)(v))) ae2f_add_when_cxx(static_cast<t>(v))
 
 /// @brief
 /// # dynamic_cast
-#define ae2f_dynamic_cast(t, v) ae2f_add_when_c((t)(v)) ae2f_add_when_cxx(dynamic_cast<t>(v))
+#define ae2f_dynamic_cast(t, v) ae2f_add_when_c(((t)(v))) ae2f_add_when_cxx(dynamic_cast<t>(v))
 
 /// @brief
 /// # reinterpret_cast
-#define ae2f_reinterpret_cast(t, v) ae2f_add_when_c((t)(v)) ae2f_add_when_cxx(reinterpret_cast<t>(v))
+#define ae2f_reinterpret_cast(t, v) ae2f_add_when_c(((t)(v))) ae2f_add_when_cxx(reinterpret_cast<t>(v))
 
 /// @brief
 /// # const_cast
-#define ae2f_const_cast(t, v) ae2f_add_when_c((t)(v)) ae2f_add_when_cxx(const_cast<t>(v))
+#define ae2f_const_cast(t, v) ae2f_add_when_c(((t)(v))) ae2f_add_when_cxx(const_cast<t>(v))
 
 /// @brief
 /// Makes a union that reads a memory in two methods. \n
