@@ -3,21 +3,25 @@
 #include <stdlib.h>
 
 #define LEN_GETTER (*((size_t*)This->data))
+#define ELSIZE_GETTER (((size_t*)This->data)[1])
+#define BUFF_GETTER ((uint8_t*)(((size_t*)This->data) + 2))
+#define BUFFLEN (LEN_GETTER * ELSIZE_GETTER)
 
 
 static ae2f_errint_t Len(const ae2f_struct ae2f_ds_cAlloc* This, size_t* buff, size_t* one) {
 	ae2f_errint_t err = ae2f_errGlob_OK; 
-	size_t sz[1] = {0};
 
 	if (!(This))
 		return ae2f_errGlob_PTR_IS_NULL;
 
-	size_t* p_sz = ((size_t*)This->data) ? ((size_t*)This->data) : sz;
+	size_t
+	p_sz = ((size_t*)This->data) ? LEN_GETTER : 0,
+	p_el = ((size_t*)This->data) ? ELSIZE_GETTER : 0;
 
-	if(buff) *buff = *((size_t*)p_sz);
+	if(buff) *buff = p_sz;
 	else err |= ae2f_ds_Alloc_Err_NCOPIED;
 
-	if(one) *one = 1;
+	if(one) *one = p_el;
 	else err |= ae2f_ds_Alloc_Err_NCOPIED;
 	return err;
 }
@@ -25,10 +29,10 @@ static ae2f_errint_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, vo
 	if (!(This && This->data))
 		return ae2f_errGlob_PTR_IS_NULL;
 
-	if (idx + bufflen > LEN_GETTER)
+	if (idx + bufflen > BUFFLEN)
 		return ae2f_ds_Alloc_Err_IDX_INVALID;
 
-	memcpy(buff, This->data + sizeof(size_t) + idx, bufflen);
+	memcpy(buff, BUFF_GETTER + idx, bufflen);
 
 
 	return ae2f_errGlob_OK;
@@ -37,10 +41,10 @@ static ae2f_errint_t Write(ae2f_struct ae2f_ds_cAlloc* This, size_t idx, const v
 	if (!(This && This->data))
 		return ae2f_errGlob_PTR_IS_NULL;
 
-	if (idx + bufflen > LEN_GETTER)
+	if (idx + bufflen > BUFFLEN)
 		return ae2f_ds_Alloc_Err_IDX_INVALID;
 
-	memcpy(This->data + sizeof(size_t) + idx, buff, bufflen);
+	memcpy(BUFF_GETTER + idx, buff, bufflen);
 
 	return ae2f_errGlob_OK;
 }
@@ -50,16 +54,19 @@ static ae2f_errint_t Make(ae2f_struct ae2f_ds_cAlloc* This, size_t l, size_t ell
 
 	l *= ellen;
 
-	void* _Try = This->data ? realloc(This->data, l + sizeof(size_t)) : calloc(l + sizeof(size_t), 1);
+	void* _Try = This->data ? realloc(This->data, l + (sizeof(size_t) << 1)) : calloc(l + (sizeof(size_t) << 1), 1);
 
-#define i ((size_t*)_Try)[0]
+#define _i (((size_t*)_Try)[0] * ((size_t*)_Try)[1])
+
 	if (_Try) {
-		if (This->data) for (; i < l; i++)
+		if (This->data) for (int i = _i; i < l; i++)
 			This->data[i] = 0;
 	} else return ae2f_errGlob_ALLOC_FAILED;
 
 	This->data = _Try;
-	i = l;
+	LEN_GETTER = l / ellen;
+	ELSIZE_GETTER = ellen;
+	
 #undef i
 	return ae2f_errGlob_OK;
 }
