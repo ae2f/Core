@@ -7,6 +7,5 @@ var dir_a78cc59714420eee20920eb94e5fd0ea =
     [ "Cast.h", "Cast_8h.html", "Cast_8h" ],
     [ "Cmp.h", "Cmp_8h.html", "Cmp_8h" ],
     [ "Cmp.hpp", "Cmp_8hpp.html", "Cmp_8hpp" ],
-    [ "errGlob.h", "errGlob_8h.html", "errGlob_8h" ],
-    [ "errGlob.hpp", "errGlob_8hpp.html", "errGlob_8hpp" ]
+    [ "errGlob.h", "errGlob_8h.html", "errGlob_8h" ]
 ];

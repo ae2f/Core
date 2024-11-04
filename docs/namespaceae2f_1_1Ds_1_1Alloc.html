@@ -107,8 +107,7 @@ $(function(){initNavTree('namespaceae2f_1_1Ds_1_1Alloc.html',''); initResizable(
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Alloc_1_1cOwner.html">cOwner</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceae2f_1_1Ds_1_1Alloc_1_1E__GetSize.html">E_GetSize</a></td></tr>
+<tr class="memdesc:namespaceae2f_1_1Ds_1_1Alloc_1_1cOwner"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pre-defined implementations of <a class="el" href="structae2f_1_1Ds_1_1Alloc_1_1iOwner.html">ae2f::Ds::Alloc::iOwner</a>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -125,10 +124,11 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a3cc71907d0c84449a255f57df98c15df" id="r_a3cc71907d0c84449a255f57df98c15df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cc71907d0c84449a255f57df98c15df">vf</a> = <a class="el" href="structae2f__ds__vAlloc.html">ae2f_ds_vAlloc</a></td></tr>
+<tr class="memdesc:a3cc71907d0c84449a255f57df98c15df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure for virtual function pointer.  <br /></td></tr>
 <tr class="separator:a3cc71907d0c84449a255f57df98c15df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6638173bbbb42b6c3e30605d2485f7a2" id="r_a6638173bbbb42b6c3e30605d2485f7a2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6638173bbbb42b6c3e30605d2485f7a2">rRefer</a> = <a class="el" href="Alloc_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></td></tr>
+<tr class="memitem:a6638173bbbb42b6c3e30605d2485f7a2" id="r_a6638173bbbb42b6c3e30605d2485f7a2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6638173bbbb42b6c3e30605d2485f7a2">rRefer</a> = <a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></td></tr>
 <tr class="separator:a6638173bbbb42b6c3e30605d2485f7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5aa224d959ad940b8abaffef13d3d038" id="r_a5aa224d959ad940b8abaffef13d3d038"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5aa224d959ad940b8abaffef13d3d038">rOwner</a> = <a class="el" href="Alloc_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a></td></tr>
+<tr class="memitem:a5aa224d959ad940b8abaffef13d3d038" id="r_a5aa224d959ad940b8abaffef13d3d038"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5aa224d959ad940b8abaffef13d3d038">rOwner</a> = <a class="el" href="Own_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a></td></tr>
 <tr class="separator:a5aa224d959ad940b8abaffef13d3d038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -139,10 +139,15 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a5aa224d959ad940b8abaffef13d3d038">ae2f::Ds::Alloc::rOwner</a> = <a class="el" href="Alloc_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a></td>
+          <td class="memname">using <a class="el" href="#a5aa224d959ad940b8abaffef13d3d038">ae2f::Ds::Alloc::rOwner</a> = <a class="el" href="Own_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<h1><a class="anchor" id="autotoc_md1"></a>
+This structure owns the memory.</h1>
+<p>An interface to implement the linear array. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structae2f__ds__cAlloc.html" title="The data holder for [cRef] and [cOwn].">ae2f_ds_cAlloc</a> </dd>
+<dd>
+<a class="el" href="Own_8h.html#a74eda9a486b849152d55552bb4841299">ae2f_ds_Alloc_cOwn</a> </dd></dl>
 
 </div>
 </div>
@@ -153,10 +158,15 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a6638173bbbb42b6c3e30605d2485f7a2">ae2f::Ds::Alloc::rRefer</a> = <a class="el" href="Alloc_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></td>
+          <td class="memname">using <a class="el" href="#a6638173bbbb42b6c3e30605d2485f7a2">ae2f::Ds::Alloc::rRefer</a> = <a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<h1><a class="anchor" id="autotoc_md0"></a>
+This structure does not own the memory.</h1>
+<p>An interface to implement the linear array. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structae2f__ds__cAlloc.html" title="The data holder for [cRef] and [cOwn].">ae2f_ds_cAlloc</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd></dl>
 
 </div>
 </div>
@@ -171,6 +181,9 @@ Typedefs</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Structure for virtual function pointer. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structae2f__ds__vAlloc.html" title="Structure for virtual function pointer.">ae2f_ds_vAlloc</a> </dd></dl>
 
 </div>
 </div>

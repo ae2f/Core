@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imp_5fnot_5ffound_0',['IMP_NOT_FOUND',['../namespaceae2f_1_1Macro_1_1errGlob.html#aa9959c3ddcf4507255b8d0d1e31bcfea',1,'ae2f::Macro::errGlob']]]
+  ['read_0',['Read',['../structae2f__ds__vAlloc.html#a4a000d4db555c09b5635d00423293885',1,'ae2f_ds_vAlloc']]],
+  ['reconfig_1',['ReConfig',['../structae2f__ds__vAlloc.html#adc158787163b76efecdf7b1fd3072add',1,'ae2f_ds_vAlloc']]]
 ];

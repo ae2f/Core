@@ -7,5 +7,6 @@ var BitVec_8h =
     [ "ae2f_Macro_BitVec_Get", "BitVec_8h.html#a36624d763ef8c365942109f3ba230cf8", null ],
     [ "ae2f_Macro_BitVec_GetRanged", "BitVec_8h.html#a8b3990016c85f6c081daddd2abf4a3b3", null ],
     [ "ae2f_Macro_BitVec_Set", "BitVec_8h.html#aed27799793c81b1670b3b79031535934", null ],
-    [ "ae2f_Macro_BitVec_SetRanged", "BitVec_8h.html#a1c5651e68512ac31b1c444c15e22df5d", null ]
+    [ "ae2f_Macro_BitVec_SetRanged", "BitVec_8h.html#a1c5651e68512ac31b1c444c15e22df5d", null ],
+    [ "ae2f_Macro_BitVecI_t", "BitVec_8h.html#aa1403c4e531ad7276f5ad4b6c59a4696", null ]
 ];

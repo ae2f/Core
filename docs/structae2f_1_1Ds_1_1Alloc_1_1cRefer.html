@@ -98,13 +98,12 @@ $(function(){initNavTree('structae2f_1_1Ds_1_1Alloc_1_1cRefer.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="structae2f_1_1Ds_1_1Alloc_1_1cRefer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ae2f::Ds::Alloc::cRefer Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="Alloc_8hpp_source.html">Alloc.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Ref_8hpp_source.html">Ref.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ae2f::Ds::Alloc::cRefer:</div>
 <div class="dyncontent">
@@ -118,27 +117,35 @@ Inheritance diagram for ae2f::Ds::Alloc::cRefer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3336c7298c682e17f8fa31e249ba104" id="r_ad3336c7298c682e17f8fa31e249ba104"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3336c7298c682e17f8fa31e249ba104">Read</a> (size_t i, void *dest, size_t destlen) const noexcept</td></tr>
-<tr class="separator:ad3336c7298c682e17f8fa31e249ba104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96f9bb504387c4926dfaa8b5322bc930" id="r_a96f9bb504387c4926dfaa8b5322bc930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96f9bb504387c4926dfaa8b5322bc930">Write</a> (size_t i, const void *src, size_t srclen) noexcept</td></tr>
-<tr class="separator:a96f9bb504387c4926dfaa8b5322bc930"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83ebad72a0e820d7e9302445b4e4d56c" id="r_a83ebad72a0e820d7e9302445b4e4d56c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83ebad72a0e820d7e9302445b4e4d56c">Length</a> (size_t *lenbuff, size_t *elsizebuff) const noexcept</td></tr>
-<tr class="separator:a83ebad72a0e820d7e9302445b4e4d56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0dc304944b16cfe66a5165813ec24b1" id="r_ab0dc304944b16cfe66a5165813ec24b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0dc304944b16cfe66a5165813ec24b1">Read</a> (size_t idx, void *buff, size_t elsize) const noexcept</td></tr>
+<tr class="memdesc:ab0dc304944b16cfe66a5165813ec24b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets data from a class.  <br /></td></tr>
+<tr class="separator:ab0dc304944b16cfe66a5165813ec24b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb9144907d6aab26383e35179ea009b" id="r_a2cb9144907d6aab26383e35179ea009b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cb9144907d6aab26383e35179ea009b">Write</a> (size_t idx, const void *src, size_t srcsize) noexcept</td></tr>
+<tr class="memdesc:a2cb9144907d6aab26383e35179ea009b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets data to a class.  <br /></td></tr>
+<tr class="separator:a2cb9144907d6aab26383e35179ea009b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f1c841838a6f4aaa7f7f394320b1259" id="r_a9f1c841838a6f4aaa7f7f394320b1259"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f1c841838a6f4aaa7f7f394320b1259">Length</a> (size_t *sizebuff, size_t *elsizebuff) const noexcept</td></tr>
+<tr class="memdesc:a9f1c841838a6f4aaa7f7f394320b1259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the length, and element size of the class.  <br /></td></tr>
+<tr class="separator:a9f1c841838a6f4aaa7f7f394320b1259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bf8dfc80fa45f3e1335dd46612e994a" id="r_a8bf8dfc80fa45f3e1335dd46612e994a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bf8dfc80fa45f3e1335dd46612e994a">cRefer</a> (const <a class="el" href="namespaceae2f_1_1Ds_1_1Alloc.html#a6638173bbbb42b6c3e30605d2485f7a2">rRefer</a> &amp;r) noexcept</td></tr>
+<tr class="memdesc:a8bf8dfc80fa45f3e1335dd46612e994a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the class for reffering.  <br /></td></tr>
 <tr class="separator:a8bf8dfc80fa45f3e1335dd46612e994a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2c05d8af0cf125b72b425eda239540c" id="r_af2c05d8af0cf125b72b425eda239540c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2c05d8af0cf125b72b425eda239540c">cRefer</a> (const <a class="el" href="namespaceae2f_1_1Ds_1_1Alloc.html#a6638173bbbb42b6c3e30605d2485f7a2">rRefer</a> &amp;&amp;r) noexcept</td></tr>
+<tr class="memdesc:af2c05d8af0cf125b72b425eda239540c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the class for reffering.  <br /></td></tr>
 <tr class="separator:af2c05d8af0cf125b72b425eda239540c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a0659404cdde1231a344025faa23829" id="r_a8a0659404cdde1231a344025faa23829"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a0659404cdde1231a344025faa23829">cRefer</a> (const <a class="el" href="structae2f_1_1Ds_1_1Alloc_1_1xrOwner.html">xrOwner</a> &amp;r) noexcept</td></tr>
+<tr class="memdesc:a8a0659404cdde1231a344025faa23829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the class for reffering.  <br /></td></tr>
 <tr class="separator:a8a0659404cdde1231a344025faa23829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19aeb3d68c998b5a4cc4eb9e87c8954b" id="r_a19aeb3d68c998b5a4cc4eb9e87c8954b"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19aeb3d68c998b5a4cc4eb9e87c8954b">cRefer</a> () noexcept</td></tr>
+<tr class="memdesc:a19aeb3d68c998b5a4cc4eb9e87c8954b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor for instance of class without any implementations.  <br /></td></tr>
 <tr class="separator:a19aeb3d68c998b5a4cc4eb9e87c8954b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a90d2c7fec32853ad17a344f5371911f9" id="r_a90d2c7fec32853ad17a344f5371911f9"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90d2c7fec32853ad17a344f5371911f9">Length_NCOPIED</a> = <a class="el" href="Alloc_8h.html#a28deb514a2419b1eab03e4b60e71ee07">ae2f_ds_Alloc_cRef_getSize_NCOPIED</a></td></tr>
-<tr class="separator:a90d2c7fec32853ad17a344f5371911f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md7"></a>
+This structure does not own the memory.</h1>
+<p>An interface to implement the linear array. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structae2f__ds__cAlloc.html" title="The data holder for [cRef] and [cOwn].">ae2f_ds_cAlloc</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8bf8dfc80fa45f3e1335dd46612e994a" name="a8bf8dfc80fa45f3e1335dd46612e994a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bf8dfc80fa45f3e1335dd46612e994a">&#9670;&#160;</a></span>cRefer() <span class="overload">[1/4]</span></h2>
 
@@ -161,6 +168,19 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialises the class for reffering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>{const ae2f_ds_cAlloc*} </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{const ae2f_ds_Alloc_cRef} This initiated structure. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>You need to suggest that returning value of this does not own the memory. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#ac5bc205a87a0f869e6d6cf774746a32c" title="Initialises the class for reffering.">ae2f_ds_Alloc_cRef_Mk</a> </dd></dl>
 
 </div>
 </div>
@@ -187,6 +207,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initialises the class for reffering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>{const ae2f_ds_cAlloc*} </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{const ae2f_ds_Alloc_cRef} This initiated structure. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>You need to suggest that returning value of this does not own the memory. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#ac5bc205a87a0f869e6d6cf774746a32c" title="Initialises the class for reffering.">ae2f_ds_Alloc_cRef_Mk</a> </dd></dl>
+
 </div>
 </div>
 <a id="a8a0659404cdde1231a344025faa23829" name="a8a0659404cdde1231a344025faa23829"></a>
@@ -211,6 +244,19 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initialises the class for reffering. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>{const ae2f_ds_cAlloc*} </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{const ae2f_ds_Alloc_cRef} This initiated structure. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>You need to suggest that returning value of this does not own the memory. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#ac5bc205a87a0f869e6d6cf774746a32c" title="Initialises the class for reffering.">ae2f_ds_Alloc_cRef_Mk</a> </dd></dl>
 
 </div>
 </div>
@@ -237,11 +283,14 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A constructor for instance of class without any implementations. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Notice that will have no implementation. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a83ebad72a0e820d7e9302445b4e4d56c" name="a83ebad72a0e820d7e9302445b4e4d56c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83ebad72a0e820d7e9302445b4e4d56c">&#9670;&#160;</a></span>Length()</h2>
+<a id="a9f1c841838a6f4aaa7f7f394320b1259" name="a9f1c841838a6f4aaa7f7f394320b1259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f1c841838a6f4aaa7f7f394320b1259">&#9670;&#160;</a></span>Length()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +301,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> ae2f::Ds::Alloc::cRefer::Length </td>
           <td>(</td>
-          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>lenbuff</em></span>, </td>
+          <td class="paramtype">size_t *</td>          <td class="paramname"><span class="paramname"><em>sizebuff</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -266,18 +315,34 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets the length, and element size of the class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lenbuff</td><td>A pointer where the count of the array, as an unit of elements. </td></tr>
+    <tr><td class="paramname">sizebuff</td><td>A pointer where the count of the array, as an unit of elements. </td></tr>
     <tr><td class="paramname">elsizebuff</td><td>A pointer where the size of the element. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> <br  />
+<a class="el" href="Alloc_2Err_8h.html#a1e5ad33bcac0156c25efbf3f3a954062">ae2f_ds_Alloc_Err_NCOPIED</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#ad1d18f7440e6e920e15caa75e6957b61">ae2f_errGlob_PTR_IS_NULL</a> <br  />
+</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#ac235d87562b5374003505f12e2960196" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_fpLen_t</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a178ff9e82eef9c46cc0087016d9dc7c6" title="Gets the length, and element size of the class.">ae2f_ds_Alloc_cRef_getSize</a> </dd></dl>
 
 </div>
 </div>
-<a id="ad3336c7298c682e17f8fa31e249ba104" name="ad3336c7298c682e17f8fa31e249ba104"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3336c7298c682e17f8fa31e249ba104">&#9670;&#160;</a></span>Read()</h2>
+<a id="ab0dc304944b16cfe66a5165813ec24b1" name="ab0dc304944b16cfe66a5165813ec24b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0dc304944b16cfe66a5165813ec24b1">&#9670;&#160;</a></span>Read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,17 +353,17 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> ae2f::Ds::Alloc::cRefer::Read </td>
           <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buff</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>destlen</em></span>&#160;) const</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>elsize</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -307,19 +372,35 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Gets data from a class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The Index [in an unit of bytes] where the element to copy is. </td></tr>
-    <tr><td class="paramname">dest</td><td>A pointer of buffer where the element to be copied. </td></tr>
-    <tr><td class="paramname">destlen</td><td>The allocated size of the <code>lpBuff</code>. </td></tr>
+    <tr><td class="paramname">idx</td><td>The Index [in an unit of bytes] where the element to copy is. </td></tr>
+    <tr><td class="paramname">buff</td><td>A pointer of buffer where the element to be copied. </td></tr>
+    <tr><td class="paramname">elsize</td><td>The allocated size of the [buff]. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> <br  />
+<a class="el" href="errGlob_8h.html#ad1d18f7440e6e920e15caa75e6957b61">ae2f_errGlob_PTR_IS_NULL</a> <br  />
+<a class="el" href="Alloc_8h.html#a27e8f1b9c7015eabf3b26f8b0443af16">ae2f_ds_Alloc_Err_IDX_INVALID</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a6f45ce21cdbcaf0ffb67e5062715bce5" title="Gets data from a class.">ae2f_ds_Alloc_fpRead_t</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a9fec31670568d6cd74989f3335e60a68" title="Gets data from a class.">ae2f_ds_Alloc_cRef_Read</a> </dd></dl>
 
 </div>
 </div>
-<a id="a96f9bb504387c4926dfaa8b5322bc930" name="a96f9bb504387c4926dfaa8b5322bc930"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96f9bb504387c4926dfaa8b5322bc930">&#9670;&#160;</a></span>Write()</h2>
+<a id="a2cb9144907d6aab26383e35179ea009b" name="a2cb9144907d6aab26383e35179ea009b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb9144907d6aab26383e35179ea009b">&#9670;&#160;</a></span>Write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +411,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> ae2f::Ds::Alloc::cRefer::Write </td>
           <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -340,7 +421,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>srclen</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>srcsize</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -349,41 +430,35 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Sets data to a class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">i</td><td>The Index [in an unit of bytes] where the element to be overwritten. </td></tr>
+    <tr><td class="paramname">idx</td><td>The Index [in an unit of bytes] where the element to be overwritten. </td></tr>
     <tr><td class="paramname">src</td><td>A pointer of an element. </td></tr>
-    <tr><td class="paramname">srclen</td><td>An allocated size of the <code>lpBuff</code>. </td></tr>
+    <tr><td class="paramname">srcsize</td><td>An allocated size of the [src]. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="errGlob_8h.html#a7ea7d8a5a85ef707e5c125a32e44449c">ae2f_errGlob_OK</a> </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p><a class="el" href="errGlob_8h.html#adfdaa71813624905f6953cf9d5c08a1e">ae2f_errGlob_IMP_NOT_FOUND</a> <br  />
+<a class="el" href="errGlob_8h.html#ad1d18f7440e6e920e15caa75e6957b61">ae2f_errGlob_PTR_IS_NULL</a> <br  />
+<a class="el" href="Alloc_8h.html#a27e8f1b9c7015eabf3b26f8b0443af16">ae2f_ds_Alloc_Err_IDX_INVALID</a> </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="Ref_8h.html#a6883a79ac8f19b22f8efa2ebd286888a">ae2f_ds_Alloc_cRef</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#aa098e57d3624e69c14330f34e69fa440" title="Sets data to a class.">ae2f_ds_Alloc_fpWrite_t</a> </dd>
+<dd>
+<a class="el" href="Ref_8h.html#a693ff82b75a1dd5690ea73ad57e26270" title="Sets data to a class.">ae2f_ds_Alloc_cRef_Write</a> </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a90d2c7fec32853ad17a344f5371911f9" name="a90d2c7fec32853ad17a344f5371911f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90d2c7fec32853ad17a344f5371911f9">&#9670;&#160;</a></span>Length_NCOPIED</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a> ae2f::Ds::Alloc::cRefer::Length_NCOPIED = <a class="el" href="Alloc_8h.html#a28deb514a2419b1eab03e4b60e71ee07">ae2f_ds_Alloc_cRef_getSize_NCOPIED</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li>include/ae2f/Ds/Alloc/<a class="el" href="Ref_8hpp_source.html">Ref.hpp</a></li>
 <li>include/ae2f/Ds/<a class="el" href="Alloc_8hpp_source.html">Alloc.hpp</a></li>
 </ul>
 </div><!-- contents -->

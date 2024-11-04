@@ -3,9 +3,6 @@ var namespaceae2f_1_1Ds_1_1Alloc =
     [ "cOwner", "namespaceae2f_1_1Ds_1_1Alloc_1_1cOwner.html", [
       [ "Linear_t", "namespaceae2f_1_1Ds_1_1Alloc_1_1cOwner.html#a1c6234c74de8653d207da30c8c06c0e9", null ]
     ] ],
-    [ "E_GetSize", "namespaceae2f_1_1Ds_1_1Alloc_1_1E__GetSize.html", [
-      [ "NCOPIED", "namespaceae2f_1_1Ds_1_1Alloc_1_1E__GetSize.html#acf64eedd087affefdf25e5301d923d50", null ]
-    ] ],
     [ "cRefer", "structae2f_1_1Ds_1_1Alloc_1_1cRefer.html", "structae2f_1_1Ds_1_1Alloc_1_1cRefer" ],
     [ "iOwner", "structae2f_1_1Ds_1_1Alloc_1_1iOwner.html", "structae2f_1_1Ds_1_1Alloc_1_1iOwner" ],
     [ "vfDef", "structae2f_1_1Ds_1_1Alloc_1_1vfDef.html", null ],
