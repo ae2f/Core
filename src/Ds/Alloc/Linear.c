@@ -15,10 +15,10 @@ static ae2f_errint_t Len(const ae2f_struct ae2f_ds_cAlloc* This, size_t* buff, s
 	size_t* p_sz = ((size_t*)This->data) ? ((size_t*)This->data) : sz;
 
 	if(buff) *buff = *((size_t*)p_sz);
-	else err |= ae2f_ds_Alloc_cRef_getSize_NCOPIED;
+	else err |= ae2f_ds_Alloc_Err_NCOPIED;
 
 	if(one) *one = 1;
-	else err |= ae2f_ds_Alloc_cRef_getSize_NCOPIED;
+	else err |= ae2f_ds_Alloc_Err_NCOPIED;
 	return err;
 }
 static ae2f_errint_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, void* buff, size_t bufflen) {
@@ -26,7 +26,7 @@ static ae2f_errint_t Read(const ae2f_struct ae2f_ds_cAlloc* This, size_t idx, vo
 		return ae2f_errGlob_PTR_IS_NULL;
 
 	if (idx + bufflen > LEN_GETTER)
-		return ae2f_errGlob_WRONG_OPERATION;
+		return ae2f_ds_Alloc_Err_IDX_INVALID;
 
 	memcpy(buff, This->data + sizeof(size_t) + idx, bufflen);
 
@@ -38,7 +38,7 @@ static ae2f_errint_t Write(ae2f_struct ae2f_ds_cAlloc* This, size_t idx, const v
 		return ae2f_errGlob_PTR_IS_NULL;
 
 	if (idx + bufflen > LEN_GETTER)
-		return ae2f_errGlob_WRONG_OPERATION;
+		return ae2f_ds_Alloc_Err_IDX_INVALID;
 
 	memcpy(This->data + sizeof(size_t) + idx, buff, bufflen);
 

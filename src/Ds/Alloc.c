@@ -8,7 +8,7 @@ ae2f_SHAREDEXPORT ae2f_extern ae2f_errint_t ae2f_ds_Alloc_cOwn_Init(
 	const ae2f_struct ae2f_ds_vAlloc* imp
 ) {
 	if (!(This)) return ae2f_errGlob_PTR_IS_NULL;
-	if (!imp) return ae2f_ds_Alloc_cOwn_Init_FPIMPNULL;
+	if (!imp) return ae2f_ds_Alloc_Err_FPIMPNULL;
 
 	This->data = 0;
 	This->v = imp;

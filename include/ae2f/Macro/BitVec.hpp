@@ -6,13 +6,13 @@
 
 namespace ae2f {
 	namespace Macro {
-
 		/// @brief 
+		/// 
 		/// @tparam t 
 		/// Is the class binding for BitVec.h
 		template<typename t>
 		struct rBitVec {
-			using idx_t = unsigned char;
+			using idx_t = ae2f_Macro_BitVecI_t;
 
 			/// @brief 
 			/// The actual integer.

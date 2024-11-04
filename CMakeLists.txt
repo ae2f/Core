@@ -18,7 +18,6 @@ add_library(
 	"include/ae2f/Macro/Cast/CasterUnion.hpp" 
 
     "include/ae2f/Macro/errGlob.h" 
-    "include/ae2f/Macro/errGlob.hpp" 
     "src/Macro/errGlob.c"
 
     "include/ae2f/Macro/BitVec.h" 
