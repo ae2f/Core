@@ -101,46 +101,48 @@ $(function(){initNavTree('Arr_8hpp_source.html',''); initResizable(true); });
 <div class="contents">
 <a href="Arr_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_8h.html">Arr.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#if !defined(ae2f_ds_Arr_hpp)</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="Arr_8hpp.html#a53518a932d751b5af1979b52db1cb9f6">    4</a></span><span class="preprocessor">#define ae2f_ds_Arr_hpp</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Alloc_8hpp.html">Alloc.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Defs_8hpp.html">Arr/Defs.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="Pack_8hpp.html">Arr/Pack.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Ref_8hpp.html">Arr/Ref.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Own_8hpp.html">Arr/Own.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceae2f.html">ae2f</a> {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>Ds {</div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr.html">   17</a></span><span class="keyword">namespace </span>Arr {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, const ae2f_ds_vAlloc* __imp&gt;</div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">   20</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">xrOwner</a>&lt;T&gt;, <span class="keyword">public</span> <a class="code hl_struct" href="structae2f_1_1Ds_1_1Alloc_1_1vfDef.html">Alloc::vfDef</a>&lt;__imp&gt; {</div>
-<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">   21</a></span>        <span class="keyword">inline</span> <a class="code hl_function" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">iOwner</a>(</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>* perr = 0</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        ) noexcept : <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">xrOwner</a>&lt;T&gt;(perr, __imp) {}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Fork + exec</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#if !defined(ae2f_ds_Arr_hpp)</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="Arr_8hpp.html#a53518a932d751b5af1979b52db1cb9f6">    6</a></span><span class="preprocessor">#define ae2f_ds_Arr_hpp</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="Alloc_8hpp.html">Alloc.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Defs_8hpp.html">Arr/Defs.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="Pack_8hpp.html">Arr/Pack.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Ref_8hpp.html">Arr/Ref.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="Arr_2Own_8hpp.html">Arr/Own.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceae2f.html">ae2f</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span>Ds {</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr.html">   19</a></span><span class="keyword">namespace </span>Arr {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, const ae2f_ds_vAlloc* __imp&gt;</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">   22</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner</a> : <span class="keyword">public</span> <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">xrOwner</a>&lt;T&gt;, <span class="keyword">public</span> <a class="code hl_struct" href="structae2f_1_1Ds_1_1Alloc_1_1vfDef.html">Alloc::vfDef</a>&lt;__imp&gt; {</div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">   23</a></span>        <span class="keyword">inline</span> <a class="code hl_function" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">iOwner</a>(</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <a class="code hl_typedef" href="errGlob_8h.html#ada27ccf87bd7066f67a8fe056e180783">ae2f_errint_t</a>* perr = 0</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        ) noexcept : <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">xrOwner</a>&lt;T&gt;(perr, __imp) {}</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    };</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    };</div>
 </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html">   26</a></span>    <span class="keyword">namespace </span>cOwner {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html#a25e7ecb4dbd4fc32736b87773d86dd5a">   28</a></span>        <span class="keyword">using </span><a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">Linear_t</a> = <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner&lt;T, &amp;ae2f_ds_vAlloc_cLinear&gt;</a>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html">   28</a></span>    <span class="keyword">namespace </span>cOwner {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespaceae2f_1_1Ds_1_1Arr_1_1cOwner.html#a25e7ecb4dbd4fc32736b87773d86dd5a">   30</a></span>        <span class="keyword">using </span><a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">Linear_t</a> = <a class="code hl_struct" href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">iOwner&lt;T, &amp;ae2f_ds_vAlloc_cLinear&gt;</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
-</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>}</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aAlloc_8hpp_html"><div class="ttname"><a href="Alloc_8hpp.html">Alloc.hpp</a></div></div>
 <div class="ttc" id="aArr_2Defs_8hpp_html"><div class="ttname"><a href="Arr_2Defs_8hpp.html">Defs.hpp</a></div></div>
 <div class="ttc" id="aArr_2Own_8hpp_html"><div class="ttname"><a href="Arr_2Own_8hpp.html">Own.hpp</a></div></div>
@@ -151,8 +153,8 @@ $(function(){initNavTree('Arr_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespaceae2f_html"><div class="ttname"><a href="namespaceae2f.html">ae2f</a></div><div class="ttdef"><b>Definition</b> Alloc.hpp:6</div></div>
 <div class="ttc" id="astructae2f_1_1Ds_1_1Alloc_1_1vfDef_html"><div class="ttname"><a href="structae2f_1_1Ds_1_1Alloc_1_1vfDef.html">ae2f::Ds::Alloc::vfDef</a></div><div class="ttdef"><b>Definition</b> Alloc.hpp:13</div></div>
 <div class="ttc" id="astructae2f_1_1Ds_1_1Arr_1_1____Owner_html"><div class="ttname"><a href="structae2f_1_1Ds_1_1Arr_1_1____Owner.html">ae2f::Ds::Arr::__Owner</a></div><div class="ttdef"><b>Definition</b> Defs.hpp:39</div></div>
-<div class="ttc" id="astructae2f_1_1Ds_1_1Arr_1_1iOwner_html"><div class="ttname"><a href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">ae2f::Ds::Arr::iOwner</a></div><div class="ttdef"><b>Definition</b> Arr.hpp:20</div></div>
-<div class="ttc" id="astructae2f_1_1Ds_1_1Arr_1_1iOwner_html_a2ea06f085412ab7e5260c87e3744d774"><div class="ttname"><a href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">ae2f::Ds::Arr::iOwner::iOwner</a></div><div class="ttdeci">iOwner(ae2f_errint_t *perr=0) noexcept</div><div class="ttdef"><b>Definition</b> Arr.hpp:21</div></div>
+<div class="ttc" id="astructae2f_1_1Ds_1_1Arr_1_1iOwner_html"><div class="ttname"><a href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html">ae2f::Ds::Arr::iOwner</a></div><div class="ttdef"><b>Definition</b> Arr.hpp:22</div></div>
+<div class="ttc" id="astructae2f_1_1Ds_1_1Arr_1_1iOwner_html_a2ea06f085412ab7e5260c87e3744d774"><div class="ttname"><a href="structae2f_1_1Ds_1_1Arr_1_1iOwner.html#a2ea06f085412ab7e5260c87e3744d774">ae2f::Ds::Arr::iOwner::iOwner</a></div><div class="ttdeci">iOwner(ae2f_errint_t *perr=0) noexcept</div><div class="ttdef"><b>Definition</b> Arr.hpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
