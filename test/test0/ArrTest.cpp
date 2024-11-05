@@ -1,7 +1,8 @@
 #include <ae2f/Ds/Arr.hpp>
 #include <iostream>
-
 #include <ae2f/Macro/Cast.h>
+
+#include "../test.h"
 
 struct a {
     static int _d;
@@ -25,7 +26,7 @@ struct a {
 int a::_d = 0;
 
 
-int Test0x5() {
+static int Test0() {
     ae2f::Ds::Arr::cOwner::Linear_t<a> _a;
 
     std::cout << "Linear: " << (int)(_a.v == &ae2f_ds_vAlloc_cLinear) << "\n";
@@ -42,7 +43,7 @@ int Test0x5() {
 }
 
 // raw copy test
-int Test0x6() {
+static int Test3() {
     ae2f::Ds::Arr::cOwner::Linear_t<int> _a, _b;
 
     _a.Resize(5);
@@ -55,7 +56,7 @@ int Test0x6() {
 }
 
 // raw ref test
-int Test0x7() {
+static int Test1() {
     ae2f::Ds::Arr::cOwner::Linear_t<int> _a;
 
     _a.Resize(5);
@@ -68,7 +69,7 @@ int Test0x7() {
 }
 
 // ref test [non-trivial]
-int Test0x8() {
+static int Test2() {
     ae2f::Ds::Arr::cOwner::Linear_t<a> _a;
     _a.Resize(20);
     _a.Write(0);
@@ -77,4 +78,15 @@ int Test0x8() {
     std::cout << ref.Read(0).Obj.v << "\n";
 
     return 0;
+}
+
+
+int ArrTest() {
+    int errcode;
+    TEST(Test0, errcode);
+    TEST(Test1, errcode);
+    TEST(Test2, errcode);
+    TEST(Test3, errcode);
+
+    return errcode;
 }
