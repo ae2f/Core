@@ -41,6 +41,8 @@ typedef ae2f_ds_Arr_CmpRet_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* 
 /// ```
 /// @param out 
 /// Buffer where the Index may be stored
+/// @param elsize
+/// Suggested each element's size.
 /// @return 
 /// @ref ae2f_errGlob_OK \n
 /// @ref ae2f_ds_Arr_NOT_FOUND 
@@ -53,8 +55,9 @@ typedef ae2f_ds_Arr_CmpRet_t(*ae2f_ds_Arr_fpElCmp_t)(const void* l, const void* 
 ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	const ae2f_struct ae2f_ds_cAlloc* arr,
 	const void* wanted,
-	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
-	size_t* out
+	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	size_t* out,
+	size_t elsize
 );
 
 /// @brief 
@@ -70,19 +73,22 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 /// ```c
 /// fpElCmp(element, wanted);
 /// ```
-/// @param out 
+/// @param retidx
 /// Buffer where the Index may be stored
+/// @param elw
+/// Suggested each element's size.
 /// @return 
 /// @ref ae2f_errGlob_OK \n
 /// @ref ae2f_ds_Arr_NOT_FOUND 
 /// @exception \
 /// @ref ae2f_errGlob_PTR_IS_NULL \n
 /// @ref ae2f_errGlob_IMP_NOT_FOUND \n
-/// @ref ae2f_errGlob_ALLOC_FAILED \n 
+/// @ref ae2f_errGlob_ALLOC_FAILED \n
+/// @ref ae2f_errGlob_WRONG_OPERATION 
 /// @see ae2f_ds_Alloc_cRef_getSize
 /// @see ae2f_ds_Alloc_cRef_Read
 /// @see ae2f_ds_Arr_BSearch_imp
-#define ae2f_ds_Arr_BSearch(arr, wanted, fpElCmp, retidx) ae2f_ds_Arr_BSearch_imp(ae2f_reinterpret_cast(const ae2f_struct ae2f_ds_Alloc_Refer*, arr), wanted, ae2f_reinterpret_cast(const ae2f_ds_Arr_fpElCmp_t, fpElCmp), retidx)
+#define ae2f_ds_Arr_BSearch(arr, wanted, fpElCmp, retidx, elw) ae2f_ds_Arr_BSearch_imp(arr, wanted, fpElCmp, retidx, elw)
 
 /// @brief 
 /// Order the arr via quick sort.
@@ -93,6 +99,8 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 /// ```c
 /// fpElCmp(element, wanted);
 /// ```
+/// @param elsize
+/// Suggested each element's size.
 /// @return
 /// @ref ae2f_errGlob_OK
 /// @exception \
@@ -103,7 +111,8 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 /// @see ae2f_ds_Alloc_cRef_Write
 ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	ae2f_struct ae2f_ds_cAlloc* arr,
-	const ae2f_ds_Arr_fpElCmp_t fpElCmp
+	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	size_t elsize
 );
 
 /// @brief 
@@ -115,6 +124,8 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 /// ```c
 /// fpElCmp(element, wanted);
 /// ```
+/// @param elw
+/// Suggested each element's size.
 /// @return
 /// @ref ae2f_errGlob_OK
 /// @exception \
@@ -124,6 +135,6 @@ ae2f_SHAREDCALL ae2f_extern ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 /// @see ae2f_ds_Alloc_cRef_Read
 /// @see ae2f_ds_Alloc_cRef_Write
 /// @see ae2f_ds_Arr_QSort_imp
-#define ae2f_ds_Arr_QSort(arr, fpElCmp) ae2f_ds_Arr_QSort_imp(ae2f_reinterpret_cast(ae2f_struct ae2f_ds_Alloc_cRef*, arr),ae2f_reinterpret_cast(const ae2f_ds_Arr_fpElCmp_t, fpElCmp))
+#define ae2f_ds_Arr_QSort(arr, fpElCmp, elw) ae2f_ds_Arr_QSort_imp(arr, fpElCmp, elw)
 
 #endif // !defined(ae2f_DataStructure_Array_h)

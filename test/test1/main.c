@@ -1,13 +1,11 @@
+// fully regress
+// 다른 프로세스를 fully regress(아예 회귀)하고 싶음
+
+// scrafolding
+
 #include <ae2f/Ds/Alloc.h>
+#include "../test.h"
 
-enum globalErr_Byte1 {
-    ALL_GOOD,
-    WRONG_DS,
-};
-
-#define TEST_IF(buff, ...) if((buff) = (__VA_ARGS__))
-#define TEST_VAL(buff, ...) TEST_IF(buff, __VA_ARGS__) return (buff);
-#define TEST(fun, buff) if((buff) = ((fun)())) return (buff);
  
 #pragma region Test Alloc
 // resize / getsize / init / del
@@ -124,6 +122,8 @@ static int Test0x4() {
     return ae2f_errGlob_NFOUND;
 }
 
+int ArrTestMain();
+
 #pragma endregion
 
 int main() {
@@ -134,6 +134,7 @@ int main() {
     TEST(Test0x2, ErrCode);
     TEST(Test0x3, ErrCode);
     TEST(Test0x4, ErrCode);
+    TEST(ArrTestMain, ErrCode);
 
     return 0;
 }

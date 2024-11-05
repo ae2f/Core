@@ -5,8 +5,9 @@
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	const struct ae2f_ds_cAlloc* arr,
 	const void* wanted,
-	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
-	size_t* out
+	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	size_t* out,
+	size_t _elsize
 ) {
 	if (!out) return ae2f_errGlob_PTR_IS_NULL;
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;
@@ -17,7 +18,15 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	if ((err = ae2f_ds_Alloc_cRef_getSize(arr, &arr_r, &elsize))) 
 		return err;
 
+	if(_elsize) {
+		arr_r = arr_r * elsize / _elsize;
+		elsize = _elsize;
+	} else if(!elsize) {
+		return ae2f_errGlob_WRONG_OPERATION;
+	}
+
 	arr_r--;
+
 
 	void* el = calloc(elsize, 1);
 	if (!el) {
@@ -98,13 +107,15 @@ static ae2f_errint_t imp_ae2f_partition(
 		return err;
 
 	size_t i = idx_low - 1;
+	printf("i %d\n", i);
 
 	for (size_t j = idx_low; j < idx_high; j++) {
+		printf("j %d\n", j);
+
 		if ((err = __Read(j, tempel)))
 			return err;
 
 		if (fpElCmp(tempel, pivot) <= ae2f_ds_Arr_EQUAL) {
-
 			i++; // i, j
 			if ((err = imp_ae2f_swap(arr, elsize, pivot, tempel, i, j)))
 				return err;
@@ -137,8 +148,12 @@ static ae2f_errint_t imp_ae2f_Qsort(
 	struct __* prm
 ) {
 	ae2f_errint_t err;
-	if (prm->idx_low >= prm->idx_high)
+
+	printf("idx: %d %d\n", prm->idx_low, prm->idx_high);
+
+	if (prm->idx_low >= prm->idx_high) {
 		return ae2f_errGlob_OK;
+	}
 
 	size_t pvtIdx;
 	if ((err = imp_ae2f_partition(prm->arr, prm->elsize, prm->fpElCmp, prm->tempel, prm->pivot, &pvtIdx, prm->idx_low, prm->idx_high)))
@@ -157,7 +172,8 @@ static ae2f_errint_t imp_ae2f_Qsort(
 
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	struct ae2f_ds_cAlloc* arr,
-	const ae2f_ds_Arr_fpElCmp_t fpElCmp
+	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	size_t _elsize
 ) {
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;
 
@@ -165,6 +181,22 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	ae2f_errint_t rtn;
 	if (rtn = ae2f_ds_Alloc_cRef_getSize(arr, &len, &elsize))
 		return rtn;
+	struct __ prm = {
+		.arr = arr,
+		.elsize = elsize,
+		.fpElCmp = fpElCmp,
+		.tempel = 0,
+		.pivot = 0,
+		.idx_low = 0,
+		.idx_high = len - 1
+	};
+
+	if(_elsize) {
+		prm.elsize = _elsize;
+		prm.idx_high = (len * elsize / _elsize) - 1;
+	} else if(!elsize) {
+		return ae2f_errGlob_WRONG_OPERATION;
+	}
 
 	void* tmpel = calloc(1, elsize);
 	if (!tmpel) return ae2f_errGlob_ALLOC_FAILED;
@@ -172,17 +204,13 @@ ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	void* pvt = calloc(1, elsize);
 	if (!pvt) { free(tmpel); return ae2f_errGlob_ALLOC_FAILED; }
 
-	struct __ prm = {
-		.arr = arr,
-		.elsize = elsize,
-		.fpElCmp = fpElCmp,
-		.tempel = tmpel,
-		.pivot = pvt,
-		.idx_low = 0,
-		.idx_high = len - 1
-	};
+	prm.tempel = tmpel;
+	prm.pivot = pvt;
 
-	while((rtn |= imp_ae2f_Qsort(&prm)) & ae2f_errGlob_DONE_HOWEV)
+	int _rtn;
+	while(((_rtn = imp_ae2f_Qsort(&prm))) & ae2f_errGlob_DONE_HOWEV) {
+		rtn |= _rtn;
+	}
 	
 
 	free(tmpel);
