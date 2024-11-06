@@ -8,6 +8,6 @@ var Arr_8h =
     [ "ae2f_ds_Arr_RIGHT_UNIT", "Arr_8h.html#aeb6e52dd36ec1e03c22d4b9db1193e08", null ],
     [ "ae2f_ds_Arr_CmpRet_t", "Arr_8h.html#ac9b46127c70ea2bfbde29219f8e815dd", null ],
     [ "ae2f_ds_Arr_fpElCmp_t", "Arr_8h.html#a13e7aa3612bf7f85c6bc96abac358ff0", null ],
-    [ "ae2f_ds_Arr_BSearch_imp", "Arr_8h.html#a603e6708dfd22453097c5ff458b303b4", null ],
-    [ "ae2f_ds_Arr_QSort_imp", "Arr_8h.html#a619d3e58abc08a48099c0c8480e44611", null ]
+    [ "ae2f_ds_Arr_BSearch_imp", "Arr_8h.html#ae030d6648267707de52531aa2188d9e6", null ],
+    [ "ae2f_ds_Arr_QSort_imp", "Arr_8h.html#a93beb48986bff79b93144394fffee2a4", null ]
 ];
