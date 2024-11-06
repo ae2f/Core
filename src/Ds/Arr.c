@@ -5,7 +5,7 @@
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_BSearch_imp(
 	const struct ae2f_ds_cAlloc* arr,
 	const void* wanted,
-	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t* out,
 	size_t _elsize
 ) {
@@ -172,7 +172,7 @@ static ae2f_errint_t imp_ae2f_Qsort(
 
 ae2f_SHAREDEXPORT ae2f_errint_t ae2f_ds_Arr_QSort_imp(
 	struct ae2f_ds_cAlloc* arr,
-	ae2f_ds_Arr_fpElCmp_t fpElCmp,
+	const ae2f_ds_Arr_fpElCmp_t fpElCmp,
 	size_t _elsize
 ) {
 	if (!fpElCmp) return ae2f_errGlob_IMP_NOT_FOUND;
