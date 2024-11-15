@@ -1,9 +1,14 @@
-# ae2f::Core
-- Rel-v1.2.10.5
+# [ae2f::Core](https://github.com/ae2f/Core)
+- Rel-v2.0
 
-> This is a very first & core of my own package.  
-> When installed, will be installed as usual, but in directory of "ae2f" under the default install direction.  
-> This is a experiment of implementing interface in C.
+> The smallest core utils for ae2f-like library.  
+> Contains no source, just headers. (interface)
+
+## Disclaimer
+> If you're looking for ae2f::ErrGlob, it has migrated to [ae2f::err](https://github.com/ae2f/err).
+
+## Disclaimer::Ds
+> If you're looking for Datastructure functions (alloc, arr, etc), it has migrated to [ae2f::Ds](https://github.com/ae2f/Ds)
 
 # Doxygen
 > is used for generating documentation of this project.  

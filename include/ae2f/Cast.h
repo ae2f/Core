@@ -7,11 +7,11 @@
 /// @brief
 /// ANSI Code for clearing the console.
 /// Clearing all display, moving the cursor on the top.
-#define ae2f_Macro_Cast_Console_Clear_Cheat "\033[2J\033[H"
+#define ae2f_Cast_CCls "\033[2J\033[H"
 
 /// @brief
 /// simply merge all text inside the round bracket, counting them as a single text block.
-#define ae2f_Macro_Cast_Merge(...) __VA_ARGS__
+#define ae2f_Cast_Merge(...) __VA_ARGS__
 
 #include <stdbool.h>
 #include <stddef.h>
