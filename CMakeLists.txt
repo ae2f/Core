@@ -7,6 +7,12 @@ include(GNUInstallDirs)
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 
+if(ae2f_IS_SHARED)
+    set(ae2f_LIBPREFIX SHARED)
+else()
+    set(ae2f_LIBPREFIX STATIC)
+endif()
+
 configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
 
 
