@@ -1,7 +1,7 @@
 #include "./BitVec.h"
 
-#if !defined(ae2f_Macro_BitVector_hpp)
-#define ae2f_Macro_BitVector_hpp
+#if !defined(ae2f_BitVector_hpp)
+#define ae2f_BitVector_hpp
 #include <type_traits>
 
 namespace ae2f {
@@ -12,7 +12,7 @@ namespace ae2f {
 		/// Is the class binding for BitVec.h
 		template<typename t>
 		struct rBitVec {
-			using idx_t = ae2f_Macro_BitVecI_t;
+			using idx_t = ae2f_BitVecI_t;
 
 			/// @brief 
 			/// The actual integer.
@@ -39,26 +39,26 @@ namespace ae2f {
 			}
 
 			constexpr static rBitVec<t> Filled(idx_t length) noexcept {
-				return rBitVec(_ae2f_Macro_BitVec_Filled(length, t));
+				return rBitVec(_ae2f_BitVec_Filled(length, t));
 			}
 
 			constexpr bool Get(idx_t i) const noexcept {
-				return ae2f_Macro_BitVec_Get(obj, i);
+				return ae2f_BitVec_Get(obj, i);
 			}
 
 			constexpr rBitVec<t> Get(idx_t start, idx_t end) const noexcept {
-				return ae2f_Macro_BitVec_GetRanged(this->obj, start, end);
+				return ae2f_BitVec_GetRanged(this->obj, start, end);
 			}
 			constexpr rBitVec<t>& Set(idx_t i, bool val) noexcept {
-				obj = ae2f_Macro_BitVec_Set(this->obj, i, val);
+				obj = ae2f_BitVec_Set(this->obj, i, val);
 				return *this;
 			}
 
 			constexpr rBitVec<t> Set(idx_t i, bool val) const noexcept {
-				return ae2f_Macro_BitVec_Set(this->obj, i, val);
+				return ae2f_BitVec_Set(this->obj, i, val);
 			}
 			constexpr rBitVec<t> Set(idx_t start, idx_t end, rBitVec<t> val) const noexcept {
-				return ae2f_Macro_BitVec_SetRanged(this->obj, start, end, val.obj);
+				return ae2f_BitVec_SetRanged(this->obj, start, end, val.obj);
 			}
 			constexpr rBitVec<t>& Set(idx_t start, idx_t end, rBitVec<t> val) noexcept {
 				this->obj = const_cast<const rBitVec<t>*>(this)->Set(start, end, val);

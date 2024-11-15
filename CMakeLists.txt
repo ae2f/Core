@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 project(Core)
 enable_testing()
 
@@ -7,33 +7,25 @@ include(GNUInstallDirs)
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 
+configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
 
-configure_file(${PROJECT_SOURCE_DIR}/hin/ae2f/Macro/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Macro/Call.h)
 
 add_library(
 	${PROJECT_NAME}
-    ${ae2f_PREFIX_LIB}
+    INTERFACE
+    
+    "include/ae2f/Cast.h"
+    "include/ae2f/Cast/CasterUnion.hpp"
 
-	"include/ae2f/Macro/Cast.h" 
-	"include/ae2f/Macro/Cast/CasterUnion.hpp" 
+    "include/ae2f/BitVec.h"
+    "include/ae2f/BitVec.hpp"
 
-    "include/ae2f/Macro/errGlob.h" 
-    "src/Macro/errGlob.c"
+    "include/ae2f/Call.h"
 
-    "include/ae2f/Macro/BitVec.h" 
-	"include/ae2f/Macro/BitVec.hpp" 
+    "include/ae2f/Cmp.h"
+    "include/ae2f/Cmp.hpp"
 
-	"include/ae2f/Ds/Alloc.h"
-    "include/ae2f/Ds/Alloc.hpp"
-	"src/Ds/Alloc.c" 
-    "src/Ds/Alloc/Linear.c"
-
-	"include/ae2f/Ds/Arr.h"
-    "src/Ds/Arr.c"
-
-	"include/ae2f/Macro/Cmp.h"
-	"include/ae2f/Macro/Cmp.hpp"
-    "include/ae2f/Macro/Call.h"
+    "include/ae2f/RNum.h"
 )
 
 include_directories(include)
