@@ -9,4 +9,6 @@
 #include <ae2f/RNum.h>
 #include <ae2f/Cast.h>
 
+#include <ae2f/errGlob.h>
+
 int a() { return 0; }

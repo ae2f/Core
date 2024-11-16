@@ -1,5 +1,5 @@
-#if !defined(ae2f_BitVector_h)
-#define ae2f_BitVector_h
+#if !defined(ae2f_BitVec_h)
+#define ae2f_BitVec_h
 
 #include "Cast.h"
 #include "Cmp.h"

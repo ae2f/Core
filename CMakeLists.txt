@@ -32,6 +32,7 @@ add_library(
     "include/ae2f/Cmp.hpp"
 
     "include/ae2f/RNum.h"
+    "include/ae2f/errGlob.h"
 )
 
 include_directories(include)
