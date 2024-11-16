@@ -1,5 +1,5 @@
-#if !defined(ae2f_Macro_Cast_CasterUnion_hpp)
-#define ae2f_Macro_Cast_CasterUnion_hpp
+#if !defined(ae2f_Cast_CasterUnion_hpp)
+#define ae2f_Cast_CasterUnion_hpp
 
 /// @brief 
 /// C++ union definition for @ref ae2f_union_cast
