@@ -6,15 +6,18 @@ enable_testing()
 include(GNUInstallDirs) 
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
+set(ae2f_float float CACHE STRING "Float type for the template.")
+set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
+
+add_compile_definitions(ae2f_PackCount=${ae2f_packcount})
+add_compile_definitions(ae2f_float=${ae2f_float})
+add_compile_definitions(ae2f_IS_SHARED=${ae2f_IS_SHARED})
 
 if(ae2f_IS_SHARED)
     set(ae2f_LIBPREFIX SHARED)
 else()
     set(ae2f_LIBPREFIX STATIC)
 endif()
-
-configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
-
 
 add_library(
 	${PROJECT_NAME}
@@ -31,8 +34,11 @@ add_library(
     "include/ae2f/Cmp.h"
     "include/ae2f/Cmp.hpp"
 
-    "include/ae2f/RNum.h"
+    "include/ae2f/Float.h"
     "include/ae2f/errGlob.h"
+
+    "include/ae2f/Pack/Beg.h"
+    "include/ae2f/Pack/End.h"
 )
 
 include_directories(include)

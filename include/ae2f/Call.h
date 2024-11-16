@@ -12,7 +12,7 @@
 #else 
 #define ae2f_IS_LINUX 0
 #endif
-#if @ae2f_IS_SHARED@
+#if ae2f_IS_SHARED
 
 #if ae2f_IS_WIN == ae2f_IS_LINUX
 #error This library will not work gracefully under this OS, which means it has no clue for this lib.

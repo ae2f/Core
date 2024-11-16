@@ -1,0 +1,6 @@
+#ifndef ae2f_float_h
+#define ae2f_float_h
+
+typedef ae2f_float ae2f_float_t;
+
+#endif 
