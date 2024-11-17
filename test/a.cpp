@@ -6,7 +6,7 @@
 #include <ae2f/Cmp.h>
 #include <ae2f/Cmp.hpp>
 
-#include <ae2f/float.h>
+#include <ae2f/Float.h>
 #include <ae2f/Cast.h>
 
 #include <ae2f/errGlob.h>
