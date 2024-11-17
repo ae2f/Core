@@ -14,4 +14,6 @@
 #include <ae2f/Pack/Beg.h>
 #include <ae2f/Pack/End.h>
 
+#include <ae2f/Pack/Num.h>
+
 int a() { return 0; }

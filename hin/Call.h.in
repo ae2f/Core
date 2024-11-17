@@ -7,7 +7,7 @@
 #define ae2f_IS_WIN 0
 #endif 
 
-#define ae2f_IS_SHARED OFF
+#define ae2f_IS_SHARED @ae2f_IS_SHARED@
 
 #if (defined(__linux__))
 #define ae2f_IS_LINUX 1

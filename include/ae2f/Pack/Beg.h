@@ -1,3 +1,3 @@
-#if ae2f_PackCount
-#pragma pack(push, ae2f_PackCount)
+#if 0
+#pragma pack(push, 0)
 #endif
