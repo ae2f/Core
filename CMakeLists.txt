@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
 
-if(NOT ae2f_Core_cmake)
-set(ae2f_Core_cmake TRUE)
 project(Core)
 enable_testing()
 
@@ -24,27 +22,31 @@ else()
     set(ae2f_LIBPREFIX STATIC)
 endif()
 
-add_library(
-	${PROJECT_NAME}
-    INTERFACE
-    
-    "include/ae2f/Cast.h"
-    "include/ae2f/Cast/CasterUnion.hpp"
 
-    "include/ae2f/BitVec.h"
-    "include/ae2f/BitVec.hpp"
+if(NOT TARGET ${PROJECT_NAME})
+    add_library(
+        ${PROJECT_NAME}
+        INTERFACE
+        
+        "include/ae2f/Cast.h"
+        "include/ae2f/Cast/CasterUnion.hpp"
 
-    "include/ae2f/Call.h"
+        "include/ae2f/BitVec.h"
+        "include/ae2f/BitVec.hpp"
 
-    "include/ae2f/Cmp.h"
-    "include/ae2f/Cmp.hpp"
+        "include/ae2f/Call.h"
 
-    "include/ae2f/Float.h"
-    "include/ae2f/errGlob.h"
+        "include/ae2f/Cmp.h"
+        "include/ae2f/Cmp.hpp"
 
-    "include/ae2f/Pack/Beg.h"
-    "include/ae2f/Pack/End.h"
-)
+        "include/ae2f/Float.h"
+        "include/ae2f/errGlob.h"
+
+        "include/ae2f/Pack/Beg.h"
+        "include/ae2f/Pack/End.h"
+    )
+    add_subdirectory(test)
+endif()
 
 include_directories(include)
 
@@ -84,7 +86,3 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
-
-add_subdirectory(test)
-
-endif()
