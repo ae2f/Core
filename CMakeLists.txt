@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
+
+if(NOT ae2f_Core_cmake)
+set(ae2f_Core_cmake TRUE)
 project(Core)
 enable_testing()
 
@@ -83,3 +86,5 @@ install(FILES
 )
 
 add_subdirectory(test)
+
+endif()
