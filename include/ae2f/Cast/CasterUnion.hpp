@@ -8,7 +8,7 @@
 /// @see
 /// @ref ae2f_union_cast
 template<typename t, typename k>
-union ae2f_union_caster {
+union ae2f_UnionCaster {
 	t a;
 	k b;
 };

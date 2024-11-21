@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core)
+project(Core VERSION 3.5.2)
 enable_testing()
 
 if(NOT TARGET ${PROJECT_NAME})
@@ -11,23 +11,19 @@ option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
 
-configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Beg.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Beg.h)
-configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/End.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/End.h)
-configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Num.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Num.h)
-configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
-configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.h)
-
 if(ae2f_IS_SHARED)
     set(ae2f_LIBPREFIX SHARED)
 else()
     set(ae2f_LIBPREFIX STATIC)
 endif()
 
-
 add_library(
     ${PROJECT_NAME}
     INTERFACE
     
+    "hin/Call.h.in"
+    "hin/Float.h.in"
+
     "include/ae2f/Cast.h"
     "include/ae2f/Cast/CasterUnion.hpp"
 
@@ -42,9 +38,20 @@ add_library(
     "include/ae2f/Float.h"
     "include/ae2f/errGlob.h"
 
+    "hin/Pack/Num.h.in"
+    "include/ae2f/Pack/Num.h"
+    "hin/Pack/Beg.h.in"
     "include/ae2f/Pack/Beg.h"
+    "hin/Pack/End.h.in"
     "include/ae2f/Pack/End.h"
 )
+
+configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Beg.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Beg.h)
+configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/End.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/End.h)
+configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Num.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Num.h)
+configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
+configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.h)
+
 add_subdirectory(test)
 include_directories(include)
 

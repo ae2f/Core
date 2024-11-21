@@ -38,26 +38,26 @@ namespace ae2f {
 		}
 
 		constexpr static rBitVec<t> Filled(idx_t length) noexcept {
-			return rBitVec(_ae2f_BitVec_Filled(length, t));
+			return rBitVec(_ae2f_BitVecFilled(length, t));
 		}
 
 		constexpr bool Get(idx_t i) const noexcept {
-			return ae2f_BitVec_Get(obj, i);
+			return ae2f_BitVecGet(obj, i);
 		}
 
 		constexpr rBitVec<t> Get(idx_t start, idx_t end) const noexcept {
-			return ae2f_BitVec_GetRanged(this->obj, start, end);
+			return ae2f_BitVecGetRanged(this->obj, start, end);
 		}
 		constexpr rBitVec<t>& Set(idx_t i, bool val) noexcept {
-			obj = ae2f_BitVec_Set(this->obj, i, val);
+			obj = ae2f_BitVecSet(this->obj, i, val);
 			return *this;
 		}
 
 		constexpr rBitVec<t> Set(idx_t i, bool val) const noexcept {
-			return ae2f_BitVec_Set(this->obj, i, val);
+			return ae2f_BitVecSet(this->obj, i, val);
 		}
 		constexpr rBitVec<t> Set(idx_t start, idx_t end, rBitVec<t> val) const noexcept {
-			return ae2f_BitVec_SetRanged(this->obj, start, end, val.obj);
+			return ae2f_BitVecSetRanged(this->obj, start, end, val.obj);
 		}
 		constexpr rBitVec<t>& Set(idx_t start, idx_t end, rBitVec<t> val) noexcept {
 			this->obj = const_cast<const rBitVec<t>*>(this)->Set(start, end, val);
