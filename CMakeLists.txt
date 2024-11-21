@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 3.5.2)
+project(Core VERSION 3.6.2)
 enable_testing()
 
 if(NOT TARGET ${PROJECT_NAME})
@@ -32,8 +32,8 @@ add_library(
 
     "include/ae2f/Call.h"
 
-    "include/ae2f/Cmp.h"
-    "include/ae2f/Cmp.hpp"
+    "include/ae2f/Cmp.h"    "include/ae2f/Cmp/Fun.h"
+    "include/ae2f/Cmp.hpp"  "include/ae2f/Cmp/Fun.hpp"
 
     "include/ae2f/Float.h"
     "include/ae2f/errGlob.h"

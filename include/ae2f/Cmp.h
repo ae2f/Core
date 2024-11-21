@@ -1,6 +1,8 @@
 #if !defined(ae2f_Cmp_h)
 #define ae2f_Cmp_h
 
+#include "Cmp/Fun.h"
+
 /// @warning
 /// Two parameters must be comparable with operator.
 /// @return

@@ -1,11 +1,11 @@
-#include "Cmp.h"
-
 #if !defined(ae2f_Macro_Compare_hpp)
 #define ae2f_Macro_Compare_hpp
 
+#include "Cmp.h"
+#include "Cmp/Fun.hpp"
+
 namespace ae2f {
     namespace Cmp {
-
         /// @warning
         /// Two parameters must be comparable with operator.
         /// @return
