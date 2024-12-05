@@ -1,5 +1,5 @@
 # [ae2f::Core](https://github.com/ae2f/Core)
-- Rel-v3.7.2
+- Rel-v3.9.2
 
 > The smallest core utils for ae2f-like library.  
 > Contains no source, just headers. (interface)

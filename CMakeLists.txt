@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(Core VERSION 3.7.2 LANGUAGES C CXX)
+project(Core VERSION 3.9.2 LANGUAGES C CXX)
 enable_testing()
 
 if(NOT TARGET ${PROJECT_NAME})
