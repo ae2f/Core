@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-
-project(Core VERSION 3.9.2 LANGUAGES C CXX)
+project(Core VERSION 3.10.2 LANGUAGES C CXX)
 enable_testing()
 
 if(NOT TARGET ${PROJECT_NAME})
@@ -27,6 +26,7 @@ add_library(
 
     "include/ae2f/Cast.h"
     "include/ae2f/Cast/CasterUnion.hpp"
+    "include/ae2f/Cast/Constexpr.hpp"
 
     "include/ae2f/BitVec.h"
     "include/ae2f/BitVec.hpp"
