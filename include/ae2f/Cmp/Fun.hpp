@@ -27,7 +27,7 @@ namespace ae2f {
     /// @brief 
     /// Returns itself as @ref fpCmp_t.
     template<typename T>
-    constexpr fpCmp_t xfpCmp(xfpCmp_t<T> a) {
+    consteval fpCmp_t xfpCmp(xfpCmp_t<T> a) {
         return ae2f_union_cast(xfpCmp_t<T>, fpCmp_t, a);
     }
 }

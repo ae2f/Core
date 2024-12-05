@@ -96,4 +96,13 @@
 /// Function definitions
 #define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
 
+
+#define constexpr ae2f_WhenC(inline) ae2f_WhenCXX(constexpr)
+
+#if __cplusplus >= 202002L
+#define consteval ae2f_WhenC(inline) ae2f_WhenCXX(consteval)
+#else
+#define consteval constexpr
+#endif
+
 #endif
