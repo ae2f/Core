@@ -16,4 +16,4 @@
 
 #include <ae2f/Pack/Num.h>
 
-int a() { return 0; }
+int main() { return 0; }
