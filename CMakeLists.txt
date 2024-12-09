@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 3.11.4 LANGUAGES C CXX)
+project(Core VERSION 3.11.5 LANGUAGES C CXX)
 enable_testing()
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
@@ -35,7 +35,7 @@ function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
         list(GET files ${i} item)
         add_executable("${prm_LibName}-Test${i}" ${item})
         target_link_libraries("${prm_LibName}-Test${i}" ${ARGN} ${prm_LibName})
-        add_test(NAME "${prm_LibName}-Test${i}" COMMAND "${prm_LibName}${i}")
+        add_test(NAME "${prm_LibName}-Test${i}" COMMAND "${prm_LibName}-Test${i}")
     endforeach()
 endfunction()
 
