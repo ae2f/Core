@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
-project(Core VERSION 3.11.3 LANGUAGES C CXX)
+cmake_minimum_required(VERSION 3.20)
+project(Core VERSION 3.11.4 LANGUAGES C CXX)
 enable_testing()
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
@@ -7,9 +7,9 @@ set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
 
 if(ae2f_IS_SHARED)
-    set(ae2f_LIBPREFIX SHARED)
+    set(ae2f_LIBPREFIX SHARED CACHE STRING "SHARED")
 else()
-    set(ae2f_LIBPREFIX STATIC)
+    set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
 endif()
 
 # @brief
@@ -40,7 +40,7 @@ function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
 endfunction()
 
 # @brief
-# Make a Library installable.
+# Makes a Library installable.
 # 
 # @param prm_TarName
 # Library name you want.
@@ -48,13 +48,23 @@ endfunction()
 # @param prm_TarPrefix
 # [STATIC | SHARED | INTERFACE]
 # 
+# @param prm_includeDir
+# The include directory relative to the project CMakeLists.txt
+# 
 # @param ...
-# The sources
-function(ae2f_CoreLibProjTent prm_TarName prm_TarPreFix)
+# The sources for the project.
+function(ae2f_CoreLibProjTent prm_TarName prm_TarPreFix prm_includeDir)
     # Namespace Package
     include(GNUInstallDirs)
 
+    include_directories(${prm_includeDir})
     add_library(${prm_TarName} ${prm_TarPreFix} ${ARGN})
+
+    target_include_directories(
+        ${prm_TarName} INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${prm_includeDir}/>  
+        $<INSTALL_INTERFACE:${prm_includeDir}/ae2f>
+    )
 
     # Install Settings
     install(TARGETS "${prm_TarName}"
@@ -62,7 +72,7 @@ function(ae2f_CoreLibProjTent prm_TarName prm_TarPreFix)
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
         
-    install(DIRECTORY include/ae2f/
+    install(DIRECTORY ${prm_includeDir}/ae2f
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ae2f
     )
 
@@ -95,7 +105,7 @@ if(NOT TARGET "${PROJECT_NAME}")
     configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.h)
 
     ae2f_CoreLibProjTent(
-        ${PROJECT_NAME} INTERFACE 
+        ${PROJECT_NAME} INTERFACE include
         "hin/Call.h.in"
         "hin/Float.h.in"
         "include/ae2f/Cast.h"
@@ -115,7 +125,6 @@ if(NOT TARGET "${PROJECT_NAME}")
         "hin/Pack/End.h.in"
         "include/ae2f/Pack/End.h"
     )
-
-    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+    
     ae2f_CoreTestTent(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
 endif()

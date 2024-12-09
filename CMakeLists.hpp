@@ -32,9 +32,12 @@ namespace ____ae2f_Core_Def_CMAKE {
     /// @param prm_TarPrefix
     /// [STATIC | SHARED | INTERFACE]
     /// 
+    /// @param prm_includeDir
+    /// The include directory relative to the project CMakeLists.txt
+    /// 
     /// @param ...
-    /// The sources
-    constexpr void ae2f_CoreLibProjTent(auto prm_TarName, auto prm_TarPreFix, ...);
+    /// The sources for the project.
+    constexpr void ae2f_CoreLibProjTent(auto prm_TarName, auto prm_TarPreFix, auto prm_includeDir, ...);
 
     /// @brief
     /// Iterates a directory `prm_TestSourcesDir` and 

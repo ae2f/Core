@@ -1,5 +1,5 @@
 # ae2f::Core
-- Rel-v3.11.3
+- Rel-v3.11.4
 
 > The smallest core utils for ae2f-like library.  
 > Contains no source, just headers. (interface)
