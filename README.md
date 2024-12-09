@@ -1,5 +1,5 @@
 # ae2f::Core
-- Rel-v3.11.2
+- Rel-v3.11.3
 
 > The smallest core utils for ae2f-like library.  
 > Contains no source, just headers. (interface)
@@ -9,3 +9,8 @@
 
 ## Disclaimer::Ds
 > If you're looking for Datastructure functions (alloc, arr, etc), it has migrated to [ae2f::Ds](https://github.com/ae2f/Ds)
+
+# Dependency
+- gcc
+- cmake
+- make
