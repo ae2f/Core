@@ -1,5 +1,7 @@
 # ae2f::Core
-- Rel-v4.11.5
+- Rel-v4.11.6
+
+> Integration between C and C++ via CMake.
 
 > The smallest core utils for ae2f-like library.  
 > Contains no source, just headers. (interface)

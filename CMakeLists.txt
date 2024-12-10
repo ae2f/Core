@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 4.11.5 LANGUAGES C CXX)
+project(Core VERSION 4.11.6 LANGUAGES C CXX)
 enable_testing()
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
