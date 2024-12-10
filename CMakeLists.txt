@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 3.11.5 LANGUAGES C CXX)
+project(Core VERSION 4.11.5 LANGUAGES C CXX)
 enable_testing()
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
+option(ae2f_DOC "When activated, it would generate project with the deaders of cmake utility functions." OFF)
+
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
 
@@ -12,90 +14,7 @@ else()
     set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
 endif()
 
-# @brief
-# Iterates a directory `prm_TestSourcesDir` and 
-# Make a test case for every source.
-# 
-# @param prm_LibName
-# Base Library name
-# 
-# @param prm_TestSourcesDir
-# A directory where the stand-alone test codes locate. \n
-# Every sources under that directory must be stand-alone, which means it must not depends on another memory, function, etc.
-# 
-# @param ...
-# Additional Libraries if you want
-function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
-    file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
-    list(LENGTH files list_length)
-    
-    math(EXPR adjusted_length "${list_length} - 1")
-
-    foreach(i RANGE 0 ${adjusted_length})
-        list(GET files ${i} item)
-        add_executable("${prm_LibName}-Test${i}" ${item})
-        target_link_libraries("${prm_LibName}-Test${i}" ${ARGN} ${prm_LibName})
-        add_test(NAME "${prm_LibName}-Test${i}" COMMAND "${prm_LibName}-Test${i}")
-    endforeach()
-endfunction()
-
-# @brief
-# Makes a Library installable.
-# 
-# @param prm_TarName
-# Library name you want.
-# 
-# @param prm_TarPrefix
-# [STATIC | SHARED | INTERFACE]
-# 
-# @param prm_includeDir
-# The include directory relative to the project CMakeLists.txt
-# 
-# @param ...
-# The sources for the project.
-function(ae2f_CoreLibProjTent prm_TarName prm_TarPreFix prm_includeDir)
-    # Namespace Package
-    include(GNUInstallDirs)
-
-    include_directories(${prm_includeDir})
-    add_library(${prm_TarName} ${prm_TarPreFix} ${ARGN})
-
-    target_include_directories(
-        ${prm_TarName} INTERFACE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${prm_includeDir}/>  
-        $<INSTALL_INTERFACE:${prm_includeDir}/ae2f>
-    )
-
-    # Install Settings
-    install(TARGETS "${prm_TarName}"
-        EXPORT ${prm_TarName}Targets
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-        
-    install(DIRECTORY ${prm_includeDir}/ae2f
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ae2f
-    )
-
-    # Package
-    install(EXPORT ${prm_TarName}Targets
-        FILE ${prm_TarName}Targets.cmake
-        NAMESPACE ae2f::
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
-    )
-        
-    # Pack Conf
-    include(CMakePackageConfigHelpers)
-    configure_package_config_file(
-        ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
-        ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
-        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
-    )
-        
-    install(FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
-    )
-endfunction()
+include(cmake/Utility.cmake)
 
 if(NOT TARGET "${PROJECT_NAME}")
     configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Beg.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Beg.h)
@@ -104,8 +23,8 @@ if(NOT TARGET "${PROJECT_NAME}")
     configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.h)
     configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.h)
 
-    ae2f_CoreLibProjTent(
-        ${PROJECT_NAME} INTERFACE include
+    ae2f_CoreLibTent(
+        ${PROJECT_NAME} INTERFACE include ae2f
         "hin/Call.h.in"
         "hin/Float.h.in"
         "include/ae2f/Cast.h"
@@ -127,4 +46,5 @@ if(NOT TARGET "${PROJECT_NAME}")
     )
     
     ae2f_CoreTestTent(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
+    ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f "cmake/Utility.hpp")
 endif()
