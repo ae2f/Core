@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 5.11.6 LANGUAGES C CXX)
+project(Core VERSION 6.11.6 LANGUAGES C CXX)
 enable_testing()
 
 set(CMAKE_CXX_STANDARD 20)
@@ -17,7 +17,7 @@ else()
     set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
 endif()
 
-include(cmake/Utility.cmake)
+include(cmake/Core.cmake)
 
 if(NOT TARGET "${PROJECT_NAME}")
     configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Beg.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Beg.h)
@@ -50,5 +50,5 @@ if(NOT TARGET "${PROJECT_NAME}")
     )
     
     ae2f_CoreTestTent(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
-    ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f "cmake/Utility.hpp")
+    ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f)
 endif()
