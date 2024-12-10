@@ -11,19 +11,19 @@ namespace ae2f {
         /// @return
         /// One bigger.
         template<typename T, typename K = T, typename R = T>
-        consteval R TakeGt(T a, K b) { return ae2f_CmpGetGt(a, b); }
+        constexpr R TakeGt(T a, K b) { return ae2f_CmpGetGt(a, b); }
 
         /// @warning
         /// Two parameters must be comparable with operator.
         /// @return
         /// One smaller.
         template<typename T, typename K = T, typename R = T>
-        consteval R TakeLs(T a, K b) { return ae2f_CmpGetLs(a, b); }
+        constexpr R TakeLs(T a, K b) { return ae2f_CmpGetLs(a, b); }
 
         /// @return
         /// The absolute different of two.
         template<typename T, typename K = T, typename R = T>
-        consteval R Diff(T a, K b) { return ae2f_CmpDiff(a, b); }
+        constexpr R Diff(T a, K b) { return ae2f_CmpDiff(a, b); }
     }
 }
 

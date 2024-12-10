@@ -71,4 +71,33 @@ typedef uint8_t ae2f_BitVecI_t;
 /// @see ae2f_Macro_BitVec_GetRanged
 #define ae2f_BitVecSet(vector, idx, val) ae2f_BitVecSetRanged(vector, idx, (idx) + 1, val)
 
+/// @brief
+/// Gets the `vec`'s last index where the flag set to 1.
+/// @tparam t Must be an integer type
+/// @param vec {t}
+#define ae2f_BitVecSizeDefName(t) ae2f_BitVecSize_##t##_func 
+
+/// @brief
+/// Gets the `vec`'s last index where the flag set to 1.
+/// @tparam t Must be an integer type
+/// @param vec {t}
+#define ae2f_BitVecSizeDef(t) \
+constexpr uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept { \
+    for (uint8_t i = (sizeof(t) << 3); i; i--) \
+        if (ae2f_BitVecGet(vec, i - 1)) return i; \
+    return 0; \
+}
+
+/// @brief
+/// Gets the vector that `vec`'s first flag set to 1.
+/// @tparam t Must be an integer type
+/// @param vec {t}
+#define ae2f_BitVecFndOneDefName(t) ae2f_BitVecFndOne_##t##_func
+
+/// @brief
+/// Gets the vector that `vec`'s first flag set to 1.
+/// @tparam t Must be an integer type
+/// @param vec {t}
+#define ae2f_BitVecFndOneDef(t) constexpr t ae2f_BitVecFndOneDefName(t)(t vec) noexcept { t i = 1; for(; i; i <<= 1) { if (vec & i) return i; } return i; }
+
 #endif // !defined(ae2f_Macro_BitVector_h)

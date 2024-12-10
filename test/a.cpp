@@ -1,3 +1,5 @@
+#include <ae2f/errGlob.hpp>
+
 #include <ae2f/BitVec.h>
 #include <ae2f/BitVec.hpp>
 
@@ -16,4 +18,45 @@
 
 #include <ae2f/Pack/Num.h>
 
-int main() { return 0; }
+int main() { 
+    ae2f::xfpCmp<int>;
+    ae2f::errGlobState::errGlobStateWithThrow;
+    ae2f::rBitVec<int> a = 3;
+    ae2f::Cmp::Diff<int>;
+    ae2f::Cmp::TakeGt<int>;
+    ae2f::Cmp::TakeLs<int>;
+    ae2f::rBitVec<int>::Filled;
+
+    switch(3) {
+        case ae2f::Cmp::TakeLs<int>(3, 5):
+        break; default: return 1;
+    }
+
+    switch(3) {
+        case ae2f::Cmp::TakeGt<int>(-1, 3):
+        break; default: return 1;
+    }
+
+    switch(34) {
+        case ae2f::Cmp::Diff<int>(0, 34):
+        break; default: return 1;
+    }
+
+    switch(8) {
+        case ae2f::rBitVec<int>(8).FndOne().obj:
+        break; default: 
+        return 1;
+    }
+
+    switch(0) {
+        case ae2f::rBitVec<int>(0).FndOne().obj:
+        break; default: return 1;
+    }
+
+    switch(0) {
+        case ae2f::rBitVec<int>(5).Get(1):
+        break; default: return 1;
+    }
+
+    return 0;     
+}

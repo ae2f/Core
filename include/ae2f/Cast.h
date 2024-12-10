@@ -100,5 +100,6 @@
 /// @brief
 /// Const-expression for C++ variables. not for functions.
 #define constexpr ae2f_WhenC(const) ae2f_WhenCXX(constexpr)
+#define noexcept ae2f_WhenCXX(noexcept)
 
 #endif

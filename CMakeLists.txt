@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 4.11.6 LANGUAGES C CXX)
+project(Core VERSION 5.11.6 LANGUAGES C CXX)
 enable_testing()
+
+set(CMAKE_CXX_STANDARD 20)
 
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 option(ae2f_DOC "When activated, it would generate project with the deaders of cmake utility functions." OFF)
+option(ae2f_TEST "When activated, it would generate test projects." ON)
 
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
@@ -37,6 +40,7 @@ if(NOT TARGET "${PROJECT_NAME}")
         "include/ae2f/Cmp.hpp"  "include/ae2f/Cmp/Fun.hpp"
         "include/ae2f/Float.h"
         "include/ae2f/errGlob.h"
+        "include/ae2f/errGlob.hpp"
         "hin/Pack/Num.h.in"
         "include/ae2f/Pack/Num.h"
         "hin/Pack/Beg.h.in"

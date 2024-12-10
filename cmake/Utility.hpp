@@ -16,9 +16,10 @@ namespace ___DOC_CMAKE {
 
     /// @brief
     /// Activating this flag will cause all libraries built as shared libraries.
-    /// 
-    /// Default value is OFF.
     option ae2f_IS_SHARED = OFF;
+
+    /// @brief When activated, it would generate test projects
+    option ae2f_TEST = ON;
 
     /// @brief Pre-defined library prefix.
     /// @warning Note that value is auto-generated.
@@ -75,6 +76,8 @@ namespace ___DOC_CMAKE {
     /// 
     /// @param ...
     /// Additional Libraries if you want
+    /// 
+    /// @see ___DOC_CMAKE::ae2f_TEST
     constexpr void ae2f_CoreTestTent(
         auto prm_LibName, 
         auto prm_TestSourcesDir, 

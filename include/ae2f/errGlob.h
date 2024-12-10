@@ -42,8 +42,16 @@ typedef uint8_t ae2f_err_t;
 #define ae2f_errGlob_NFOUND 0b100000
 
 /// @brief
-/// The operation went done.
+/// Means that error was not critical.
+/// 
+/// The operation went done. \n
 /// Note that operation may not be valid.
 #define ae2f_errGlob_DONE_HOWEV 0b1000000
+
+/// @brief
+/// Check if the state code is a critical error.
+/// @param n {ae2f_err_t} Error code
+/// @return If it is not zero, it is a critical error.
+#define ae2f_errGlobNormalised(n) ((n & ae2f_errGlob_DONE_HOWEV) ? ae2f_errGlob_OK : n)
 
 #endif

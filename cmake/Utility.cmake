@@ -15,18 +15,22 @@
 # 
 # @param ...
 # Additional Libraries if you want
+# 
+# @see ___DOC_CMAKE::ae2f_TEST
 function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
-    file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
-    list(LENGTH files list_length)
-    
-    math(EXPR adjusted_length "${list_length} - 1")
+    if(ae2f_TEST)
+        file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
+        list(LENGTH files list_length)
+        
+        math(EXPR adjusted_length "${list_length} - 1")
 
-    foreach(i RANGE 0 ${adjusted_length})
-        list(GET files ${i} item)
-        add_executable("${prm_LibName}-Test${i}" ${item})
-        target_link_libraries("${prm_LibName}-Test${i}" ${ARGN} ${prm_LibName})
-        add_test(NAME "${prm_LibName}-Test${i}" COMMAND "${prm_LibName}-Test${i}")
-    endforeach()
+        foreach(i RANGE 0 ${adjusted_length})
+            list(GET files ${i} item)
+            add_executable("${prm_LibName}-Test${i}" ${item})
+            target_link_libraries("${prm_LibName}-Test${i}" ${ARGN} ${prm_LibName})
+            add_test(NAME "${prm_LibName}-Test${i}" COMMAND "${prm_LibName}-Test${i}")
+        endforeach()
+    endif()
 endfunction()
 
 # @brief
