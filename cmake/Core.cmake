@@ -102,18 +102,22 @@ endfunction()
 # Library name you want.
 # 
 # @param prm_includeDir
-# Where the headers are.
+# Where the documents exist
 # The include directory relative to the project CMakeLists.txt
 # 
 # @param prm_namespace
 # Namespace (or header root directory after include)
 # 
 # @param ...
-# The documents for the project.
+# The past documents name
 # @see ___DOC_CMAKE::ae2f_CoreLibTent
 # @see ___DOC_CMAKE::ae2f_DOC
 function(ae2f_CoreUtilityDocTent prm_TarName prm_includeDir prm_namespace)
     if(ae2f_DOC)
-        ae2f_CoreLibTent(${prm_TarName}-CmakeDoc INTERFACE ${prm_includeDir} ${prm_namespace}doc ${ARGN})
+        file(GLOB_RECURSE src ${prm_includeDir} "*.cmake.hpp")
+        ae2f_CoreLibTent(${prm_TarName}-CMakeDoc INTERFACE ${prm_includeDir} ${prm_namespace}doc ${src})
+        foreach(lib ${ARGN})
+            target_link_libraries(${prm_TarName}-CMakeDoc INTERFACE ${lib}-CMakeDoc)
+        endforeach()
     endif()
 endfunction()

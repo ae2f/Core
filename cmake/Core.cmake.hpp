@@ -92,14 +92,14 @@ namespace ___DOC_CMAKE {
     /// Library name you want.
     /// 
     /// @param prm_includeDir
-    /// Where the headers are.
+    /// Where the documents exist
     /// The include directory relative to the project CMakeLists.txt
     /// 
     /// @param prm_namespace
     /// Namespace (or header root directory after include)
     /// 
     /// @param ...
-    /// The documents for the project.
+    /// The past documents name
     /// @see ___DOC_CMAKE::ae2f_CoreLibTent
     /// @see ___DOC_CMAKE::ae2f_DOC
     constexpr void ae2f_CoreUtilityDocTent(
