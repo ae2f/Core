@@ -114,8 +114,11 @@ namespace ___DOC_CMAKE {
     /// Author name
     /// @param prm_TarName
     /// Target name 
+    /// @param prm_TagName
+    /// Tag name
     function ae2f_CoreLibFetch(
         param prm_AuthorName,
-        param prm_TarName 
+        param prm_TarName,
+        param prm_TagName
     );
 }

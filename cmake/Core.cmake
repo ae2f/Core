@@ -143,14 +143,16 @@ endfunction()
 # Author name
 # @param prm_TarName
 # Target name 
-function(ae2f_CoreLibFetch prm_AuthorName prm_TarName)
+# @param prm_TagName
+# Tag name
+function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
     if(NOT EXISTS "${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt")
         execute_process(
             COMMAND 
             git clone 
             https://github.com/${prm_AuthorName}/${prm_TarName} 
             ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_LibName}
-
+            --branch ${prm_TagName}
             RESULT_VARIABLE result
         )
 
