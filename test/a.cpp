@@ -49,7 +49,7 @@ int main() {
     }
 
     switch(0) {
-        case ae2f::rBitVec<int>(0).FndOne().obj:
+        case ae2f::rBitVec<unsigned int>(0).FndOne().obj:
         break; default: return 1;
     }
 

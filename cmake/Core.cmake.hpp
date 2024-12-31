@@ -1,12 +1,5 @@
-#define OFF false
-#define ON true
-#define CACHE constexpr
-#define STRING const char*
-#define option constexpr bool
+#include "cmake.hpp"
 
-/// @namespace ___DOC_CMAKE
-/// @brief
-/// Note they functions defined on CMake, not C/C++.
 namespace ___DOC_CMAKE {
     /// @brief 
     /// When activated, it would generate project with the deaders of cmake utility functions.
@@ -24,6 +17,9 @@ namespace ___DOC_CMAKE {
     /// @brief Pre-defined library prefix.
     /// @warning Note that value is auto-generated.
     CACHE STRING ae2f_LIBPREFIX = ae2f_IS_SHARED ? "SHARED" : "STATIC";
+
+    /// @brief Pre-defined Global Library Directory for resolving external library for this framework.
+    CACHE STRING ae2f_LibDirGlob = "${CMAKE_CURRENT_SOURCE_DIR}/mod";
 
     /// @brief
     /// Set the structure pack for pre-defined structures from interfaces.
@@ -55,11 +51,11 @@ namespace ___DOC_CMAKE {
     /// 
     /// @param ...
     /// The sources for the project.
-    constexpr void ae2f_CoreLibTent(
-        auto prm_TarName, 
-        auto prm_TarPreFix, 
-        auto prm_includeDir, 
-        auto prm_namespace, 
+    function ae2f_CoreLibTent(
+        param prm_TarName, 
+        param prm_TarPreFix, 
+        param prm_includeDir, 
+        param prm_namespace, 
         ...
     );
 
@@ -78,9 +74,9 @@ namespace ___DOC_CMAKE {
     /// Additional Libraries if you want
     /// 
     /// @see ___DOC_CMAKE::ae2f_TEST
-    constexpr void ae2f_CoreTestTent(
-        auto prm_LibName, 
-        auto prm_TestSourcesDir, 
+    function ae2f_CoreTestTent(
+        param prm_LibName, 
+        param prm_TestSourcesDir, 
         ...
     );
 
@@ -102,10 +98,24 @@ namespace ___DOC_CMAKE {
     /// The past documents name
     /// @see ___DOC_CMAKE::ae2f_CoreLibTent
     /// @see ___DOC_CMAKE::ae2f_DOC
-    constexpr void ae2f_CoreUtilityDocTent(
-        auto prm_TarName, 
-        auto prm_includeDir, 
-        auto prm_namespace,
+    function ae2f_CoreUtilityDocTent(
+        param prm_TarName, 
+        param prm_includeDir, 
+        param prm_namespace,
         ...
+    );
+
+    /// @brief 
+    /// It will try to fetch the cmake project ae2f-Core like project for Local and Github. \n
+    /// @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
+    /// 
+    /// Once the project is in given directory, it will not try to fetch it from internet.
+    /// @param prm_AuthorName 
+    /// Author name
+    /// @param prm_TarName
+    /// Target name 
+    function ae2f_CoreLibFetch(
+        param prm_AuthorName,
+        param prm_TarName 
     );
 }

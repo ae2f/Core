@@ -1,3 +1,15 @@
+option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
+option(ae2f_DOC "When activated, it would generate project with the deaders of cmake utility functions." OFF)
+option(ae2f_TEST "When activated, it would generate test projects." ON)
+set(ae2f_float float CACHE STRING "Float type for the template.")
+set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
+set(ae2f_LibDirGlob ${CMAKE_CURRENT_SOURCE_DIR}/mod CACHE STRING "A directory where the fetched library would stay.")
+if(ae2f_IS_SHARED)
+    set(ae2f_LIBPREFIX SHARED CACHE STRING "SHARED")
+else()
+    set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
+endif()
+
 # @namespace ___DOC_CMAKE
 # @brief
 # Note they functions defined on CMake, not C/C++.
@@ -120,4 +132,32 @@ function(ae2f_CoreUtilityDocTent prm_TarName prm_includeDir prm_namespace)
             target_link_libraries(${prm_TarName}-CMakeDoc INTERFACE ${lib}-CMakeDoc)
         endforeach()
     endif()
+endfunction()
+
+# @brief 
+# It will try to fetch the cmake project ae2f-Core like project for Local and Github. \n
+# @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
+# 
+# Once the project is in given directory, it will not try to fetch it from internet.
+# @param prm_AuthorName 
+# Author name
+# @param prm_TarName
+# Target name 
+function(ae2f_CoreLibFetch prm_AuthorName prm_TarName)
+    if(NOT EXISTS "${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt")
+        execute_process(
+            COMMAND 
+            git clone 
+            https://github.com/${prm_AuthorName}/${prm_TarName} 
+            ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_LibName}
+
+            RESULT_VARIABLE result
+        )
+
+        if(result)
+            message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github.")
+        endif()
+    endif()
+
+    add_subdirectory(${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_LibName})
 endfunction()
