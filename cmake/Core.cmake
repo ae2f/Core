@@ -146,20 +146,20 @@ endfunction()
 # @param prm_TagName
 # Tag name
 function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
-    if(NOT EXISTS "${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt")
+    if(NOT EXISTS ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
         execute_process(
             COMMAND 
             git clone 
             https://github.com/${prm_AuthorName}/${prm_TarName} 
-            ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_LibName}
+            ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}
             --branch ${prm_TagName}
             RESULT_VARIABLE result
         )
 
         if(result)
-            message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github.")
+            message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
         endif()
     endif()
 
-    add_subdirectory(${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_LibName})
+    add_subdirectory(${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName})
 endfunction()
