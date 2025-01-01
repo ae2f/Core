@@ -161,6 +161,15 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
             message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
         endif()
     endif()
+endfunction()
 
-    add_subdirectory(${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName} ${ae2f_LibDirOut}/${prm_AuthorName}/${prm_TarName})
+# @brief Activates all fetched libraries. \n
+# @see ae2f_CoreLibFetch
+function(ae2f_CoreLibConfigAll)
+    file(GLOB_RECURSE SOURCES "${ae2f_LibDirGlob}/**/CMakeLists.txt")
+
+    foreach(SRC SOURCES)
+        get_filename_component(PARENT_PATH ${SRC} DIRECTORY)
+        add_subdirectory(${PARENT_PATH})
+    endforeach()
 endfunction()

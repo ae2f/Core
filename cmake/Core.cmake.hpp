@@ -124,4 +124,8 @@ namespace ___DOC_CMAKE {
         param prm_TarName,
         param prm_TagName
     );
+
+    /// @brief Activates all fetched libraries. \n
+    /// @see ae2f_CoreLibFetch
+    function ae2f_CoreLibConfigAll();
 }
