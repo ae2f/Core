@@ -12,6 +12,9 @@
 ## Disclaimer::Ds
 > If you're looking for Datastructure functions (alloc, arr, etc), it has migrated to [ae2f::Ds](https://github.com/ae2f/Ds)
 
+# See Also
+- ae2f::Core-Template
+
 # Dependency
 - gcc
 - cmake

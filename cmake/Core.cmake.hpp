@@ -21,6 +21,9 @@ namespace ___DOC_CMAKE {
     /// @brief Pre-defined Global Library Directory for resolving external library for this framework.
     CACHE STRING ae2f_LibDirGlob = "${CMAKE_CURRENT_SOURCE_DIR}/mod";
 
+    /// @brief Pre-defined Global Library Output Directory for resolving external library for this framework.
+    CACHE STRING ae2f_LibDirOut = "${CMAKE_CURRENT_SOURCE_DIR}/mod";
+
     /// @brief
     /// Set the structure pack for pre-defined structures from interfaces.
     ///
