@@ -3,6 +3,8 @@ option(ae2f_DOC "When activated, it would generate project with the deaders of c
 option(ae2f_TEST "When activated, it would generate test projects." ON)
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
+set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Current Source Root")
+set(ae2f_BinRoot ${CMAKE_CURRENT_BINARY_DIR} CACHE STRING "Current Binary Root")
 
 if(ae2f_IS_SHARED)
     set(ae2f_LIBPREFIX SHARED CACHE STRING "SHARED")
@@ -65,6 +67,8 @@ endfunction()
 function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace)
     # Namespace Package
     include(GNUInstallDirs)
+
+    include_directories(${prm_includeDir})
     add_library(${prm_TarName} ${prm_TarPreFix} ${ARGN})
 
     target_include_directories(
@@ -80,7 +84,7 @@ function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
         
     install(DIRECTORY ${prm_includeDir}/${prm_namespace}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${prm_namespace}
     )
 
     # Package
@@ -132,9 +136,6 @@ function(ae2f_CoreUtilityDocTent prm_TarName prm_includeDir prm_namespace)
     endif()
 endfunction()
 
-set(ae2f_LibDirGlob ${CMAKE_CURRENT_SOURCE_DIR}/mod CACHE STRING "A directory where the fetched library would stay.")
-set(ae2f_LibDirOut ${CMAKE_CURRENT_BINARY_DIR}/mod CACHE STRING "A directory where the fetched library's output would stay.") 
-
 # @brief 
 # It will try to fetch the cmake project ae2f-Core like project for Local and Github. \n
 # @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
@@ -147,12 +148,12 @@ set(ae2f_LibDirOut ${CMAKE_CURRENT_BINARY_DIR}/mod CACHE STRING "A directory whe
 # @param prm_TagName
 # Tag name
 function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
-    if(NOT EXISTS ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
+    if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
         execute_process(
             COMMAND 
             git clone 
             https://github.com/${prm_AuthorName}/${prm_TarName} 
-            ${ae2f_LibDirGlob}/${prm_AuthorName}/${prm_TarName}
+            ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
             --branch ${prm_TagName}
             RESULT_VARIABLE result
         )
@@ -161,15 +162,11 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
             message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
         endif()
     endif()
-endfunction()
 
-# @brief Activates all fetched libraries. \n
-# @see ae2f_CoreLibFetch
-function(ae2f_CoreLibConfigAll)
-    file(GLOB_RECURSE SOURCES "${ae2f_LibDirGlob}/**/CMakeLists.txt")
-
-    foreach(SRC SOURCES)
-        get_filename_component(PARENT_PATH ${SRC} DIRECTORY)
-        add_subdirectory(${PARENT_PATH})
-    endforeach()
+    add_subdirectory(
+        ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
+        ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
+    )
+    
+    link_libraries(${prm_TarName})
 endfunction()
