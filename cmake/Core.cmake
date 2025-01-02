@@ -167,6 +167,4 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
         ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
         ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
     )
-    
-    link_libraries(${prm_TarName})
 endfunction()
