@@ -163,8 +163,10 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
         endif()
     endif()
 
-    add_subdirectory(
-        ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
-        ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
-    )
+    if(NOT TARGET ${prm_TarName})
+        add_subdirectory(
+            ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
+            ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
+        )
+    endif()
 endfunction()

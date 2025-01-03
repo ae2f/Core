@@ -18,11 +18,11 @@ namespace ___DOC_CMAKE {
     /// @warning Note that value is auto-generated.
     CACHE STRING ae2f_LIBPREFIX = ae2f_IS_SHARED ? "SHARED" : "STATIC";
 
-    /// @brief Pre-defined Global Library Directory for resolving external library for this framework.
-    CACHE STRING ae2f_LibDirGlob = "${CMAKE_CURRENT_SOURCE_DIR}/mod";
+    /// @brief The root project source directory.
+    CACHE STRING ae2f_ProjRoot = "${CMAKE_CURRENT_SOURCE_DIR}";
 
-    /// @brief Pre-defined Global Library Output Directory for resolving external library for this framework.
-    CACHE STRING ae2f_LibDirOut = "${CMAKE_CURRENT_SOURCE_DIR}/mod";
+    /// @brief The root binary directory.
+    CACHE STRING ae2f_BinRoot = "${CMAKE_CURRENT_BINARY_DIR}";
 
     /// @brief
     /// Set the structure pack for pre-defined structures from interfaces.
@@ -116,7 +116,7 @@ namespace ___DOC_CMAKE {
     /// @param prm_AuthorName 
     /// Author name
     /// @param prm_TarName
-    /// Target name 
+    /// Target name must be the repository's name.
     /// @param prm_TagName
     /// Tag name
     function ae2f_CoreLibFetch(
@@ -124,8 +124,4 @@ namespace ___DOC_CMAKE {
         param prm_TarName,
         param prm_TagName
     );
-
-    /// @brief Activates all fetched libraries. \n
-    /// @see ae2f_CoreLibFetch
-    function ae2f_CoreLibConfigAll();
 }
