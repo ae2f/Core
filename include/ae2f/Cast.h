@@ -1,3 +1,5 @@
+/// @file Cast.h
+
 #if !defined(ae2f_Cast_h)
 
 /// @brief
@@ -100,6 +102,9 @@
 /// @brief
 /// Const-expression for C++ variables. not for functions.
 #define constexpr ae2f_WhenC(const) ae2f_WhenCXX(constexpr)
+
+/// @brief
+/// Means that there will be no exception thrown written in code.
 #define noexcept ae2f_WhenCXX(noexcept)
 
 #endif

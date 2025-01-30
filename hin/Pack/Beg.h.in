@@ -1,3 +1,5 @@
+/// @file Beg.h
+
 #if @ae2f_packcount@
 #pragma pack(push, @ae2f_packcount@)
 #endif

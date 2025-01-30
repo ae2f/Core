@@ -10,3 +10,6 @@ include/ae2f/Pack/Num.h
 
 include/ae2f/Call.h
 include/ae2f/Float.h
+
+html
+Doxyfile

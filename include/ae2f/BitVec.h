@@ -1,3 +1,5 @@
+/// @file BitVec.h
+
 #if !defined(ae2f_BitVec_h)
 #define ae2f_BitVec_h
 

@@ -1,1 +1,7 @@
+/// @file Num.h
+
+/// @brief
+/// Pre-defined structure packed byte count.
+/// 
+/// See @ref ___DOC_CMAKE::ae2f_packcount
 #define ae2f_PackCount @ae2f_packcount@

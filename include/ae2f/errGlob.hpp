@@ -1,3 +1,5 @@
+/// @file errGlob.hpp
+
 #ifndef ae2f_errGlob_hpp
 #define ae2f_errGlob_hpp
 

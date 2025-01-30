@@ -1,3 +1,5 @@
+/// @file Cmp.hpp
+
 #if !defined(ae2f_Macro_Compare_hpp)
 #define ae2f_Macro_Compare_hpp
 

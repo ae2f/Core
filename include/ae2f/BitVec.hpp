@@ -1,3 +1,5 @@
+/// @file BitVec.hpp
+
 #include "./BitVec.h"
 
 #if !defined(ae2f_BitVector_hpp)

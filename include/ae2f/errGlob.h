@@ -1,4 +1,4 @@
-/// @file
+/// @file errGlob.h
 /// Those numbers with [ @ref ae2f_err_t ] will be the state.
 
 #if !defined(ae2f_errGlobal_h)
