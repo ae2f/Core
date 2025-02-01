@@ -1,4 +1,12 @@
-/// @file Beg.h
+/**
+ * @file Beg.h
+ * @author ae2f
+ * @brief
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #if @ae2f_packcount@
 #pragma pack(push, @ae2f_packcount@)

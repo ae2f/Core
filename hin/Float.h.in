@@ -1,5 +1,12 @@
-/// @file Float.h
-
+/**
+ * @file Float.h
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef ae2f_float_h
 #define ae2f_float_h
 

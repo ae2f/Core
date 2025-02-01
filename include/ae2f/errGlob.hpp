@@ -1,5 +1,12 @@
-/// @file errGlob.hpp
-
+/**
+ * @file errGlob.hpp
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef ae2f_errGlob_hpp
 #define ae2f_errGlob_hpp
 

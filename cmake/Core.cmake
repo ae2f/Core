@@ -1,6 +1,8 @@
 option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 option(ae2f_DOC "When activated, it would generate project with the deaders of cmake utility functions." OFF)
 option(ae2f_TEST "When activated, it would generate test projects." ON)
+option(ae2f_CXX "Tell that thou art including cxx for thy project." OFF)
+
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
 set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Current Source Root")
@@ -33,7 +35,11 @@ endif()
 # @see ___DOC_CMAKE::ae2f_TEST
 function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
     if(ae2f_TEST)
-        file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
+        if(ae2f_CXX)
+            file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
+        else()
+            file(GLOB_RECURSE files "${prm_TestSourcesDir}/*.c")
+        endif()    
         list(LENGTH files list_length)
         
         math(EXPR adjusted_length "${list_length} - 1")

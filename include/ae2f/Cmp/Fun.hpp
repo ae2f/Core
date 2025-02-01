@@ -1,5 +1,12 @@
-/// @file Fun.hpp
-
+/**
+ * @file Fun.hpp
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef ae2f_Cmp_Fun_hpp
 #define ae2f_Cmp_Fun_hpp
 

@@ -1,4 +1,12 @@
-/// @file BitVec.hpp
+/**
+ * @file BitVec.hpp
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #include "./BitVec.h"
 

@@ -1,4 +1,12 @@
-/// @file Cast.h
+/**
+ * @file Cast.h
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #if !defined(ae2f_Cast_h)
 
@@ -17,31 +25,9 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-
-#if defined(__cplusplus)
-
+#include "Cxx.h"
 #include "Cast/CasterUnion.hpp"
 #include "Cast/Constexpr.hpp"
-
-/// @brief
-/// Appears when the current language is C++.
-#define ae2f_WhenCXX(...) __VA_ARGS__
-
-/// @brief
-/// Appears when the current language is C.
-#define ae2f_WhenC(...)
-
-#else
-
-/// @brief
-/// Appears when the current language is C++.
-#define ae2f_WhenCXX(...)
-
-/// @brief
-/// Appears when the current language is C.
-#define ae2f_WhenC(...) __VA_ARGS__
-
-#endif // defined(__cplusplus)
 
 /// @brief
 /// Initialiser for trivial structures / classes.
@@ -102,6 +88,10 @@
 /// @brief
 /// Const-expression for C++ variables. not for functions.
 #define constexpr ae2f_WhenC(const) ae2f_WhenCXX(constexpr)
+
+/// @brief
+/// Const-expression for C++ functions.
+#define constexprfun ae2f_WhenC(inline) ae2f_WhenCXX(constexpr)
 
 /// @brief
 /// Means that there will be no exception thrown written in code.

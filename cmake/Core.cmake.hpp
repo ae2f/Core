@@ -8,6 +8,11 @@ namespace ___DOC_CMAKE {
     option ae2f_DOC = ON;
 
     /// @brief
+    /// Tell that thou art including cxx for thy project.
+    /// Default value is [OFF].
+    option ae2f_CXX = OFF;
+
+    /// @brief
     /// Activating this flag will cause all libraries built as shared libraries.
     option ae2f_IS_SHARED = OFF;
 
@@ -30,7 +35,7 @@ namespace ___DOC_CMAKE {
     /// If it is set to zero, default structure pack will be preserved.
     ///
     /// Default value is 0.
-    constexpr unsigned int ae2f_packcount = 0;
+    CACHE STRING ae2f_packcount = "0";
 
     /// @brief
     /// Pre-defined global float type. \n

@@ -1,4 +1,12 @@
-/// @file Cmp.h
+/**
+ * @file Cmp.h
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 
 #if !defined(ae2f_Cmp_h)
 #define ae2f_Cmp_h

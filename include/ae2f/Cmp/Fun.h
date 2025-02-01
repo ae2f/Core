@@ -1,22 +1,31 @@
-/// @file Fun.h
-
+/**
+ * @file Fun.h
+ * @author ae2f
+ * @brief 
+ * @date 2025-02-01
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
 #ifndef ae2f_Cmp_Fun_h
 #define ae2f_Cmp_Fun_h
 
+typedef int
 /// @brief 
 /// A predefined returning data type for @ref ae2f_fpCmp_t.
 /// @see ae2f_CmpFunRet_EQUAL
 /// @see ae2f_CmpFunRet_RISLESSER
 /// @see ae2f_CmpFunRet_LISLESSER
-typedef int ae2f_CmpFunRet_t;
+ae2f_CmpFunRet_t,
 
 /// @brief
 /// It is an api for following approximate pseudo code.
 /// ```c
-/// *l - *r
+/// const void *l, *r;
+/// return *l - *r;
 /// ```
 /// @see ae2f_CmpFunRet_t
-typedef ae2f_CmpFunRet_t(*ae2f_fpCmp_t)(const void* l, const void* r);
+(*ae2f_fpCmp_t)(const void* l, const void* r);
 
 /// @brief they are same
 /// @see ae2f_CmpFunRet_t 
