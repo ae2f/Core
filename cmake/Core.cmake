@@ -17,7 +17,7 @@ endif()
 # @namespace ___DOC_CMAKE
 # @brief
 # Note they functions defined on CMake, not C/C++.
-
+# 
 # @brief
 # Iterates a directory `prm_TestSourcesDir` and 
 # Make a test case for every source.
@@ -55,7 +55,8 @@ function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
 endfunction()
 
 # @brief
-# Makes a Library installable.
+# Makes a Library installable. \n
+# Configuration file could be selected here
 # 
 # @param prm_TarName
 # Library name you want.
@@ -69,9 +70,12 @@ endfunction()
 # @param prm_namespace
 # Namespace (or header root directory after include)
 # 
+# @param prm_configpath
+# The path where the input file for Configuration lies.
+# 
 # @param ...
 # The sources for the project.
-function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace)
+function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir prm_namespace prm_configpath)
     # Namespace Package
     include(GNUInstallDirs)
 
@@ -104,7 +108,7 @@ function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace
     # Pack Conf
     include(CMakePackageConfigHelpers)
     configure_package_config_file(
-        ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+        ${prm_configpath}
         ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
         INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
     )
@@ -112,6 +116,33 @@ function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace
     install(FILES
         ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
+    )
+endfunction()
+
+# @brief
+# Makes a Library installable.
+# 
+# @param prm_TarName
+# Library name you want.
+# 
+# @param prm_TarPrefix
+# [STATIC | SHARED | INTERFACE]
+# 
+# @param prm_includeDir
+# The include directory relative to the project CMakeLists.txt
+# 
+# @param prm_namespace
+# Namespace (or header root directory after include)
+# 
+# @param ...
+# The sources for the project.
+function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace)
+    ae2f_CoreLibTentConfigCustom(
+        ${prm_TarName} 
+        ${prm_TarPreFix} 
+        ${prm_includeDir} 
+        ${prm_namespace} 
+        ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
     )
 endfunction()
 

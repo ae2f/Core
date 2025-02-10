@@ -1,5 +1,8 @@
-/// @file
-/// This file is to define some keywords in order to make it like cmake.
+/**
+ * @brief 
+ * This file is to define some keywords in order to make it like cmake.
+ */
+
 
 #define OFF false
 #define ON true

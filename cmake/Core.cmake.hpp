@@ -1,3 +1,14 @@
+/**
+ * @file Core.cmake.hpp
+ * @author ae2f
+ * @brief 
+ * @version 0.1
+ * @date 2025-02-11
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+
 #include "cmake.hpp"
 
 namespace ___DOC_CMAKE {
@@ -64,6 +75,34 @@ namespace ___DOC_CMAKE {
         param prm_TarPreFix, 
         param prm_includeDir, 
         param prm_namespace, 
+        ...
+    );
+
+    /// @brief
+    /// Makes a Library installable. \n
+    /// Configuration file could be selected here.
+    /// @param prm_TarName
+    /// Library name you want.
+    /// 
+    /// @param prm_TarPrefix
+    /// [STATIC | SHARED | INTERFACE]
+    /// 
+    /// @param prm_includeDir
+    /// The include directory relative to the project CMakeLists.txt
+    /// 
+    /// @param prm_namespace
+    /// Namespace (or header root directory after include)
+    /// 
+    /// @param prm_configpath
+    /// The path where the input file for Configuration lies.
+    /// @param ...
+    /// The sources for the project.
+    function ae2f_CoreLibTentConfigCustom(
+        param prm_TarName, 
+        param prm_TarPreFix, 
+        param prm_includeDir, 
+        param prm_namespace, 
+        param prm_configpath,
         ...
     );
 
