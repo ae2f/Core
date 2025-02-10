@@ -143,6 +143,7 @@ function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace
         ${prm_includeDir} 
         ${prm_namespace} 
         ${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+        ${ARGN}
     )
 endfunction()
 
