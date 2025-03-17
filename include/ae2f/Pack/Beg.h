@@ -8,6 +8,8 @@
  * 
  */
 
-#if @ae2f_packcount@
-#pragma pack(push, @ae2f_packcount@)
+#include "./Num.auto.h"
+
+#if ae2f_PackCount
+#pragma pack(push, 0)
 #endif

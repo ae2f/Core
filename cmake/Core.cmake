@@ -180,6 +180,9 @@ endfunction()
 # @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
 # 
 # Once the project is in given directory, it will not try to fetch it from internet.
+# 
+# Fethced Library will be in: ${prm_AuthorName}__${prm_TarName}__FETCHED 
+# 
 # @param prm_AuthorName 
 # Author name
 # @param prm_TarName
@@ -208,4 +211,18 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
             ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
         )
     endif()
+
+    set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_TarName})
+endfunction()
+
+
+# Fetched library will be in ${prm_AuthorName}__${prm_TarName}__FETCHED 
+function(ae2f_CoreLibFetchX prm_AuthorName prm_TarName prm_TagName)
+	find_package(${prm_TarName})
+
+	if(${prm_TarName}_FOUND)
+		set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_AuthorName}::${prm_TarName})
+	else()
+		ae2f_CoreLibFetch(${prm_AuthorName} ${prm_TarName} ${prm_TagName})
+	endif()
 endfunction()
