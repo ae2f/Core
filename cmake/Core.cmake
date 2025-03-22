@@ -212,7 +212,7 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
 		)
     endif()
 
-    set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_TarName})
+    set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_TarName} CACHE STRING ${prm_TarName})
 endfunction()
 
 
@@ -221,7 +221,7 @@ function(ae2f_CoreLibFetchX prm_AuthorName prm_TarName prm_TagName)
 	find_package(${prm_TarName})
 
 	if(${prm_TarName}_FOUND)
-		set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_AuthorName}::${prm_TarName})
+		set(${prm_AuthorName}__${prm_TarName}__FETCHED ${prm_AuthorName}::${prm_TarName} CACHE STRING ${prm_AuthorName}::${prm_TarName})
 	else()
 		ae2f_CoreLibFetch(${prm_AuthorName} ${prm_TarName} ${prm_TagName})
 	endif()
