@@ -15,6 +15,11 @@
 #include "Cmp.h"
 #include <stdint.h>
 
+/** @brief
+ * Calculate proper byte size with bit count
+ * */
+#define ae2f_BitToByteCount(bitc)	(((bitc) >> 3) + !!((bitc) & 7))
+
 /// @brief 
 /// The pre-defined index type for Bit vector.
 typedef uint8_t ae2f_BitVecI_t;

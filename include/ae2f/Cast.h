@@ -60,7 +60,7 @@
 ///
 /// @param v
 /// Input value
-#define ae2f_union_cast(tThen, tNow, v) ae2f_WhenC((union { tThen a; tNow b; }) { v }) ae2f_WhenCXX(ae2f_UnionCaster<tThen, tNow>{ v }) .b
+#define ae2f_union_cast(tThen, tNow, v) ae2f_WhenC((union { tThen a; tNow b; }) { v }) ae2f_WhenCXX(ae2f_UnionCaster<tThen, tNow>(v)) ._b()
 
 /// @brief
 /// In C, keyword 'struct' must be written in front of the structure's name in order to use as a type name. \n
@@ -91,7 +91,7 @@
 
 /// @brief
 /// Const-expression for C++ functions.
-#define constexprfun ae2f_WhenC(inline) ae2f_WhenCXX(constexpr)
+#define constexprfun ae2f_WhenC(inline static) ae2f_WhenCXX(constexpr)
 
 /// @brief
 /// Means that there will be no exception thrown written in code.
