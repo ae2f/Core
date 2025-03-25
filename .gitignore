@@ -3,4 +3,9 @@ out/*
 CMakeFiles/*
 build/*
 .vscode/*
-include/ae2f/Call.h
+
+*.auto.h
+
+html
+Doxyfile
+.*/

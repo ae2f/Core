@@ -1,5 +1,5 @@
 /**
- * @file Call.h
+ * @file End.h
  * @author ae2f
  * @brief 
  * @date 2025-02-01
@@ -8,5 +8,6 @@
  * 
  */
 
-/** @brief Is a library shared */
-#define ae2f_IS_SHARED @ae2f_IS_SHARED@
+#if ae2f_PackCount
+#pragma pack(pop)
+#endif
