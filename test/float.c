@@ -4,35 +4,63 @@
 #define MAX_ERR 0.00001
 
 uint64_t casttest() {
-	ae2f_uFloat(double) src = { .m_float = -3.5f };
-	ae2f_uFloat(float) dest = { .m_float = 23 };
+	float src = 3.5f;
+	double dest = 23;
 
 	ae2f_FloatCast(
-			dest.m_bits
-			, true, 11, 52
-			, 10
+			&dest
+			, true
+			, 11, 10, 52
 
-			, src.m_bits
-			, true, 8, 23
-			, 7
+			, &src
+			, true
+			, 8, 7, 23
 
 			, NULL
 			);
 
-	printf("GOT RESULT: %lf\n", dest.m_float);
+	printf("DEST: %lf\n", dest);
+	printf("SRC: %lf\n", src);
 
 	return 
-		(src.m_float - dest.m_float) 
-		* (src.m_float - dest.m_float) 
+		(src - dest) 
+		* (src - dest) 
 		
 		> MAX_ERR;
+}
+
+
+uint64_t casttest2() {
+	double src = 0.234211;
+	float dest = 23;
+
+	ae2f_FloatCast(
+			&dest
+			, true
+			, 8, 7, 23
+
+			, &src
+			, true
+			, 11, 10, 52
+
+			, NULL
+			);
+
+	printf("DEST: %lf\n", dest);
+	printf("SRC: %lf\n", src);
+
+	return 
+		((src - dest) 
+		* (src - dest) 
+		
+		> MAX_ERR) << 1;
 }
 
 int main() {
 	uint64_t _res = 
 		0
 		| casttest()
-
+		| casttest2()
 		;
 
 	printf("Huge test 0: %lu\n", _res);

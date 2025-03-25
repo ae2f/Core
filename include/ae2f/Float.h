@@ -36,12 +36,6 @@
 #include "./Float.auto.h"
 #include "./BInt.h"
 
-#define ae2f_uFloat(prm_float_t) \
-	union { \
-		prm_float_t m_float; \
-		uint8_t m_bits[sizeof(prm_float_t)]; \
-	}
-
 #define ae2f_FloatBitSz(sign, exp, frac) ((sign) + (exp) + (frac))
 
 #define ae2f_FloatByteSz(sign, exp, frac) \
@@ -59,17 +53,21 @@ enum ae2f_errFloat {
 /**
  * @brief
  * Rearrange a number to another structure.
+ * 
+ * @todo
+ * It does not work when exp is negative. (like less than 1) \n
+ * Handling with `expbiasp` would be needed.
  * */
 constexprfun
 ae2f_err_t
 ae2f_FloatCast(
-		uint8_t* dest
+		void* _dest
 		, bool destsign
 		, size_t destexp
 		, size_t destexpbiasp
 		, size_t destfrac
 
-		, const uint8_t* src
+		, const void* _src
 		, bool srcsign
 		, size_t srcexp
 		, size_t srcexpbiasp
@@ -78,43 +76,53 @@ ae2f_FloatCast(
 		, ae2f_errFloat_t* errret
 		) noexcept
 {
-	if(!dest)	return ae2f_errGlob_PTR_IS_NULL;
-	if(!src)	return ae2f_errGlob_PTR_IS_NULL;
-	if(destexp > (sizeof(size_t) << 3))
-		return ae2f_errGlob_IMP_NOT_FOUND;
-	if(srcexp > (sizeof(size_t) << 3))
-		return ae2f_errGlob_IMP_NOT_FOUND;
+	uint8_t* dest = ae2f_reinterpret_cast(uint8_t*, _dest);
+	const uint8_t* src = ae2f_reinterpret_cast(const uint8_t*, _src);
 
-	for(size_t i = 0; i < ae2f_FloatByteSz(destsign, destexp, destfrac); i++) 
-		dest[i] = 0;
+	{
+		if(!dest)	return ae2f_errGlob_PTR_IS_NULL;
+		if(!src)	return ae2f_errGlob_PTR_IS_NULL;
 
-	for(size_t i = 0; i < (srcfrac) && i < (destfrac); i++) {
-		const size_t 
-			_dest = 	(destfrac - i)
-			, desti =	_dest >> 3
-			, destr = 	_dest & 7
+		if(destexp > (sizeof(size_t) << 3))
+			return ae2f_errGlob_IMP_NOT_FOUND;
+		if(srcexp > (sizeof(size_t) << 3))
+			return ae2f_errGlob_IMP_NOT_FOUND;
 
-			, _src =	(srcfrac - i)
-			, srci =	_src >> 3
-			, srcr =	_src & 7;
+		for(size_t i = 0; i < ae2f_FloatByteSz(destsign, destexp, destfrac); i++) 
+			dest[i] = 0;
 
-		dest[desti] |= ae2f_BitVecGet(src[srci], srcr) << destr;
+		printf("%d\n", ae2f_FloatByteSz(destsign, destexp, destfrac));
+	
+		for(size_t i = 0; i < (srcfrac) && i < (destfrac); i++) {
+			const size_t 
+				_dest = 	(destfrac - i)
+				, desti =	_dest >> 3
+				, destr = 	_dest & 7
+	
+				, _src =	(srcfrac - i)
+				, srci =	_src >> 3
+				, srcr =	_src & 7;
+	
+			dest[desti] |= ae2f_BitVecGet(src[srci], srcr) << destr;
+		}
+
+		for(size_t i = 0; i < srcexp && i < destexp; i++) {
+			const size_t 
+				_dest = 	(destfrac + destexp - i)
+				, desti =	_dest >> 3
+				, destr = 	_dest & 7
+	
+				, _src =	(srcfrac + srcexp - i)
+				, srci =	_src >> 3
+				, srcr =	_src & 7;
+	
+			dest[desti] |= ae2f_BitVecGet(src[srci], srcr) << destr;
+		}
+
+		puts("asdfsdfdddd");
+	
+		return ae2f_errGlob_OK;
 	}
-
-	for(size_t i = 0; i < srcexp && i < destexp; i++) {
-		const size_t 
-			_dest = 	(destfrac + destexp - i)
-			, desti =	_dest >> 3
-			, destr = 	_dest & 7
-
-			, _src =	(srcfrac + srcexp - i)
-			, srci =	_src >> 3
-			, srcr =	_src & 7;
-
-		dest[desti] |= ae2f_BitVecGet(src[srci], srcr) << destr;
-	}
-
-	return ae2f_errGlob_OK;
 }
 
 #endif
