@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 6.20.15 LANGUAGES C CXX)
+project(Core VERSION 7.21.15 LANGUAGES C CXX)
 enable_testing()
 
 include(cmake/Core.cmake)
@@ -12,6 +12,7 @@ if(NOT TARGET "${PROJECT_NAME}")
     ae2f_CoreLibTent(
         ${PROJECT_NAME} INTERFACE include ae2f
         "hin/Float.h.in"
+	"include/ae2f/BInt.h"
 	"include/ae2f/Float.h"
 
         "include/ae2f/Cast.h"

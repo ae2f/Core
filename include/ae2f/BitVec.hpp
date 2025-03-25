@@ -28,7 +28,6 @@
 		 public:
 		 using idx_t = ae2f_BitVecI_t;
  
- 
 		 /// @brief 
 		 /// The actual integer.
 		 t obj;
