@@ -190,22 +190,22 @@ endfunction()
 # @param prm_TagName
 # Tag name
 function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagName)
-    if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
-        execute_process(
-            COMMAND 
-            git clone 
-            https://github.com/${prm_AuthorName}/${prm_TarName} 
-            ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
-            --branch ${prm_TagName}
-            RESULT_VARIABLE result
-        )
-
-        if(result)
-            message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
-        endif()
-    endif()
-
     if(NOT TARGET ${prm_TarName})
+        if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
+            execute_process(
+                COMMAND 
+                git clone 
+                https://github.com/${prm_AuthorName}/${prm_TarName} 
+                ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
+                --branch ${prm_TagName}
+                RESULT_VARIABLE result
+            )
+
+            if(result)
+                message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
+            endif()
+        endif()
+        
         add_subdirectory(
             ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
             ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
