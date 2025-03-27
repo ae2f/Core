@@ -189,7 +189,7 @@ endfunction()
 # Target name 
 # @param prm_TagName
 # Tag name
-function(ae2f_CoreLibFetch prm_AuthorName prm_namespace prm_TarName prm_TagName)
+function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagName)
     if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
         execute_process(
             COMMAND 
@@ -212,20 +212,50 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_namespace prm_TarName prm_TagName)
         )
     endif()
 
-    set(${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED ${prm_TarName})
+    set(
+	    ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
+	    ${prm_TarName} CACHE STRING ${prm_TarName}
+    )
+endfunction()
+
+
+# Deprecated. works only when Authorname and namespace are same.
+function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
+	ae2f_CoreLibFetch_NS(${prm_AuthorName} ${prm_AuthorName} ${prm_TarName} ${prm_TagName})
+
+	set(
+		${prm_AuthorName}__${prm_TarName}__FETCHED
+		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+		CACHE STRING
+		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+
+	)
 endfunction()
 
 
 # Fetched library will be in ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
-function(ae2f_CoreLibFetchX prm_AuthorName prm_namespace prm_TarName prm_TagName)
+function(ae2f_CoreLibFetchX_NS prm_AuthorName prm_namespace prm_TarName prm_TagName)
 	find_package(${prm_TarName})
 
 	if(${prm_TarName}_FOUND)
 		set(
-            ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED
-            ${prm_namespace}::${prm_TarName}
-            )
+			${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED
+			${prm_namespace}::${prm_TarName} CACHE STRING ${prm_namespace}::${prm_TarName}
+		)
 	else()
-		ae2f_CoreLibFetch(${prm_AuthorName} ${prm_TarName} ${prm_TagName})
+		ae2f_CoreLibFetch_NS(${prm_AuthorName} ${prm_namespace} ${prm_TarName} ${prm_TagName})
 	endif()
+endfunction()
+
+# Deprecated, works when Authoranme and namespace are same.
+function(ae2f_CoreLibFetchX prm_AuthorName prm_TarName prm_TagName)
+	ae2f_CoreLibFetchX_NS(${prm_AuthorName} ${prm_AuthorName} ${prm_TarName} ${prm_TagName})
+
+	set(
+		${prm_AuthorName}__${prm_TarName}__FETCHED
+		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+		CACHE STRING
+		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+
+	)
 endfunction()
