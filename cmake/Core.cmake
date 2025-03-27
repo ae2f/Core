@@ -205,7 +205,7 @@ function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagNa
                 message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
             endif()
         endif()
-        
+
         add_subdirectory(
             ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
             ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
@@ -225,10 +225,9 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
 
 	set(
 		${prm_AuthorName}__${prm_TarName}__FETCHED
-		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 		CACHE STRING
-		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
-
+		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 	)
 endfunction()
 
@@ -253,9 +252,8 @@ function(ae2f_CoreLibFetchX prm_AuthorName prm_TarName prm_TagName)
 
 	set(
 		${prm_AuthorName}__${prm_TarName}__FETCHED
-		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
+		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 		CACHE STRING
-		${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED
-
+		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 	)
 endfunction()
