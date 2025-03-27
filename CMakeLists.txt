@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(Core VERSION 7.21.15 LANGUAGES C CXX)
+project(Core VERSION 6.22.15 LANGUAGES C CXX)
 enable_testing()
 
 include(cmake/Core.cmake)
