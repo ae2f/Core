@@ -12,8 +12,8 @@ if(NOT TARGET "${PROJECT_NAME}")
     ae2f_CoreLibTent(
         ${PROJECT_NAME} INTERFACE include ae2f
         "hin/Float.h.in"
-	"include/ae2f/BInt.h"
 	"include/ae2f/Float.h"
+	"include/ae2f/Float.auto.h"
 
         "include/ae2f/Cast.h"
         "include/ae2f/Cast/CasterUnion.hpp"
