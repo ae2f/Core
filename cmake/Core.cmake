@@ -175,29 +175,16 @@ function(ae2f_CoreUtilityDocTent prm_TarName prm_includeDir prm_namespace)
     endif()
 endfunction()
 
-# @brief 
-# It will try to fetch the cmake project ae2f-Core like project for Local and Github. \n
-# @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
-# 
-# Once the project is in given directory, it will not try to fetch it from internet.
-# 
-# Fetched library will be in ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
-# 
-# @param prm_AuthorName 
-# Author name
-# @param prm_TarName
-# Target name 
-# @param prm_TagName
-# Tag name
-function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagName)
+# Domain name customization.
+function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagName prm_Domain)
     if(NOT TARGET ${prm_TarName})
         if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
             execute_process(
                 COMMAND 
                 git clone 
-                https://github.com/${prm_AuthorName}/${prm_TarName} 
+		https://${prm_Domain}/${prm_AuthorName}/${prm_TarName} 
                 ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
-                --branch ${prm_TagName}
+		--branch ${prm_TagName} ${ARGN}
                 RESULT_VARIABLE result
             )
 
@@ -216,6 +203,34 @@ function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagNa
 	    ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
 	    ${prm_TarName} CACHE STRING ${prm_TarName}
     )
+
+endfunction()
+
+# @brief 
+# Domain name will stick on github.
+# 
+# It will try to fetch the cmake project ae2f-Core like project for Local and Github. \n
+# @see ___DOC_CMAKE::ae2f_LibDirGlob is the given path to check. \n 
+# 
+# Once the project is in given directory, it will not try to fetch it from internet.
+# 
+# Fetched library will be in ${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
+# 
+# @param prm_AuthorName 
+# Author name
+# @param prm_TarName
+# Target name 
+# @param prm_TagName
+# Tag name
+function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagName)
+	ae2f_CoreLibFetch_DNS(
+		${prm_AuthorName} 
+		${prm_namespace} 
+		${prm_TarName} 
+		${prm_TagName} 
+		"github.com" 
+		${ARGN}
+	)
 endfunction()
 
 
