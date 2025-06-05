@@ -36,6 +36,9 @@ if(NOT TARGET "${PROJECT_NAME}")
         "include/ae2f/Pack/Num.auto.h"
         "include/ae2f/Pack/Beg.h"
         "include/ae2f/Pack/End.h"
+
+        "include/ae2f/Atom.h"
+        "include/ae2f/WaitWake.h"
     )
     
     ae2f_CoreTestTent(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
