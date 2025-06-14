@@ -12,6 +12,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
+        ae2f_IS_SHARED: [ ON, OFF ]
+        ae2f_CXX: [  ON, OFF ]
 
     steps:
     - uses: actions/checkout@v4
@@ -31,9 +33,11 @@ jobs:
         git config user.email "a@a.com"
 
     - name: Configure CMake
-      run: |
+      run: >
         cmake -B build -S .
-
+        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
+        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
+        
     - name: Build
       run: |
         cmake --build ./build --config ${{ matrix.build_type }}
