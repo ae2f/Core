@@ -12,8 +12,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
-        cc: [gcc, clang, cl]
-        ccpp: [g++, clang++, cl]
+        cc: [gcc, clang]
+        ccpp: [g++, clang++]
 
     steps:
     - uses: actions/checkout@v4
