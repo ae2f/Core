@@ -2,6 +2,7 @@ option(ae2f_IS_SHARED "Is a shared library or static one." OFF)
 option(ae2f_DOC "When activated, it would generate project with the deaders of cmake utility functions." OFF)
 option(ae2f_TEST "When activated, it would generate test projects." ON)
 option(ae2f_CXX "Tell that thou art including cxx for thy project." ON)
+option(ae2f_nakedalais "alais naked on ae2f_CoreLibTentConfigCustom" OFF)
 
 set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
@@ -83,6 +84,10 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
     include_directories(${prm_includeDir})
     add_library(${prm_namespace}-${prm_TarName} ${prm_TarPreFix} ${ARGN})
     add_library(${prm_namespace}::${prm_TarName} ALIAS ${prm_namespace}-${prm_TarName})
+
+    if(${ae2f_nakedalais})
+        add_library(${prm_TarName} ALIAS ${prm_namespace}::${prm_TarName})
+    endif()
 
     target_include_directories(
         ${prm_namespace}-${prm_TarName} INTERFACE

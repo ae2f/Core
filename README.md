@@ -1,5 +1,5 @@
 # ae2f::Core
-- Rel-v6.24.17
+- Rel-v6.24.18
 
 > Integration between C and C++ via CMake.
 
@@ -9,7 +9,7 @@
 # Dependency
 - cmake     >= 3.20
 - C         >= 11
-- C++       >= 23
+- C++       >= 11   [Optional]
 
 ## Disclaimer
 > If you're looking for ae2f::ErrGlob, it has migrated to [ae2f::err](https://github.com/ae2f/err).
