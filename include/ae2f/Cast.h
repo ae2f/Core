@@ -86,10 +86,6 @@
 #define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
 
 /// @brief
-/// Const-expression for C++ variables. not for functions.
-#define constexpr ae2f_WhenC(const) ae2f_WhenCXX(constexpr)
-
-/// @brief
 /// Const-expression for C++ functions.
 #define constexprfun ae2f_WhenC(inline static) ae2f_WhenCXX(constexpr)
 
