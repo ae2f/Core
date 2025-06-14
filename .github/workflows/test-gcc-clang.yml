@@ -14,6 +14,12 @@ jobs:
         build_type: [Release, Debug]
         cc: [g++, clang++]
 
+        include:
+          - c: gcc
+            cc: g++
+          - c: clang
+            cc: clang++
+
     steps:
     - uses: actions/checkout@v4
       with:
@@ -26,14 +32,11 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: Configure Git
-      run: |
-        git config user.name "BOT"
-        git config user.email "a@a.com"
-
     - name: Configure CMake
-      run: |
-        cmake -B build -S . -G Ninja -D CMAKE_CXX_COMPILER=${{ matrix.cc }}
+      run: >
+        cmake -B build -S . -G Ninja 
+          -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
+          -D CMAKE_C_COMPILER=${{ matrix.c }}
 
     - name: Build
       run: |
