@@ -1,0 +1,44 @@
+name: Build & Test
+on:
+  push:
+    branches: [main]
+    
+jobs:
+  test-def:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        build_type: [Release, Debug]
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        ref: 'main'
+        fetch-depth: '0'
+
+    - name: Set reusable strings
+      id: strings
+      shell: bash
+      run: |
+        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+
+    - name: Configure Git
+      run: |
+        git config user.name "BOT"
+        git config user.email "a@a.com"
+
+    - name: Configure CMake
+      run: |
+        cmake -B build -S .
+
+    - name: Build
+      run: |
+        cmake --build ./build --config ${{ matrix.build_type }}
+
+    - name: Test
+      run: |
+        ctest --test-dir build
+  
