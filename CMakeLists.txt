@@ -18,6 +18,12 @@ if(NOT TARGET "${PROJECT_NAME}")
         ${ae2f-core-hin}
     )
     
-    ae2f_CoreTestTent(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
+    if(WIN32)
+        set(ae2f-synchronization-needexd synchronization)
+    else()
+        set(ae2f-synchronization-needexd)
+    endif()
+
+    ae2f_CoreTestTent(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test ${ae2f-synchronization-needexd})
     ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f)
 endif()
