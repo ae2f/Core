@@ -19,7 +19,7 @@ if(NOT TARGET "${PROJECT_NAME}")
     )
 
     set_property(TARGET ae2f-${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
-    set_property(TARGET ae2f-${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED 11)
+    set_property(TARGET ae2f-${PROJECT_NAME} PROPERTY CXX_STANDARD_REQUIRED ON)
     
     ae2f_CoreTestTent(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test)
     ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f)
