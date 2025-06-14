@@ -1,5 +1,5 @@
 # ae2f::Core
-- Rel-v6.23.17
+- Rel-v6.24.17
 
 > Integration between C and C++ via CMake.
 
