@@ -35,12 +35,12 @@ jobs:
     - name: Configure CMake
       run: >
         cmake -B build -S .
-
+        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
+        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
+        
     - name: Build
       run: |
         cmake --build ./build --config ${{ matrix.build_type }}
-        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
-        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
 
     - name: Test
       run: |
