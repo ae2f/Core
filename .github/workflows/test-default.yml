@@ -40,5 +40,5 @@ jobs:
 
     - name: Test
       run: |
-        ctest --test-dir build
+        ctest --test-dir build -C ${{ matrix.build_type }}
   
