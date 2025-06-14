@@ -86,7 +86,7 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
     add_library(${prm_namespace}::${prm_TarName} ALIAS ${prm_namespace}-${prm_TarName})
 
     if(${ae2f_nakedalais})
-        add_library(${prm_TarName} ALIAS ${prm_namespace}::${prm_TarName})
+        add_library(${prm_TarName} ALIAS ${prm_namespace}-${prm_TarName})
     endif()
 
     target_include_directories(
