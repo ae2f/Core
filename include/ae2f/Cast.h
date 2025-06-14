@@ -89,8 +89,10 @@
 /// Const-expression for C++ functions.
 #define constexprfun ae2f_WhenC(inline static) ae2f_WhenCXX(constexpr)
 
+#ifndef __cplusplus
 /// @brief
 /// Means that there will be no exception thrown written in code.
-#define noexcept ae2f_WhenCXX(noexcept)
+#define noexcept
+#endif
 
 #endif
