@@ -26,8 +26,8 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include "Cxx.h"
-#include "Cast/CasterUnion.hpp"
-#include "Cast/Constexpr.hpp"
+#include "./Cast/CasterUnion.hpp"
+#include "./Cast/Constexpr.hpp"
 
 /// @brief
 /// Initialiser for trivial structures / classes.

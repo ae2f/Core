@@ -1,4 +1,4 @@
-#include <ae2f/WaitWake.h>
+#include <ae2f/Lock.h>
 #include <thread>
 
 ae2f_addrel_t el = 0;
@@ -10,7 +10,7 @@ void P() {
 int main() {
     std::thread td(P);
     el = 1;
-    
+
     __ae2f_WakeSingle(&el);
     td.join();
 

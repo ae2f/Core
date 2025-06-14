@@ -40,7 +40,7 @@ function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
             file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
         else()
             file(GLOB_RECURSE files "${prm_TestSourcesDir}/*.c")
-        endif()    
+        endif()
         list(LENGTH files list_length)
         
         math(EXPR adjusted_length "${list_length} - 1")

@@ -8,27 +8,13 @@
  * 
  */
 
-#define ON 1
-#define OFF 0
+#ifndef ae2f_Call_h
+#define ae2f_Call_h
 
+#include "./Platform.h"
 #include "./Call.auto.h"
 
-#if (defined(_WIN32) || defined(_WIN64))
-#define ae2f_IS_WIN 1
-#else 
-#define ae2f_IS_WIN 0
-#endif 
-
-#if (defined(__linux__))
-#define ae2f_IS_LINUX 1
-#else 
-#define ae2f_IS_LINUX 0
-#endif
 #if ae2f_IS_SHARED
-
-#if ae2f_IS_WIN == ae2f_IS_LINUX
-#pragma message("[WARNING] Platform not specified") 
-#endif
 
 #if ae2f_IS_WIN
 /// @brief
@@ -42,7 +28,9 @@
 /// 
 /// Function api call
 #define ae2f_SHAREDCALL
-#else
+#endif
+
+#if ae2f_IS_LINUX || ae2f_IS_APPLE
 /// @brief
 /// # For Linux, gcc based.
 /// 
@@ -55,6 +43,9 @@
 /// Function api call
 #define ae2f_SHAREDCALL
 #endif
+
+
+
 #else
 
 /// @brief
@@ -67,4 +58,6 @@
 ///
 /// Function api call
 #define ae2f_SHAREDCALL
+#endif
+
 #endif
