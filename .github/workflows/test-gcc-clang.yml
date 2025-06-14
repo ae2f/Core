@@ -4,7 +4,7 @@ on:
     branches: [main]
     
 jobs:
-  test-gcc:
+  test-compiler-majours:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -34,8 +34,8 @@ jobs:
 
     - name: Configure CMake
       run: |
-        cmake -B build -S . -G Ninja
-        -D CMAKE_C_COMPILER=${{ matrix.cc }}
+        cmake -B build -S . -G Ninja \
+        -D CMAKE_C_COMPILER=${{ matrix.cc }} \
         -D CMAKE_CXX_COMPILER=${{ matrix.ccpp }}
 
     - name: Build
