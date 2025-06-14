@@ -6,6 +6,11 @@
 > The smallest core utils for ae2f-like library.  
 > Contains no source, just headers. (interface)
 
+# Dependency
+- cmake >= 3.20
+- C >= 11
+- C++ >= 17
+
 ## Disclaimer
 > If you're looking for ae2f::ErrGlob, it has migrated to [ae2f::err](https://github.com/ae2f/err).
 
@@ -14,8 +19,3 @@
 
 # See Also
 - ae2f::Core-Template
-
-# Dependency
-- gcc
-- make
-- cmake

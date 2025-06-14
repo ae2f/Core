@@ -16,16 +16,16 @@
 #include <ae2f/Pack/Beg.h>
 #include <ae2f/Pack/End.h>
 
-#include <ae2f/Pack/Num.h>
+#include <ae2f/Pack/Num.auto.h>
 
 int main() { 
-    ae2f::xfpCmp<int>;
-    ae2f::errGlobState::errGlobStateWithThrow;
+    (void)ae2f::xfpCmp<int>;
+    (void)ae2f::errGlobState::errGlobStateWithThrow;
     ae2f::rBitVec<int> a = 3;
-    ae2f::Cmp::Diff<int>;
-    ae2f::Cmp::TakeGt<int>;
-    ae2f::Cmp::TakeLs<int>;
-    ae2f::rBitVec<int>::Filled;
+    (void)ae2f::Cmp::Diff<int>;
+    (void)ae2f::Cmp::TakeGt<int>;
+    (void)ae2f::Cmp::TakeLs<int>;
+    (void)ae2f::rBitVec<int>::Filled;
 
     switch(3) {
         case ae2f::Cmp::TakeLs<int>(3, 5):

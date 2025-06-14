@@ -7,6 +7,7 @@ set(ae2f_float float CACHE STRING "Float type for the template.")
 set(ae2f_packcount 0 CACHE STRING "Pack count for pre-defined structures.")
 set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Current Source Root")
 set(ae2f_BinRoot ${CMAKE_CURRENT_BINARY_DIR} CACHE STRING "Current Binary Root")
+set(ae2f_submod  submod CACHE STRING submod)
 
 if(ae2f_IS_SHARED)
     set(ae2f_LIBPREFIX SHARED CACHE STRING "SHARED")
@@ -80,17 +81,18 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
     include(GNUInstallDirs)
 
     include_directories(${prm_includeDir})
-    add_library(${prm_TarName} ${prm_TarPreFix} ${ARGN})
+    add_library(${prm_namespace}-${prm_TarName} ${prm_TarPreFix} ${ARGN})
+    add_library(${prm_namespace}::${prm_TarName} ALIAS ${prm_namespace}-${prm_TarName})
 
     target_include_directories(
-        ${prm_TarName} INTERFACE
+        ${prm_namespace}-${prm_TarName} INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${prm_includeDir}/>  
         $<INSTALL_INTERFACE:${prm_includeDir}/${prm_namespace}/>
     )
 
     # Install Settings
-    install(TARGETS "${prm_TarName}"
-        EXPORT ${prm_TarName}Targets
+    install(TARGETS ${prm_namespace}-${prm_TarName}
+        EXPORT ${prm_namespace}-${prm_TarName}Targets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
         
@@ -99,8 +101,8 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
     )
 
     # Package
-    install(EXPORT ${prm_TarName}Targets
-        FILE ${prm_TarName}Targets.cmake
+    install(EXPORT ${prm_namespace}-${prm_TarName}Targets
+        FILE ${prm_namespace}-${prm_TarName}Targets.cmake
         NAMESPACE ae2f::
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
     )
@@ -109,12 +111,12 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
     include(CMakePackageConfigHelpers)
     configure_package_config_file(
         ${prm_configpath}
-        ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/${prm_namespace}-${prm_TarName}Config.cmake
         INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
     )
         
     install(FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/${prm_TarName}Config.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/${prm_namespace}-${prm_TarName}Config.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
     )
 endfunction()
@@ -178,12 +180,12 @@ endfunction()
 # Domain name customization.
 function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagName prm_Domain)
     if(NOT TARGET ${prm_TarName})
-        if(NOT EXISTS ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
+        if(NOT EXISTS ${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
             execute_process(
                 COMMAND 
                 git clone 
 		https://${prm_Domain}/${prm_AuthorName}/${prm_TarName} 
-                ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
+                ${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
 		--branch ${prm_TagName} ${ARGN}
                 RESULT_VARIABLE result
             )
@@ -194,8 +196,8 @@ function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagN
         endif()
 
         add_subdirectory(
-            ${ae2f_ProjRoot}/submod/${prm_AuthorName}/${prm_TarName}
-            ${ae2f_BinRoot}/submod/${prm_AuthorName}/${prm_TarName}
+            ${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
+            ${ae2f_BinRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
         )
     endif()
 
