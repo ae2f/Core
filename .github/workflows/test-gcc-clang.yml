@@ -35,8 +35,8 @@ jobs:
     - name: Configure CMake
       run: >
         cmake -B build -S . -G Ninja 
-          -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
-          -D CMAKE_C_COMPILER=${{ matrix.c }}
+        -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
+        -D CMAKE_C_COMPILER=${{ matrix.c }}
 
     - name: Build
       run: |
