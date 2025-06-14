@@ -39,8 +39,8 @@ jobs:
         cmake -B build -S . -G Ninja 
         -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
         -D CMAKE_C_COMPILER=${{ matrix.c }}
-        -D ae2f_IS_SHARED=${{ ae2f_IS_SHARED }}
-        -D ae2f_CXX=${{ ae2f_CXX }}
+        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
+        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
 
     - name: Build
       run: |
