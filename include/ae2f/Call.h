@@ -27,7 +27,7 @@
 #if ae2f_IS_SHARED
 
 #if ae2f_IS_WIN == ae2f_IS_LINUX
-#error This library will not work gracefully under this OS, which means it has no clue for this lib.
+#pragma message("[WARNING] Platform not specified") 
 #endif
 
 #if ae2f_IS_WIN
