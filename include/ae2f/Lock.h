@@ -11,7 +11,7 @@
 
 #if ae2f_IS_WIN
 #include <windows.h>
-#pragma comment(lib, synchronization) /** synchronization link */
+#pragma comment(lib, "synchronization") /** synchronization link */
 
 /**
  * @brief 
@@ -101,8 +101,9 @@
 
 #endif
 
-#if ae2f_IS_APPLE
+#if ae2f_IS_APPLE || ae2f_IDK
 #include <pthread.h>
+#include <errno.h>
 
 /**
  * @brief Address element type.
