@@ -13,7 +13,6 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
         cc: [gcc, clang]
-        ccpp: [g++, clang++]
 
     steps:
     - uses: actions/checkout@v4
@@ -34,7 +33,7 @@ jobs:
 
     - name: Configure CMake
       run: |
-        cmake -B build -S . -G Ninja -D CMAKE_C_COMPILER=${{ matrix.cc }} -D CMAKE_CXX_COMPILER=${{ matrix.ccpp }}
+        cmake -B build -S . -G Ninja -D CMAKE_C_COMPILER=${{ matrix.cc }}
 
     - name: Build
       run: |
