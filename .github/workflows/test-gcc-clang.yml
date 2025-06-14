@@ -13,6 +13,8 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
         cc: [g++, clang++]
+        ae2f_IS_SHARED: [ ON, OFF ]
+        ae2f_CXX: [  ON, OFF ]
 
         include:
           - c: gcc
@@ -37,6 +39,8 @@ jobs:
         cmake -B build -S . -G Ninja 
         -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
         -D CMAKE_C_COMPILER=${{ matrix.c }}
+        -D ae2f_IS_SHARED=${{ ae2f_IS_SHARED }}
+        -D ae2f_CXX=${{ ae2f_CXX }}
 
     - name: Build
       run: |
