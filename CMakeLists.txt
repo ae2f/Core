@@ -4,7 +4,7 @@ enable_testing()
 
 include(cmake/Core.cmake)
 
-if(NOT TARGET "${PROJECT_NAME}")
+if(NOT TARGET ae2f::${PROJECT_NAME})
     configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Num.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Num.auto.h)
     configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.auto.h)
     configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.auto.h)
