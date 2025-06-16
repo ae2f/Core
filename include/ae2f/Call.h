@@ -27,7 +27,7 @@
 /// # For Windows
 /// 
 /// Function api call
-#define ae2f_SHAREDCALL __declspec(dllimport)
+#define ae2f_SHAREDCALL 
 #endif
 
 #if ae2f_IS_LINUX || ae2f_IS_APPLE
