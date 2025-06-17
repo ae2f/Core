@@ -81,7 +81,7 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  inline void pop() noexcept {
+  constexprmethod void pop() noexcept {
     code &= ~rBitVec<ae2f_err_t>(code).FndOne().obj;
   }
 
@@ -112,7 +112,7 @@ inline std::string errGlobState::msgall() const noexcept {
 class errGlobThrown : public std::exception {
   friend class errGlobState;
 
-  const errGlobState code;
+  errGlobState code;
   /// @brief
   /// Error message buffer;
   const std::string msg;
