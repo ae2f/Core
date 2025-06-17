@@ -1,17 +1,22 @@
+# $1, 	$2: compilers
+# $3: 	buildtype
+# $4 	stdc
+# $5 	stdcc
 
 makers=("-GNinja" "")
-buildtypes=("Release" "Debug" "MinSizeRel" "RelWithDebInfo")
-lstdc=("11" "17" "23")
-lstdcc=("17" "20" "23")
+# buildtypes=("Release" "Debug" "MinSizeRel" "RelWithDebInfo")
+# lstdc=("11" "17" "23")
+# lstdcc=("17" "20" "23")
 
 __ae2f_CXX=("ON" "OFF")
 __ae2f_IS_SHARED=("ON" "OFF")
 
+buildtype=$3
+stdc=$4
+stdcc=$5
 
-for buildtype in ${buildtypes[@]}; do
+
 	for maker in ${makers[@]}; do
-		for stdc in ${lstdc[@]}; do
-			for stdcc in ${lstdcc[@]}; do
 				for _ae2f_CXX in ${__ae2f_CXX[@]}; do
 					for _ae2f_IS_SHARED in ${__ae2f_IS_SHARED[@]}; do
 						cmake -S . -B build \
@@ -26,7 +31,4 @@ for buildtype in ${buildtypes[@]}; do
 						cmake -E remove_directory build || { echo "Clean failed"; exit 1; }
 					done
 				done
-			done
-		done
 	done
-done
