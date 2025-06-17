@@ -11,35 +11,22 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        build_type: [Release, Debug]
-        cc: [g++, clang++, ""]
-        ae2f_IS_SHARED: [ ON, OFF ]
-        ae2f_CXX: [  ON, OFF ]
-        Generator: [ "-G Ninja", "" ]
-        stdc: [ "11", "17", "23" ]
-        stdcc: [ "11", "17", "23" ]
-        
+
         include:
-          - c: gcc
-            cc: g++
-            prefix-c: "-D CMAKE_C_COMPILER="
-            prefix-cc: "-D CMAKE_CXX_COMPILER="
-            
-          - c: clang
-            cc: clang++
-            prefix-c: "-D CMAKE_C_COMPILER="
-            prefix-cc: "-D CMAKE_CXX_COMPILER="
-            
-          - c: ""
-            cc: ""
-            prefix-cc: ""
-            prefix-c: ""
+          - os: ubuntu-latest
+            bash: sh
+
+          - os: windows-latest
+            bash: bash
+
+          - os: macos-latest
+            bash: sh
 
     steps:
     - uses: actions/checkout@v4
       with:
         ref: 'main'
-        fetch-depth: '0'
+        fetch-depth: '1'
 
     - name: Set reusable strings
       id: strings
@@ -47,20 +34,7 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: Configure CMake
-      run: >
-        cmake -B build -S . ${{ matrix.Generator }}
-        ${{matrix.prefix-cc}}${{ matrix.cc }}
-        ${{ matrix.prefix-c }}${{ matrix.c }}
-        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
-        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
-
-    - name: Build
-      run: |
-        cmake --build ./build --config ${{ matrix.build_type }}
-
     - name: Test
-      run: |
-        ctest --test-dir build -C ${{ matrix.build_type }}
-
+      run: ${{ matrix.bash }} ./test.sh
+        
   
