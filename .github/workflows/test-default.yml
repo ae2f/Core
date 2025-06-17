@@ -15,13 +15,13 @@ jobs:
 
         include:
           - os: ubuntu-latest
-            bash: sh
+            bash: bash
 
           - os: windows-latest
             bash: bash
 
           - os: macos-latest
-            bash: sh
+            bash: bash
 
           - c: -DCMAKE_C_COMPILER=gcc
             cc: -DCMAKE_CXX_COMPILER=g++
