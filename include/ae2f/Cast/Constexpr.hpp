@@ -17,7 +17,8 @@
 #define constexprmethod     constexpr
 #else
 #define constexpr           const
-#define constexprmethod     inline static
+#define constexprmethod     inline 
+#define constexprfun        inline static
 #endif
 
 

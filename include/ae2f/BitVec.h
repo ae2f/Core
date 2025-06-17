@@ -97,7 +97,7 @@ typedef uint8_t ae2f_BitVecI_t;
 /// @tparam t Must be an integer type
 /// @param vec {t}
 #define ae2f_BitVecSizeDef(t) \
-constexprmethod uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept { \
+constexprfun uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept { \
     for (uint8_t i = (sizeof(t) << 3); i; i--) \
         if (ae2f_BitVecGet(vec, i - 1)) return i; \
     return 0; \
