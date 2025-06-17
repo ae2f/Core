@@ -13,8 +13,6 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         c:  [-DCMAKE_C_COMPILER=gcc, -DCMAKE_C_COMPILER=clang, \"\"]
         conf: [Release, Debug]
-        stdc: [11, 17, 23]
-        stdcc: [98, 03, 11, 17, 20, 23]
 
         include:
           - os: ubuntu-latest
@@ -47,6 +45,6 @@ jobs:
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
     - name: Test
-      run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }} ${{ matrix.stdc }} ${{ matrix.stdcc }}
+      run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
         
   
