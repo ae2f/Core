@@ -19,11 +19,11 @@ for buildtype in ${buildtypes[@]}; do
 							-DCMAKE_CXX_STANDARD=$stdcc \
 							$maker $1 $2 \
 							-Dae2f_CXX=$_ae2f_CXX \
-							-Dae2f_IS_SHARED=$_ae2f_IS_SHARED
+							-Dae2f_IS_SHARED=$_ae2f_IS_SHARED || { echo "Configuration failed"; exit 1; }
 
-						cmake --build build --config $buildtype
-						ctest --test-dir build -C $buildtype
-						cmake -E remove_directory build
+						cmake --build build --config $buildtype || { echo "Build failed"; exit 1; }
+						ctest --test-dir build -C $buildtype || { echo "Test failed"; exit 1; }
+						cmake -E remove_directory build || { echo "Clean failed"; exit 1; }
 					done
 				done
 			done
