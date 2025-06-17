@@ -6,7 +6,7 @@ on:
 jobs:
   test-compiler-majours:
     runs-on: ${{ matrix.os }}
-
+    
     strategy:
       fail-fast: false
       matrix:
@@ -16,7 +16,9 @@ jobs:
         ae2f_IS_SHARED: [ ON, OFF ]
         ae2f_CXX: [  ON, OFF ]
         Generator: [ "-G Ninja", "" ]
-
+        stdc: [ "11", "17", "23" ]
+        stdcc: [ "11", "17", "23" ]
+        
         include:
           - c: gcc
             cc: g++
@@ -60,3 +62,5 @@ jobs:
     - name: Test
       run: |
         ctest --test-dir build -C ${{ matrix.build_type }}
+
+  
