@@ -81,7 +81,7 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  constexprmethod void pop() noexcept {
+  inline void pop() noexcept {
     code &= ~rBitVec<ae2f_err_t>(code).FndOne().obj;
   }
 
