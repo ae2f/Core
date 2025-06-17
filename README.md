@@ -8,8 +8,8 @@
 
 # Dependency
 - cmake     >= 3.20
-- C         >= 11
-- C++       >= 17   [Optional]
+- C         >= 90
+- C++       >= 14   [Optional]
 
 ## Disclaimer
 > If you're looking for ae2f::ErrGlob, it has migrated to [ae2f::err](https://github.com/ae2f/err).
