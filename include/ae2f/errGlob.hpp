@@ -18,11 +18,12 @@
 #include "Pack/Beg.h"
 
 namespace ae2f {
+
 /// @brief
 /// Gets the code
 struct errGlobState {
   ae2f_err_t code;
-  inline errGlobState(ae2f_err_t a) noexcept;
+  constexprmethod errGlobState(ae2f_err_t a) noexcept;
 
   /// @brief
   /// It is a constructor, which will throw it is a state critical.
@@ -81,8 +82,8 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  constexprmethod void pop() noexcept {
-    code &= ~rBitVec<ae2f_err_t>(code).FndOne().obj;
+  constexprmethod errGlobState pop() const noexcept {
+    return errGlobState(code & ~rBitVec<ae2f_err_t>(code).FndOne().obj);
   }
 
   /// @brief
@@ -92,7 +93,7 @@ struct errGlobState {
   inline std::string msgall() const noexcept;
 };
 
-inline errGlobState::errGlobState(ae2f_err_t a) noexcept : code(a) {}
+constexprmethod errGlobState::errGlobState(ae2f_err_t a) noexcept : code(a) {}
 inline std::string errGlobState::msgall() const noexcept {
   std::string rtn = "Following shows the error flag enabled.";
   errGlobState err(this->code);
@@ -100,7 +101,7 @@ inline std::string errGlobState::msgall() const noexcept {
   while (err.code) {
     rtn += '\t';
     rtn += err.peek();
-    err.pop();
+    err = err.pop();
     rtn += '\n';
   }
 
