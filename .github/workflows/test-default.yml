@@ -12,9 +12,9 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         c:  [-DCMAKE_C_COMPILER=gcc, -DCMAKE_C_COMPILER=clang, ""]
-        conf: ["Release", "Debug"]
-        stdc: ["11", "17", "23"]
-        stdcc: ["17", "20", "23"]
+        conf: [Release, Debug]
+        stdc: [11, 17, 23]
+        stdcc: [17, 20, 23]
 
         include:
           - os: ubuntu-latest
