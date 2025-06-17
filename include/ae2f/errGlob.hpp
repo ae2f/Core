@@ -37,7 +37,7 @@ struct errGlobState {
   /// Gets one
   /// @return
   /// A single error message for this code.
-  constexpr const char *peek() const noexcept {
+  constexprmethod const char *peek() const noexcept {
     if (code & ae2f_errGlob_IMP_NOT_FOUND) {
       return "Failed to find the function on preprocessor which is callable "
              "for some reason No operation has beed done.";
@@ -81,7 +81,7 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  constexpr void pop() noexcept {
+  constexprmethod void pop() noexcept {
     code &= ~rBitVec<ae2f_err_t>(code).FndOne().obj;
   }
 

@@ -23,8 +23,8 @@ template<typename t, typename k>
 union ae2f_UnionCaster {
 	t a;
 	k b;
-	constexpr ae2f_UnionCaster(t _) : b{0} { this->a = _; }
-	constexpr k _b() const { return b; }
+	constexprmethod ae2f_UnionCaster(t _) : b{0} { this->a = _; }
+	constexprmethod k _b() const { return b; }
 };
 
 #endif

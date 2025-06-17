@@ -20,7 +20,7 @@ namespace ae2f {
         namespace Fun {
             using Ret_t = ae2f_CmpFunRet_t;
 
-            constexpr Ret_t  
+            constexprmethod Ret_t  
             EQUAL = ae2f_CmpFunRet_EQUAL,
             LISLESSER = ae2f_CmpFunRet_LISLESSER,
             RISLESSER =  ae2f_CmpFunRet_RISLESSER;
@@ -36,7 +36,7 @@ namespace ae2f {
     /// @brief 
     /// Returns itself as @ref fpCmp_t.
     template<typename T>
-    constexpr fpCmp_t xfpCmp(xfpCmp_t<T> a) noexcept {
+    constexprmethod fpCmp_t xfpCmp(xfpCmp_t<T> a) noexcept {
         return ae2f_union_cast(xfpCmp_t<T>, fpCmp_t, a);
     }
 }

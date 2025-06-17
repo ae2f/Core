@@ -2,7 +2,7 @@
 
 
 int main() {
-    constexpr ae2f::rBitVec<int> a{23};
+    constexprmethod ae2f::rBitVec<int> a{23};
 
     return 0;
 }

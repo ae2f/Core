@@ -8,6 +8,7 @@ if(NOT TARGET ae2f::${PROJECT_NAME})
     configure_file(${PROJECT_SOURCE_DIR}/hin/Pack/Num.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Pack/Num.auto.h)
     configure_file(${PROJECT_SOURCE_DIR}/hin/Call.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Call.auto.h)
     configure_file(${PROJECT_SOURCE_DIR}/hin/Float.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/Float.auto.h)
+    configure_file(${PROJECT_SOURCE_DIR}/hin/LangVer.h.in ${PROJECT_SOURCE_DIR}/include/ae2f/LangVer.auto.h)
 
     file(GLOB_RECURSE ae2f-core-inc ${PROJECT_SOURCE_DIR}/include/*)
     file(GLOB_RECURSE ae2f-core-hin ${PROJECT_SOURCE_DIR}/hin/*)

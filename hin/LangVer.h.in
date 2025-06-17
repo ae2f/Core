@@ -1,0 +1,21 @@
+#if 0@ae2f_LangVer_C@
+#if 0@ae2f_LangVer_C@ >= 050
+#define ae2f_LangVer_C @ae2f_LangVer_C@
+#else
+#define ae2f_LangVer_C 1@ae2f_LangVer_C@
+#endif
+#else
+#define ae2f_LangVer_C 0
+#endif
+
+#if 0@ae2f_LangVer_CC@
+#if 0@ae2f_LangVer_CC@ >= 050
+#define ae2f_LangVer_CC @ae2f_LangVer_CC@
+#else
+#define ae2f_LangVer_CC 1@ae2f_LangVer_CC@
+#endif
+#else
+#define ae2f_LangVer_CC 0
+#endif
+
+#define __ae2f_cppcheck(v) (defined(__cplusplus) && __cplusplus >= (v))

@@ -26,8 +26,9 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include "Cxx.h"
-#include "./Cast/CasterUnion.hpp"
 #include "./Cast/Constexpr.hpp"
+#include "./Cast/CasterUnion.hpp"
+#include "./LangVer.auto.h"
 
 /// @brief
 /// Initialiser for trivial structures / classes.
@@ -84,15 +85,5 @@
 /// @brief
 /// Function definitions
 #define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
-
-/// @brief
-/// Const-expression for C++ functions.
-#define constexprfun ae2f_WhenC(inline static) ae2f_WhenCXX(constexpr)
-
-#ifndef __cplusplus
-/// @brief
-/// Means that there will be no exception thrown written in code.
-#define noexcept
-#endif
 
 #endif
