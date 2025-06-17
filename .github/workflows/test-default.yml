@@ -12,7 +12,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         build_type: [Release, Debug]
-        cc: [g++, clang++]
+        cc: [g++, clang++, ""]
         ae2f_IS_SHARED: [ ON, OFF ]
         ae2f_CXX: [  ON, OFF ]
         Generator: [ "-G Ninja", "" ]
@@ -20,11 +20,18 @@ jobs:
         include:
           - c: gcc
             cc: g++
+            prefix-c: "-D CMAKE_C_COMPILER="
+            prefix-cc: "-D CMAKE_CXX_COMPILER="
+            
           - c: clang
             cc: clang++
-          - os: windows-latest
-            c: cl
-            cc: cl
+            prefix-c: "-D CMAKE_C_COMPILER="
+            prefix-cc: "-D CMAKE_CXX_COMPILER="
+            
+          - c: ""
+            cc: ""
+            prefix-cc: ""
+            prefix-c: ""
 
     steps:
     - uses: actions/checkout@v4
@@ -41,8 +48,8 @@ jobs:
     - name: Configure CMake
       run: >
         cmake -B build -S . ${{ matrix.Generator }}
-        -D CMAKE_CXX_COMPILER=${{ matrix.cc }} 
-        -D CMAKE_C_COMPILER=${{ matrix.c }}
+        ${{matrix.prefix-cc}}${{ matrix.cc }}
+        ${{ matrix.prefix-c }}${{ matrix.c }}
         -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
         -D ae2f_CXX=${{ matrix.ae2f_CXX }}
 
@@ -53,4 +60,3 @@ jobs:
     - name: Test
       run: |
         ctest --test-dir build -C ${{ matrix.build_type }}
-  
