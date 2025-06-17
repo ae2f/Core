@@ -16,6 +16,8 @@ jobs:
         ae2f_IS_SHARED: [ ON, OFF ]
         ae2f_CXX: [  ON, OFF ]
         Generator: [ "-G Ninja", "" ]
+        STDC: [ '11', '17', '23' ]
+        STDCC: [ '11', '17', '20', '23' ]
 
         include:
           - c: gcc
@@ -47,11 +49,13 @@ jobs:
 
     - name: Configure CMake
       run: >
-        cmake -B build -S . ${{ matrix.Generator }}
-        ${{matrix.prefix-cc}}${{ matrix.cc }}
-        ${{ matrix.prefix-c }}${{ matrix.c }}
-        -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
-        -D ae2f_CXX=${{ matrix.ae2f_CXX }}
+        cmake -B build -S .     ${{ matrix.Generator }}
+        ${{matrix.prefix-cc}}   ${{ matrix.cc }}
+        ${{ matrix.prefix-c }}  ${{ matrix.c }}
+        -D ae2f_IS_SHARED=      ${{ matrix.ae2f_IS_SHARED }}
+        -D ae2f_CXX=            ${{ matrix.ae2f_CXX }}
+        -D CMAKE_C_STANDARD=    ${{matrix.STDC}}
+        -D CMAKE_CXX_STANDARD=  ${{matrix.STDCC}}
 
     - name: Build
       run: |
