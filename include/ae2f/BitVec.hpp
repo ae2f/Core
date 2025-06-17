@@ -25,6 +25,7 @@
 	 class rBitVec {
 		 static ae2f_BitVecSizeDef(t);
 		 static ae2f_BitVecFndOneDef(t);
+		 
 		 public:
 		 using idx_t = ae2f_BitVecI_t;
  
