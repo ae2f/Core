@@ -16,8 +16,6 @@ jobs:
         ae2f_IS_SHARED: [ ON, OFF ]
         ae2f_CXX: [  ON, OFF ]
         Generator: [ "-G Ninja", "" ]
-        stdc: [ 11, 17, 23 ]
-        stdcc: [ 11, 17, 20, 23 ]
 
         include:
           - c: gcc
@@ -54,8 +52,6 @@ jobs:
         ${{ matrix.prefix-c }}${{ matrix.c }}
         -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
         -D ae2f_CXX=${{ matrix.ae2f_CXX }}
-        -D CMAKE_C_STANDARD=${{ matrix.stdc }}
-        -D CMAKE_CXX_STANDARD=${{ matrix.stdcc }}
 
     - name: Build
       run: |
