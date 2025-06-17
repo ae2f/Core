@@ -5,8 +5,8 @@
 
 makers=("-GNinja" "")
 # buildtypes=("Release" "Debug" "MinSizeRel" "RelWithDebInfo")
-lstdc=("11" "17" "23")
-lstdcc=("98" "03" "11" "17" "20" "23")
+lstdc=("90" "99" "11" "17" "23")
+lstdcc=("11" "17" "20" "23")
 
 __ae2f_CXX=("ON" "OFF")
 __ae2f_IS_SHARED=("ON" "OFF")
