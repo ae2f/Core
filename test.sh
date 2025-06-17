@@ -5,17 +5,16 @@
 
 makers=("-GNinja" "")
 # buildtypes=("Release" "Debug" "MinSizeRel" "RelWithDebInfo")
-# lstdc=("11" "17" "23")
-# lstdcc=("17" "20" "23")
+lstdc=("11" "17" "23")
+lstdcc=("98" "03" "11" "17" "20" "23")
 
 __ae2f_CXX=("ON" "OFF")
 __ae2f_IS_SHARED=("ON" "OFF")
 
 buildtype=$3
-stdc=$4
-stdcc=$5
 
-
+for stdc in ${lstdc[@]}; do
+for stdcc in ${lstdcc[@]}; do
 	for maker in ${makers[@]}; do
 				for _ae2f_CXX in ${__ae2f_CXX[@]}; do
 					for _ae2f_IS_SHARED in ${__ae2f_IS_SHARED[@]}; do
@@ -32,3 +31,5 @@ stdcc=$5
 					done
 				done
 	done
+ done
+ done
