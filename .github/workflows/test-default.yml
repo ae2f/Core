@@ -16,8 +16,8 @@ jobs:
         ae2f_IS_SHARED: [ ON, OFF ]
         ae2f_CXX: [  ON, OFF ]
         Generator: [ "-G Ninja", "" ]
-        stdc: [ '11', '17' ]
-        stdcc: [ '11', '17', '20' ]
+        stdc: [ 11, 17, 23 ]
+        stdcc: [ 11, 17, 20, 23 ]
 
         include:
           - c: gcc
