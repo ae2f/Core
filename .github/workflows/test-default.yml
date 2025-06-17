@@ -11,6 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        c:  [-DCMAKE_C_COMPILER=gcc, -DCMAKE_C_COMPILER=clang, ""]
 
         include:
           - os: ubuntu-latest
@@ -21,6 +22,14 @@ jobs:
 
           - os: macos-latest
             bash: sh
+
+          - c: -DCMAKE_C_COMPILER=gcc
+            cc: -DCMAKE_CXX_COMPILER=g++
+
+          - c: -DCMAKE_C_COMPILER=clang
+            cc: -DCMAKE_CXX_COMPILER=clang++
+          - c: ""
+            cc: ""
 
     steps:
     - uses: actions/checkout@v4
@@ -35,6 +44,6 @@ jobs:
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
     - name: Test
-      run: ${{ matrix.bash }} ./test.sh
+      run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }}
         
   
