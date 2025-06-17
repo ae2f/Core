@@ -54,8 +54,8 @@ jobs:
         ${{ matrix.prefix-c }}${{ matrix.c }}
         -D ae2f_IS_SHARED=${{ matrix.ae2f_IS_SHARED }}
         -D ae2f_CXX=${{ matrix.ae2f_CXX }}
-        -D CMAKE_C_STANDARD=${{matrix.STDC}}
-        -D CMAKE_CXX_STANDARD=${{matrix.STDCC}}
+        -D CMAKE_C_STANDARD=${{ matrix.STDC }}
+        -D CMAKE_CXX_STANDARD=${{ matrix.STDCC }}
 
     - name: Build
       run: |
