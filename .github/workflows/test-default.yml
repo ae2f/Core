@@ -29,7 +29,6 @@ jobs:
 
           - os: windows-11-arm
             bash: bash
-            install-ninja: "winget install ninja"
 
           - c: -DCMAKE_C_COMPILER=gcc
             cc: -DCMAKE_CXX_COMPILER=g++
@@ -52,8 +51,9 @@ jobs:
       run: |
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: installninja
-      run: ${{ matrix.install-ninja }}
+    - name: Install Ninja
+      id: ninja
+      uses: turtlesec-no/get-ninja@main
         
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
