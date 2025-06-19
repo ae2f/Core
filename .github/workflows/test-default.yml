@@ -52,8 +52,9 @@ jobs:
         echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
     - name: Install Ninja
-      id: ninja
-      uses: turtlesec-no/get-ninja@main
+      run: >
+        pip3 install wheel setuptools
+        pip3 install ninja --upgrade
         
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
