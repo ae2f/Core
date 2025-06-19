@@ -51,8 +51,8 @@ jobs:
       run: echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
       
     - name: setupninja-win-11-arm
+      if: matrix.os == 'windows-11-arm'
       uses: ashutoshvarma/setup-ninja@master
-      if: runner.os == 'windows-11-arm'
       
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
