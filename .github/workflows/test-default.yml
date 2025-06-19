@@ -4,6 +4,12 @@ on:
     branches: [main]
     
 jobs:
+  ninjainstall-winarm:
+    runs-on: windows-11-arm
+    steps:
+    - name: setupninja
+      uses: ashutoshvarma/setup-ninja@master
+
   test-compiler-majours:
     runs-on: ${{ matrix.os }}
     
@@ -49,9 +55,6 @@ jobs:
       id: strings
       shell: bash
       run: echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
-
-    - name: setupninja
-      uses: ashutoshvarma/setup-ninja@master
       
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
