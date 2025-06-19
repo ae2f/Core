@@ -23,12 +23,19 @@ jobs:
 
           - os: macos-latest
             bash: bash
+            
+          - os: ubuntu-24.04-arm
+            bash: bash
+
+          - os: windows-11-arm
+            bash: bash
 
           - c: -DCMAKE_C_COMPILER=gcc
             cc: -DCMAKE_CXX_COMPILER=g++
-
+            
           - c: -DCMAKE_C_COMPILER=clang
             cc: -DCMAKE_CXX_COMPILER=clang++
+            
           - c: \"\"
             cc: \"\"
 
