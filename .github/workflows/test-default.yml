@@ -48,14 +48,11 @@ jobs:
     - name: Set reusable strings
       id: strings
       shell: bash
-      run: |
-        echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+      run: echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
 
-    - name: Install Ninja
-      run: >
-        pip3 install wheel setuptools
-        pip3 install ninja --upgrade
-        
+    - name: setupninja
+      uses: ashutoshvarma/setup-ninja@master
+      
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
         
