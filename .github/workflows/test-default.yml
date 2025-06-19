@@ -2,13 +2,7 @@ name: ae2f-workflow
 on:
   push:
     branches: [main]
-    
-jobs:
-  ninjainstall-winarm:
-    runs-on: windows-11-arm
-    steps:
-    - name: setupninja
-      uses: ashutoshvarma/setup-ninja@master
+  
 
   test-compiler-majours:
     runs-on: ${{ matrix.os }}
@@ -55,6 +49,10 @@ jobs:
       id: strings
       shell: bash
       run: echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+      
+    - name: setupninja-win-11-arm
+      uses: ashutoshvarma/setup-ninja@master
+      if: runner.os == 'windows-11-arm'
       
     - name: Test
       run: ${{ matrix.bash }} ./test.sh ${{ matrix.c }} ${{ matrix.cc }} ${{ matrix.conf }}
