@@ -7,8 +7,7 @@
 > Contains no source, just headers. (interface)
 
 # Dependency
-[![ae2f-workflow](https://github.com/ae2f/Core/actions/workflows/test-default.yml/badge.svg?branch=main&event=check_run)](https://github.com/ae2f/Core/actions/workflows/test-default.yml)
-
+[![ae2f-workflow](https://github.com/ae2f/Core/actions/workflows/test-default.yml/badge.svg?branch=main)](https://github.com/ae2f/Core/actions/workflows/test-default.yml)
 - cmake     >= 3.20
 - C         >= 90
 - C++       >= 14   [Optional]
