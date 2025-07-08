@@ -69,7 +69,7 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  constexprmethod errGlobState pop() const noexcept {
+  constextendedmethod errGlobState pop() const noexcept {
     return errGlobState(code & ~rBitVec<ae2f_err_t>(code).FndOne().obj);
   }
 

@@ -17,7 +17,7 @@
 #define constexprvirtual virtual
 #endif // C++20
 
-#if __ae2f_cppcheck(201403L)
+#if __ae2f_cppcheck(201402L)
 #define constextendedfun constexpr
 #define constextendedmethod constexpr
 #else
