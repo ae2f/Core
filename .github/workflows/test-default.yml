@@ -55,7 +55,7 @@ jobs:
       uses: ashutoshvarma/setup-ninja@master
 
     - name: setupclang-win-11-arm
-      if: matrix.c == '-DCMAKE_C_COMPILER=clang' && matrix.os == 'windows-11-arm' || matrix.os == 'windows-11'
+      if: matrix.c == '-DCMAKE_C_COMPILER=clang' && matrix.os == 'windows-11-arm' || matrix.os == 'windows-latest'
       uses: egor-tensin/setup-clang@v1
       
     - name: Test
