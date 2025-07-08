@@ -1,3 +1,5 @@
+#if __cplusplus >= 201103L
+
 #include <ae2f/Lock.h>
 #include <thread>
 
@@ -16,3 +18,7 @@ int main() {
 
     return 0;
 }
+
+#else 
+int main() { return 0; }
+#endif

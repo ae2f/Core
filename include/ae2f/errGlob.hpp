@@ -10,11 +10,12 @@
 #ifndef ae2f_errGlob_hpp
 #define ae2f_errGlob_hpp
 
+
+#include "BitVec.hpp"
 #include "errGlob.h"
 #include <exception>
 #include <string>
 
-#include "BitVec.hpp"
 #include "Pack/Beg.h"
 
 namespace ae2f {
@@ -39,43 +40,29 @@ struct errGlobState {
   /// @return
   /// A single error message for this code.
   constexprmethod const char *peek() const noexcept {
-    if (code & ae2f_errGlob_IMP_NOT_FOUND) {
-      return "Failed to find the function on preprocessor which is callable "
-             "for some reason No operation has beed done.";
-    }
-
-    if (code & ae2f_errGlob_PTR_IS_NULL) {
-      return "Failed to refer the pointer either l-value inside the function.";
-    }
-
-    if (code & ae2f_errGlob_FLUSH_FAILED) {
-      return "Failed freeing the memory.";
-    }
-
-    if (code & ae2f_errGlob_ALLOC_FAILED) {
-      return "stdlib allocating functions (malloc, calloc, realloc) has been "
-             "failed.";
-    }
-
-    if (code & ae2f_errGlob_WRONG_OPERATION) {
-      return "Found that parameter sent by programmer is invalid. The "
-             "operation may have been ceased while the middle.";
-    }
-
-    if (code & ae2f_errGlob_NFOUND) {
-      return "Found some errors, but not by parameters. The operation has "
-             "failed.";
-    }
-
-    if (code & ae2f_errGlob_DONE_HOWEV) {
-      return "The operation went done. Note that operation may not be valid.";
-    }
-
-    if (code) {
-      return "Unexpected flag.";
-    }
-
-    return "The operation went done.";
+    return (code & ae2f_errGlob_IMP_NOT_FOUND)
+               ? "Failed to find the function on preprocessor which is "
+                 "callable "
+                 "for some reason No operation has beed done."
+           : (code & ae2f_errGlob_PTR_IS_NULL)
+               ? "Failed to refer the pointer either l-value inside the "
+                 "function."
+           : (code & ae2f_errGlob_FLUSH_FAILED) ? "Failed freeing the memory."
+           : (code & ae2f_errGlob_ALLOC_FAILED)
+               ? "stdlib allocating functions (malloc, calloc, realloc) has "
+                 "been "
+                 "failed."
+           : (code & ae2f_errGlob_WRONG_OPERATION)
+               ? "Found that parameter sent by programmer is invalid. The "
+                 "operation may have been ceased while the middle."
+           : (code & ae2f_errGlob_NFOUND)
+               ? "Found some errors, but not by parameters. The operation has "
+                 "failed."
+           : (code & ae2f_errGlob_DONE_HOWEV)
+               ? "The operation went done. Note that operation may not be "
+                 "valid."
+           : (code) ? "Unexpected flag."
+                    : "The operation went done.";
   }
 
   /// @brief

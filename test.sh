@@ -4,9 +4,8 @@
 # $5 	stdcc
 
 makers=("-GNinja" "")
-# buildtypes=("Release" "Debug" "MinSizeRel" "RelWithDebInfo")
 lstdc=("90" "99" "11" "17" "23")
-lstdcc=("14" "17" "20" "23")
+lstdcc=("98" "11" "14" "17" "20" "23")
 
 __ae2f_CXX=("ON" "OFF")
 __ae2f_IS_SHARED=("ON" "OFF")

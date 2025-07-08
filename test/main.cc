@@ -17,5 +17,6 @@
 
 int main() {
     printf("%d\n", ae2f_PackCount);
+    printf("C++: %ull\n", __cplusplus);
     return 0;
 }

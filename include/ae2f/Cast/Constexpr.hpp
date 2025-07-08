@@ -9,51 +9,55 @@
  */
 #ifndef ae2f_Cast_consteval_hpp
 #define ae2f_Cast_consteval_hpp
-
 #include "../LangVer.auto.h"
 
-#if (defined(__cplusplus))
-#if __cplusplus >= 201103L
-#define constexprmethod     constexpr
-#define constexprfun        constexpr
+#if __ae2f_cppcheck(202002L)
+#define constexprvirtual constexpr virtual
 #else
-#define constexpr           const
-#define constexprmethod     inline 
-#define constexprfun        inline static
-#endif
+#define constexprvirtual virtual
+#endif // C++20
 
-
+#if __ae2f_cppcheck(201403L)
+#define constextendedfun constexpr
+#define constextendedmethod constexpr
 #else
+#define constextendedfun inline
+#define constextendedmethod inline
+#endif // C++14
 
-#if ae2f_LangVer_C >= 123
+#if __ae2f_cppcheck(201103L)
+#define constexprmethod constexpr
+#define constexprfun constexpr
 #else
-#define constexpr           const
-#endif
+#define constexprmethod inline
+#define constexprfun inline
+#define virtual
 
-#define constexprfun        inline static
+#if !__ae2f_cppcheck(0) /* C */
+#if __ae2f_lvcheck_c(2023)
+/** cosntexpr variable */
+#else
+#define constexpr static const
+#endif /* C23 */
+#endif /* C */
 
-#endif
+#endif // C++11
 
-#if defined(__cplusplus)
-#if (defined(__cplusplus) && __cplusplus >= 202002L)
-#define constevalmethod consteval
-#else 
+#if __ae2f_cppcheck(202002L)
+#define constevalmethod consteval // C++20
+#elif __ae2f_cppcheck(0)
 /// @brief
 /// C++ keyword for constant-time functions.
-#define consteval       constexprfun
+#define consteval constexprfun
 #define constevalmethod constexprmethod
-#endif
-
 #else
+#define consteval inline
+#endif // C++20
 
-#define consteval       inline static
-
-#endif
-
-#ifndef __cplusplus
+#if !__ae2f_cppcheck(201103L)
 /// @brief
 /// Means that there will be no exception thrown written in code.
 #define noexcept
-#endif
+#endif // C
 
 #endif

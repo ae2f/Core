@@ -8,19 +8,23 @@
  * 
  */
 
- #include "./BitVec.h"
 
- #if !defined(ae2f_BitVector_hpp)
- #define ae2f_BitVector_hpp
- #include <type_traits>
+#if !defined(ae2f_BitVector_hpp)
+#define ae2f_BitVector_hpp
+
+#include "./BitVec.h"
+
+#if __ae2f_cppcheck(201103L)
+
+#include <type_traits> 
+#include "Pack/Beg.h"
  
- #include "Pack/Beg.h"
- 
- namespace ae2f {
-	 /// @brief 
-	 /// 
-	 /// @tparam t 
-	 /// Is the class binding for BitVec.h
+namespace ae2f {
+	
+	/** @brief
+	 * @tparam t 
+	 * Is the class binding for BitVec.h
+	 **/
 	 template<typename t>
 	 class rBitVec {
 		 static ae2f_BitVecSizeDef(t);
@@ -84,7 +88,7 @@
 			 return ae2f_BitVecSizeDefName(t)(this->obj);
 		 }
  
-		 constexprmethod const rBitVec<t> FndOne() const noexcept {
+		 constextendedmethod const rBitVec<t> FndOne() const noexcept {
 			 return ae2f_BitVecFndOneDefName(t)(this->obj);
 		 }
 	 };
@@ -92,5 +96,6 @@
  
  #include "Pack/End.h"
  
- #endif // !defined(ae2f_Macro_BitVector_hpp) && defined(__cplusplus)
+#endif
+#endif // !defined(ae2f_Macro_BitVector_hpp) && defined(__cplusplus)
  
