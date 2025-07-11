@@ -101,10 +101,10 @@
 /** @brief Invokes when condition is `false`. */
 #define unless(...) if (!(__VA_ARGS__))
 
-#define ae2f_structdef_v(key, name, newname)                                   \
-  typedef key name newname;                                                    \
+#define ae2f_structdef_v(key, name, ...)                                   \
+  typedef key name __VA_ARGS__;                                                    \
   key name
 
-#define ae2f_structdef(key, name) ae2f_structdef_v(key, name, name)
+#define ae2f_structdef(key, name, ...) ae2f_structdef_v(key, name, name, __VA_ARGS__)
 
 #endif

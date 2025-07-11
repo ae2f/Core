@@ -15,7 +15,16 @@
 
 #include <ae2f/Pack/Num.auto.h>
 
+ae2f_structdef_v(struct, a, b, c, d) {
+	int a;
+};
+
+ae2f_structdef(union, t, q) { int a; };
+
 int main() {
-    printf("%d\n", ae2f_PackCount);
-    return 0;
+	b v;
+	t _v;
+
+	printf("%d\n", ae2f_PackCount);
+	return 0;
 }
