@@ -105,6 +105,7 @@
   typedef key name __VA_ARGS__;                                                    \
   key name
 
-#define ae2f_structdef(key, name, ...) ae2f_structdef_v(key, name, name, __VA_ARGS__)
+#define ae2f_structdef_n(key, name, ...) ae2f_structdef_v(key, name, name, __VA_ARGS__)
+#define ae2f_structdef(key, name) ae2f_structdef_v(key, name, name)
 
 #endif
