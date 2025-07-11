@@ -19,7 +19,8 @@ ae2f_structdef_v(struct, a, b, c, d) {
 	int a;
 };
 
-ae2f_structdef(union, t, q) { int a; };
+ae2f_structdef_n(union, t, q) { int a; };
+ae2f_structdef(union, qq) { int a; };
 
 int main() {
 	b v;
