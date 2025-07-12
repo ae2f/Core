@@ -108,4 +108,28 @@
 #define ae2f_structdef_n(key, name, ...) ae2f_structdef_v(key, name, name, __VA_ARGS__)
 #define ae2f_structdef(key, name) ae2f_structdef_v(key, name, name)
 
+#define ae2f_tmpldef(...) template<__VA_ARGS__>
+#define ae2f_tmpluse(...) <__VA_ARGS__>
+
+/**
+ * @brief
+ * Make two pair of function as [eval] and [expr]. \n
+ * [expr] will just call [eval]. \n
+ * You will implement the body of [eval].
+ *
+ * Following is an use case.
+ * @code
+ * ae2f_evaldef(
+		template<int a>, <0>
+		, consteval, constexprfun
+		, int, Hello, _Hello, char v, v) 
+		{ return v; }
+ * */
+#define ae2f_evaldef(tmpldef, tmpluse, keyeval, keyexpr, ret_t, nameeval, nameexpr, prmdef, prmuse) \
+	tmpldef keyeval ret_t nameeval(prmdef); \
+	tmpldef keyexpr ret_t nameexpr(prmdef) { \
+		return nameeval tmpluse (prmuse); \
+	} \
+	tmpldef keyeval ret_t nameeval(prmdef)
+
 #endif

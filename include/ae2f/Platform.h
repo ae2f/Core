@@ -20,7 +20,8 @@
 #endif
 
 #if (ae2f_IS_WIN == ae2f_IS_LINUX) && (ae2f_IS_LINUX == ae2f_IS_APPLE) && (ae2f_IS_APPLE == ae2f_IS_WIN)
-#pragma message("[WARNING] Platform not specified") 
+/** PLATFORM NOT SPECIFIED. */
+
 /*** @brief UNSPECIFIED */
 #define ae2f_IDK 1
 #else

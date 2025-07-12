@@ -11,11 +11,25 @@
 #define ae2f_Cast_consteval_hpp
 #include "../LangVer.auto.h"
 
+#if __ae2f_cppcheck(201703L)
+#define if_constexpr if constexpr
+#else
+#define if_constexpr if
+#endif
+
+#if __ae2f_cppcheck(202002L)
+#define if_consteval if consteval
+#else
+#define if_consteval if (0)
+#endif
+
 #if __ae2f_cppcheck(202002L)
 #define constexprvirtual constexpr virtual
+/** constinit */
 #else
 #define constexprvirtual virtual
-#endif // C++20
+#define constinit	/* not available */
+#endif /* C++20 */
 
 #if __ae2f_cppcheck(201402L)
 #define constextendedfun constexpr
@@ -58,6 +72,8 @@
 /// @brief
 /// Means that there will be no exception thrown written in code.
 #define noexcept
-#endif // C
+#endif /* C */
+
+
 
 #endif
