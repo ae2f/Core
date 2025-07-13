@@ -49,7 +49,7 @@
 #if __ae2f_cppcheck(201103L)
 #define constexprmethod		constexpr
 #define constexprfun		constexpr
-#define consteval		constexpr
+#define consteval		constexprfun
 #define constevalmethod		constexpr
 
 #else
@@ -63,7 +63,7 @@
 #if __ae2f_lvcheck_c(2023)
 /** cosntexpr variable */
 #else
-#define constexpr static const
+#define constexpr
 #endif /* C23 */
 #endif /* C */
 
@@ -75,7 +75,7 @@
 #elif __ae2f_cppcheck(0)
 /// @brief
 /// C++ keyword for constant-time functions.
-#define consteval constexprfun
+#define consteval
 #define constevalmethod constexprmethod
 
 #else
@@ -87,7 +87,7 @@
 /// @brief
 /// Means that there will be no exception thrown written in code.
 #define noexcept
-#define constexpr static const
+#define constexpr
 #else
 #endif /* C++<=11 */
 
