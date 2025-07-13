@@ -32,19 +32,31 @@
 #endif /* C++20 */
 
 #if __ae2f_cppcheck(201402L)
-#define constextendedfun constexpr
-#define constextendedmethod constexpr
+#define constextendedfun	constexpr
+#define constextendedeval 	constexpr
+
+#define constextendedmethod	constexpr
+#define constextendedmethodeval	constexpr
+
 #else
-#define constextendedfun inline
-#define constextendedmethod inline
+#define constextendedfun	inline
+#define constextendedmethod	inline
+
+#define constextendedeval	inline
+#define constextendedmethodeval	inline
 #endif // C++14
 
 #if __ae2f_cppcheck(201103L)
-#define constexprmethod constexpr
-#define constexprfun constexpr
+#define constexprmethod		constexpr
+#define constexprfun		constexpr
+#define consteval		constexpr
+#define constevalmethod		constexpr
+
 #else
-#define constexprmethod inline
-#define constexprfun inline
+#define constexprmethod		inline
+#define constexprfun		inline
+#define consteval		inline
+#define constevalmethod		inline
 #define virtual
 
 #if !__ae2f_cppcheck(0) /* C */
@@ -58,13 +70,16 @@
 #endif // C++11
 
 #if __ae2f_cppcheck(202002L)
-#define constevalmethod consteval // C++20
+#define constevalmethod consteval /* C++20 */
+
 #elif __ae2f_cppcheck(0)
 /// @brief
 /// C++ keyword for constant-time functions.
 #define consteval constexprfun
 #define constevalmethod constexprmethod
+
 #else
+
 #define consteval inline
 #endif // C++20
 

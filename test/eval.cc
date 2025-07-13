@@ -4,7 +4,7 @@
 
 ae2f_evaldef(
 		template<int a>, <a>
-		, consteval, constextendedfun
+		, constextendedeval, constextendedfun
 		, int, Hello, _Hello, char v, v) 
 { return v + a; }
 
