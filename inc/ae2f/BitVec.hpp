@@ -12,8 +12,6 @@
 #if !defined(ae2f_BitVector_hpp)
 #define ae2f_BitVector_hpp
 
-
-
 #if defined(__cplusplus) && __cplusplus >= (201103L)
 #include <type_traits> 
 
@@ -95,8 +93,10 @@ namespace ae2f {
 	 };
  }
  
- #include "Pack/End.h"
- 
+#include "Pack/End.h"
+#else
+#include "./BitVec.h"
 #endif
+
 #endif // !defined(ae2f_Macro_BitVector_hpp) && defined(__cplusplus)
  
