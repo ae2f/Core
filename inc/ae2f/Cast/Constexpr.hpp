@@ -49,13 +49,13 @@
 #if __ae2f_cppcheck(201103L)
 #define constexprmethod		constexpr
 #define constexprfun		constexpr
-#define consteval		constexprfun
+#define consteval		
 #define constevalmethod		constexpr
 
 #else
 #define constexprmethod		inline
 #define constexprfun		inline
-#define consteval		inline
+#define consteval		
 #define constevalmethod		inline
 #define virtual
 
@@ -80,7 +80,7 @@
 
 #else
 
-#define consteval inline
+#define consteval
 #endif // C++20
 
 #if !__ae2f_cppcheck(201103L) && __ae2f_cppcheck(0)
