@@ -24,3 +24,10 @@
 
 /** @def ae2f_opt @brief Optional. */
 #define ae2f_opt ae2f_NONE
+
+/** 
+ * @def ae2f_FREE 
+ * @brief Use this marker to show the desired functions
+ * 	to effectively free the resources.
+ * */
+#define ae2f_FREE(...) ae2f_NONE
