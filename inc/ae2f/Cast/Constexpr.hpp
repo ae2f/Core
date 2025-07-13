@@ -70,8 +70,8 @@
 #endif // C++11
 
 #if __ae2f_cppcheck(202002L)
+#undef constevalmethod
 #define constevalmethod consteval /* C++20 */
-
 #elif __ae2f_cppcheck(0)
 /// @brief
 /// C++ keyword for constant-time functions.
