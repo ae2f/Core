@@ -30,6 +30,7 @@
 #include "Cxx.h"
 #include <stdbool.h>
 #include <stddef.h>
+#include "./Guide.h"
 
 /// @brief
 /// Initialiser for trivial structures / classes.
@@ -131,5 +132,9 @@
 		return nameeval tmpluse (prmuse); \
 	} \
 	tmpldef keyeval ret_t nameeval(prmdef)
+
+#if !__ae2f_cppcheck(201103L)
+#define noexcept ae2f_NONE
+#endif
 
 #endif
