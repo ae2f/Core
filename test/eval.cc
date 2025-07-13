@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 ae2f_evaldef(
-		template<int a>, <0>
+		template<int a>, <a>
 		, consteval, constexprfun
 		, int, Hello, _Hello, char v, v) 
 { return v; }
