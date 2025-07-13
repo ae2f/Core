@@ -1,5 +1,6 @@
 #include "ae2f/Cast.h"
 #include <ae2f/Call.h>
+#include <stdio.h>
 
 ae2f_evaldef(
 		template<int a>, <0>
@@ -8,6 +9,7 @@ ae2f_evaldef(
 { return v; }
 
 int main() {
-	_Hello<0>(2);
+	int a = _Hello<0>(2);
+	printf("%d\n", a);
 	return 0;
 }
