@@ -4,7 +4,7 @@
 
 ae2f_evaldef(
 		template<int a>, <a>
-		, consteval, constexprfun
+		, consteval, constextendedfun
 		, int, Hello, _Hello, char v, v) 
 { return v + a; }
 
@@ -13,7 +13,7 @@ ae2f_evaldef(
  */
 
 int main() {
-	constexpr int a = _Hello<0>(2);
+	int a = _Hello<0>(2);
 
 	printf("%d\n", a);
 	return 0;
