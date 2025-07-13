@@ -68,12 +68,12 @@
 #define consteval inline
 #endif // C++20
 
-#if !__ae2f_cppcheck(201103L)
+#if !__ae2f_cppcheck(201103L) && __ae2f_cppcheck(0)
 /// @brief
 /// Means that there will be no exception thrown written in code.
 #define noexcept
-#endif /* C */
-
-
+#define constexpr static const
+#else
+#endif /* C++<=11 */
 
 #endif
