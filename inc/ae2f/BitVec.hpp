@@ -12,11 +12,12 @@
 #if !defined(ae2f_BitVector_hpp)
 #define ae2f_BitVector_hpp
 
-#include "./BitVec.h"
 
-#if __ae2f_cppcheck(201103L)
 
+#if defined(__cplusplus) && __cplusplus >= (201103L)
 #include <type_traits> 
+
+#include "./BitVec.h"
 #include "Pack/Beg.h"
  
 namespace ae2f {
