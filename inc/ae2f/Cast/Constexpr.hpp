@@ -49,22 +49,23 @@
 #if __ae2f_cppcheck(201103L)
 #define constexprmethod		constexpr
 #define constexprfun		constexpr
-#define consteval		
 #define constevalmethod		constexpr
 
 #else
 #define constexprmethod		inline
 #define constexprfun		inline
-#define consteval		
 #define constevalmethod		inline
 #define virtual
 
-#if !__ae2f_cppcheck(0) /* C */
-#if __ae2f_lvcheck_c(2023)
+#if !defined(__cplusplus) /* C */
+
+#if !defined(__cplusplus) && __ae2f_lvcheck_c(2023)
 /** cosntexpr variable */
 #else
 #define constexpr
 #endif /* C23 */
+
+
 #endif /* C */
 
 #endif // C++11
