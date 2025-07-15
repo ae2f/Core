@@ -31,3 +31,6 @@
  * 	to effectively free the resources.
  * */
 #define ae2f_FREE(...) ae2f_NONE
+
+/** @brief l_value. */
+#define ae2f_v ae2f_NONE
