@@ -74,6 +74,8 @@
 #undef constevalmethod
 #define constevalmethod consteval /* C++20 */
 #elif __ae2f_cppcheck(0)
+
+#undef constevalmethod
 /// @brief
 /// C++ keyword for constant-time functions.
 #define consteval
