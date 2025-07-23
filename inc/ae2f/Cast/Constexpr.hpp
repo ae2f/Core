@@ -9,21 +9,21 @@
  */
 #ifndef ae2f_Cast_consteval_hpp
 #define ae2f_Cast_consteval_hpp
-#include "../LangVer.auto.h"
+#include "../LangVer.h"
 
-#if __ae2f_cppcheck(201703L)
+#if __ae2f_stdcheck_CC(201703L)
 #define if_constexpr if constexpr
 #else
 #define if_constexpr if
 #endif
 
-#if __ae2f_cppcheck(202002L)
+#if __ae2f_stdcheck_CC(202002L)
 #define if_consteval if consteval
 #else
 #define if_consteval if (0)
 #endif
 
-#if __ae2f_cppcheck(202002L)
+#if __ae2f_stdcheck_CC(202002L)
 #define constexprvirtual constexpr virtual
 /** constinit */
 #else
@@ -31,7 +31,7 @@
 #define constinit	/* not available */
 #endif /* C++20 */
 
-#if __ae2f_cppcheck(201402L)
+#if __ae2f_stdcheck_CC(201402L)
 #define constextendedfun	constexpr
 #define constextendedeval 	constexpr
 
@@ -46,7 +46,7 @@
 #define constextendedmethodeval	inline
 #endif // C++14
 
-#if __ae2f_cppcheck(201103L)
+#if __ae2f_stdcheck_CC(201103L)
 #define constexprmethod		constexpr
 #define constexprfun		constexpr
 #define constevalmethod		constexpr
@@ -70,10 +70,10 @@
 
 #endif // C++11
 
-#if __ae2f_cppcheck(202002L)
+#if __ae2f_stdcheck_CC(202002L)
 #undef constevalmethod
 #define constevalmethod consteval /* C++20 */
-#elif __ae2f_cppcheck(0)
+#elif __ae2f_stdcheck_CC(0)
 
 #undef constevalmethod
 /// @brief
@@ -86,7 +86,7 @@
 #define consteval
 #endif // C++20
 
-#if !__ae2f_cppcheck(201103L) && __ae2f_cppcheck(0)
+#if !__ae2f_stdcheck_CC(201103L)
 /// @brief
 /// Means that there will be no exception thrown written in code.
 #define noexcept

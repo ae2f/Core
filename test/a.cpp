@@ -55,7 +55,7 @@ int main() {
     }
 
 
-#if __ae2f_cppcheck(201403L)
+#if __ae2f_stdcheck_CC(201403L)
     switch(8) {
         case ae2f::rBitVec<int>(8).FndOne().obj:
         break; default: 

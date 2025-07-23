@@ -133,7 +133,7 @@
 	} \
 	tmpldef keyeval ret_t nameeval(prmdef)
 
-#if !__ae2f_cppcheck(201103L)
+#if !__ae2f_stdcheck_CC(201103L)
 #define noexcept ae2f_NONE
 #endif
 

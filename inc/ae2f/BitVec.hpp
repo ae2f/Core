@@ -12,7 +12,9 @@
 #if !defined(ae2f_BitVector_hpp)
 #define ae2f_BitVector_hpp
 
-#if defined(__cplusplus) && __cplusplus >= (201103L)
+#include "./LangVer.h"
+
+#if  __ae2f_stdcheck_CC(201103L)
 #include <type_traits> 
 
 #include "./BitVec.h"

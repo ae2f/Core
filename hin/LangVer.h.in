@@ -10,7 +10,5 @@
 #define ae2f_LangVer_CC 20@ae2f_LangVer_CC@
 #endif
 
-#define __ae2f_cppcheck(v) (defined(__cplusplus) && __cplusplus >= (v))
-
 #define __ae2f_lvcheck_c(v) (ae2f_LangVer_C >= (v))
 #define __ae2f_lvcheck_cc(v) (ae2f_LangVer_CC >= (v))
