@@ -70,9 +70,3 @@
 
 #define __ae2f_stdcheck_C(v)	(ae2f_stdc_v >= (v))
 #define __ae2f_stdcheck_CC(v)	(ae2f_stdcc_v >= (v))
-
-#if __ae2f_stdcheck_C(199901L)
-#undef	restrict
-#else
-#define restrict	ae2f_NONE
-#endif

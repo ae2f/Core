@@ -137,4 +137,24 @@
 #define noexcept ae2f_NONE
 #endif
 
+#if ae2f_WhenC(!)0
+
+#undef	restrict /** First declaration */
+#if __ae2f_stdcheck_C(199901L)
+#else
+#define restrict	ae2f_NONE
+#endif
+
+#if ae2f_stdc_v == 201402L
+#undef	restrict
+#define	restrict	ae2f_NONE
+#endif
+
+#else /** When C, restrict */
+
+#undef	restrict
+#define restrict	ae2f_NONE
+
+#endif
+
 #endif
