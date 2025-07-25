@@ -86,12 +86,4 @@
 #define consteval
 #endif // C++20
 
-#if !__ae2f_stdcheck_CC(201103L)
-/// @brief
-/// Means that there will be no exception thrown written in code.
-#define noexcept
-#define constexpr
-#else
-#endif /* C++<=11 */
-
 #endif

@@ -199,7 +199,7 @@ endfunction()
 
 # Domain name customization.
 function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagName prm_Domain)
-    if(NOT TARGET ${prm_TarName})
+    if(NOT TARGET ${prm_namespace}::${prm_TarName})
         if(NOT EXISTS ${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}/CMakeLists.txt)
             execute_process(
                 COMMAND 

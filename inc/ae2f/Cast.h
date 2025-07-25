@@ -150,4 +150,16 @@
 #define restrict
 #endif // C++
 
+#if !__ae2f_stdcheck_CC(201103L)
+/// @brief
+/// Means that there will be no exception thrown written in code.
+#define noexcept
+#define constexpr
+#endif /* C++<=11 */
+
+#if ae2f_WhenC(!)0
+#undef  noexcept
+#define noexcept
+#endif
+
 #endif
