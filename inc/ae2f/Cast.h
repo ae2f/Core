@@ -134,27 +134,20 @@
 	tmpldef keyeval ret_t nameeval(prmdef)
 
 #if !__ae2f_stdcheck_CC(201103L)
-#define noexcept ae2f_NONE
+#undef	noexcept
+#define noexcept
 #endif
 
-#if ae2f_WhenC(!)0
 
 #undef	restrict /** First declaration */
-#if __ae2f_stdcheck_C(199901L)
-#else
-#define restrict	ae2f_NONE
-#endif
-
-#if ae2f_stdc_v == 201402L
+#if ae2f_stdc_v < 199901L
 #undef	restrict
-#define	restrict	ae2f_NONE
-#endif
+#define restrict
+#endif // C>=99
 
-#else /** When C, restrict */
-
+#if __cplusplus
 #undef	restrict
-#define restrict	ae2f_NONE
-
-#endif
+#define restrict
+#endif // C++
 
 #endif

@@ -14,7 +14,7 @@ ae2f_evaldef(
 
 int main() {
 	int a = _Hello<0>(2);
-
+	int* restrict v = 0;
 	printf("%d\n", a);
 	return 0;
 }

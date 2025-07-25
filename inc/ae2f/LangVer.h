@@ -43,22 +43,22 @@
 #undef	ae2f_stdc_v
 #define ae2f_stdc_v	(199001L)
 
-#if __ae2f_lvcheck_cc(1999)
+#if __ae2f_lvcheck_c(1999)
 #undef	ae2f_stdc_v
 #define ae2f_stdc_v	(199901L)
 #endif
 
-#if __ae2f_lvcheck_cc(2011)
+#if __ae2f_lvcheck_c(2011)
 #undef	ae2f_stdc_v
 #define ae2f_stdc_v	(201112L)
 #endif
 
-#if __ae2f_lvcheck_cc(2017)
+#if __ae2f_lvcheck_c(2017)
 #undef	ae2f_stdc_v
 #define ae2f_stdc_v	(201710L)
 #endif
 
-#if __ae2f_lvcheck_cc(2023)
+#if __ae2f_lvcheck_c(2023)
 #undef	ae2f_stdc_v
 #define ae2f_stdc_v	(202311L)
 #endif
