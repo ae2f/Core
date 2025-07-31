@@ -35,5 +35,6 @@
 
 #include "./Float.auto.h"
 
+typedef ae2f_float ae2f_float_t;
 
 #endif

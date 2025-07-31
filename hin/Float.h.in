@@ -14,6 +14,6 @@
 /// Predefined floating point type.
 /// 
 /// See @ref ___DOC_CMAKE::ae2f_float
-typedef @ae2f_float@ ae2f_float_t;
+#define ae2f_float @ae2f_float@
 
 #endif 
