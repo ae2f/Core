@@ -1,6 +1,9 @@
 # ae2f::Core
 - Rel-v6.25.19
 
+> This project has been migrated to [codeberg.org](https://codeberg.org/ae2f/Core).  
+> You will still be able to access to upstream with github page.
+
 > Integration between C and C++ via CMake.
 
 > The smallest core utils for ae2f-like library.  
