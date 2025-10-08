@@ -89,7 +89,7 @@ namespace ae2f {
 			 return ae2f_BitVecSizeDefName(t)(this->obj);
 		 }
  
-		 constextendedmethod const rBitVec<t> FndOne() const noexcept {
+		 ae2f_constextendedmethod const rBitVec<t> FndOne() const noexcept {
 			 return ae2f_BitVecFndOneDefName(t)(this->obj);
 		 }
 	 };
