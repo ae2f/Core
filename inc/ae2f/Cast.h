@@ -135,32 +135,37 @@
 	tmpldef keyeval ret_t nameeval(prmdef)
 
 #if !__ae2f_stdcheck_CC(201103L)
-#undef	noexcept
-#define noexcept
+#undef	ae2f_noexcept
+#define ae2f_noexcept
+#else
+#define ae2f_noexcept noexcept
 #endif
 
 
-#undef	restrict /** First declaration */
+#undef	ae2f_restrict /** First declaration */
 #if ae2f_stdc_v < 199901L
-#undef	restrict
-#define restrict
+#define ae2f_restrict
+#else
+#define ae2f_restrict restrict
 #endif // C>=99
 
 #if __cplusplus
-#undef	restrict
-#define restrict
+#define ae2f_restrict
 #endif // C++
 
 #if !__ae2f_stdcheck_CC(201103L)
 /// @brief
 /// Means that there will be no exception thrown written in code.
-#define noexcept
-#define constexpr
+#define ae2f_noexcept
+#define ae2f_constexpr
+#else
+#define ae2f_noexcept noexcept
+#define ae2f_constexpr constexpr
 #endif /* C++<=11 */
 
 #if ae2f_WhenC(!)0
-#undef  noexcept
-#define noexcept
+#undef  ae2f_noexcept
+#define ae2f_noexcept
 #endif
 
 #endif

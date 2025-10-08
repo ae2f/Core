@@ -38,54 +38,54 @@ namespace ae2f {
 		 /// The actual integer.
 		 t obj;
  
-		 constexprmethod rBitVec(const t& obj) noexcept : obj(obj)  {
+		 ae2f_constexprmethod rBitVec(const t& obj) noexcept : obj(obj)  {
 			 
 			 static_assert(std::is_integral<t>::value, "t is not integer");
 		 }
-		 constexprmethod rBitVec(const t&& obj) noexcept : obj(obj) {
+		 ae2f_constexprmethod rBitVec(const t&& obj) noexcept : obj(obj) {
 			 static_assert(std::is_integral<t>::value, "t is not integer");
 		 }
  
 		 template<typename T = t>
-		 constexprmethod rBitVec(const rBitVec<T>& vec) noexcept : obj(vec.obj)  {
+		 ae2f_constexprmethod rBitVec(const rBitVec<T>& vec) noexcept : obj(vec.obj)  {
 			 static_assert(std::is_integral<t>::value, "t is not integer");
 			 static_assert(std::is_integral<T>::value, "T is not integer");
 		 }
  
 		 template<typename T = t>
-		 constexprmethod rBitVec(const rBitVec<T>&& vec) noexcept : obj(vec.obj)  {
+		 ae2f_constexprmethod rBitVec(const rBitVec<T>&& vec) noexcept : obj(vec.obj)  {
 			 static_assert(std::is_integral<t>::value, "t is not integer");
 			 static_assert(std::is_integral<T>::value, "T is not integer");
 		 }
  
-		 constexprmethod static rBitVec<t> Filled(idx_t length) noexcept {
+		 ae2f_constexprmethod static rBitVec<t> Filled(idx_t length) noexcept {
 			 return rBitVec(_ae2f_BitVecFilled(length, t));
 		 }
  
-		 constexprmethod bool Get(idx_t i) const noexcept {
+		 ae2f_constexprmethod bool Get(idx_t i) const noexcept {
 			 return ae2f_BitVecGet(obj, i);
 		 }
  
-		 constexprmethod rBitVec<t> GetRangedConst(idx_t start, idx_t end) const noexcept {
+		 ae2f_constexprmethod rBitVec<t> GetRangedConst(idx_t start, idx_t end) const noexcept {
 			 return ae2f_BitVecGetRanged(this->obj, start, end);
 		 }
-		 constexprmethod rBitVec<t>& Set(idx_t i, bool val) noexcept {
+		 ae2f_constexprmethod rBitVec<t>& Set(idx_t i, bool val) noexcept {
 			 obj = ae2f_BitVecSet(this->obj, i, val);
 			 return *this;
 		 }
  
-		 constexprmethod rBitVec<t> SetConst(idx_t i, bool val) const noexcept {
+		 ae2f_constexprmethod rBitVec<t> SetConst(idx_t i, bool val) const noexcept {
 			 return ae2f_BitVecSet(this->obj, i, val);
 		 }
-		 constexprmethod rBitVec<t> SetRangedConst(idx_t start, idx_t end, rBitVec<t> val) const noexcept {
+		 ae2f_constexprmethod rBitVec<t> SetRangedConst(idx_t start, idx_t end, rBitVec<t> val) const noexcept {
 			 return ae2f_BitVecSetRanged(this->obj, start, end, val.obj);
 		 }
-		 constexprmethod rBitVec<t>& SetRanged(idx_t start, idx_t end, rBitVec<t> val) noexcept {
+		 ae2f_constexprmethod rBitVec<t>& SetRanged(idx_t start, idx_t end, rBitVec<t> val) noexcept {
 			 this->obj = const_cast<const rBitVec<t>*>(this)->SetRangedConst(start, end, val).obj;
 			 return *this;
 		 }
  
-		 constexprmethod const idx_t Size() const noexcept {
+		 ae2f_constexprmethod const idx_t Size() const noexcept {
 			 return ae2f_BitVecSizeDefName(t)(this->obj);
 		 }
  

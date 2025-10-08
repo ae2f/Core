@@ -21,8 +21,8 @@
 template <typename t, typename k> union ae2f_UnionCaster {
   t a;
   k b;
-  constexprmethod ae2f_UnionCaster(t _) : a(_) {}
-  constexprmethod k _b() const { return b; }
+  ae2f_constexprmethod ae2f_UnionCaster(t _) : a(_) {}
+  ae2f_constexprmethod k _b() const { return b; }
 };
 
 #endif

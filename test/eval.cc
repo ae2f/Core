@@ -4,7 +4,7 @@
 
 ae2f_evaldef(
 		template<int a>, <a>
-		, constextendedeval, constextendedfun
+		, ae2f_constextendedeval, ae2f_constextendedfun
 		, int, Hello, _Hello, char v, v) 
 { return v + a; }
 
@@ -14,7 +14,7 @@ ae2f_evaldef(
 
 int main() {
 	int a = _Hello<0>(2);
-	int* restrict v = 0;
+	int* ae2f_restrict v = 0;
 	printf("%d\n", a);
 	return 0;
 }

@@ -11,58 +11,61 @@
 #define ae2f_Cast_consteval_hpp
 #include "../LangVer.h"
 
+
+
 #if __ae2f_stdcheck_CC(201703L)
-#define if_constexpr if constexpr
+#define ae2f_if_constexpr if constexpr
 #else
-#define if_constexpr if
+#define ae2f_if_constexpr if
 #endif
 
 #if __ae2f_stdcheck_CC(202002L)
-#define if_consteval if consteval
+#define ae2f_if_consteval	if consteval
 #else
-#define if_consteval if (0)
+#define ae2f_if_consteval	if (0)
 #endif
 
 #if __ae2f_stdcheck_CC(202002L)
-#define constexprvirtual constexpr virtual
-/** constinit */
+#define ae2f_constexprvirtual constexpr virtual
+#define ae2f_constinit	constinit
 #else
-#define constexprvirtual virtual
-#define constinit	/* not available */
+#define ae2f_constexprvirtual virtual
+#define ae2f_constinit	/* not available */
 #endif /* C++20 */
 
 #if __ae2f_stdcheck_CC(201402L)
-#define constextendedfun	constexpr
-#define constextendedeval 	constexpr
+#define ae2f_constextendedfun	constexpr
+#define ae2f_constextendedeval 	constexpr
 
-#define constextendedmethod	constexpr
-#define constextendedmethodeval	constexpr
+#define ae2f_constextendedmethod	constexpr
+#define ae2f_constextendedmethodeval	constexpr
 
 #else
-#define constextendedfun	inline
-#define constextendedmethod	inline
+#define ae2f_constextendedfun	inline
+#define ae2f_constextendedmethod	inline
 
-#define constextendedeval	inline
-#define constextendedmethodeval	inline
+#define ae2f_constextendedeval	inline
+#define ae2f_constextendedmethodeval	inline
 #endif // C++14
 
 #if __ae2f_stdcheck_CC(201103L)
-#define constexprmethod		constexpr
-#define constexprfun		constexpr
-#define constevalmethod		constexpr
-
+#define ae2f_constexprmethod		constexpr
+#define ae2f_constexprfun		constexpr
+#define ae2f_constevalmethod		constexpr
+#define ae2f_virtual		virtual
 #else
-#define constexprmethod		inline
-#define constexprfun		inline
-#define constevalmethod		inline
-#define virtual
+#define ae2f_constexprmethod		inline
+#define ae2f_constexprfun		inline
+#define ae2f_constevalmethod		inline
+#define ae2f_virtual		
 
 #if !defined(__cplusplus) /* C */
 
 #if !defined(__cplusplus) && __ae2f_lvcheck_c(2023)
 /** cosntexpr variable */
+#define ae2f_constexpr	constexpr
 #else
-#define constexpr
+#define ae2f_constexpr
 #endif /* C23 */
 
 
@@ -71,19 +74,20 @@
 #endif // C++11
 
 #if __ae2f_stdcheck_CC(202002L)
-#undef constevalmethod
-#define constevalmethod consteval /* C++20 */
+#undef ae2f_constevalmethod
+#define ae2f_constevalmethod consteval /* C++20 */
+#define ae2f_consteval	consteval
 #elif __ae2f_stdcheck_CC(0)
 
 #undef constevalmethod
 /// @brief
 /// C++ keyword for constant-time functions.
-#define consteval
-#define constevalmethod constexprmethod
+#define ae2f_consteval
+#define ae2f_constevalmethod ae2f_constexprmethod
 
 #else
 
-#define consteval
+#define ae2f_consteval
 #endif // C++20
 
 #endif
