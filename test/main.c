@@ -26,7 +26,7 @@ int main() {
 	b v;
 	t _v;
 
-	int* restrict hello = 0;
+	int* ae2f_restrict hello = 0;
 
 	printf("%d\n", ae2f_PackCount);
 	return 0;
