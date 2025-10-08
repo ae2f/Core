@@ -20,19 +20,19 @@ namespace ae2f {
         /// @return
         /// One bigger.
         template<typename T, typename K = T, typename R = T>
-        constexprmethod R TakeGt(T a, K b) { return ae2f_CmpGetGt(a, b); }
+        ae2f_constexprmethod R TakeGt(T a, K b) { return ae2f_CmpGetGt(a, b); }
 
         /// @warning
         /// Two parameters must be comparable with operator.
         /// @return
         /// One smaller.
         template<typename T, typename K = T, typename R = T>
-        constexprmethod R TakeLs(T a, K b) { return ae2f_CmpGetLs(a, b); }
+        ae2f_constexprmethod R TakeLs(T a, K b) { return ae2f_CmpGetLs(a, b); }
 
         /// @return
         /// The absolute different of two.
         template<typename T, typename K = T, typename R = T>
-        constexprmethod R Diff(T a, K b) { return ae2f_CmpDiff(a, b); }
+        ae2f_constexprmethod R Diff(T a, K b) { return ae2f_CmpDiff(a, b); }
     }
 }
 
