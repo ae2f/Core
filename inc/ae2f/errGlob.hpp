@@ -24,7 +24,7 @@ namespace ae2f {
 /// Gets the code
 struct errGlobState {
   ae2f_err_t code;
-  constexprmethod errGlobState(ae2f_err_t a) noexcept;
+  ae2f_constexprmethod  errGlobState(ae2f_err_t a) noexcept;
 
   /// @brief
   /// It is a constructor, which will throw it is a state critical.
@@ -39,7 +39,7 @@ struct errGlobState {
   /// Gets one
   /// @return
   /// A single error message for this code.
-  constexprmethod const char *peek() const noexcept {
+  ae2f_constexprmethod   const char *peek() const noexcept {
     return (code & ae2f_errGlob_IMP_NOT_FOUND)
                ? "Failed to find the function on preprocessor which is "
                  "callable "
@@ -69,7 +69,7 @@ struct errGlobState {
   /// Pops an error with an error type.
   /// @return
   /// Error message
-  constextendedmethod errGlobState pop() const noexcept {
+  ae2f_constextendedmethod errGlobState pop() const noexcept {
     return errGlobState(code & ~rBitVec<ae2f_err_t>(code).FndOne().obj);
   }
 
@@ -80,7 +80,7 @@ struct errGlobState {
   inline std::string msgall() const noexcept;
 };
 
-constexprmethod errGlobState::errGlobState(ae2f_err_t a) noexcept : code(a) {}
+ae2f_constexprmethod  errGlobState::errGlobState(ae2f_err_t a) noexcept : code(a) {}
 inline std::string errGlobState::msgall() const noexcept {
   std::string rtn = "Following shows the error flag enabled.";
   errGlobState err(this->code);
