@@ -112,7 +112,7 @@ typedef uint8_t ae2f_BitVecI_t;
 /// @tparam t Must be an integer type
 /// @param vec {t}
 #define ae2f_BitVecSizeDef(t)                                                  \
-  constextendedfun uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept {         \
+  ae2f_constextendedfun uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept {         \
     uint8_t i;                                                                 \
     for (i = (sizeof(t) << 3); i; i--)                                         \
       if (ae2f_BitVecGet(vec, i - 1))                                          \
@@ -131,7 +131,7 @@ typedef uint8_t ae2f_BitVecI_t;
 /// @tparam t Must be an integer type
 /// @param vec {t}
 #define ae2f_BitVecFndOneDef(t)                                                \
-  constextendedfun t ae2f_BitVecFndOneDefName(t)(const t vec) noexcept {       \
+  ae2f_constextendedfun t ae2f_BitVecFndOneDefName(t)(const t vec) noexcept {       \
     t i = 1;                                                                   \
     for (; i; i <<= 1) {                                                       \
       if (vec & i)                                                             \
