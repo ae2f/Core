@@ -8,6 +8,9 @@
  * 
  */
 
+#ifndef ae2f_Cxx_h
+#define ae2f_Cxx_h
+
 /// @brief
 /// Literally nothing.
 #define ae2f_NONE
@@ -50,3 +53,7 @@
 /// 
 /// For alter, see @ref ae2f_c_check
 #define ae2f_cxx_check && ae2f_is_cxx
+
+#include "Cxx/Reg.h"
+
+#endif
