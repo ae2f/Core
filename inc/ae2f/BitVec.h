@@ -13,7 +13,7 @@
 
 #include "./Cast.h"
 #include "./Cmp.h"
-#include <stdint.h>
+#include "./stdint.h"
 
 /** @brief
  * Calculate proper byte size with bit count
