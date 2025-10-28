@@ -54,6 +54,7 @@
 /// For alter, see @ref ae2f_c_check
 #define ae2f_cxx_check && ae2f_is_cxx
 
-#include "Cxx/Reg.h"
+#include "./Cxx/Reg.h"
+#include "./Cxx/Constexpr.h"
 
 #endif

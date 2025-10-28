@@ -13,7 +13,7 @@
 
 #include "./Cast.h"
 #include "./Cmp.h"
-#include "./stdint.h"
+#include "./c90/stdint.h"
 
 /** @brief
  * Calculate proper byte size with bit count
@@ -106,38 +106,5 @@ typedef uint8_t ae2f_BitVecI_t;
 /// @tparam t Must be an integer type
 /// @param vec {t}
 #define ae2f_BitVecSizeDefName(t) ae2f_BitVecSize_##t##_func
-
-/// @brief
-/// Gets the `vec`'s last index where the flag set to 1.
-/// @tparam t Must be an integer type
-/// @param vec {t}
-#define ae2f_BitVecSizeDef(t)                                                  \
-  ae2f_constextendedfun uint8_t ae2f_BitVecSizeDefName(t)(t vec) noexcept {         \
-    uint8_t i;                                                                 \
-    for (i = (sizeof(t) << 3); i; i--)                                         \
-      if (ae2f_BitVecGet(vec, i - 1))                                          \
-        break;                                                                 \
-    return i == (sizeof(t) << 3) ? 0 : i;                                      \
-  }
-
-/// @brief
-/// Gets the vector that `vec`'s first flag set to 1.
-/// @tparam t Must be an integer type
-/// @param vec {t}
-#define ae2f_BitVecFndOneDefName(t) ae2f_BitVecFndOne_##t##_func
-
-/// @brief
-/// Gets the vector that `vec`'s first flag set to 1.
-/// @tparam t Must be an integer type
-/// @param vec {t}
-#define ae2f_BitVecFndOneDef(t)                                                \
-  ae2f_constextendedfun t ae2f_BitVecFndOneDefName(t)(const t vec) noexcept {       \
-    t i = 1;                                                                   \
-    for (; i; i <<= 1) {                                                       \
-      if (vec & i)                                                             \
-        break;                                                                 \
-    }                                                                          \
-    return i;                                                                  \
-  }
 
 #endif // !defined(ae2f_Macro_BitVector_h)

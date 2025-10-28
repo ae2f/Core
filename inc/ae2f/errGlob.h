@@ -12,7 +12,7 @@
 #if !defined(ae2f_errGlobal_h)
 #define ae2f_errGlobal_h
 
-#include <stdint.h>
+#include "./c90/StdInt.h"
 
 /// @brief
 /// Informs that this number represents the error.

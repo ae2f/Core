@@ -10,7 +10,7 @@
 
 #if !defined(ae2f_Cast_CasterUnion_hpp) && defined(__cplusplus)
 #define ae2f_Cast_CasterUnion_hpp
-#include "./Constexpr.hpp"
+#include "./../Cxx/Constexpr.h"
 
 /// @brief
 /// C++ union definition for @ref ae2f_union_cast

@@ -90,4 +90,20 @@
 #define ae2f_consteval
 #endif // C++20
 
+#if !__ae2f_stdcheck_CC(201103L)
+/// @brief
+/// Means that there will be no exception thrown written in code.
+#define ae2f_noexcept
+#define ae2f_constexpr
+#else
+#define ae2f_noexcept noexcept
+#define ae2f_constexpr constexpr
+#endif /* C++<=11 */
+
+#if __cplusplus
+#else
+#undef  ae2f_noexcept
+#define ae2f_noexcept
+#endif
+
 #endif

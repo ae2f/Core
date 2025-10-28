@@ -18,25 +18,25 @@ typedef int
 /// @see ae2f_CmpFunRet_LISLESSER
 ae2f_CmpFunRet_t,
 
-/// @brief
-/// It is an api for following approximate pseudo code.
-/// ```c
-/// const void *l, *r;
-/// return *l - *r;
-/// ```
-/// @see ae2f_CmpFunRet_t
-(*ae2f_fpCmp_t)(const void* l, const void* r);
+	/// @brief
+	/// It is an api for following approximate pseudo code.
+	/// ```c
+	/// const void *l, *r;
+	/// return *l - *r;
+	/// ```
+	/// @see ae2f_CmpFunRet_t
+	(*ae2f_fpCmp_t)(const void* l, const void* r);
 
-/// @brief they are same
-/// @see ae2f_CmpFunRet_t 
+	/// @brief they are same
+	/// @see ae2f_CmpFunRet_t 
 #define ae2f_CmpFunRet_EQUAL		0
 
-/// @brief right is lesser
-/// @see ae2f_CmpFunRet_t
+	/// @brief right is lesser
+	/// @see ae2f_CmpFunRet_t
 #define ae2f_CmpFunRet_RISLESSER	1
 
-/// @brief left is lesser
-/// @see ae2f_CmpFunRet_t
+	/// @brief left is lesser
+	/// @see ae2f_CmpFunRet_t
 #define ae2f_CmpFunRet_LISLESSER	-1
 
 #endif
