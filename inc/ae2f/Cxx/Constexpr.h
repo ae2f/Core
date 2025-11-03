@@ -79,10 +79,11 @@
 #define ae2f_consteval	consteval
 #elif __ae2f_stdcheck_CC(0)
 
-#undef constevalmethod
 /// @brief
 /// C++ keyword for constant-time functions.
 #define ae2f_consteval
+
+#undef ae2f_constevalmethod
 #define ae2f_constevalmethod ae2f_constexprmethod
 
 #else

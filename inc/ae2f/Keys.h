@@ -70,7 +70,7 @@
 #if !__ae2f_stdcheck_CC(201103L)
 #undef	ae2f_noexcept
 #define ae2f_noexcept
-#else
+#elif __cplusplus
 #define ae2f_noexcept noexcept
 #endif
 
