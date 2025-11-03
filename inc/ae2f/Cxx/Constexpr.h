@@ -46,7 +46,7 @@
 
 #define ae2f_constextendedeval	inline
 #define ae2f_constextendedmethodeval	inline
-#endif // C++14
+#endif /* C++14 */
 
 #if __ae2f_stdcheck_CC(201103L)
 #define ae2f_constexprmethod		constexpr
@@ -71,7 +71,7 @@
 
 #endif /* C */
 
-#endif // C++11
+#endif /* C++11 */
 
 #if __ae2f_stdcheck_CC(202002L)
 #undef ae2f_constevalmethod
@@ -79,8 +79,8 @@
 #define ae2f_consteval	consteval
 #elif __ae2f_stdcheck_CC(0)
 
-/// @brief
-/// C++ keyword for constant-time functions.
+
+/** @brief C++ keyword for const-time functions */
 #define ae2f_consteval
 
 #undef ae2f_constevalmethod
@@ -89,11 +89,11 @@
 #else
 
 #define ae2f_consteval
-#endif // C++20
+#endif /* C++20 */
 
 #if !__ae2f_stdcheck_CC(201103L)
-/// @brief
-/// Means that there will be no exception thrown written in code.
+
+/** @brief There will be no exception thrown */
 #define ae2f_noexcept
 #define ae2f_constexpr
 #else

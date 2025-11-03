@@ -14,52 +14,54 @@
 
 #include "./c90/StdInt.h"
 
-/// @brief
-/// Informs that this number represents the error.
-typedef uint8_t ae2f_err_t;
+/** 
+ * @typedef ae2f_err_t
+ * @brief Least integer type to store the error value
+ * @see ae2f_errGlob
+ * */
+typedef uint_least8_t ae2f_err_t;
 
-/// @brief
-/// The Operation you've wanted went successful. 
-#define ae2f_errGlob_OK 0
 
-/// @brief
-/// Failed to find the function on preprocessor which is callable for some reason
-/// No operation has beed done.
-#define ae2f_errGlob_IMP_NOT_FOUND 0b1
+/**
+ * @enum ae2f_errGlob
+ * */
+typedef enum {
+        /** @brief Success */
+        ae2f_errGlob_OK = 0,
 
-/// @brief
-/// Failed to refer the pointer either l-value inside the function.
-#define ae2f_errGlob_PTR_IS_NULL 0b10
+        /** @brief Implementation not found (not expected) */
+        ae2f_errGlob_IMP_NOT_FOUND = 1,
 
-/// @brief
-/// Failed freeing the memory.
-#define ae2f_errGlob_FLUSH_FAILED 0b100
+        /** @brief Null Pointer Exception */
+        ae2f_errGlob_PTR_IS_NULL = 2,
 
-/// @brief
-/// stdlib allocating functions (malloc, calloc, realloc) has been failed.
-#define ae2f_errGlob_ALLOC_FAILED 0b1000
+        /** @brief Releasing, flushing, etc has been failed. */
+        ae2f_errGlob_FLUSH_FAILED = 4,
 
-/// @brief
-/// Found that parameter sent by programmer is invalid.
-/// The operation may have been ceased while the middle.
-#define ae2f_errGlob_WRONG_OPERATION 0b10000
+        /** @brief Allocation has failed. */
+        ae2f_errGlob_ALLOC_FAILED = 8,
 
-/// @brief
-/// Found some errors, but not by parameters.
-/// The operation has failed.
-#define ae2f_errGlob_NFOUND 0b100000
+        /** @brief Wrong Ooperation */
+        ae2f_errGlob_WRONG_OPERATION = 16,
 
-/// @brief
-/// Means that error was not critical.
-/// 
-/// The operation went done. \n
-/// Note that operation may not be valid.
-#define ae2f_errGlob_DONE_HOWEV 0b1000000
+        /** @brief Error for another reason, such as low level. (See another status value.) */
+        ae2f_errGlob_NFOUND = 32,
 
-/// @brief
-/// Check if the state code is a critical error.
-/// @param n {ae2f_err_t} Error code
-/// @return If it is not zero, it is a critical error.
+        /** @brief Operation has finished. */
+        ae2f_errGlob_DONE_HOWEV = 64,
+        ae2f_errGlob_
+} ae2f_errGlob;
+
+
+
+/** 
+ * @deprecated
+ *
+ * @brief
+ * Check if the state code is a critical error.
+ * @param n {ae2f_err_t} Error code
+ * @return If it is not zero, it is a critical error.
+ */
 #define ae2f_errGlobNormalised(n) (((n) & ae2f_errGlob_DONE_HOWEV) ? ae2f_errGlob_OK : (n))
 
 #endif

@@ -8,28 +8,29 @@
 #include "./Cxx.h"
 
 
-/// @brief
-/// In C, keyword 'struct' must be written in front of the structure's name in
-/// order to use as a type name. \n In C++ that keyword is not required.
-///
-/// This keyword resolves the difference of the rules of two.
+/**
+ @brief
+ In C, keyword 'struct' must be written in front of the structure's name in
+ order to use as a type name. \n In C++ that keyword is not required.
+
+ This keyword resolves the difference of the rules of two.
+ */
 #define ae2f_struct ae2f_WhenC(struct)
 
-/// @brief
-/// Suggests the existence of external variable or function, in naming of C.
-/// [non-mangling]
+/**
+ @brief
+ Suggests the existence of external variable or function, in naming of C.
+ [non-mangling]
+ */
 #define ae2f_extern ae2f_WhenC(extern) ae2f_WhenCXX(extern "C")
 
-/// @brief
-/// Class
+/** @brief Class */
 #define ae2f_class ae2f_WhenC(struct) ae2f_WhenCXX(class)
 
-/// @brief
-/// Makes the global variable in naming of C. [non-mangling]
+/** @brief Makes the global variable in naming of C. [non-mangling] */
 #define ae2f_var ae2f_WhenCXX(extern "C")
 
-/// @brief
-/// Function definitions
+/** @brief Function definitions */
 #define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
 
 /** @brief Invokes when condition is `false`. */
@@ -80,11 +81,11 @@
 #define ae2f_restrict
 #else
 #define ae2f_restrict restrict
-#endif // C>=99
+#endif /* C>=99 */
 
 #if __cplusplus
 #define ae2f_restrict
-#endif // C++
+#endif /* C++ */
 
 
 
