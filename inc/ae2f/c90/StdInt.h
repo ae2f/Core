@@ -13,7 +13,7 @@
 
 #if __STDC_VERSION__
 #include <stdint.h>
-#elif __cplusplus
+#elif defined(__cplusplus) && __cplusplus >= 201103L
 #include <cstdint>
 #else
 #include "./ptrsz.auto.h"
