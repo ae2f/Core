@@ -17,6 +17,13 @@ if(NOT TARGET ae2f::Core)
 		set(ae2f_LangVer_CC ${CMAKE_CXX_STANDARD})
 	endif()
 
+	include(CheckIncludeFile)
+	check_include_file(stdint.h HAVE_STDINT_H)
+
+	file(
+		WRITE ${PROJECT_SOURCE_DIR}/inc/ae2f/c90/have-stdint.auto.h
+		"#define HAVE_STDINT_H ${HAVE_STDINT_H}"
+		)
 
 	file(
 		WRITE ${PROJECT_SOURCE_DIR}/inc/ae2f/Pack/Num.auto.h
@@ -170,7 +177,6 @@ if(NOT TARGET ae2f::Core)
 			"#define ULLONG_WIDTH	(0)				\n"
 			"#endif							\n\n"
 			)
-
 	endif()
 
 

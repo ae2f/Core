@@ -10,8 +10,9 @@
 #ifndef ae2f_stdint_h
 #define ae2f_stdint_h
 
+#include "./have-stdint.auto.h"
 
-#if __STDC_VERSION__
+#if HAVE_STDINT_H
 #include <stdint.h>
 #elif defined(__cplusplus) && __cplusplus >= 201103L
 #include <cstdint>
