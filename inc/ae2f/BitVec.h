@@ -13,7 +13,7 @@
 
 #include "./Cast.h"
 #include "./Cmp.h"
-#include "./c90/stdint.h"
+#include "./c90/StdInt.h"
 
 /** @brief
  * Calculate proper byte size with bit count
@@ -22,7 +22,7 @@
 
 /// @brief
 /// The pre-defined index type for Bit vector.
-typedef uint8_t ae2f_BitVecI_t;
+typedef uint_least8_t ae2f_BitVecI_t;
 
 /// @brief Generates the vector filled in `1`.
 /// @param len The length of the filled vector.
