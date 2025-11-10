@@ -23,7 +23,7 @@ int main(void) {
 	b v;
 	t _v;
 
-	void* ae2f_restrict hello = NULL;
+	void* ae2f_restrict hello = ae2f_NIL;
 	v.a = 1;
 	_v.a = 2;
 

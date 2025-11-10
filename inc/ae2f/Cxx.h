@@ -49,6 +49,10 @@
  
 #define ae2f_is_cxx ae2f_WhenC(0) ae2f_WhenCXX(1)
 
+
+/** @macro ae2f_NIL @brief NULL for C/C++ */
+#define ae2f_NIL	ae2f_WhenC(NULL)	ae2f_WhenCXX(nullptr)
+
 /**
  @brief
  Putting it after one condition in #if will find if the script's language considered as [C], while doxygen does not notice.

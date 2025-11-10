@@ -3,6 +3,6 @@
 #include <ae2f/c90/StdInt.h>
 
 
-int main() {
+int main(void) {
 	return 0;
 }
