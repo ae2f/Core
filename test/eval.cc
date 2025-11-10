@@ -13,7 +13,7 @@ ae2f_evaldef(
 
 int main() {
 	int a = _Hello<0>(2);
-	int* ae2f_restrict v = 0;
-	printf("%d\n", a);
+	void* ae2f_restrict v = NULL;
+	printf("%d, %p\n", a, v);
 	return 0;
 }

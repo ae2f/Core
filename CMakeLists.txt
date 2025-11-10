@@ -25,6 +25,9 @@ if(NOT TARGET ae2f::Core)
 		"#define HAVE_STDINT_H ${HAVE_STDINT_H}"
 		)
 
+	include(CheckTypeSize)
+	check_type_size("${ae2f_float}" ae2f_float_SZ)
+
 	file(
 		WRITE ${PROJECT_SOURCE_DIR}/inc/ae2f/Pack/Num.auto.h
 		"/**					\n"
@@ -80,6 +83,10 @@ if(NOT TARGET ae2f::Core)
 		"**/\n"
 		"#ifndef ae2f_float\n"
 		"#define ae2f_float ${ae2f_float}\n"
+		"#endif\n\n"
+
+		"#ifndef ae2f_float_WIDTH\n"
+		"#define ae2f_float_WIDTH (${ae2f_float_SZ} << 3)\n"
 		"#endif\n"
 		)
 
@@ -98,7 +105,6 @@ if(NOT TARGET ae2f::Core)
 		"#define ae2f_PTRSZ_SIZE ${CMAKE_SIZEOF_VOID_P}\n"
 		)
 
-	include(CheckTypeSize)
 
 	check_type_size("char" SCHAR_WIDTH_BYTE)
 	check_type_size("unsigned char" UCHAR_WIDTH_BYTE)
@@ -192,6 +198,6 @@ if(NOT TARGET ae2f::Core)
 		set(ae2f-synchronization-needexd)
 	endif()
 
-	ae2f_CoreTestTent(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test ${ae2f-synchronization-needexd})
+	ae2f_CoreTestTentVerbose(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test ${ae2f-synchronization-needexd})
 	ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f)
 endif()

@@ -7,6 +7,11 @@
 
 #include "./Cxx.h"
 
+/**
+ * @macro ae2f_filterdef(key)
+ * @warning Use this only when key is 
+ * */
+#define ae2f_filterdef(key) (defined(key) ? (key) : 0)
 
 /**
  @brief
@@ -71,7 +76,7 @@
 #if !__ae2f_stdcheck_CC(201103L)
 #undef	ae2f_noexcept
 #define ae2f_noexcept
-#elif __cplusplus
+#elif defined(__cplusplus)
 #define ae2f_noexcept noexcept
 #endif
 
@@ -83,7 +88,7 @@
 #define ae2f_restrict restrict
 #endif /* C>=99 */
 
-#if __cplusplus
+#if defined(__cplusplus)
 #define ae2f_restrict
 #endif /* C++ */
 

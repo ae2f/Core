@@ -12,7 +12,6 @@
 #include "../LangVer.h"
 
 
-
 #if __ae2f_stdcheck_CC(201703L)
 #define ae2f_if_constexpr if constexpr
 #else
@@ -101,7 +100,7 @@
 #define ae2f_constexpr constexpr
 #endif /* C++<=11 */
 
-#if __cplusplus
+#ifdef __cplusplus
 #else
 #undef  ae2f_noexcept
 #define ae2f_noexcept

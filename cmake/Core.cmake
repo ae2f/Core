@@ -16,6 +16,52 @@ else()
 	set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
 endif()
 
+function(ae2f_gccUltraError TARGET FLAG)
+
+	if(NOT CMAKE_C_COMPILER_ID MATCHES "GNU" AND NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+		return()
+	endif()
+
+	message(STATUS "Applying ULTRA warnings + Werror to target: ${TARGET}")
+
+	target_compile_options(${TARGET} ${FLAG}
+		-Wall -Wextra -Werror -Wpedantic
+		-Wshadow 
+		-Wfloat-equal -Wundef 
+		-Wcast-align=strict
+		-Wconversion 
+		-Wsign-conversion 
+		-Wnull-dereference
+		-Wformat=2 -Wformat-signedness -Wformat-truncation
+		-Wimplicit-fallthrough=5 -Wswitch-enum -Wswitch-default
+		-Wvla -Wduplicated-cond -Wduplicated-branches -Wlogical-op
+		-Warith-conversion -Wmissing-declarations
+		-D_GLIBCXX_ASSERTIONS
+		-fstrict-flex-arrays=3 -fstack-protector-strong -fstack-clash-protection
+		-fanalyzer -ftrivial-auto-var-init=zero
+
+		$<$<COMPILE_LANGUAGE:CXX>:
+		-Wold-style-cast 
+		-Woverloaded-virtual 
+		-Wnon-virtual-dtor
+		-Wsuggest-override
+		-Wzero-as-null-pointer-constant
+		-Wuseless-cast 
+		-Wcomment 
+		-Wreorder 
+		-Wnoexcept
+		>
+
+		$<$<COMPILE_LANGUAGE:C>:
+		-Wstrict-prototypes 
+		-Wmissing-prototypes 
+		-Wnested-externs
+		-Wold-style-definition 
+		-Wunsuffixed-float-constants
+		>
+		)
+endfunction()
+
 # @namespace ___DOC_CMAKE
 # @brief
 # Note they functions defined on CMake, not C/C++.
@@ -42,16 +88,49 @@ function(ae2f_CoreTestTent prm_LibName prm_TestSourcesDir)
 		else()
 			file(GLOB_RECURSE files "${prm_TestSourcesDir}/*.c")
 		endif()
-		list(LENGTH files list_length)
 
-		math(EXPR adjusted_length "${list_length} - 1")
-
-		foreach(i RANGE 0 ${adjusted_length})
-			list(GET files ${i} item)
+		foreach(item IN LISTS files)
 			get_filename_component(__NAME ${item} NAME)
 			add_executable("${prm_LibName}-Test-${__NAME}" ${item})
-			target_link_libraries("${prm_LibName}-Test-${__NAME}" ${ARGN} ${prm_LibName})
+			target_link_libraries("${prm_LibName}-Test-${__NAME}" PRIVATE ${ARGN} ${prm_LibName})
 			add_test(NAME "${prm_LibName}-Test-${__NAME}" COMMAND "${prm_LibName}-Test-${__NAME}")
+		endforeach()
+	endif()
+endfunction()
+
+# @namespace ___DOC_CMAKE
+# @brief
+# Note they functions defined on CMake, not C/C++.
+# 
+# @brief
+# Iterates a directory `prm_TestSourcesDir` and 
+# Make a test case for every source.
+# 
+# @param prm_LibName
+# Base Library name
+# 
+# @param prm_TestSourcesDir
+# A directory where the stand-alone test codes locate. \n
+# Every sources under that directory must be stand-alone, which means it must not depends on another memory, function, etc.
+# 
+# @param ...
+# Additional Libraries if you want
+# 
+# @see ___DOC_CMAKE::ae2f_TEST
+function(ae2f_CoreTestTentVerbose prm_LibName prm_TestSourcesDir)
+	if(ae2f_TEST)
+		if(ae2f_CXX)
+			file(GLOB_RECURSE files "${prm_TestSourcesDir}/*")
+		else()
+			file(GLOB_RECURSE files "${prm_TestSourcesDir}/*.c")
+		endif()
+
+		foreach(item IN LISTS files)
+			get_filename_component(__NAME ${item} NAME)
+			add_executable("${prm_LibName}-Test-${__NAME}" ${item})
+			target_link_libraries("${prm_LibName}-Test-${__NAME}" PRIVATE ${ARGN} ${prm_LibName})
+			add_test(NAME "${prm_LibName}-Test-${__NAME}" COMMAND "${prm_LibName}-Test-${__NAME}")
+			ae2f_gccUltraError(${prm_LibName}-Test-${__NAME} PRIVATE)
 		endforeach()
 	endif()
 endfunction()
@@ -92,7 +171,8 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
 	target_include_directories(
 		${prm_namespace}-${prm_TarName} INTERFACE
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${prm_includeDir}/>  
-	)
+		$<INSTALL_INTERFACE:${prm_includeDir}/${prm_namespace}/>
+		)
 
 	# Install Settings
 	install(TARGETS ${prm_namespace}-${prm_TarName}
@@ -102,14 +182,14 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
 
 	install(DIRECTORY ${prm_includeDir}/${prm_namespace}
 		DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${prm_namespace}
-	)
+		)
 
 	# Package
 	install(EXPORT ${prm_namespace}-${prm_TarName}Targets
 		FILE ${prm_namespace}-${prm_TarName}Targets.cmake
 		NAMESPACE ae2f::
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
-	)
+		)
 
 	# Pack Conf
 	include(CMakePackageConfigHelpers)
@@ -117,12 +197,12 @@ function(ae2f_CoreLibTentConfigCustom prm_TarName prm_TarPreFix prm_includeDir p
 		${prm_configpath}
 		${CMAKE_CURRENT_BINARY_DIR}/${prm_namespace}-${prm_TarName}Config.cmake
 		INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/
-	)
+		)
 
 	install(FILES
 		${CMAKE_CURRENT_BINARY_DIR}/${prm_namespace}-${prm_TarName}Config.cmake
 		DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
-	)
+		)
 
 	set(${prm_namespace}__${prm_TarName}__TENT ${prm_namespace}-${prm_TarName} CACHE STRING ${prm_namespace}-${prm_TarName})
 endfunction()
@@ -152,7 +232,7 @@ function(ae2f_CoreLibTent prm_TarName prm_TarPreFix prm_includeDir prm_namespace
 		${prm_namespace} 
 		${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
 		${ARGN}
-	)
+		)
 endfunction()
 
 # @brief
@@ -194,7 +274,7 @@ function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagN
 				${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
 				--branch ${prm_TagName} ${ARGN}
 				RESULT_VARIABLE result
-			)
+				)
 
 			if(result)
 				message(FATAL_ERROR "Fetching ${prm_AuthorName}/${prm_TarName} from Github Failed.")
@@ -206,14 +286,14 @@ function(ae2f_CoreLibFetch_DNS prm_AuthorName prm_namespace prm_TarName prm_TagN
 			add_subdirectory(
 				${ae2f_ProjRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
 				${ae2f_BinRoot}/${ae2f_submod}/${prm_AuthorName}/${prm_TarName}
-			)
+				)
 		endif()
 	endif()
 
 	set(
 		${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED 
 		${prm_namespace}::${prm_TarName} CACHE STRING ${prm_namespace}::${prm_TarName}
-	)
+		)
 
 endfunction()
 
@@ -241,7 +321,7 @@ function(ae2f_CoreLibFetch_NS prm_AuthorName prm_namespace prm_TarName prm_TagNa
 		${prm_TagName} 
 		"github.com" 
 		${ARGN}
-	)
+		)
 endfunction()
 
 
@@ -254,7 +334,7 @@ function(ae2f_CoreLibFetch prm_AuthorName prm_TarName prm_TagName)
 		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 		CACHE STRING
 		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
-	)
+		)
 endfunction()
 
 
@@ -266,7 +346,7 @@ function(ae2f_CoreLibFetchX_NS prm_AuthorName prm_namespace prm_TarName prm_TagN
 		set(
 			${prm_AuthorName}__${prm_namespace}__${prm_TarName}__FETCHED
 			${prm_namespace}::${prm_TarName} CACHE STRING ${prm_namespace}::${prm_TarName}
-		)
+			)
 	else()
 		ae2f_CoreLibFetch_NS(${prm_AuthorName} ${prm_namespace} ${prm_TarName} ${prm_TagName})
 	endif()
@@ -281,5 +361,5 @@ function(ae2f_CoreLibFetchX prm_AuthorName prm_TarName prm_TagName)
 		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
 		CACHE STRING
 		${${prm_AuthorName}__${prm_AuthorName}__${prm_TarName}__FETCHED}
-	)
+		)
 endfunction()

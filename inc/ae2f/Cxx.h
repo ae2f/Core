@@ -17,7 +17,7 @@
  */
 #define ae2f_NONE
 
-#if __cplusplus
+#ifdef __cplusplus
 
 /**
  @def ae2f_WhenCXX 
