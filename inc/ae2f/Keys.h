@@ -89,6 +89,7 @@
 #endif /* C>=99 */
 
 #if defined(__cplusplus)
+#undef	ae2f_restrict
 #define ae2f_restrict
 #endif /* C++ */
 
