@@ -5,9 +5,11 @@
 #ifndef ae2f_stdbool_h
 #define ae2f_stdbool_h
 
-#if	__STDC_VERSION__
+
+#if	defined(__STDC_VERSION__) && (__STDC_VERSION__)
 #include <stdbool.h>
-#endif
+#elif	defined(__cplusplus)
+#else
 
 #ifndef _Bool
 #define _Bool	char
@@ -25,4 +27,5 @@
 #define false	0
 #endif
 
+#endif
 #endif

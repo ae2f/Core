@@ -8,12 +8,6 @@
 #include "./Cxx.h"
 
 /**
- * @macro ae2f_filterdef(key)
- * @warning Use this only when key is 
- * */
-#define ae2f_filterdef(key) (defined(key) ? (key) : 0)
-
-/**
  @brief
  In C, keyword 'struct' must be written in front of the structure's name in
  order to use as a type name. \n In C++ that keyword is not required.

@@ -7,10 +7,10 @@
 #include <ae2f/errGlob.h>
 #include <stdio.h>
 
+#include <ae2f/Cxx.h>
+
 #include <ae2f/Pack/Beg.h>
 #include <ae2f/Pack/End.h>
-
-#include <ae2f/Cxx.h>
 
 #include <ae2f/Pack/Num.auto.h>
 
