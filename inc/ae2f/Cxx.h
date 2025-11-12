@@ -24,26 +24,26 @@
  @brief
  Appears when the current language is C++.
  */
-#define ae2f_WhenCXX(...) __VA_ARGS__
+#define ae2f_WhenCXX(a) a
 
 /**
  @brief
  Appears when the current language is C.
  */
-#define ae2f_WhenC(...) ae2f_NONE
+#define ae2f_WhenC(a) ae2f_NONE
 
 #else
 /**
  @brief
  Appears when the current language is C++.
  */
-#define ae2f_WhenC(...) __VA_ARGS__
+#define ae2f_WhenC(a) a
 
 /**
  @brief
  Appears when the current language is C.
  */
-#define ae2f_WhenCXX(...) ae2f_NONE
+#define ae2f_WhenCXX(a) ae2f_NONE
 
 #endif
  

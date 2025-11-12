@@ -12,12 +12,6 @@
 
 #define ae2f_Cast_h
 
-/** 
- * @brief simply merge all text inside the round bracket, 
- * counting them as a single text block. 
- * */
-#define ae2f_CastMerge(...) __VA_ARGS__
-
 #include "./Cast/CasterUnion.hpp"
 #include "./LangVer.auto.h"
 #include "Cxx.h"
@@ -27,8 +21,8 @@
  * @def ae2f_RecordMk
  * @brief Initialiser for trivial structures / classes. 
  * */
-#define ae2f_RecordMk(type, ...)                                               \
-  (ae2f_WhenC((type){__VA_ARGS__}) ae2f_WhenCXX(type{__VA_ARGS__}))
+#define ae2f_RecordMk(type, v)                                               \
+  (ae2f_WhenC((type){v}) ae2f_WhenCXX(type{v}))
 
 /** @brief static_cast for C++ */
 #define ae2f_static_cast(t, v)                                                 \

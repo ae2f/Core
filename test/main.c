@@ -14,21 +14,9 @@
 
 #include <ae2f/Pack/Num.auto.h>
 
-ae2f_structdef_v(struct, a, b, c, d) {
-	int a;
-};
-
-ae2f_structdef_n(union, t, q) { int a; };
-ae2f_structdef(union, qq) { int a; };
-
 int main(void) {
-	b v;
-	t _v;
-
 	void* ae2f_restrict hello = ae2f_NIL;
-	v.a = 1;
-	_v.a = 2;
 
-	printf("%d %d %d %p\n", ae2f_PackCount, v.a, _v.a, hello);
+	printf("%d %p\n", ae2f_PackCount, hello);
 	return 0;
 }
