@@ -50,8 +50,7 @@
 #define ae2f_is_cxx ae2f_WhenC(0) ae2f_WhenCXX(1)
 
 
-/** @macro ae2f_NIL @brief NULL for C/C++ */
-#define ae2f_NIL	ae2f_WhenC(NULL)	ae2f_WhenCXX(nullptr)
+
 
 /**
  @brief
@@ -71,5 +70,6 @@
 
 #include "./Cxx/Reg.h"
 #include "./Cxx/Constexpr.h"
+#include "./Cxx/Nil.h"
 
 #endif
