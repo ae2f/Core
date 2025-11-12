@@ -23,8 +23,11 @@ function(ae2f_gccUltraError TARGET FLAG)
 	endif()
 
 	message(STATUS "Applying ULTRA warnings + Werror to target: ${TARGET}")
-	get_target_property(cxx_thing, ${TARGET} CXX_STANDARD)
-	if(cxx_thing STREQUAL 98)
+	get_target_property(cxx_thing ${TARGET} CXX_STANDARD)
+	message(${cxx_thing})
+
+
+	if(cxx_thing STREQUAL "98")
 		set(n_znilptr -Wno-zero-as-null-pointer-constant)
 	else()
 		set(n_znilptr -Wzero-as-null-pointer-constant)
