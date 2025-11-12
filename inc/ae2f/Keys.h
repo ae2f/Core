@@ -32,10 +32,6 @@
 /** @brief Invokes when condition is `false`. */
 #define unless(a) if (!(a))
 
-#define ae2f_structdef_v(key, name, ...)                                   \
-  typedef key name __VA_ARGS__;                                                    \
-  key name
-
 #define ae2f_tmpldef(a) template<a>
 #define ae2f_tmpluse(a) <a>
 
