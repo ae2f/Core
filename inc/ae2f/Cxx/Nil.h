@@ -1,5 +1,5 @@
 #include "../LangVer.h"
-
+#include "../Cast.h"
 
 
 /** 
@@ -11,5 +11,5 @@
 #if __ae2f_stdcheck_CC(201100L)
 #define	ae2f_NIL	ae2f_WhenC(NULL)	ae2f_WhenCXX(nullptr)
 #else
-#define ae2f_NIL	((void*)0)
+#define ae2f_NIL	ae2f_reinterpret_cast(void*, 0x0)
 #endif
