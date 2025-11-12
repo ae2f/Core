@@ -29,22 +29,15 @@
 /** @brief Makes the global variable in naming of C. [non-mangling] */
 #define ae2f_var ae2f_WhenCXX(extern "C")
 
-/** @brief Function definitions */
-#define ae2f_fdef(rtn_t, name, ...) rtn_t (*name)(__VA_ARGS__)
-
 /** @brief Invokes when condition is `false`. */
-#define unless(...) if (!(__VA_ARGS__))
+#define unless(a) if (!(a))
 
 #define ae2f_structdef_v(key, name, ...)                                   \
   typedef key name __VA_ARGS__;                                                    \
   key name
 
-#define ae2f_structdef_n(key, name, ...)	ae2f_structdef_v(key, name, name, __VA_ARGS__)
-#define ae2f_structdef(key, name)		ae2f_structdef_v(key, name, name)
-#define ae2f_enumdef(name, ...)			typedef enum name __VA_ARGS__ name
-
-#define ae2f_tmpldef(...) template<__VA_ARGS__>
-#define ae2f_tmpluse(...) <__VA_ARGS__>
+#define ae2f_tmpldef(a) template<a>
+#define ae2f_tmpluse(a) <a>
 
 /**
  * @brief

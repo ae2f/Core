@@ -20,7 +20,7 @@
  * Parameter with this preprocessor means \n
  * the pointer is considered as list, and inside of this is a desired size.
  * */
-#define	ae2f_LP(...) ae2f_NONE
+#define	ae2f_LP(a) ae2f_NONE
 
 /** @def ae2f_opt @brief Optional. */
 #define ae2f_opt ae2f_NONE
@@ -30,7 +30,7 @@
  * @brief Use this marker to show the desired functions
  * 	to effectively free the resources.
  * */
-#define ae2f_FREE(...) ae2f_NONE
+#define ae2f_FREE(a) ae2f_NONE
 
 /** @brief l_value. */
 #define ae2f_v ae2f_NONE
