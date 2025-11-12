@@ -4,7 +4,7 @@
 # $5 	stdcc
 
 makers=("-GNinja" "")
-lstdc=("23")
+lstdc=("90")
 lstdcc=("14" "17" "20" "23")
 
 cmake --version
