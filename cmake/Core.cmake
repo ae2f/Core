@@ -17,6 +17,7 @@ else()
 endif()
 
 function(ae2f_UltraError TARGET FLAG TEST_NAME)
+	message("UltraError for ${TARGET}")
 	macro(gnu_asan PRM_C_COMPILER_ID PRM_CXX_COMPILER_ID PRM_C_COMPILER PRM_CXX_COMPILER)
 		set(_gnu_asan OFF)
 
@@ -48,15 +49,35 @@ function(ae2f_UltraError TARGET FLAG TEST_NAME)
 	endmacro(gnu_asan)
 
 	macro(gnu PRM_C_COMPILER_ID PRM_CXX_COMPILER_ID PRM_C_COMPILER PRM_CXX_COMPILER)
-		if(NOT ${PRM_C_COMPILER_ID} STREQUAL "GNU" AND NOT ${PRM_CXX_COMPILER_ID} STREQUAL "GNU")
-			set(gnu-flag)
-			set(gnu-flag-c)
-			set(gnu-flag-cc)
-			set(gnu-flag-lnk)
+		set(gnu-flag)
+		set(gnu-flag-c)
+		set(gnu-flag-cc)
+		set(gnu-flag-lnk)
 
+		if(${PRM_C_COMPILER_ID} STREQUAL "GNU")
+			set(gnu-flag-c
+				-Wstrict-prototypes 
+				-Wmissing-prototypes 
+				-Wnested-externs
+				-Wold-style-definition 
+				-Wunsuffixed-float-constants
+				)
+		endif()
 
-			message("gnu-nfound")
-		else()
+		if(${PRM_CXX_COMPILER_ID} STREQUAL "GNU")
+			set(gnu-flag-cc
+				-Wold-style-cast 
+				-Woverloaded-virtual 
+				-Wnon-virtual-dtor
+				-Wsuggest-override
+				-Wuseless-cast 
+				-Wcomment 
+				-Wreorder 
+				-Wnoexcept
+				)
+		endif()
+
+		if(${PRM_C_COMPILER_ID} STREQUAL "GNU" AND ${PRM_CXX_COMPILER_ID} STREQUAL "GNU")
 			gnu_asan(${PRM_C_COMPILER_ID} ${PRM_CXX_COMPILER_ID} ${PRM_C_COMPILER} ${PRM_CXX_COMPILER})
 
 			set(gnu-flag
@@ -76,33 +97,30 @@ function(ae2f_UltraError TARGET FLAG TEST_NAME)
 				-fstrict-flex-arrays=3 -fstack-protector-strong -fstack-clash-protection
 				-fanalyzer -ftrivial-auto-var-init=zero
 				)
-
-			set(gnu-flag-c
-				-Wstrict-prototypes 
-				-Wmissing-prototypes 
-				-Wnested-externs
-				-Wold-style-definition 
-				-Wunsuffixed-float-constants
-				)
-
-			set(gnu-flag-cc
-				-Wold-style-cast 
-				-Woverloaded-virtual 
-				-Wnon-virtual-dtor
-				-Wsuggest-override
-				-Wuseless-cast 
-				-Wcomment 
-				-Wreorder 
-				-Wnoexcept
-				)
-
 			set(
 				gnu-flag-lnk
 				${asan_flag}
 				)
 		endif()
-	endmacro()
+	endmacro(gnu)
 
+	macro(clang PRM_C_COMPILER_ID PRM_CXX_COMPILER_ID PRM_C_COMPILER PRM_CXX_COMPILER)
+		set(clang-flag)
+		set(clang-flag-c)
+		set(clang-flag-cc)
+		set(clang-flag-lnk)
+
+		if(${PRM_C_COMPILER_ID} STREQUAL "Clang" AND ${PRM_CXX_COMPILER_ID} STREQUAL "Clang")
+			set(clang-flag 
+				-fsanitize=address 
+				-fsanitize=undefined
+				)
+			set(clang-flag-lnk 
+				-fsanitize=address 
+				-fsanitize=undefined
+				)
+		endif()
+	endmacro(clang)
 
 	get_target_property(ccid-c ${TARGET} C_COMPILER_ID)
 	get_target_property(ccid-cc ${TARGET} CXX_COMPILER_ID)
@@ -126,20 +144,25 @@ function(ae2f_UltraError TARGET FLAG TEST_NAME)
 
 
 	gnu(${ccid-c} ${ccid-cc} ${cc-c} ${cc-cc})
+	clang(${ccid-c} ${ccid-cc} ${cc-c} ${cc-cc})
 
 	target_compile_options(${TARGET} ${FLAG}
 		${gnu-flag}
+		${clang-flag}
 
 		$<$<COMPILE_LANGUAGE:CXX>:
 		${gnu-flag-cc}
+		${clang-flag-cc}
 		>
 		$<$<COMPILE_LANGUAGE:C>:
 		${gnu-flag-c}
+		${clang-flag-c}
 		>
 		)
 
 	target_link_options(${TARGET} ${FLAG}
 		${gnu-flag-lnk}
+		${clang-flag-lnk}
 		)
 endfunction()
 
