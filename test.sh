@@ -13,38 +13,36 @@ __ae2f_IS_SHARED=("ON" "OFF")
 buildtype=$3
 
 for stdc in ${lstdc[@]}; do
-  for stdcc in ${lstdcc[@]}; do
-    for maker in ${makers[@]}; do
-      for _ae2f_CXX in ${__ae2f_CXX[@]}; do
-        for _ae2f_IS_SHARED in ${__ae2f_IS_SHARED[@]}; do
-          for _ae2f_MAC_BUILD in ${__ae2f_IS_SHARED[@]}; do
+for stdcc in ${lstdcc[@]}; do
+for maker in ${makers[@]}; do
+for _ae2f_CXX in ${__ae2f_CXX[@]}; do
+for _ae2f_IS_SHARED in ${__ae2f_IS_SHARED[@]}; do
+for _ae2f_MAC_BUILD in ${__ae2f_IS_SHARED[@]}; do
+	builddir=build/B$buildtype$stdc$stdcc$makers$_ae2f_CXX$_ae2f_IS_SHARED
 
-            builddir=build/B$buildtype$stdc$stdcc$makers$_ae2f_CXX$_ae2f_IS_SHARED
+	cmake -S . -B $builddir \
+		-DCMAKE_C_STANDARD=$stdc \
+		-DCMAKE_CXX_STANDARD=$stdcc \
+		$maker $1 $2 \
+		-Dae2f_CXX=$_ae2f_CXX \
+		-Dae2f_IS_SHARED=$_ae2f_IS_SHARED \
+		-Dae2f_MAC_BUILD=$_ae2f_MAC_BUILD ||
+		{
+			echo "Configuration failed"
+			exit 1
+		}
 
-            cmake -S . -B $builddir \
-              -DCMAKE_C_STANDARD=$stdc \
-              -DCMAKE_CXX_STANDARD=$stdcc \
-              $maker $1 $2 \
-              -Dae2f_CXX=$_ae2f_CXX \
-              -Dae2f_IS_SHARED=$_ae2f_IS_SHARED \
-              -Dae2f_MAC_BUILD=$_ae2f_MAC_BUILD ||
-              {
-                echo "Configuration failed"
-                exit 1
-              }
-
-            cmake --build $builddir --config $buildtype || {
-              echo "Build failed"
-              exit 1
-            }
-            ctest --test-dir $builddir -C $buildtype || {
-              echo "Test failed"
-              exit 1
-            }
-
-          done
-        done
-      done
-    done
-  done
+	cmake --build $builddir --config $buildtype || {
+		echo "Build failed"
+			exit 1	
+		}
+	ctest --test-dir -VV $builddir -C $buildtype || {
+		echo "Test failed"
+			exit 1
+		}
+done
+done
+done
+done
+done
 done

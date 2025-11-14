@@ -16,58 +16,130 @@ else()
 	set(ae2f_LIBPREFIX STATIC CACHE STRING "STATIC")
 endif()
 
-function(ae2f_gccUltraError TARGET FLAG)
+function(ae2f_UltraError TARGET FLAG TEST_NAME)
+	macro(gnu_asan PRM_C_COMPILER_ID PRM_CXX_COMPILER_ID PRM_C_COMPILER PRM_CXX_COMPILER)
+		set(_gnu_asan OFF)
 
-	if(NOT CMAKE_C_COMPILER_ID MATCHES "GNU" AND NOT CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-		return()
+		if(LINUX)
+			execute_process(
+				COMMAND ${PRM_C_COMPILER} -print-file-name=libasan.so
+				OUTPUT_VARIABLE	_libsan_path
+				)
+			set(_gnu_asan ON)
+		elseif(APPLE)
+			execute_process(
+				COMMAND ${PRM_C_COMPILER} -print-file-name=libasan.dylib
+				OUTPUT_VARIABLE	_libsan_path
+				)
+			set(_gnu_asan ON)
+		endif()
+
+		if(_gnu_asan)
+			string(REGEX REPLACE "[ \t\n\r]+" "" libsan_path "${_libsan_path}")
+			set(asan_flag -fsanitize=address -fsanitize=undefined)
+		endif()
+
+		if(TEST_NAME)
+			set_tests_properties(
+				${TEST_NAME} PROPERTIES
+				ENVIRONMENT "LD_PRELOAD=${libsan_path}"
+				)
+		endif()
+	endmacro(gnu_asan)
+
+	macro(gnu PRM_C_COMPILER_ID PRM_CXX_COMPILER_ID PRM_C_COMPILER PRM_CXX_COMPILER)
+		if(NOT ${PRM_C_COMPILER_ID} STREQUAL "GNU" AND NOT ${PRM_CXX_COMPILER_ID} STREQUAL "GNU")
+			set(gnu-flag)
+			set(gnu-flag-c)
+			set(gnu-flag-cc)
+			set(gnu-flag-lnk)
+
+
+			message("gnu-nfound")
+		else()
+			gnu_asan(${PRM_C_COMPILER_ID} ${PRM_CXX_COMPILER_ID} ${PRM_C_COMPILER} ${PRM_CXX_COMPILER})
+
+			set(gnu-flag
+				${asan_flag}
+				-Wall -Wextra -Werror -Wpedantic
+				-Wshadow 
+				-Wfloat-equal -Wundef 
+				-Wcast-align=strict
+				-Wconversion 
+				-Wsign-conversion 
+				-Wnull-dereference
+				-Wformat=2 -Wformat-signedness -Wformat-truncation
+				-Wimplicit-fallthrough=5 -Wswitch-enum -Wswitch-default
+				-Wvla -Wduplicated-cond -Wduplicated-branches -Wlogical-op
+				-Warith-conversion -Wmissing-declarations
+				-D_GLIBCXX_ASSERTIONS
+				-fstrict-flex-arrays=3 -fstack-protector-strong -fstack-clash-protection
+				-fanalyzer -ftrivial-auto-var-init=zero
+				)
+
+			set(gnu-flag-c
+				-Wstrict-prototypes 
+				-Wmissing-prototypes 
+				-Wnested-externs
+				-Wold-style-definition 
+				-Wunsuffixed-float-constants
+				)
+
+			set(gnu-flag-cc
+				-Wold-style-cast 
+				-Woverloaded-virtual 
+				-Wnon-virtual-dtor
+				-Wsuggest-override
+				-Wuseless-cast 
+				-Wcomment 
+				-Wreorder 
+				-Wnoexcept
+				)
+
+			set(
+				gnu-flag-lnk
+				${asan_flag}
+				)
+		endif()
+	endmacro()
+
+
+	get_target_property(ccid-c ${TARGET} C_COMPILER_ID)
+	get_target_property(ccid-cc ${TARGET} CXX_COMPILER_ID)
+
+	get_target_property(cc-c ${TARGET} C_COMPILER)
+	get_target_property(cc-cc ${TARGET} CXX_COMPILER)
+
+	if(ccid-c STREQUAL "ccid-c-NOTFOUND")
+		set(ccid-c ${CMAKE_C_COMPILER_ID})
+	endif()
+	if(ccid-cc STREQUAL "ccid-cc-NOTFOUND")
+		set(ccid-cc ${CMAKE_CXX_COMPILER_ID})
 	endif()
 
-	message(STATUS "Applying ULTRA warnings + Werror to target: ${TARGET}")
-	get_target_property(cxx_thing ${TARGET} CXX_STANDARD)
-	message(${cxx_thing})
-
-
-	if(cxx_thing STREQUAL "98")
-		set(n_znilptr -Wno-zero-as-null-pointer-constant)
-	else()
-		set(n_znilptr -Wzero-as-null-pointer-constant)
+	if(cc-c STREQUAL "cc-c-NOTFOUND")
+		set(cc-c ${CMAKE_C_COMPILER})
 	endif()
+	if(cc-cc STREQUAL "cc-cc-NOTFOUND")
+		set(cc-cc ${CMAKE_CXX_COMPILER})
+	endif()
+
+
+	gnu(${ccid-c} ${ccid-cc} ${cc-c} ${cc-cc})
 
 	target_compile_options(${TARGET} ${FLAG}
-		-Wall -Wextra -Werror -Wpedantic
-		-Wshadow 
-		-Wfloat-equal -Wundef 
-		-Wcast-align=strict
-		-Wconversion 
-		-Wsign-conversion 
-		-Wnull-dereference
-		-Wformat=2 -Wformat-signedness -Wformat-truncation
-		-Wimplicit-fallthrough=5 -Wswitch-enum -Wswitch-default
-		-Wvla -Wduplicated-cond -Wduplicated-branches -Wlogical-op
-		-Warith-conversion -Wmissing-declarations
-		-D_GLIBCXX_ASSERTIONS
-		-fstrict-flex-arrays=3 -fstack-protector-strong -fstack-clash-protection
-		-fanalyzer -ftrivial-auto-var-init=zero
+		${gnu-flag}
 
 		$<$<COMPILE_LANGUAGE:CXX>:
-		-Wold-style-cast 
-		-Woverloaded-virtual 
-		-Wnon-virtual-dtor
-		-Wsuggest-override
-		${n_znilptr}
-		-Wuseless-cast 
-		-Wcomment 
-		-Wreorder 
-		-Wnoexcept
+		${gnu-flag-cc}
 		>
-
 		$<$<COMPILE_LANGUAGE:C>:
-		-Wstrict-prototypes 
-		-Wmissing-prototypes 
-		-Wnested-externs
-		-Wold-style-definition 
-		-Wunsuffixed-float-constants
+		${gnu-flag-c}
 		>
+		)
+
+	target_link_options(${TARGET} ${FLAG}
+		${gnu-flag-lnk}
 		)
 endfunction()
 
@@ -139,7 +211,7 @@ function(ae2f_CoreTestTentVerbose prm_LibName prm_TestSourcesDir)
 			add_executable("${prm_LibName}-Test-${__NAME}" ${item})
 			target_link_libraries("${prm_LibName}-Test-${__NAME}" PRIVATE ${ARGN} ${prm_LibName})
 			add_test(NAME "${prm_LibName}-Test-${__NAME}" COMMAND "${prm_LibName}-Test-${__NAME}")
-			ae2f_gccUltraError(${prm_LibName}-Test-${__NAME} PRIVATE)
+			ae2f_UltraError(${prm_LibName}-Test-${__NAME} PRIVATE ${prm_LibName}-Test-${__NAME})
 		endforeach()
 	endif()
 endfunction()
