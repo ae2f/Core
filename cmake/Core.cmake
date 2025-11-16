@@ -111,6 +111,10 @@ function(ae2f_UltraError TARGET FLAG TEST_NAME)
 		set(clang-flag-lnk)
 
 		if(${PRM_C_COMPILER_ID} STREQUAL "Clang" AND ${PRM_CXX_COMPILER_ID} STREQUAL "Clang")
+			if(NOT WIN32)
+				set(clang-flag -fsanitize=address)
+				set(clang-flag-lnk -fsanitize=address)
+			endif()
 		endif()
 	endmacro(clang)
 
