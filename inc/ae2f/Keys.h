@@ -56,7 +56,7 @@
 	} \
 	tmpldef keyeval ret_t nameeval(prmdef)
 
-#if !__ae2f_stdcheck_CC(201103L)
+#if !__ae2f_stdcheck_CC(201100L)
 #undef	ae2f_noexcept
 #define ae2f_noexcept
 #elif defined(__cplusplus)
