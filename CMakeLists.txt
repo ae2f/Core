@@ -2,7 +2,29 @@ cmake_minimum_required(VERSION 3.10)
 project(Core VERSION 6.25.19 LANGUAGES C CXX)
 enable_testing()
 
-include(cmake/Core.cmake)
+# Set this source directory as the tree root for project.
+set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Tree root for project")
+set(ae2f_submod  .submod CACHE STRING "Relative path to submodule (subdirectory)")
+
+# guard for ae2f_CoreScript_Wh
+if(NOT ae2f_CoreScript_Wh)
+
+	# Directory to inject corescript
+	set(ae2f_CoreScript_Wh ./.cmake)
+
+	# Execute git to fetch CoreScript when repository does not exist
+	if(NOT EXISTS ${ae2f_CoreScript_Wh})
+		execute_process(
+			COMMAND git clone https://codeberg.org/ae2f/CoreScript
+			${ae2f_CoreScript_Wh}
+			)
+	endif()
+
+	# add subdirectory
+	add_subdirectory(${ae2f_CoreScript_Wh})
+
+endif()
+
 
 if(NOT TARGET ae2f::Core)
 	if(NOT DEFINED CMAKE_C_STANDARD)
