@@ -30,10 +30,8 @@
 #undef	ae2f_stdcc_v
 #ifdef	__cplusplus
 #define	ae2f_stdcc_v	(__cplusplus)
-#elif	defined(__STDC__) && (__STDC__)
+#else	
 #define ae2f_stdcc_v	0L
-#else
-#define ae2f_stdcc_v	((ae2f_LangVer_CC) * 100L)
 #endif
 
 #undef	ae2f_stdc_v
