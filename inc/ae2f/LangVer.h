@@ -10,22 +10,38 @@
  * @brief Standard C version, or at least cmake intended.
  *
  * @def ae2f_stdcc_v
- * @brief Standard C++ version, or at least cmake intended.
+ * @brief 
+ * Standard C++ version. \n\n
+ *
+ * - When it is compiled as standard C, this will be 0.
+ * - When it is not compiled as standard C, this will be decided by cmake.
+ *
+ * @macro __ae2f_stdcheck_C
+ * @brief Check if it hits over specific standard C version.
+ * @param v a standard C version to check
+ *
+ * @macro __ae2f_stdcheck_CC
+ * @brief Check if it hits over specific standard C++ version.
+ * @param v a standard C++ version to check
  * */
 #include "./LangVer.auto.h"
 
-#ifdef	__cplusplus
+
 #undef	ae2f_stdcc_v
+#ifdef	__cplusplus
 #define	ae2f_stdcc_v	(__cplusplus)
+#elif	defined(__STDC__) && (__STDC__)
+#define ae2f_stdcc_v	0L
 #else
 #define ae2f_stdcc_v	((ae2f_LangVer_CC) * 100L)
 #endif
 
+#undef	ae2f_stdc_v
 #ifdef	__STDC_VERSION__
-#undef	ae2f_stdc_v
 #define ae2f_stdc_v	(__STDC_VERSION__)
+#elif	defined(__STDC__) && (__STDC__)
+#define	ae2f_stdc_v	198900L
 #else
-#undef	ae2f_stdc_v
 #define ae2f_stdc_v	((ae2f_LangVer_C) * 100L)
 #endif
 

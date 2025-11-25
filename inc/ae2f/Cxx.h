@@ -11,13 +11,10 @@
 #ifndef ae2f_Cxx_h
 #define ae2f_Cxx_h
 
-/**
- * @def ae2f_NONE
- * @brief Literally nothing.
- */
-#define ae2f_NONE
+#include "./Guide.h"
+#include "./LangVer.h"
 
-#ifdef __cplusplus
+#if	ae2f_stdcc_v
 
 /**
  @def ae2f_WhenCXX 
@@ -30,9 +27,10 @@
  @brief
  Appears when the current language is C.
  */
-#define ae2f_WhenC(a) ae2f_NONE
+#define ae2f_WhenC(a) 
 
 #else
+
 /**
  @brief
  Appears when the current language is C++.
@@ -43,13 +41,11 @@
  @brief
  Appears when the current language is C.
  */
-#define ae2f_WhenCXX(a) ae2f_NONE
+#define ae2f_WhenCXX(a) 
 
 #endif
  
 #define ae2f_is_cxx ae2f_WhenC(0) ae2f_WhenCXX(1)
-
-
 
 
 /**
