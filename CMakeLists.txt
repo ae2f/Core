@@ -61,7 +61,13 @@ if(NOT TARGET ae2f::Core)
 		)
 
 	file(
-		WRITE ${PROJECT_SOURCE_DIR}/inc/Call.auto.h
+		WRITE ${PROJECT_SOURCE_DIR}/inc/ae2f/Call.auto.h
+		"#undef ON	\n"
+		"#undef OFF	\n"
+		"#define OFF	0\n"
+		"#define ON	1\n\n"
+
+		"#undef ae2f_IS_SHARED \n"
 		"/**					\n"
 		" * @file Call.auto.h			\n"
 		" * @brief cmake-generated			\n"
