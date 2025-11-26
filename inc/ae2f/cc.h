@@ -6,10 +6,10 @@
 #include "./LangVer.h"
 
 /**
- * @def _ae2f_gnuc(a)
+ * @def _ae2f_gnuc
  * @brief Available when compiled with gcc compiler.
  *
- * @def N_ae2f_gnuc(a)
+ * @def N_ae2f_gnuc
  * @brief Available when not compiled with gnu compiler.
  * */
 #undef	_ae2f_gnuc
@@ -23,10 +23,10 @@
 #endif
 
 /**
- * @def _ae2f_gnuc(a)
+ * @def _ae2f_msvc
  * @brief Available when compiled with msvc.
  *
- * @def N_ae2f_gnuc(a)
+ * @def N_ae2f_msvc
  * @brief Available when not compiled with msvc.
  * */
 #undef	_ae2f_msvc
@@ -120,7 +120,7 @@
 
 /**
  * @def ae2f_noexcept
- * @brief marker that this function does not throw something
+ * @brief marker that this function does not throw something.
  * */
 #undef	ae2f_noexcept
 #if	_ae2f_gnuc(!)0
