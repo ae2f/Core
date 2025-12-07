@@ -6,6 +6,7 @@
 #define ae2f_Keys_h
 
 #include "./Cxx.h"
+#include "./cc.h"
 
 /**
  @brief
@@ -55,27 +56,5 @@
 		return nameeval tmpluse (prmuse); \
 	} \
 	tmpldef keyeval ret_t nameeval(prmdef)
-
-#if !__ae2f_stdcheck_CC(201100L)
-#undef	ae2f_noexcept
-#define ae2f_noexcept
-#elif defined(__cplusplus)
-#define ae2f_noexcept noexcept
-#endif
-
-
-#undef	ae2f_restrict /** First declaration */
-#if ae2f_stdc_v < 199901L
-#define ae2f_restrict
-#else
-#define ae2f_restrict restrict
-#endif /* C>=99 */
-
-#if defined(__cplusplus)
-#undef	ae2f_restrict
-#define ae2f_restrict
-#endif /* C++ */
-
-
 
 #endif
