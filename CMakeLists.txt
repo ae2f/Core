@@ -7,6 +7,8 @@ set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Tree root for projec
 set(ae2f_submod  .submod CACHE STRING "Relative path to submodule (subdirectory)")
 set(ae2f_CoreScript_Wh ${ae2f_ProjRoot}/${ae2f_submod}/ae2f/CoreScript)
 
+option(ae2f_Core_N_RELOAD_ALWAYS "If set `OFF` library will be reloaded always" ON)
+
 # Execute git to fetch CoreScript when repository does not exist
 if(NOT EXISTS ${ae2f_CoreScript_Wh})
 	execute_process(
@@ -20,8 +22,9 @@ if(NOT TARGET ae2f::CoreScript)
 	add_subdirectory(${ae2f_CoreScript_Wh} ${ae2f_submod}/ae2f/CoreScript)
 endif()
 
+if(NOT ae2f_Core_RELOADED)
+	option(ae2f_Core_RELOADED	"ae2f::Core has been reloaded" ${ae2f_Core_N_RELOAD_ALWAYS})
 
-if(NOT TARGET ae2f::Core)
 	if(NOT DEFINED CMAKE_C_STANDARD)
 		set(ae2f_LangVer_C 90)
 	else()
@@ -57,17 +60,17 @@ if(NOT TARGET ae2f::Core)
 
 	file(
 		WRITE ${PROJECT_SOURCE_DIR}/inc/ae2f/Call.auto.h
-		"#undef ON	\n"
-		"#undef OFF	\n"
-		"#define OFF	0\n"
-		"#define ON	1\n\n"
+		"#undef ae2f_ON	\n"
+		"#undef ae2f_OFF	\n"
+		"#define ae2f_OFF	0\n"
+		"#define ae2f_ON	1\n\n"
 
 		"#undef ae2f_IS_SHARED \n"
 		"/**					\n"
 		" * @file Call.auto.h			\n"
 		" * @brief cmake-generated			\n"
 		" **/					\n\n"
-		"#define ae2f_IS_SHARED ${ae2f_IS_SHARED}	\n"
+		"#define ae2f_IS_SHARED ae2f_${ae2f_IS_SHARED}	\n"
 		)
 
 	file(
@@ -207,8 +210,10 @@ if(NOT TARGET ae2f::Core)
 			"#endif							\n\n"
 			)
 	endif()
+endif()
 
 
+if(NOT TARGET ae2f::Core)
 	file(GLOB_RECURSE ae2f-core-inc ${PROJECT_SOURCE_DIR}/inc/*)
 	ae2f_CoreLibTent(
 		${PROJECT_NAME} INTERFACE inc ae2f

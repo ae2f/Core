@@ -1,4 +1,13 @@
 # ae2f::Core
+```
+             ____   __     ____               
+   __ _  ___|___ \ / _| _ / ___|___  _ __ ___ 
+  / _` |/ _ \ __) | |(_|_) |   / _ \| '__/ _ \
+ | (_| |  __// __/|  _| _| |__| (_) | | |  __/
+  \__,_|\___|_____|_|(_|_)\____\___/|_|  \___|
+
+```
+
 - Rel-v6.25.19
 
 > This project has been migrated to [codeberg.org](https://codeberg.org/ae2f/Core).  
@@ -13,11 +22,9 @@
 - C         >= 90
 - C++       >= 98
 
-## Disclaimer
-> If you're looking for ae2f::ErrGlob, it has migrated to [ae2f::err](https://github.com/ae2f/err).
+# CMake Ctl Variables
+- ae2f_Core_N_RELOAD_ALWAYS
+    > always auto-regenerate the header on configure step when set to `OFF`
 
-## Disclaimer::Ds
-> If you're looking for Datastructure functions (alloc, arr, etc), it has migrated to [ae2f::Ds](https://github.com/ae2f/Ds)
-
-# See Also
-- ae2f::Core-Template
+- ae2f_float
+    > the custom type for floating type for this.
