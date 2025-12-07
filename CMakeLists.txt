@@ -22,8 +22,16 @@ if(NOT TARGET ae2f::CoreScript)
 	add_subdirectory(${ae2f_CoreScript_Wh} ${ae2f_submod}/ae2f/CoreScript)
 endif()
 
-if(NOT ae2f_Core_RELOADED)
-	option(ae2f_Core_RELOADED	"ae2f::Core has been reloaded" ${ae2f_Core_N_RELOAD_ALWAYS})
+
+if(ae2f_Core_RELOADED)
+	set(_ae2f_Core_RELOADED ON)
+else()
+	set(_ae2f_Core_RELOADED OFF)
+endif()
+
+option(ae2f_Core_RELOADED	"ae2f::Core has been reloaded" ${ae2f_Core_N_RELOAD_ALWAYS})
+
+if(NOT _ae2f_Core_RELOADED)
 
 	if(NOT DEFINED CMAKE_C_STANDARD)
 		set(ae2f_LangVer_C 90)
