@@ -132,3 +132,15 @@
 #else
 #define ae2f_noexcept
 #endif
+
+
+#undef	ae2f_inline
+#if	_ae2f_gnuc(!)0
+#define		ae2f_inline	__inline__
+#elif	_ae2f_msvc(!)0
+#define		ae2f_inline	__inline
+#elif	ae2f_stdc_v >= 199900L || ae2f_stdcc_v
+#define		ae2f_inline	inline
+#else
+#define		ae2f_inline
+#endif
