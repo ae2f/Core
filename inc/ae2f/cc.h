@@ -134,6 +134,10 @@
 #endif
 
 
+/**
+ * @def		ae2f_inline
+ * @brief	`inline`
+ * */
 #undef	ae2f_inline
 #if	_ae2f_gnuc(!)0
 #define		ae2f_inline	__inline__
@@ -143,4 +147,19 @@
 #define		ae2f_inline	inline
 #else
 #define		ae2f_inline
+#endif
+
+/**
+ * @def		ae2f_fallthrough
+ * @brief	explicitly tells compiler that fallthrough on switch is expected.
+ * */
+#undef	ae2f_fallthrough
+#if	_ae2f_gnuc(!)0
+#define		ae2f_fallthrough	__attribute__((fallthrough))
+#elif	_ae2f_msvc(!)0 && _MSC_VER >= 1934
+#define		ae2f_fallthrough	[[fallthrough]]
+#elif	ae2f_stdc_v >= 202300L || ae2f_stdcc_v
+#define		ae2f_fallthrough	[[fallthrough]]
+#else
+#define		ae2f_fallthrough
 #endif
