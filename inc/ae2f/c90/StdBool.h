@@ -12,7 +12,7 @@
 #else
 
 #ifndef _Bool
-#define _Bool	char
+#define _Bool	unsigned
 #endif
 
 #ifndef bool

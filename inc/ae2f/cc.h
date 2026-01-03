@@ -163,3 +163,52 @@
 #else
 #define		ae2f_fallthrough
 #endif
+
+
+/**
+ * @def		ae2f_expected
+ * @brief	expectes `a` as `true`.
+ *
+ * @def		ae2f_expected_not
+ * @brief	expectes `a` as `false`.
+ * */
+#undef	ae2f_expected
+#undef	ae2f_expected_not
+#if	_ae2f_gnuc(!)0
+#define		ae2f_expected(a)	(__builtin_expect(!!(a), 1))
+#define		ae2f_expected_not(a)	(__builtin_expect(!!(a), 0))
+#elif	_ae2f_msvc(!)0 && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
+#define		ae2f_expected(a)	(a) [[likely]]
+#define		ae2f_expected_not(a)	(a) [[unlikely]]
+#else
+#define		ae2f_expected(a)	a
+#define		ae2f_expected_not(a)	a
+#endif
+
+/**
+ * @def		ae2f_unreachable
+ * @brief	tells the compiler that below this keyword is not expected to be reached.
+ * */
+#undef	ae2f_unreachable
+#if	_ae2f_gnuc(!)0
+#define		ae2f_unreachable()	__builtin_unreachable()
+#elif	_ae2f_msvc(!)0
+#define		ae2f_unreachable()	__assume(0)
+#else
+#define		ae2f_unreachable()
+#endif
+
+/**
+ * @def		ae2f_assume
+ * @brief	tells the compiler that value if `a` is `false`, 
+ * below this keyword is not expected to be reached.
+ * @see	ae2f_unreachable
+ * */
+#undef	ae2f_assume
+#if	_ae2f_gnuc(!)0 && (__GNUC__ >= 13)
+#define		ae2f_assume(a)	__attribute__((__assume__(a)))
+#elif	_ae2f_msvc(!)0
+#define		ae2f_assume(a)	__assume(a)
+#else
+#define		ae2f_assume(a)	if(!(a)) { ae2f_unreachable(); }
+#endif
