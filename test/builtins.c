@@ -5,11 +5,13 @@
 
 const int GLOBAL_THREE = 3;
 
-ae2f_inline int ae2f_ccpure ae2f_noexcept RETURN_THREE(void) {
+ae2f_inline static int ae2f_ccpure ae2f_noexcept RETURN_THREE(void) {
 	return GLOBAL_THREE;
 }
 
-ae2f_inline int ae2f_ccconst ae2f_noexcept I_ADD(const int a, const int b) {
+int ae2f_ccconst ae2f_noexcept I_ADD(const int, const int);
+
+int ae2f_ccconst ae2f_noexcept I_ADD(const int a, const int b) {
 	return a + b;
 }
 
