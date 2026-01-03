@@ -185,6 +185,21 @@
 #define		ae2f_expected_not(a)	a
 #endif
 
+#undef		ae2f_unexpected
+#define		ae2f_unexpected		ae2f_expected_not
+
+#undef	ae2f_unexpected_but_if
+#define	ae2f_unexpected_but_if(a)	if(ae2f_expected_not(a))
+
+#undef	ae2f_expected_if
+#define	ae2f_expected_if(a)		if(ae2f_expected(a))
+
+#undef	ae2f_unexpected_else
+#define	ae2f_unexpected_else(a)		if(!ae2f_unexpected(a))
+
+#undef	ae2f_expected_but_else
+#define	ae2f_expected_but_else(a)	if(!(ae2f_expected(a)))
+
 /**
  * @def		ae2f_unreachable
  * @brief	tells the compiler that below this keyword is not expected to be reached.
