@@ -14,39 +14,43 @@
 
 #if HAVE_STDINT_H
 #include <stdint.h>
+
 #elif defined(__cplusplus) && __cplusplus >= 201103L
 #include <cstdint>
+
 #else
 #include "./ptrsz.auto.h"
 #include "./Limits.h"
 
 #ifndef int_fast8_t
-#define int_fast8_t	signed int
+typedef	signed int int_fast8_t;
+#define	int_fast8_t	int_fast8_t
 #endif
 typedef char ae2f_CHECK[sizeof(int_fast8_t) >= 1 ? 1 : - 1];
 
 #ifndef int_least8_t
-#define int_least8_t	signed char
+typedef	signed char int_least8_t;
+#define int_least8_t	int_least8_t
 #endif
 typedef char ae2f_CHECK[sizeof(int_least8_t) >= 1 ? 1 : - 1];
 
-#if	!defined(int8_t) && SCHAR_WIDTH == 8
+#if	!defined(i8) && SCHAR_WIDTH == 8
 #define int8_t		int_least8_t
 typedef char ae2f_CHECK[sizeof(int8_t) == 1 ? 1 : - 1];
 #endif
 
-#ifndef uint_fast8_t
-#define uint_fast8_t	unsigned int
+#ifndef	uint_fast8_t 
+#define uint_fast8_t		unsigned int
 #endif
 typedef char ae2f_CHECK[sizeof(uint_fast8_t) >= 1 ? 1 : - 1];
 
-#ifndef uint_least8_t
-#define uint_least8_t	unsigned char
+#ifndef	uint_least8_t
+#define uint_least8_t		unsigned char
 #endif
 typedef char ae2f_CHECK[sizeof(uint_least8_t) >= 1 ? 1 : - 1];
 
 #if	!defined(uint8_t) && UCHAR_WIDTH == 8
-#define uint8_t		uint_least8_t
+#define uint8_t			uint_least8_t
 typedef char ae2f_CHECK[sizeof(uint8_t) == 1 ? 1 : - 1];
 #endif
 
@@ -67,7 +71,7 @@ typedef char ae2f_CHECK[sizeof(int_least16_t) >= 2 ? 1 : - 1];
 #endif
 typedef char ae2f_CHECK[sizeof(int16_t) == 2 ? 1 : - 1];
 
-#ifndef uint_fast16_t
+#ifndef	uint_fast16_t
 #define uint_fast16_t	unsigned int
 #endif
 typedef char ae2f_CHECK[sizeof(uint_fast16_t) >= 2 ? 1 : - 1];
@@ -214,6 +218,119 @@ typedef char ae2f_CHECK[sizeof(uint_least64_t) >= 8 ? 1 : -1];
 typedef char ae2f_CHECK[sizeof(intptr_t) >= sizeof(void*) ? 1 : -1];
 typedef char ae2f_CHECK[sizeof(uintptr_t) >= sizeof(void*) ? 1 : -1];
 
-
 #endif
+
+#ifndef	i8_fast
+#define	i8_fast		int_fast8_t
+#endif
+
+#ifndef	i16_fast
+#define	i16_fast	int_fast16_t
+#endif
+
+#ifndef	i32_fast
+#define	i32_fast	int_fast32_t
+#endif
+
+#ifndef	i64_fast
+#define	i64_fast	int_fast64_t
+#endif
+
+#ifndef	u8_fast
+#define	u8_fast		uint_fast8_t
+#endif
+
+#ifndef	u16_fast
+#define	u16_fast	uint_fast16_t
+#endif
+
+#ifndef	u32_fast
+#define	u32_fast	uint_fast32_t
+#endif
+
+#ifndef	u64_fast
+#define	u64_fast	uint_fast64_t
+#endif
+
+#ifndef	i8_least
+#define	i8_least	int_least8_t
+#endif
+
+#ifndef	i16_least
+#define	i16_least	int_least16_t
+#endif
+
+#ifndef	i32_least
+#define	i32_least	int_least32_t
+#endif
+
+#ifndef	i64_least	
+#define	i64_least	int_least64_t
+#endif
+
+#ifndef	u8_least
+#define	u8_least	uint_least8_t
+#endif
+
+#ifndef	u16_least
+#define	u16_least	uint_least16_t
+#endif
+
+#ifndef	u32_least
+#define	u32_least	uint_least32_t
+#endif
+
+#ifndef	u64_least	
+#define	u64_least	uint_least64_t
+#endif
+
+#ifndef	i8
+#define	i8		int8_t
+#endif
+
+#ifndef	i16
+#define	i16		int16_t
+#endif
+
+#ifndef	i32
+#define	i32		int32_t
+#endif
+
+#ifndef	i64
+#define	i64		int64_t
+#endif
+
+#ifndef	u8
+#define	u8		uint8_t
+#endif
+
+#ifndef	u16
+#define	u16		uint16_t
+#endif
+
+#ifndef	u32
+#define	u32		uint32_t
+#endif
+
+#ifndef	u64
+#define	u64		uint64_t
+#endif
+
+#ifndef	imax
+#define	imax		intmax_t
+#endif
+
+#ifndef	umax
+#define	umax		uintmax_t
+#endif
+
+#ifndef	iptr
+#define	iptr		intptr_t
+#endif
+
+#ifndef	uptr
+#define	uptr		uintptr_t
+#endif
+
+
 #endif
