@@ -12,7 +12,6 @@
 
 #include <ae2f/Cxx.h>
 
-#include <ae2f/Pack/Num.auto.h>
 
 int main(void) {
 	void* ae2f_restrict hello = ae2f_NIL;

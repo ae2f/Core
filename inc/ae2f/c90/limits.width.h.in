@@ -1,0 +1,43 @@
+/**
+ * @file .limits.width.h
+ * */
+
+#ifndef SCHAR_WIDTH					
+#define SCHAR_WIDTH	(@SCHAR_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef UCHAR_WIDTH					
+#define UCHAR_WIDTH	(@UCHAR_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef SHRT_WIDTH						
+#define SHRT_WIDTH	(@SHRT_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef USHRT_WIDTH					
+#define USHRT_WIDTH	(@USHRT_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef INT_WIDTH						
+#define INT_WIDTH	(@INT_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef UINT_WIDTH						
+#define UINT_WIDTH	(@UINT_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef LONG_WIDTH						
+#define LONG_WIDTH	(@LONG_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef ULONG_WIDTH					
+#define ULONG_WIDTH	(@ULONG_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef LLONG_WIDTH					
+#define LLONG_WIDTH	(@LLONG_WIDTH_BYTE@ << 3)	
+#endif							
+
+#ifndef ULLONG_WIDTH					
+#define ULLONG_WIDTH	(@ULLONG_WIDTH_BYTE@ << 3)
+#endif				

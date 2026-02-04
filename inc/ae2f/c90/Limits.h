@@ -10,7 +10,7 @@
 
 /** @brief width fetching */
 #if !__ae2f_lvcheck_c(202311L)
-#include "./limits.width.auto.h"
+#include "./.limits.width.h"
 #endif
 
 #endif

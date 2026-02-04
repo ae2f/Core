@@ -13,7 +13,7 @@
 #define ae2f_Cast_h
 
 #include "./Cast/CasterUnion.hpp"
-#include "./LangVer.auto.h"
+#include "./.LangVer.h"
 #include "Cxx.h"
 #include "./Guide.h"
 

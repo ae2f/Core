@@ -8,7 +8,7 @@
  * 
  */
 
-#include "./Num.auto.h"
+#include "./.Num.h"
 
 #if ae2f_PackCount
 #pragma pack(push, 0)

@@ -1,0 +1,11 @@
+/**					
+ * @file .ptrsz.h
+ * @brief cmake-generated			
+ **/					
+
+/**
+ * @def ae2f_PTRSZ_SIZE
+ * @brief Pointer size as bytes
+ * @details Pointer size has been calculated by cmake.
+ */
+#define ae2f_PTRSZ_SIZE @ae2f_SIZEOF_VOID_P@

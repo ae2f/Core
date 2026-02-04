@@ -10,7 +10,7 @@
 #ifndef ae2f_stdint_h
 #define ae2f_stdint_h
 
-#include "./have-stdint.auto.h"
+#include "./.have-stdint.h"
 
 #if HAVE_STDINT_H
 #include <stdint.h>

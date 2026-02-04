@@ -1,0 +1,6 @@
+/**
+ * @file Num.auto.h
+ * @brief cmake-generated
+ **/
+#undef	ae2f_PackCount
+#define ae2f_PackCount @ae2f_packcount@

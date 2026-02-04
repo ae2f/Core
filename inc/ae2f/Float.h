@@ -6,7 +6,7 @@
 #ifndef ae2f_Float_h
 #define ae2f_Float_h
 
-#include "./Float.auto.h"
+#include "./.Float.h"
 #include <float.h>
 
 typedef ae2f_float ae2f_float_t;

@@ -24,7 +24,7 @@
  * @brief Check if it hits over specific standard C++ version.
  * @param v a standard C++ version to check
  * */
-#include "./LangVer.auto.h"
+#include "./.LangVer.h"
 
 
 #undef	ae2f_stdcc_v
