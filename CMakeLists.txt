@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY CACHE STRING "" FORCE)
 project(Core VERSION 6.25.19 LANGUAGES C CXX)
 enable_testing()
 
@@ -6,8 +7,6 @@ enable_testing()
 set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Tree root for project")
 set(ae2f_submod  .submod CACHE STRING "Relative path to submodule (subdirectory)")
 set(ae2f_CoreScript_Wh ${ae2f_ProjRoot}/${ae2f_submod}/ae2f/CoreScript)
-
-option(ae2f_Core_N_RELOAD_ALWAYS "If set `OFF` library will be reloaded always" ON)
 
 # Execute git to fetch CoreScript when repository does not exist
 if(NOT EXISTS ${ae2f_CoreScript_Wh})
