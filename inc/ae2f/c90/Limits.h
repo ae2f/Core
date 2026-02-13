@@ -8,9 +8,7 @@
 #include <limits.h>
 #include "../LangVer.h"
 
-/** @brief width fetching */
-#if !__ae2f_lvcheck_c(202311L)
+/** @brief width fetching when not defined. */
 #include "./.limits.width.h"
-#endif
 
 #endif

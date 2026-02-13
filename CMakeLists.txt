@@ -100,6 +100,9 @@ check_type_size("unsigned long" ULONG_WIDTH_BYTE)
 check_type_size("long long" LLONG_WIDTH_BYTE)
 check_type_size("unsigned long long" ULLONG_WIDTH_BYTE)
 
+check_type_size("__int64" __INT64_WIDTH_BYTE)
+check_type_size("unsigned __int64" __UINT64_WIDTH_BYTE)
+
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/limits.width.h.in
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/.limits.width.h

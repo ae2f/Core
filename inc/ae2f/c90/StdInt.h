@@ -123,14 +123,17 @@ typedef char ae2f_CHECK[sizeof(uint32_t) == 4 ? 1 : -1];
 
 /** INT32 */
 
-
 #if !defined(int_least64_t) &&	LONG_WIDTH >= 64
 #define int_least64_t	signed long
 #define INT_LEAST64_WIDTH	LONG_WIDTH
 #elif				LLONG_WIDTH >= 64
 #define int_least64_t	signed long long
 #define INT_LEAST64_WIDTH	LLONG_WIDTH
+#elif				AE2F__INT64_WIDTH >= 64
+#define	int_least64_t	__int64
+#define	INT_LEAST64_WIDTH	AE2F__INT64_WIDTH
 #endif
+
 #ifdef int_least64_t
 typedef char ae2f_CHECK[sizeof(int_least64_t) >= 8 ? 1 : -1];
 #endif
@@ -151,6 +154,9 @@ typedef char ae2f_CHECK[sizeof(int64_t) == 8 ? 1 : -1];
 #elif				ULLONG_WIDTH >= 64
 #define uint_least64_t	unsigned long long
 #define UINT_LEAST64_WIDTH	ULLONG_WIDTH
+#elif				AE2F__UINT64_WIDTH >= 64
+#define	uint_least64_t	unsigned __int64
+#define	UINT_LEAST64_WIDTH	AE2F__UINT64_WIDTH
 #endif
 #ifdef uint_least64_t
 typedef char ae2f_CHECK[sizeof(uint_least64_t) >= 8 ? 1 : -1];
