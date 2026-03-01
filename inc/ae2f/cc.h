@@ -243,6 +243,8 @@
 #define		ae2f_assume(a) __builtin_assume(a)
 #elif	_ae2f_msvc(!)0
 #define		ae2f_assume(a)	__assume(a)
+#elif	ae2f_stdcc_v >= 202300L
+#define		ae2f_assume(a)	[[assume(a)]]
 #else
 #define		ae2f_assume(a)	if(!(a)) { ae2f_unreachable(); }
 #endif
