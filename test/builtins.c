@@ -20,10 +20,11 @@ int ae2f_ccconst ae2f_noexcept I_ADD(const int a, const int b) {
 }
 
 int main(void) {
-	void* ae2f_restrict HELLO;
+	void* ae2f_restrict	HELLO;
+	int  ae2f_unused	UNUSED;
 
 	assert(I_ADD(3, 4) == 7);
-	{ ae2f_assume(3); }
+	ae2f_assume_strict(3);
 	{ ae2f_assume(RETURN_THREE_CONST()); }
 
 	HELLO = malloc(3);
