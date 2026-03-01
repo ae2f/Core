@@ -177,7 +177,7 @@
 #if	_ae2f_gnuc(!)0
 #define		ae2f_expected(a)	(__builtin_expect(!!(a), 1))
 #define		ae2f_expected_not(a)	(__builtin_expect(!!(a), 0))
-#elif	_ae2f_msvc(!)0 && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
+#elif	_ae2f_msvc(!)0 && defined(_MSVC_LANG) && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
 #define		ae2f_expected(a)	(a) [[likely]]
 #define		ae2f_expected_not(a)	(a) [[unlikely]]
 #else

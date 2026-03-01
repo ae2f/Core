@@ -5,7 +5,7 @@
 
 const int GLOBAL_THREE = 3;
 
-ae2f_inline static int ae2f_ccpure ae2f_noexcept RETURN_THREE(void) {
+ae2f_inline static int ae2f_ccpure RETURN_THREE(void) {
 	return GLOBAL_THREE;
 }
 
