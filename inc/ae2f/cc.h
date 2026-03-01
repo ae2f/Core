@@ -259,7 +259,7 @@
  * */
 #ifndef	ae2f_assume
 #if	_ae2f_gnuc(!)0 && (__GNUC__ >= 13)
-#define		ae2f_assume(a)	{ __attribute__((assume(a))) }
+#define		ae2f_assume(a)	{ __attribute__((assume(a))); }
 #else
 #define		ae2f_assume(a)	ae2f_expected_but_else(a) { ae2f_unreachable(); }
 #endif
