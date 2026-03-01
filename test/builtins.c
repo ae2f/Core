@@ -5,7 +5,11 @@
 
 const int GLOBAL_THREE = 3;
 
-ae2f_inline static int ae2f_ccpure RETURN_THREE(void) {
+ae2f_inline static int ae2f_ccpure RETURN_THREE_CONST(void) {
+	return 3;
+}
+
+ae2f_inline static int ae2f_ccpure RETURN_THREE_PURE(void) {
 	return GLOBAL_THREE;
 }
 
@@ -19,14 +23,14 @@ int main(void) {
 	void* ae2f_restrict HELLO;
 
 	assert(I_ADD(3, 4) == 7);
-	{ ae2f_assume(RETURN_THREE()); }
+	{ ae2f_assume(RETURN_THREE_CONST()); }
 
 	HELLO = malloc(3);
 	assert(HELLO);
 	{ ae2f_assume(HELLO); }
 	free(HELLO);
 
-	if(ae2f_expected(RETURN_THREE())) {
+	if(ae2f_expected(RETURN_THREE_PURE())) {
 		puts("Hello World!");
 	}
 
