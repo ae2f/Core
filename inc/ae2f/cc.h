@@ -227,3 +227,19 @@
 #else
 #define		ae2f_assume(a)	if(!(a)) { ae2f_unreachable(); }
 #endif
+
+/**
+ * @def		ae2f_unused
+ * @brief	Mark an element as unused.
+ * @see		[[maybe_unused]]
+ * */
+#ifndef	ae2f_unused
+#if	_ae2f_gnuc(!)0 
+#define	ae2f_unused	__attribute__((unused))
+#elif	ae2f_stdcc_v >= 201700L || ae2f_stdc_v >= 202300L
+#define	ae2f_unused	[[maybe_unused]]
+#else
+#define	ae2f_unused
+#endif
+
+#endif

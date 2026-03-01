@@ -50,3 +50,7 @@
 #ifndef	AE2F__UINT64_WIDTH
 #define	AE2F__UINT64_WIDTH	((@__UINT64_WIDTH_BYTE@ + 0) << 3)
 #endif
+
+#ifndef	AE2F_ENUM_WIDTH
+#define AE2F_ENUM_WIDTH		((@ENUMINT_WIDTH_BYTE@ + 0) << 3)
+#endif

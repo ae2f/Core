@@ -21,16 +21,6 @@ if(NOT TARGET ae2f::CoreScript)
 	add_subdirectory(${ae2f_CoreScript_Wh} ${ae2f_submod}/ae2f/CoreScript)
 endif()
 
-
-if(ae2f_Core_RELOADED)
-	set(_ae2f_Core_RELOADED ON)
-else()
-	set(_ae2f_Core_RELOADED OFF)
-endif()
-
-option(ae2f_Core_RELOADED	"ae2f::Core has been reloaded" ${ae2f_Core_N_RELOAD_ALWAYS})
-
-
 if(NOT DEFINED CMAKE_C_STANDARD)
 	set(ae2f_LangVer_C 90)
 else()
@@ -102,6 +92,10 @@ check_type_size("unsigned long long" ULLONG_WIDTH_BYTE)
 
 check_type_size("__int64" __INT64_WIDTH_BYTE)
 check_type_size("unsigned __int64" __UINT64_WIDTH_BYTE)
+
+set(CMAKE_EXTRA_INCLUDE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/dummy/enum.h)
+check_type_size("DUMMY_ENUM_ZERO" ENUMINT_WIDTH_BYTE)
+unset(CMAKE_EXTRA_INCLUDE_FILES)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/limits.width.h.in
