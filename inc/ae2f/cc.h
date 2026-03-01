@@ -22,6 +22,23 @@
 #define N_ae2f_gnuc(a)	a
 #endif
 
+#ifndef	_ae2f_clang
+#if	defined(__clang__)
+#define	_ae2f_clang(a)	a
+#else
+#define	_ae2f_clang(a)
+#endif
+#endif
+
+#ifndef	N_ae2f_clang
+#if	defined(__clang__)
+#define	N_ae2f_clang(a)
+#else
+#define	N_ae2f_clang(a)	a
+#endif
+#endif
+
+
 /**
  * @def _ae2f_msvc
  * @brief Available when compiled with msvc.
@@ -58,7 +75,7 @@
  * @brief Keyword as `[[const]]` on C23..
  * */
 #undef	ae2f_ccconst
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_ccconst	__attribute__((const))
 #elif __ae2f_stdcheck_C(202300L) && ae2f_stdcc_v
 #define ae2f_ccconst	[[const]]
@@ -71,7 +88,7 @@
  * @brief Keyword as `restrict` on C99.
  * */
 #undef	ae2f_restrict
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_restrict	__restrict
 #elif	_ae2f_msvc(!)0
 #define ae2f_restrict	__restrict
@@ -86,9 +103,9 @@
  * @brief The returning pointer does not alias to existing object.
  * */
 #undef	ae2f_retnew
-#if	_ae2f_msvc(1) +0
+#if	_ae2f_msvc(!)0
 #define ae2f_retnew	__declspec(restrict)
-#elif	_ae2f_gnuc(!)0
+#elif	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_retnew	__attribute__((malloc))
 #else
 #define ae2f_retnew
@@ -99,7 +116,7 @@
  * @brief Function declare for shared object
  * */
 #undef	ae2f_decl
-#if	_ae2f_msvc(1) +0
+#if	_ae2f_msvc(!)0
 #define ae2f_decl	__declspec(dllimport)
 #else
 #define ae2f_decl
@@ -110,7 +127,7 @@
  * @brief Function implementation for shared object
  * */
 #undef	ae2f_impl
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_impl	__attribute__((visibility("default")))
 #elif	_ae2f_msvc(!)0
 #define ae2f_impl	__declspec(dllexport)
@@ -123,7 +140,7 @@
  * @brief marker that this function does not throw something.
  * */
 #undef	ae2f_noexcept
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_noexcept	__attribute__((nothrow))
 #elif	_ae2f_msvc(!)0
 #define ae2f_noexcept	__declspec(nothrow)
@@ -139,7 +156,7 @@
  * @brief	`inline`
  * */
 #undef	ae2f_inline
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define		ae2f_inline	__inline__
 #elif	_ae2f_msvc(!)0
 #define		ae2f_inline	__inline
@@ -154,7 +171,7 @@
  * @brief	explicitly tells compiler that fallthrough on switch is expected.
  * */
 #undef	ae2f_fallthrough
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define		ae2f_fallthrough	__attribute__((fallthrough))
 #elif	_ae2f_msvc(!)0 && _MSC_VER >= 1934
 #define		ae2f_fallthrough	[[fallthrough]]
@@ -174,7 +191,7 @@
  * */
 #undef	ae2f_expected
 #undef	ae2f_expected_not
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define		ae2f_expected(a)	(__builtin_expect(!!(a), 1))
 #define		ae2f_expected_not(a)	(__builtin_expect(!!(a), 0))
 #elif	_ae2f_msvc(!)0 && defined(_MSVC_LANG) && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
@@ -205,7 +222,7 @@
  * @brief	tells the compiler that below this keyword is not expected to be reached.
  * */
 #undef	ae2f_unreachable
-#if	_ae2f_gnuc(!)0
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define		ae2f_unreachable()	__builtin_unreachable()
 #elif	_ae2f_msvc(!)0
 #define		ae2f_unreachable()	__assume(0)
@@ -222,6 +239,8 @@
 #undef	ae2f_assume
 #if	_ae2f_gnuc(!)0 && (__GNUC__ >= 13)
 #define		ae2f_assume(a)	__attribute__((__assume__(a)))
+#elif	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
+#define		ae2f_assume(a) __builtin_assume(a)
 #elif	_ae2f_msvc(!)0
 #define		ae2f_assume(a)	__assume(a)
 #else
@@ -234,7 +253,7 @@
  * @see		[[maybe_unused]]
  * */
 #ifndef	ae2f_unused
-#if	_ae2f_gnuc(!)0 
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define	ae2f_unused	__attribute__((unused))
 #elif	ae2f_stdcc_v >= 201700L || ae2f_stdc_v >= 202300L
 #define	ae2f_unused	[[maybe_unused]]
