@@ -23,6 +23,7 @@ int main(void) {
 	void* ae2f_restrict HELLO;
 
 	assert(I_ADD(3, 4) == 7);
+	{ ae2f_assume(3); }
 	{ ae2f_assume(RETURN_THREE_CONST()); }
 
 	HELLO = malloc(3);
