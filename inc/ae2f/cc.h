@@ -142,7 +142,7 @@
 #undef	ae2f_noexcept
 #if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #define ae2f_noexcept	__attribute__((nothrow))
-#elif	_ae2f_msvc(!)0
+#elif	_ae2f_msvc(!)0 && ae2f_stdcc_v
 #define ae2f_noexcept	__declspec(nothrow)
 #elif	ae2f_stdcc_v >= 201100L
 #define ae2f_noexcept	noexcept
