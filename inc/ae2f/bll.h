@@ -21,7 +21,7 @@
 	(ae2f_bll_zero(uint) - ae2f_static_cast(uint, c_bool))
 
 #define	ae2f_bll_from_bool1(uint, c_bool)	\
-	(ae2f_static_cast(uint, c_bool) | ae2f_bll_from_bool2(uint, c_bool))
+	((uint)(((1u) << ((sizeof(uint) << 3) - (1))) | ((c_bool) << ((sizeof(uint) << 3)))))
 
 #define	ae2f_bll_from_bool_naive2(uint, c_bool)	\
 	ae2f_bll_from_bool2(uint, !!(c_bool))
