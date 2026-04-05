@@ -20,8 +20,15 @@
 #define	ae2f_bll_from_bool2(uint, c_bool)	\
 	(ae2f_bll_zero(uint) - ae2f_static_cast(uint, c_bool))
 
+#define	ae2f_bll_maskhalf_from_bool(uint, c_bool)	\
+	((ae2f_static_cast(uint, c_bool) \
+	  << ((ae2f_static_cast(uint, sizeof(uint)) << ae2f_static_cast(uint, 3)) \
+		  - ae2f_static_cast(uint, 1))) \
+	  - ae2f_static_cast(uint, c_bool))
+
 #define	ae2f_bll_from_bool1(uint, c_bool)	\
-	((uint)(((1u) << ((sizeof(uint) << 3) - (1))) | ((c_bool) << ((sizeof(uint) << 3)))))
+	(ae2f_bll_maskhalf_from_bool(uint, c_bool) | \
+	 (ae2f_bll_maskhalf_from_bool(uint, c_bool) << ae2f_static_cast(uint, 1)))
 
 #define	ae2f_bll_from_bool_naive2(uint, c_bool)	\
 	ae2f_bll_from_bool2(uint, !!(c_bool))
@@ -42,10 +49,10 @@
 	ae2f_bll_sel(uint, ae2f_bll_from_bool2(uint, c_bool), c_tval, c_fval)
 
 #define	ae2f_bll_sel_bool_naive1(uint, c_bool, c_tval, c_fval)	\
-	ae2f_bll_sel_bool1(uint, !!(c_bool), c_tval, c_fval)
+	ae2f_bll_sel_bool1(uint, !(c_bool), c_fval, c_tval)
 
 #define	ae2f_bll_sel_bool_naive2(uint, c_bool, c_tval, c_fval)	\
-	ae2f_bll_sel_bool2(uint, !!(c_bool), c_tval, c_fval)
+	ae2f_bll_sel_bool2(uint, !(c_bool), c_fval, c_tval)
 
 #include <ae2f/c90/StdInt.h>
 
@@ -59,6 +66,6 @@
 	ae2f_bll_sel_ptr(elm_t, ae2f_bll_from_bool1(uptr, c_bool), c_tval, c_fval)
 
 #define	ae2f_bll_sel_ptrbool_naive1(elm_t, c_bool, c_tval, c_fval)	\
-	ae2f_bll_sel_ptrbool1(elm_t, !!(c_bool), c_tval, c_fval)
+	ae2f_bll_sel_ptrbool1(elm_t, !(c_bool), c_fval, c_tval)
 
 #endif

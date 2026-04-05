@@ -16,10 +16,10 @@ int main(void) {
 		return 1;
 
 	unless(ae2f_bll_from_bool1(umax, 1))
-		return 1;
+		return 2;
 
 	unless(ae2f_bll_sel_bool1(umax, 1, 3u, 2u) == 3u)
-		return 1;
+		return 3;
 
 	return 0;
 }
