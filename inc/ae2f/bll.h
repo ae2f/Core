@@ -3,10 +3,10 @@
  * @brief	[B]ranch[l]ess [l]ogic
  *
  * @details
- * `uint` must be unsigned integer.  
- * `c_bool` must be 0/1   
- * `c_mask` must be all set or all not set (0, uint_max)  
- * `c_uint_btwidth` is the bit width of `uint`  
+ * `uint` must be unsigned integer.
+ * `c_bool` must be 0/1
+ * `c_mask` must be all set or all not set (0, uint_max)
+ * `c_uint_btwidth` is the bit width of `uint`
  * */
 
 #ifndef	ae2f_bll_h
@@ -54,7 +54,7 @@
 #define	ae2f_bll_sel_bool_naive2(uint, c_bool, c_tval, c_fval)	\
 	ae2f_bll_sel_bool2(uint, !(c_bool), c_fval, c_tval)
 
-#include <ae2f/c90/StdInt.h>
+#include <ae2f/c90/stdint-def.h>
 
 #define	ae2f_bll_sel_ptr(ptr_t, c_mask, c_tval, c_fval)	\
 	ae2f_reinterpret_cast(	\
