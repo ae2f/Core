@@ -59,11 +59,11 @@
 #define	ae2f_bll_sel_ptr(ptr_t, c_mask, c_tval, c_fval)	\
 	ae2f_reinterpret_cast(	\
 			ptr_t	\
-			, ae2f_bll_sel(uptr, c_mask, ae2f_reinterpret_cast(uptr, c_tval), ae2f_reinterpret_cast(uptr, c_fval))	\
+			, ae2f_bll_sel(uintptr_t, c_mask, ae2f_reinterpret_cast(uintptr_t, c_tval), ae2f_reinterpret_cast(uintptr_t, c_fval))	\
 			)
 
 #define	ae2f_bll_sel_ptrbool1(elm_t, c_bool, c_tval, c_fval)	\
-	ae2f_bll_sel_ptr(elm_t, ae2f_bll_from_bool1(uptr, c_bool), c_tval, c_fval)
+	ae2f_bll_sel_ptr(elm_t, ae2f_bll_from_bool1(uintptr_t, c_bool), c_tval, c_fval)
 
 #define	ae2f_bll_sel_ptrbool_naive1(elm_t, c_bool, c_tval, c_fval)	\
 	ae2f_bll_sel_ptrbool1(elm_t, !(c_bool), c_fval, c_tval)
