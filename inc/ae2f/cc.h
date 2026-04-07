@@ -310,4 +310,14 @@
 #	endif
 #endif
 
+#ifndef	ae2f_always_inline
+#	if	_ae2f_clang(!)0 || _ae2f_gnuc(!)0
+#		define ae2f_always_inline	ae2f_inline __attribute__((always_inline))
+#	elif	_ae2f_msvc(!)0
+#		define ae2f_always_inline	__forceinline
+#	else
+#		define ae2f_always_inline	ae2f_inline
+#	endif
+#endif
+
 #endif
