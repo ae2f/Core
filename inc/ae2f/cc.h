@@ -216,23 +216,23 @@
 
 #undef	ae2f_expected
 #undef	ae2f_expected_not
-#define	ae2f_expected(a)	ae2f_expected_not_strict(!!(a))
-#define	ae2f_expected_not(a)	ae2f_expected_strict(!!(a))
+#define	ae2f_expected(a)	(!ae2f_expected_not_strict(!(a)))
+#define	ae2f_expected_not(a)	(!ae2f_expected_strict(!(a)))
 
 #undef		ae2f_unexpected
 #define		ae2f_unexpected		ae2f_expected_not
 
 #undef	ae2f_unexpected_but_if
-#define	ae2f_unexpected_but_if(a)	if(ae2f_expected_not(a))
+#define	ae2f_unexpected_but_if(a)	if(ae2f_unexpected(a))
 
 #undef	ae2f_expected_if
 #define	ae2f_expected_if(a)		if(ae2f_expected(a))
 
 #undef	ae2f_unexpected_else
-#define	ae2f_unexpected_else(a)		if(!ae2f_expected_not_strict(!(a)))
+#define	ae2f_unexpected_else(a)		if(ae2f_expected_strict(!(a)))
 
 #undef	ae2f_expected_but_else
-#define	ae2f_expected_but_else(a)	if(!(ae2f_expected_strict(!(a))))
+#define	ae2f_expected_but_else(a)	if(ae2f_expected_not_strict(!(a)))
 
 /**
  * @def		ae2f_unreachable
