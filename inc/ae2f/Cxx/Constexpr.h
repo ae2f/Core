@@ -10,6 +10,7 @@
 #ifndef ae2f_Cast_consteval_hpp
 #define ae2f_Cast_consteval_hpp
 #include "../LangVer.h"
+#include <ae2f/cc.h>
 
 
 #if __ae2f_stdcheck_CC(201703L)
@@ -92,22 +93,13 @@
 
 #if !__ae2f_stdcheck_CC(201103L)
 
-#undef	ae2f_noexcept
 /** @brief There will be no exception thrown */
-#define ae2f_noexcept
 #undef	ae2f_constexpr
 #define ae2f_constexpr
+
 #else
-#undef	ae2f_noexcept
-#define ae2f_noexcept noexcept
 #undef	ae2f_constexpr
 #define ae2f_constexpr constexpr
 #endif /* C++<=11 */
-
-#ifdef __cplusplus
-#else
-#undef  ae2f_noexcept
-#define ae2f_noexcept
-#endif
 
 #endif

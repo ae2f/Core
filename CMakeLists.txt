@@ -43,6 +43,7 @@ configure_file(
 
 include(CheckTypeSize)
 check_type_size("${ae2f_float}" ae2f_float_SZ)
+check_type_size("void*" ae2f_SIZEOF_VOID_P)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/Pack/Num.h.in
@@ -62,11 +63,6 @@ configure_file(
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/Float.h.in
 	${PROJECT_BINARY_DIR}/inc/ae2f/.Float.h
-	)
-
-configure_file(
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/ptrsz.h.in
-	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.ptrsz.h
 	)
 
 configure_file(

@@ -3,6 +3,10 @@
  * @brief Utility marks which could partially be available with gnu compiler.
  * @details Keys.h will utilise it to have keywords
  * */
+
+#ifndef	ae2f_cc_h
+#define ae2f_cc_h
+
 #include "./LangVer.h"
 
 /**
@@ -12,30 +16,37 @@
  * @def N_ae2f_gnuc
  * @brief Available when not compiled with gnu compiler.
  * */
-#undef	_ae2f_gnuc
-#undef	N_ae2f_gnuc
-#if	defined(__GNUC__)
-#define _ae2f_gnuc(a)	a
-#define N_ae2f_gnuc(a)	
-#else
-#define _ae2f_gnuc(a)	
-#define N_ae2f_gnuc(a)	a
+
+#ifndef	_ae2f_gnuc
+#	if	defined(__GNUC__)
+#		define _ae2f_gnuc(a)	a
+#	else
+#		define _ae2f_gnuc(a)
+#	endif
+#endif
+
+#ifndef	N_ae2f_gnuc
+#	if	defined(__GNUC__)
+#		define N_ae2f_gnuc(a)
+#	else
+#		define N_ae2f_gnuc(a)	a
+#	endif
 #endif
 
 #ifndef	_ae2f_clang
-#if	defined(__clang__)
-#define	_ae2f_clang(a)	a
-#else
-#define	_ae2f_clang(a)
-#endif
+#	if	defined(__clang__)
+#		define	_ae2f_clang(a)	a
+#	else
+#		define	_ae2f_clang(a)
+#	endif
 #endif
 
 #ifndef	N_ae2f_clang
-#if	defined(__clang__)
-#define	N_ae2f_clang(a)
-#else
-#define	N_ae2f_clang(a)	a
-#endif
+#	if	defined(__clang__)
+#		define	N_ae2f_clang(a)
+#	else
+#		define	N_ae2f_clang(a)	a
+#	endif
 #endif
 
 
@@ -189,33 +200,39 @@
  * @def		ae2f_expected_not
  * @brief	expectes `a` as `false`.
  * */
+
+#undef	ae2f_expected_strict
+#undef	ae2f_expected_not_strict
+#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
+#	define		ae2f_expected_strict(a)	(__builtin_expect((a), 1))
+#	define		ae2f_expected_not_strict(a)	(__builtin_expect((a), 0))
+#elif	_ae2f_msvc(!)0 && defined(_MSVC_LANG) && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
+#	define		ae2f_expected_strict(a)		(a) [[likely]]
+#	define		ae2f_expected_not_strict(a)	(a) [[unlikely]]
+#else
+#	define		ae2f_expected_strict(a)		a
+#	define		ae2f_expected_not_strict(a)	a
+#endif
+
 #undef	ae2f_expected
 #undef	ae2f_expected_not
-#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
-#define		ae2f_expected(a)	(__builtin_expect(!!(a), 1))
-#define		ae2f_expected_not(a)	(__builtin_expect(!!(a), 0))
-#elif	_ae2f_msvc(!)0 && defined(_MSVC_LANG) && _MSVC_LANG >= 202002L || ae2f_stdcc_v >= 202002L
-#define		ae2f_expected(a)	(a) [[likely]]
-#define		ae2f_expected_not(a)	(a) [[unlikely]]
-#else
-#define		ae2f_expected(a)	a
-#define		ae2f_expected_not(a)	a
-#endif
+#define	ae2f_expected(a)	(!ae2f_expected_not_strict(!(a)))
+#define	ae2f_expected_not(a)	(!ae2f_expected_strict(!(a)))
 
 #undef		ae2f_unexpected
 #define		ae2f_unexpected		ae2f_expected_not
 
 #undef	ae2f_unexpected_but_if
-#define	ae2f_unexpected_but_if(a)	if(ae2f_expected_not(a))
+#define	ae2f_unexpected_but_if(a)	if(ae2f_unexpected(a))
 
 #undef	ae2f_expected_if
 #define	ae2f_expected_if(a)		if(ae2f_expected(a))
 
 #undef	ae2f_unexpected_else
-#define	ae2f_unexpected_else(a)		if(!ae2f_unexpected(a))
+#define	ae2f_unexpected_else(a)		if(ae2f_expected_strict(!(a)))
 
 #undef	ae2f_expected_but_else
-#define	ae2f_expected_but_else(a)	if(!(ae2f_expected(a)))
+#define	ae2f_expected_but_else(a)	if(ae2f_expected_not_strict(!(a)))
 
 /**
  * @def		ae2f_unreachable
@@ -258,11 +275,11 @@
  * @see	ae2f_unreachable
  * */
 #ifndef	ae2f_assume
-#if	_ae2f_gnuc(!)0 && (__GNUC__ >= 13)
-#define		ae2f_assume(a)	{ __attribute__((assume(a))); }
-#else
-#define		ae2f_assume(a)	ae2f_expected_but_else(a) { ae2f_unreachable(); }
-#endif
+#	if _ae2f_gnuc(!)0 && (__GNUC__ >= 13)
+#		define	ae2f_assume(a)	{ __attribute__((assume(a))); }
+#	else
+#		define	ae2f_assume(a)	ae2f_expected_but_else(a) { ae2f_unreachable(); }
+#	endif
 #endif
 
 
@@ -272,12 +289,13 @@
  * @see		[[maybe_unused]]
  * */
 #ifndef	ae2f_unused
-#if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
-#define	ae2f_unused	__attribute__((unused))
-#elif	ae2f_stdcc_v >= 201700L || ae2f_stdc_v >= 202300L
-#define	ae2f_unused	[[maybe_unused]]
-#else
-#define	ae2f_unused
+#	if _ae2f_gnuc(!)0 || _ae2f_clang(!)0
+#		define ae2f_unused	__attribute__((unused))
+#	elif	ae2f_stdcc_v >= 201700L || ae2f_stdc_v >= 202300L
+#		define ae2f_unused	[[maybe_unused]]
+#	else
+#		define ae2f_unused
+#	endif
 #endif
 
 #ifndef	ae2f_stdcall
@@ -307,6 +325,16 @@
 #		define ae2f_cdecl	__attribute__((cdecl))
 #	elif	_ae2f_msvc(!)0
 #		define ae2f_cdecl	__cdecl
+#	endif
+#endif
+
+#ifndef	ae2f_always_inline
+#	if	_ae2f_clang(!)0 || _ae2f_gnuc(!)0
+#		define ae2f_always_inline	ae2f_inline __attribute__((always_inline))
+#	elif	_ae2f_msvc(!)0
+#		define ae2f_always_inline	__forceinline
+#	else
+#		define ae2f_always_inline	ae2f_inline
 #	endif
 #endif
 
