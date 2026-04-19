@@ -38,7 +38,7 @@ check_include_file(stdint.h HAVE_STDINT_H)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/have-stdint.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/.have-stdint.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.have-stdint.h
 	)
 
 include(CheckTypeSize)
@@ -46,32 +46,32 @@ check_type_size("${ae2f_float}" ae2f_float_SZ)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/Pack/Num.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/Pack/.Num.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/Pack/.Num.h
 	)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/Call.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/.Call.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/.Call.h
 	)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/LangVer.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/.LangVer.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/.LangVer.h
 	)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/Float.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/.Float.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/.Float.h
 	)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/ptrsz.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/.ptrsz.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.ptrsz.h
 	)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/ptrsz.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/.ptrsz.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.ptrsz.h
 	)
 
 
@@ -99,7 +99,7 @@ unset(CMAKE_EXTRA_INCLUDE_FILES)
 
 configure_file(
 	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/limits.width.h.in
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/.limits.width.h
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.limits.width.h
 	)
 
 
@@ -109,6 +109,7 @@ if(NOT TARGET ae2f::Core)
 		${PROJECT_NAME} INTERFACE inc ae2f
 		${ae2f-core-inc}
 		)
+	target_include_directories(ae2f-Core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/inc>)
 
 	if(WIN32)
 		set(ae2f-synchronization-needexd synchronization)

@@ -10,8 +10,8 @@
 #ifndef ae2f_stdint_h
 #define ae2f_stdint_h
 
-#include "./.have-stdint.h"
-#include "./.limits.width.h"
+#include <ae2f/c90/.have-stdint.h>
+#include <ae2f/c90/.limits.width.h>
 
 #if HAVE_STDINT_H
 #include <stdint.h>

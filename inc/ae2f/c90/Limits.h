@@ -9,6 +9,6 @@
 #include "../LangVer.h"
 
 /** @brief width fetching when not defined. */
-#include "./.limits.width.h"
+#include <ae2f/c90/.limits.width.h>
 
 #endif
