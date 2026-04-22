@@ -17,12 +17,14 @@
  */
 #define ae2f_struct ae2f_WhenC(struct)
 
+#define ae2f_extern_C	ae2f_WhenCXX(extern "C")
+
 /**
  @brief
  Suggests the existence of external variable or function, in naming of C.
  [non-mangling]
  */
-#define ae2f_extern ae2f_WhenC(extern) ae2f_WhenCXX(extern "C")
+#define ae2f_extern	ae2f_extern_C ae2f_WhenC(extern)
 
 /** @brief Class */
 #define ae2f_class ae2f_WhenC(struct) ae2f_WhenCXX(class)
