@@ -52,6 +52,6 @@
 #	endif
 #endif
 
-typedef char ae2f_CHECK[sizeof(int_leastptr_t) >= sizeof(void*) ? 1 : -1];
-typedef char ae2f_CHECK[sizeof(uint_leastptr_t) >= sizeof(void*) ? 1 : -1];
+typedef char ae2f_CHECK_ILPTR[sizeof(int_leastptr_t) >= sizeof(void*) ? 1 : -1];
+typedef char ae2f_CHECK_ULPTR[sizeof(uint_leastptr_t) >= sizeof(void*) ? 1 : -1];
 #endif

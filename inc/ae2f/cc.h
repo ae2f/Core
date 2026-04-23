@@ -234,6 +234,11 @@
 #undef	ae2f_expected_but_else
 #define	ae2f_expected_but_else(a)	if(ae2f_expected_not_strict(!(a)))
 
+#define	ae2f_ifneznrm(a)		ae2f_expected_if(a)
+#define	ae2f_ifnezerr(a)		ae2f_unexpected_but_if(a)
+#define ae2f_ifeznrm(a)			ae2f_unexpected_else(a)
+#define	ae2f_ifezerr(a)			ae2f_expected_but_else(a)
+
 /**
  * @def		ae2f_unreachable
  * @brief	tells the compiler that below this keyword is not expected to be reached.
