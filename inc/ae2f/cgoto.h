@@ -1,6 +1,15 @@
 /**
  * @file	cgoto.h
  * @brief	[c]omputed [goto]
+ *
+ * @details
+ * Contributor: https://github.com/dxdxffgg99
+ *
+ * Message:
+ * I'm sorry. 
+ * I shouldn't have shown Dalmuri the VM code I made. 
+ * I'll gladly accept any criticism, so please contact me on Discord. 
+ * 	-The person who showed Dalmurii the Computed Goto-
  * */
 
 #ifndef	ae2f_cgoto
