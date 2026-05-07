@@ -54,9 +54,9 @@
 #define ae2f_constevalmethod		constexpr
 #define ae2f_virtual		virtual
 #else
-#define ae2f_constexprmethod		inline
-#define ae2f_constexprfun		inline
-#define ae2f_constevalmethod		inline
+#define ae2f_constexprmethod		ae2f_always_inline
+#define ae2f_constexprfun		ae2f_always_inline
+#define ae2f_constevalmethod		ae2f_always_inline
 #define ae2f_virtual		
 
 #if !defined(__cplusplus) /* C */
