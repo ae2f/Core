@@ -12,7 +12,6 @@
 
 #define ae2f_Cast_h
 
-#include "./Cast/CasterUnion.hpp"
 #include <ae2f/.LangVer.h>
 #include "./Cxx.h"
 #include "./Guide.h"
@@ -40,23 +39,4 @@
 #define ae2f_const_cast(t, v)                                                  \
   ae2f_WhenC(((t)(v))) ae2f_WhenCXX(const_cast<t>(v))
 
-/**
- @brief
- Makes a union that reads a memory in two methods. \n
- `tThen` -> `tNow`
- @tparam tThen
- The existing data's type as input.
-
- @tparam tNow
- Wanted output datatype for casting.
-
- @param v
- Input value
- */
-#define ae2f_union_cast(tThen, tNow, v)                                        \
-  ae2f_WhenC((union {                                                          \
-    tThen a;                                                                   \
-    tNow b;                                                                    \
-  }){v}) ae2f_WhenCXX(ae2f_UnionCaster<tThen, tNow>(v))                        \
-      ._b()
 #endif

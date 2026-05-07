@@ -8,6 +8,7 @@
 #define ae2f_cc_h
 
 #include "./LangVer.h"
+#include "./Cast.h"
 
 /**
  * @def _ae2f_gnuc
