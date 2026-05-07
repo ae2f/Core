@@ -228,8 +228,8 @@
 #	define		ae2f_expected_strict(a)		(a) [[likely]]
 #	define		ae2f_expected_not_strict(a)	(a) [[unlikely]]
 #elif	_ae2f_gnuc(!)0
-#	define		ae2f_expected_strict(a)	(__builtin_expect((a), 1))
-#	define		ae2f_expected_not_strict(a)	(__builtin_expect((a), 0))
+#	define		ae2f_expected_strict(a)	(__builtin_expect(ae2f_static_cast(long, a), 1))
+#	define		ae2f_expected_not_strict(a)	(__builtin_expect(ae2f_static_cast(long, a), 0))
 #else
 #	define		ae2f_expected_strict(a)		a
 #	define		ae2f_expected_not_strict(a)	a
