@@ -26,21 +26,24 @@
  * */
 #include <ae2f/.LangVer.h>
 
-
-#undef	ae2f_stdcc_v
-#ifdef	__cplusplus
-#define	ae2f_stdcc_v	(__cplusplus)
-#else	
-#define ae2f_stdcc_v	0L
+#ifndef	ae2f_stdcc_v
+#	ifdef	__cplusplus
+#		define	ae2f_stdcc_v	(__cplusplus)
+#	else	
+#		define	ae2f_stdcc_v	0L
+#	endif
 #endif
 
-#undef	ae2f_stdc_v
-#ifdef	__STDC_VERSION__
-#define ae2f_stdc_v	(__STDC_VERSION__)
-#elif	defined(__STDC__) && (__STDC__)
-#define	ae2f_stdc_v	198900L
-#else
-#define ae2f_stdc_v	((ae2f_LangVer_C) * 100L)
+#ifndef	ae2f_stdc_v
+#	ifdef	__STDC_VERSION__
+#		define ae2f_stdc_v	(__STDC_VERSION__)
+#	elif	defined(__STDC__) && (__STDC__)
+#		define	ae2f_stdc_v	198900L
+#	elif	defined(ae2f_LangVer_C)
+#		define	ae2f_stdc_v	((ae2f_LangVer_C) * 100L)
+#	else
+		define	ae2f_stdc_v	0L
+#	endif
 #endif
 
 #undef	__ae2f_stdcheck_C

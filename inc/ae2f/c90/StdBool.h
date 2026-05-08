@@ -5,7 +5,6 @@
 #ifndef ae2f_stdbool_h
 #define ae2f_stdbool_h
 
-
 #if	defined(__STDC_VERSION__) && (__STDC_VERSION__)
 #include <stdbool.h>
 #elif	defined(__cplusplus)
