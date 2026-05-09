@@ -33,7 +33,7 @@
 #define ae2f_var ae2f_WhenCXX(extern "C")
 
 /** @brief Invokes when condition is `false`. */
-#define unless(a) if (!(a))
+#define unless(a) ae2fcc_unless((a))
 
 #define ae2f_tmpldef(a) template<a>
 #define ae2f_tmpluse(a) <a>
