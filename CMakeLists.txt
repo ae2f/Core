@@ -116,4 +116,5 @@ if(NOT TARGET ae2f::Core)
 
 	ae2f_CoreTestTentVerbose(ae2f-${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test ${ae2f-synchronization-needexd})
 	ae2f_CoreUtilityDocTent(${PROJECT_NAME} cmake ae2f)
+	target_compile_definitions(ae2f-Core INTERFACE _CRT_SECURE_NO_WARNINGS)
 endif()
