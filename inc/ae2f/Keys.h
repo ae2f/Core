@@ -5,29 +5,10 @@
 #ifndef ae2f_Keys_h
 #define ae2f_Keys_h
 
-#include "./Cxx.h"
+#include "./Cxx/When.h"
+#include "./Cxx/extern.h"
+#include "./Cxx/struct.h"
 #include "./cc.h"
-
-/**
- @brief
- In C, keyword 'struct' must be written in front of the structure's name in
- order to use as a type name. \n In C++ that keyword is not required.
-
- This keyword resolves the difference of the rules of two.
- */
-#define ae2f_struct ae2f_WhenC(struct)
-
-#define ae2f_extern_C	ae2f_WhenCXX(extern "C")
-
-/**
- @brief
- Suggests the existence of external variable or function, in naming of C.
- [non-mangling]
- */
-#define ae2f_extern	ae2f_extern_C ae2f_WhenC(extern)
-
-/** @brief Class */
-#define ae2f_class ae2f_WhenC(struct) ae2f_WhenCXX(class)
 
 /** @brief Makes the global variable in naming of C. [non-mangling] */
 #define ae2f_var ae2f_WhenCXX(extern "C")

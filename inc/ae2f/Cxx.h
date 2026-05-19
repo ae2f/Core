@@ -14,28 +14,12 @@
 #include "./Guide.h"
 #include "./LangVer.h"
 #include "./Cxx/When.h"
- 
-#define ae2f_is_cxx ae2f_WhenC(0) ae2f_WhenCXX(1)
-
-
-/**
- @brief
- Putting it after one condition in #if will find if the script's language considered as [C], while doxygen does not notice.
- 
- For alter, see @ref ae2f_cxx_check
- */
-#define ae2f_c_check && !ae2f_is_cxx
-
-/**
- @brief
- Putting it after one condition in #if will find if the script's language considered as [C++], while doxygen does not notice.
- 
- For alter, see @ref ae2f_c_check
- */
-#define ae2f_cxx_check && ae2f_is_cxx
-
+#include "./Cxx/extern.h"
+#include "./Cxx/is_cxx.h"
+#include "./Cxx/check.h"
 #include "./Cxx/Reg.h"
 #include "./Cxx/Constexpr.h"
 #include "./Cxx/Nil.h"
+#include "./Cxx/struct.h"
 
 #endif

@@ -29,7 +29,7 @@
 #ifndef	ae2f_stdcc_v
 #	ifdef	__cplusplus
 #		define	ae2f_stdcc_v	(__cplusplus)
-#	else	
+#	else
 #		define	ae2f_stdcc_v	0L
 #	endif
 #endif

@@ -4,6 +4,8 @@
 #include "./filter.h"
 #include <ae2f/c90/.ptrsz.h>
 
+#if	!HAVE_STDINT_H
+
 #ifndef	int_leastptr_t
 #	if	ae2f_PTRSZ_SIZE <= 1
 #	define	int_leastptr_t int_least8_t
@@ -52,6 +54,18 @@
 #	endif
 #endif
 
+#ifdef	int_leastptr_t
 typedef char ae2f_CHECK_ILPTR[sizeof(int_leastptr_t) >= sizeof(void*) ? 1 : -1];
+#endif
+
+#ifdef	uint_leastptr_t
 typedef char ae2f_CHECK_ULPTR[sizeof(uint_leastptr_t) >= sizeof(void*) ? 1 : -1];
+#endif
+
+
+typedef char ae2f_CHECK_IPTR[sizeof(intptr_t) >= sizeof(void*) ? 1 : -1];
+typedef char ae2f_CHECK_UPTR[sizeof(uintptr_t) >= sizeof(void*) ? 1 : -1];
+
+#endif
+
 #endif

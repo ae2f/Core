@@ -1,4 +1,6 @@
 #include <ae2f/Keys.h>
+#include <ae2f/Cxx/Constexpr.h>
+#include <ae2f/Cxx/Nil.h>
 #include <stdio.h>
 
 ae2f_evaldef(
