@@ -24,7 +24,7 @@
  * */
 #ifndef	ae2f_unused
 #include "../LangVer.h"
-#	if _ae2f_gnuc(!)0
+#	if _ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #		define ae2f_unused	__attribute__((unused))
 #	elif	ae2f_stdcc_v >= 201700L || ae2f_stdc_v >= 202300L
 #		define ae2f_unused	[[maybe_unused]]
