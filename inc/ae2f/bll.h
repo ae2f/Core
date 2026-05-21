@@ -40,7 +40,7 @@
  * @brief ((c_mask) ? (c_tval) : (c_fval))
  * */
 #define	ae2f_bll_sel(uint, c_mask, c_tval, c_fval)	\
-	(((c_mask) & (c_tval)) | ((~(c_mask)) & (c_fval)))
+	(((c_mask) & ae2f_static_cast(uint, c_tval)) | ((~(c_mask)) & ae2f_static_cast(uint, c_fval)))
 
 #define	ae2f_bll_sel_bool1(uint, c_bool, c_tval, c_fval)	\
 	ae2f_bll_sel(uint, ae2f_bll_from_bool1(uint, c_bool), c_tval, c_fval)
