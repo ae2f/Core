@@ -8,7 +8,7 @@
  * */
 #ifndef	ae2f_fallthrough
 #include "../LangVer.h"
-#	if	_ae2f_gnuc(!)0
+#	if	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #		define		ae2f_fallthrough	__attribute__((fallthrough))
 #	elif	ae2f_stdc_v >= 202300L || ae2f_stdcc_v
 #		define		ae2f_fallthrough	[[fallthrough]]
@@ -25,7 +25,7 @@
 #ifndef	ae2f_unreachable
 #	if	_ae2f_msvc(!)0
 #		define		ae2f_unreachable()	__assume(0)
-#	elif	_ae2f_gnuc(!)0
+#	elif	_ae2f_gnuc(!)0 || _ae2f_clang(!)0
 #		define		ae2f_unreachable()	__builtin_unreachable()
 #	else
 #		define		ae2f_unreachable()

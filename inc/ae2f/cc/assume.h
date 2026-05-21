@@ -33,11 +33,9 @@
  * */
 #ifndef	ae2f_assume
 #include "./branches/naive.h"
-#	if	_ae2f_msvc(!)0
-#		define		ae2f_assume(a)	{ __assume(a); }
-#	elif	_ae2f_gcc(!)0 && (__GNUC__ >= 13)
+#	if	_ae2f_gcc(!)0 && (__GNUC__ >= 13)
 #		define		ae2f_assume(a)	{ __attribute__((__assume__(a))); }
-#	elif	_ae2f_clang(!)0
+#	elif	_ae2f_clang(!)0 && _ae2f_msvc(!)1
 #		define		ae2f_assume(a)	{ __builtin_assume(a); }
 #	elif	ae2f_stdcc_v >= 202300L
 #		define		ae2f_assume(a)	{ [[assume(a)]] }
