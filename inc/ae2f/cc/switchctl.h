@@ -8,9 +8,7 @@
  * */
 #ifndef	ae2f_fallthrough
 #include "../LangVer.h"
-#	if	_ae2f_msvc(!)0 && _MSC_VER >= 1934
-#		define		ae2f_fallthrough	[[fallthrough]]
-#	elif	_ae2f_gnuc(!)0
+#	if	_ae2f_gnuc(!)0
 #		define		ae2f_fallthrough	__attribute__((fallthrough))
 #	elif	ae2f_stdc_v >= 202300L || ae2f_stdcc_v
 #		define		ae2f_fallthrough	[[fallthrough]]
