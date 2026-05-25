@@ -56,7 +56,7 @@
 #	if	ae2f_cgoto_available
 #		define	ae2f_cgoto2_strict(cond, lbl_t, lbl_f)	\
 	ae2f_cgoto_beg() \
-	goto *ae2f_bll_sel_ptrbool1(void*, cond, &&lbl_t, &&lbl_f);	\
+	goto *((cond) ? (&&lbl_t) : (&&lbl_f));	\
 	ae2f_cgoto_end()
 
 #	else
