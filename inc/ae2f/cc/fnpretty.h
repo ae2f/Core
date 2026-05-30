@@ -1,6 +1,7 @@
 /** @file fnpretty.h */
 
 #include "./profiles.h"
+#include <ae2f/LangVer.h>
 
 /** 
  * @def ae2f_ccpure
