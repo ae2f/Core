@@ -63,7 +63,7 @@
 #endif
 
 #ifndef	ae2f_retnew1
-#	if	_ae2f_gcc(!)0
+#	if	_ae2f_gcc(!)0 && __GNUC__ >= 11
 #		define	ae2f_retnew1(dealloc)	__attribute__((malloc(dealloc)))
 #	else
 #		define	ae2f_retnew1(dealloc)
@@ -71,7 +71,7 @@
 #endif
 
 #ifndef	ae2f_retnew2
-#	if	_ae2f_gcc(!)0
+#	if	_ae2f_gcc(!)0 && __GNUC__ >= 11
 #		define	ae2f_retnew2(dealloc, ptridx)	__attribute__((malloc(dealloc, ptridx)))
 #	else
 #		define	ae2f_retnew2(dealloc, ptridx)
