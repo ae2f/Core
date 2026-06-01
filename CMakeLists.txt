@@ -1,7 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY CACHE STRING "" FORCE)
-project(Core VERSION 6.25.19 LANGUAGES C)
-enable_testing()
 
 # Set this source directory as the tree root for project.
 set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Tree root for project")
@@ -21,6 +18,15 @@ endif()
 if(NOT TARGET ae2f::CoreScript)
 	add_subdirectory(${ae2f_CoreScript_Wh} ${ae2f_BinRoot}/${ae2f_submod}/ae2f/CoreScript)
 endif()
+
+if(${ae2f_CXX})
+	project(Core VERSION 6.25.19 LANGUAGES C CXX)
+else()
+	project(Core VERSION 6.25.19 LANGUAGES C)
+endif()
+
+
+enable_testing()
 
 if(NOT DEFINED CMAKE_C_STANDARD)
 	set(ae2f_LangVer_C 90)
