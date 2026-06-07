@@ -107,8 +107,8 @@ check_type_size("DUMMY_ENUM_ZERO" ENUMINT_WIDTH_BYTE)
 unset(CMAKE_EXTRA_INCLUDE_FILES)
 
 configure_file(
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/limits.width.h.in
-	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.limits.width.h
+	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/lmts/width.h.in
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/lmts/.width.h
 	)
 
 

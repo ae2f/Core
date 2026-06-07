@@ -2,7 +2,7 @@
 #define ae2f_c90_StdInt_enum_h
 
 #include "./filter.h"
-#include <ae2f/c90/.limits.width.h>
+#include <ae2f/c90/lmts/.width.h>
 
 #if	AE2F_ENUM_WIDTH == 8
 

@@ -12,7 +12,7 @@
 #if !defined(ae2f_errGlobal_h)
 #define ae2f_errGlobal_h
 
-#include "./c90/StdInt.h"
+#include "./c90/stdint.h"
 
 /** 
  * @typedef ae2f_err_t
