@@ -1,6 +1,6 @@
-#include <ae2f/c90/Limits.h>
-#include <ae2f/c90/StdBool.h>
-#include <ae2f/c90/StdInt.h>
+#include <ae2f/c90/lmts.h>
+#include <ae2f/c90/stdbool.h>
+#include <ae2f/c90/stdint.h>
 
 #include <ae2f/Cxx.h>
 
