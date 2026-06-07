@@ -54,7 +54,7 @@
 #define	ae2f_bll_sel_bool_naive2(uint, c_bool, c_tval, c_fval)	\
 	ae2f_bll_sel_bool2(uint, !(c_bool), c_fval, c_tval)
 
-#include <ae2f/c90/StdInt/intptr.h>
+#include <ae2f/c90/stdint/intptr.h>
 
 #define	ae2f_bll_sel_ptr(ptr_t, c_mask, c_tval, c_fval)	\
 	ae2f_reinterpret_cast(	\

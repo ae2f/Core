@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
+
+if(TARGET ae2f::Core)
+	return()
+endif()
+
 # Set this source directory as the tree root for project.
 set(ae2f_ProjRoot ${CMAKE_CURRENT_SOURCE_DIR} CACHE STRING "Tree root for project")
 set(ae2f_BinRoot ${CMAKE_CURRENT_BINARY_DIR} CACHE STRING "Tree root for project")
@@ -42,10 +47,11 @@ endif()
 
 include(CheckIncludeFile)
 check_include_file(stdint.h HAVE_STDINT_H)
+check_include_file(stdalign.h HAVE_STDALIGN_H)
 
 configure_file(
-	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/have-stdint.h.in
-	${PROJECT_BINARY_DIR}/inc/ae2f/c90/.have-stdint.h
+	${PROJECT_SOURCE_DIR}/inc/ae2f/c90/stdint/have.h.in
+	${PROJECT_BINARY_DIR}/inc/ae2f/c90/stdint/.have.h
 	)
 
 include(CheckTypeSize)

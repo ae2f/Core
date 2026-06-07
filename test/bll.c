@@ -1,5 +1,5 @@
 #include <ae2f/Keys.h>
-#include <ae2f/c90/StdInt.h>
+#include <ae2f/c90/stdint/shorten.h>
 #include <ae2f/bll.h>
 #include <stdio.h>
 

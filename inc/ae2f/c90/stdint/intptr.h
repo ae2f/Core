@@ -4,7 +4,7 @@
 #include "./filter.h"
 #include <ae2f/c90/.ptrsz.h>
 
-#if	!HAVE_STDINT_H
+#if	!AE2F_HAVE_STDINT_H
 
 #ifndef	int_leastptr_t
 #	if	ae2f_PTRSZ_SIZE <= 1

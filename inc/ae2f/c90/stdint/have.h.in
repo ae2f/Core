@@ -1,0 +1,3 @@
+#ifndef	AE2F_HAVE_STDINT_H
+#define AE2F_HAVE_STDINT_H ((@HAVE_STDINT_H@) + 0)
+#endif
