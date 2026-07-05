@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
-
 if(TARGET ae2f::Core)
 	return()
+endif()
+
+if(${ae2f_CXX})
+	project(Core VERSION 6.25.19 LANGUAGES C CXX)
+else()
+	project(Core VERSION 6.25.19 LANGUAGES C)
 endif()
 
 # Set this source directory as the tree root for project.
@@ -22,12 +27,6 @@ endif()
 # add subdirectory
 if(NOT TARGET ae2f::CoreScript)
 	add_subdirectory(${ae2f_CoreScript_Wh} ${ae2f_BinRoot}/${ae2f_submod}/ae2f/CoreScript)
-endif()
-
-if(${ae2f_CXX})
-	project(Core VERSION 6.25.19 LANGUAGES C CXX)
-else()
-	project(Core VERSION 6.25.19 LANGUAGES C)
 endif()
 
 
@@ -118,7 +117,7 @@ if(NOT TARGET ae2f::Core)
 		${PROJECT_NAME} INTERFACE inc ae2f
 		${ae2f-core-inc}
 		)
-	target_include_directories(ae2f-Core INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/inc>)
+	target_include_directories(ae2f-Core INTERFACE $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/inc>)
 
 	if(WIN32)
 		set(ae2f-synchronization-needexd synchronization)

@@ -5,19 +5,20 @@
 #include <ae2f/c90/.limits.width.h>
 
 #ifndef int_fast8_t
-typedef	signed int int_fast8_t;
-#define	int_fast8_t	int_fast8_t
+typedef	signed int	ae2f_i8fast;
+#define	int_fast8_t	ae2f_i8fast
 #endif
-typedef char ae2f_CHECK[sizeof(int_fast8_t) >= 1 ? 1 : - 1];
+typedef char ae2f_CHECK[sizeof(ae2f_i8fast) >= 1 ? 1 : - 1];
 
 #ifndef int_least8_t
-typedef	signed char int_least8_t;
-#define int_least8_t	int_least8_t
+typedef	signed char	ae2f_i8least;
+#define int_least8_t	ae2f_i8least
 #endif
-typedef char ae2f_CHECK[sizeof(int_least8_t) >= 1 ? 1 : - 1];
+typedef char ae2f_CHECK[sizeof(ae2f_i8least) >= 1 ? 1 : - 1];
 
-#if	!defined(i8) && SCHAR_WIDTH == 8
-#define int8_t		int_least8_t
+#if	!defined(ae2f_i8) && SCHAR_WIDTH == 8
+#define	ae2f_i8		ae2f_i8least
+#define int8_t		ae2f_i8
 typedef char ae2f_CHECK[sizeof(int8_t) == 1 ? 1 : - 1];
 #endif
 
