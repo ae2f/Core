@@ -14,8 +14,14 @@
 
 
 int main(void) {
-	void* ae2f_restrict hello = ae2f_NIL;
+	int* arr[3];
+	int a = 10, b = 20, c = 30;
+	arr[0] = &a;
+	arr[1] = &b;
+	arr[2] = &c;
 
-	printf("%d %p\n", ae2f_PackCount, hello);
+	printf("%d\n", *arr[1]);
+
+
 	return 0;
 }
