@@ -2,6 +2,7 @@
  * @file	assume.h
  * */
 #include "./profiles.h"
+#include "./switchctl.h"
 
 /**
  * @def		ae2f_assume_strict
