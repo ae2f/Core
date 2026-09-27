@@ -1,5 +1,6 @@
 
 #ifndef	ae2fc90_string_memset
+#define ae2fc90_string_memset
 #include <ae2f/Cast.h>
 #include <ae2f/cc/qualifier.h>
 #include <ae2f/c90/stddef/size_t.h>
