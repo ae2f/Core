@@ -3,8 +3,6 @@
 
 #include <ae2f/LangVer.h>
 
-
-
 #if	ae2f_stdcc_v >= 201100L
 #	include <utility>
 #	define	ae2f_rty(ty)	ty&&
