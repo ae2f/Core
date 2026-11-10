@@ -12,7 +12,7 @@
 
 #define ae2f_Cast_h
 
-#include <ae2f/.LangVer.h>
+#include <ae2f/LangVer.h>
 #include "./Cxx/When.h"
 #include "./Guide.h"
 
