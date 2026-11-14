@@ -13,23 +13,22 @@
 #define ae2f_Cast_h
 
 #include <ae2f/LangVer.h>
-#include "./Cxx/When.h"
 #include "./Guide.h"
 
-/** @brief static_cast for C++ */
-#define ae2f_static_cast(t, v)                                                 \
-	(ae2f_WhenC(((t)(v))) ae2f_WhenCXX(static_cast<(t)>(v)))
-
-/** @brief dynamic_cast for C++ */
-#define ae2f_dynamic_cast(t, v)                                                \
-	(ae2f_WhenC(((t)(v))) ae2f_WhenCXX(dynamic_cast<(t)>(v)))
-
-/** @brief reinterpret_cast for C++ */
-#define ae2f_reinterpret_cast(t, v)                                            \
-	(ae2f_WhenC(((t)(v))) ae2f_WhenCXX(reinterpret_cast<(t)>(v)))
-
-/** @brief const_cast for C++ */
-#define ae2f_const_cast(t, v)                                                  \
-	(ae2f_WhenC(((t)(v))) ae2f_WhenCXX(const_cast<(t)>(v)))
+#if	ae2f_stdcc_v
+/* cppcheck-suppress misra-c2012-20.7 */
+#define	ae2f_static_cast(t, v)		(static_cast<t>(v))
+/* cppcheck-suppress misra-c2012-20.7 */
+#define	ae2f_dynamic_cast(t, v)		(dynamic_cast<t>(v))
+/* cppcheck-suppress misra-c2012-20.7 */
+#define	ae2f_reinterpret_cast(t, v)	(reinterpret_cast<t>(v))
+/* cppcheck-suppress misra-c2012-20.7 */
+#define	ae2f_const_cast(t, v)		(const_cast<t>(v))
+#else
+#define	ae2f_static_cast(t, v)		((t)(v))
+#define	ae2f_dynamic_cast(t, v)		((t)(v))
+#define	ae2f_reinterpret_cast(t, v)	((t)(v))
+#define	ae2f_const_cast(t, v)		((t)(v))
+#endif
 
 #endif
