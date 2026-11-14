@@ -20,7 +20,8 @@ int main(void) {
 	arr[1] = &b;
 	arr[2] = &c;
 
-	printf("%d\n", *arr[1]);
+	/* cppcheck-suppress misra-c2012-21.6 */
+	(void)printf("%d\n", *arr[1]);
 
 
 	return 0;

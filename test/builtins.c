@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+extern const int GLOBAL_THREE;
 const int GLOBAL_THREE = 3;
 
 ae2f_inline static int ae2f_ccpure RETURN_THREE_CONST(void) {
@@ -13,7 +15,7 @@ ae2f_inline static int ae2f_ccpure RETURN_THREE_PURE(void) {
 	return GLOBAL_THREE;
 }
 
-int ae2f_ccconst ae2f_noexcept I_ADD(const int, const int);
+int ae2f_ccconst ae2f_noexcept I_ADD(const int a, const int b);
 
 int ae2f_ccconst ae2f_noexcept I_ADD(const int a, const int b) {
 	return a + b;
@@ -27,18 +29,24 @@ int main(void) {
 	ae2f_assume_strict(3);
 	{ ae2f_assume(RETURN_THREE_CONST()); }
 
+	/* cppcheck-suppress misra-c2012-21.3 */
 	HELLO = malloc(3);
+
 	assert(HELLO);
 	{ ae2f_assume(HELLO); }
+
+	/* cppcheck-suppress misra-c2012-21.3 */
 	free(HELLO);
 
 	if(ae2f_expected(RETURN_THREE_PURE())) {
-		puts("Hello World!");
+		/* cppcheck-suppress misra-c2012-21.6 */
+		(void)puts("Hello World!");
 	}
 
-	if(ae2f_expected_not(I_ADD(3, -3))) {
-		ae2f_unreachable();
-		puts("hi");
+	/* cppcheck-suppress knownConditionTrueFalse */
+	if(0 != ae2f_expected_not(I_ADD(3, -3))) {
+		/* cppcheck-suppress misra-c2012-21.6 */
+		(void)puts("hi");
 	}
 
 	return 0;

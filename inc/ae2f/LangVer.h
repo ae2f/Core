@@ -45,9 +45,3 @@
 		define	ae2f_stdc_v	0L
 #	endif
 #endif
-
-#undef	__ae2f_stdcheck_C
-#undef	__ae2f_stdcheck_CC
-
-#define __ae2f_stdcheck_C(v)	(ae2f_stdc_v >= (v))
-#define __ae2f_stdcheck_CC(v)	(ae2f_stdcc_v >= (v))

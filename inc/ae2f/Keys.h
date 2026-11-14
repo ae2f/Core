@@ -16,7 +16,10 @@
 /** @brief Invokes when condition is `false`. */
 #define unless(a) ae2fcc_unless((a))
 
+/* cppcheck-suppress misra-c2012-20.7 */
 #define ae2f_tmpldef(a) template<a>
+
+/* cppcheck-suppress misra-c2012-20.7 */
 #define ae2f_tmpluse(a) <a>
 
 /**

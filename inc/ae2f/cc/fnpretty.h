@@ -10,7 +10,7 @@
 #ifndef	ae2f_ccpure
 #	if	_ae2f_gnuc(!)0
 #		define ae2f_ccpure	__attribute__((pure))
-#	elif	__ae2f_stdcheck_C(202300L) && ae2f_stdcc_v
+#	elif	ae2f_stdc_v >= (202300L) && !ae2f_stdcc_v
 #		define ae2f_ccpure	[[pure]]
 #	else
 #		define ae2f_ccpure
@@ -25,7 +25,7 @@
 #ifndef	ae2f_ccconst
 #	if	_ae2f_gnuc(!)0
 #		define ae2f_ccconst	__attribute__((const))
-#	elif	__ae2f_stdcheck_C(202300L) && ae2f_stdcc_v
+#	elif	ae2f_stdc_v >= (202300L) && !ae2f_stdcc_v
 #		define ae2f_ccconst	[[const]]
 #	else
 #		define ae2f_ccconst

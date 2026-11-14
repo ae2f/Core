@@ -13,19 +13,19 @@
 #include <ae2f/cc.h>
 
 
-#if __ae2f_stdcheck_CC(201703L)
+#if ae2f_stdcc_v >= (201703L)
 #define ae2f_if_constexpr if constexpr
 #else
 #define ae2f_if_constexpr if
 #endif
 
-#if __ae2f_stdcheck_CC(202002L)
+#if ae2f_stdcc_v >= (202002L)
 #define ae2f_if_consteval	if consteval
 #else
 #define ae2f_if_consteval	if (0)
 #endif
 
-#if __ae2f_stdcheck_CC(202002L)
+#if ae2f_stdcc_v >= (202002L)
 #define ae2f_constexprvirtual constexpr virtual
 #define ae2f_constinit	constinit
 #else
@@ -33,7 +33,7 @@
 #define ae2f_constinit	/* not available */
 #endif /* C++20 */
 
-#if __ae2f_stdcheck_CC(201402L)
+#if ae2f_stdcc_v >= (201402L)
 #define ae2f_constextendedfun	constexpr
 #define ae2f_constextendedeval 	constexpr
 
@@ -48,7 +48,7 @@
 #define ae2f_constextendedmethodeval	inline
 #endif /* C++14 */
 
-#if __ae2f_stdcheck_CC(201103L)
+#if ae2f_stdcc_v >= (201103L)
 #define ae2f_constexprmethod		constexpr
 #define ae2f_constexprfun		constexpr
 #define ae2f_constevalmethod		constexpr
@@ -61,7 +61,7 @@
 
 #if !defined(__cplusplus) /* C */
 
-#if !defined(__cplusplus) && __ae2f_lvcheck_c(2023)
+#if !defined(__cplusplus) && ae2f_stdcc_v >= (202300L)
 /** cosntexpr variable */
 #define ae2f_constexpr	constexpr
 #else
@@ -73,11 +73,11 @@
 
 #endif /* C++11 */
 
-#if __ae2f_stdcheck_CC(202002L)
+#if ae2f_stdcc_v >= (202002L)
 #undef ae2f_constevalmethod
 #define ae2f_constevalmethod consteval /* C++20 */
 #define ae2f_consteval	consteval
-#elif __ae2f_stdcheck_CC(0)
+#elif ae2f_stdcc_v
 
 
 /** @brief C++ keyword for const-time functions */
@@ -91,7 +91,7 @@
 #define ae2f_consteval
 #endif /* C++20 */
 
-#if !__ae2f_stdcheck_CC(201103L)
+#if ae2f_stdcc_v < (201103L)
 
 /** @brief There will be no exception thrown */
 #undef	ae2f_constexpr
