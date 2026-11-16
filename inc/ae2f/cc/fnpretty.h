@@ -11,7 +11,9 @@
 #	if	_ae2f_gnuc(!)0
 #		define ae2f_ccpure	__attribute__((pure))
 #	elif	ae2f_stdc_v >= (202300L) && !ae2f_stdcc_v
-#		define ae2f_ccpure	[[pure]]
+#		define ae2f_ccpure	[[reproducible]]
+#	elif	_ae2f_msvc(!)0
+#		define ae2f_ccpure	__declspec(noalias)
 #	else
 #		define ae2f_ccpure
 #	endif
@@ -26,9 +28,9 @@
 #	if	_ae2f_gnuc(!)0
 #		define ae2f_ccconst	__attribute__((const))
 #	elif	ae2f_stdc_v >= (202300L) && !ae2f_stdcc_v
-#		define ae2f_ccconst	[[const]]
+#		define ae2f_ccconst	[[unsequenced]]
 #	else
-#		define ae2f_ccconst
+#		define ae2f_ccconst	ae2f_ccpure
 #	endif
 #endif
 

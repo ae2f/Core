@@ -13,7 +13,6 @@
 #define ae2f_Cast_h
 
 #include <ae2f/LangVer.h>
-#include "./Guide.h"
 
 #if	ae2f_stdcc_v
 /* cppcheck-suppress misra-c2012-20.7 */
